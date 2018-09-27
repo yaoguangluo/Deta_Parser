@@ -12,10 +12,10 @@ import org.tinos.utils.imp.UtilsImp;
 import org.tinos.zabbi.DataString;
 public class FDHMMListImp implements FDHMMList{
 	public String euclid;
-	public LinkedHashMap <String, Integer>  words;
-	public LinkedHashMap <String,FDHMMNode> linkedHashMap;
+	public LinkedHashMap <String, Integer> words;
+	public LinkedHashMap <String, FDHMMNode> linkedHashMap;
 	@SuppressWarnings(DataString.RAW_TYPES)
-	public LinkedHashMap <Integer,LinkedHashMap> linkedHashMapRoot;
+	public LinkedHashMap <Integer, LinkedHashMap> linkedHashMapRoot;
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public LinkedHashMap<Integer, LinkedHashMap> getRoot() {
 		return this.linkedHashMapRoot;
@@ -29,14 +29,14 @@ public class FDHMMListImp implements FDHMMList{
 	public void index() throws IOException {
 		words = new LinkedHashMap <String, Integer>();
 		euclid = DataString.EMPTY_STRING;
-		linkedHashMap = new LinkedHashMap <String,FDHMMNode>();
-		linkedHashMapRoot = new LinkedHashMap <Integer,LinkedHashMap>();
+		linkedHashMap = new LinkedHashMap <String, FDHMMNode>();
+		linkedHashMapRoot = new LinkedHashMap <Integer, LinkedHashMap>();
 		InputStream in = getClass().getResourceAsStream(DataString.WORDS_SOURSE_LINK);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, DataString.GBK_STRING));  
 		String ctempString = null; 
 		while ((ctempString = cReader.readLine()) != null) {  
 			if(!ctempString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
-				words.put(ctempString, 1);
+				words.put(ctempString, DataString.INT_ONE);
 				for(int i = DataString.INT_ZERO; i < ctempString.length(); i++) {
 					if(linkedHashMap.containsKey(DataString.EMPTY_STRING + ctempString.charAt(i))) {
 						FDHMMNode fDHMMNode = linkedHashMap.get(DataString.EMPTY_STRING + ctempString.charAt(i));
@@ -51,7 +51,7 @@ public class FDHMMListImp implements FDHMMList{
 								}	 
 							}
 							if(find == 0) {
-								if(i+1 < ctempString.length()) {
+								if(i + DataString.INT_ONE < ctempString.length()) {
 									temp.add(DataString.EMPTY_STRING + ctempString.charAt(i+DataString.INT_ONE));
 									fDHMMNode.next = temp;
 									linkedHashMap.put(DataString.EMPTY_STRING + ctempString.charAt(i), fDHMMNode);
@@ -99,7 +99,7 @@ public class FDHMMListImp implements FDHMMList{
 								}	 
 							}
 							if(find == DataString.INT_ZERO) {
-								if(i-DataString.INT_ONE >= DataString.INT_ZERO) {
+								if(i - DataString.INT_ONE >= DataString.INT_ZERO) {
 									temp.add(DataString.EMPTY_STRING + ctempStringout.charAt(i - DataString.INT_ONE));
 									fDHMMNode.prev = temp;
 									linkedHashMap.put(DataString.EMPTY_STRING + ctempStringout.charAt(i), fDHMMNode);
