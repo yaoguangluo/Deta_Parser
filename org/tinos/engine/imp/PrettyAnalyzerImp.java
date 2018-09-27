@@ -22,7 +22,7 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 	
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public List<String> parserString(String input) {
-		LinkedHashMap <String, Integer> chengYu = fDHMMList.getChengYu();
+		LinkedHashMap <String, Integer> words = fDHMMList.getWords();
 		String euclid = fDHMMList.getEuclid();
 		List<String> output = new ArrayList<String>();
 		LinkedHashMap <Integer, LinkedHashMap> roots = fDHMMList.getRoot();
@@ -38,14 +38,14 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 						output.add(DataString.EMPTY_STRING + temp.charAt(DataString.INT_ZERO));
 						output.add(DataString.EMPTY_STRING + temps[DataString.INT_ONE]);
 					}else if(euclid.contains(DataString.EMPTY_STRING +temp.charAt(DataString.INT_TWO))){
-						String temps[] = temp.split(""+temp.charAt(DataString.INT_TWO));
+						String temps[] = temp.split(DataString.EMPTY_STRING + temp.charAt(DataString.INT_TWO));
 						output.add(DataString.EMPTY_STRING + temps[DataString.INT_ZERO]);
 						output.add(DataString.EMPTY_STRING + temp.charAt(DataString.INT_TWO));
 					}else {
 						output.add(DataString.EMPTY_STRING + temp);
 					}
 			}else if(temp.length() == DataString.INT_FOUR) {
-				if(chengYu.containsKey(temp)){
+				if(words.containsKey(temp)){
 					output.add(temp);
 				}else {
 					output.add(DataString.EMPTY_STRING +temp.charAt(DataString.INT_ZERO)+temp.charAt(DataString.INT_ONE));
@@ -71,4 +71,3 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 	}
 }
 
- 
