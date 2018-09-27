@@ -11,6 +11,8 @@ import org.tinos.obj.FDHMMNode;
 import org.tinos.utils.imp.UtilsImp;
 import org.tinos.zabbi.DataString;
 public class FDHMMListImp implements FDHMMList{
+	public String euclid;
+	public LinkedHashMap <String, Integer>  chengYu;
 	public LinkedHashMap <String,FDHMMNode> linkedHashMap;
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public LinkedHashMap <Integer,LinkedHashMap> linkedHashMapRoot;
@@ -25,6 +27,8 @@ public class FDHMMListImp implements FDHMMList{
 	
 	@SuppressWarnings({DataString.RAW_TYPES})
 	public void index() throws IOException {
+		chengYu = new LinkedHashMap <String, Integer>();
+		euclid="";
 		linkedHashMap = new LinkedHashMap <String,FDHMMNode>();
 		linkedHashMapRoot = new LinkedHashMap <Integer,LinkedHashMap>();
 		InputStream in = getClass().getResourceAsStream(DataString.WORDS_SOURSE_LINK);
@@ -124,5 +128,35 @@ public class FDHMMListImp implements FDHMMList{
 		}
 		cReaderout.close();
 		linkedHashMapRoot = new UtilsImp().OGLD(linkedHashMap);	
+		InputStream ojld = getClass().getResourceAsStream(DataString.OGLD_SOURSE_LINK);
+		BufferedReader cReaderojld = new BufferedReader(new InputStreamReader(ojld, DataString.GBK_STRING));  
+		String ctempStringojld  = null; 
+		while ((ctempStringojld = cReaderojld.readLine()) != null) {  
+			if(!ctempStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
+				euclid += ctempStringojld;
+			}
+		}
+		cReaderojld.close();	
+		InputStream  cy = getClass().getResourceAsStream(DataString.CY_SOURSE_LINK);
+		BufferedReader cReadercy = new BufferedReader(new InputStreamReader(cy, DataString.GBK_STRING));  
+		String ctempStringcy  = null; 
+		while ((ctempStringcy = cReadercy.readLine()) != null) {  
+			if(!ctempStringcy.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
+				chengYu .put(ctempStringcy, 1);
+			}
+		}
+		cReaderojld.close();
+	}
+
+	@Override
+	public String getEuclid() {
+		// TODO Auto-generated method stub
+		return this.euclid;
+	}
+
+	@Override
+	public LinkedHashMap<String, Integer> getChengYu() {
+		// TODO Auto-generated method stub
+		return this.chengYu;
 	}
 }
