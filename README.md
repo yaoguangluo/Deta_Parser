@@ -21,7 +21,7 @@
 #   String ss = "如果从容易开始于是从容不迫天下等于是非常识时务必为俊杰沿海南方向逃跑他说的确实在理结婚的和尚未结婚的提高产品质量中外科学名著内科学是临床医学的基础    内科学作为临床医学的基础学科，重点论述人体各个系统各种疾病的病因、发病机制、临床表现、诊断、治疗与预防";
 #
 #   //4 执行
-    List<String> sets sets = analyzer.parserString(ss); 
+    List<String> sets = analyzer.parserString(ss); 
 #   //5 输出
     int j=0;
 		for(int i = 0; i < sets.size(); i++){
