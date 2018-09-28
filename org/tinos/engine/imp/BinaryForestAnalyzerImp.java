@@ -27,7 +27,7 @@ public class BinaryForestAnalyzerImp implements  BinaryForestAnalyzer{
 		List<String> output = new ArrayList<String>();
 		LinkedHashMap <Integer, LinkedHashMap> roots = fHMMList.getRoot();
 		int length = input.length();
-		int depth = 0;
+		int depth = DataString.INT_ZERO;
 		for(int i = DataString.INT_ZERO; i < length; i += DataString.INT_ZERO){
 			String char_i = DataString.EMPTY_STRING + input.charAt(i);
 			String temp = char_i ;
