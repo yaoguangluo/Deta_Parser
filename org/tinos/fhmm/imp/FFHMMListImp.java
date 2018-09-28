@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
 import org.tinos.fhmm.FFHMMList;
-import org.tinos.obj.FDHMMNode;
 import org.tinos.obj.FFHMMNode;
 import org.tinos.utils.imp.UtilsImp;
 import org.tinos.zabbi.DataString;
@@ -89,17 +88,5 @@ public class FFHMMListImp implements FFHMMList{
 	public LinkedHashMap<String, Integer> getWords() {
 		// TODO Auto-generated method stub
 		return this.words;
-	}
-
-	@Override
-	public void index() throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public LinkedHashMap<String, FDHMMNode> getMap() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

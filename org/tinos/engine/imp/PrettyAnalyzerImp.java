@@ -48,8 +48,8 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 				if(words.containsKey(temp)){
 					output.add(temp);
 				}else {
-					output.add(DataString.EMPTY_STRING +temp.charAt(DataString.INT_ZERO)+temp.charAt(DataString.INT_ONE));
-					output.add(DataString.EMPTY_STRING +temp.charAt(DataString.INT_TWO)+temp.charAt(DataString.INT_THREE));
+					output.add(DataString.EMPTY_STRING + temp.charAt(DataString.INT_ZERO) + temp.charAt(DataString.INT_ONE));
+					output.add(DataString.EMPTY_STRING + temp.charAt(DataString.INT_TWO) + temp.charAt(DataString.INT_THREE));
 				}
 			}else if(temp.length() == DataString.INT_TWO){
 				output.add(temp);
@@ -58,7 +58,7 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 					output.add(DataString.EMPTY_STRING + temp.charAt(j));
 				}
 			}			
-			int t_length=temp.length();
+			int t_length = temp.length();
 			i += (t_length == DataString.INT_ZERO ? DataString.INT_ONE : t_length);
 		}
 		return output;
@@ -71,3 +71,4 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 	}
 }
 
+ 

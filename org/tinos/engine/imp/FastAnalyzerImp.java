@@ -23,7 +23,7 @@ public class FastAnalyzerImp implements  FastAnalyzer{
 		List<String> output = new ArrayList<String>();
 		LinkedHashMap<String, FDHMMNode> maps = fDHMMList.getMap();
 		int length = input.length();
-		for(int i = DataString.INT_ZERO; i < length; i+=DataString.INT_ZERO){
+		for(int i = DataString.INT_ZERO; i < length; i += DataString.INT_ZERO){
 			String char_i = DataString.EMPTY_STRING+ input.charAt(i);
 			String temp = char_i ;
 			temp = neroFeedHMM.getFastRecurWord(temp,maps,input,i,length);
@@ -39,5 +39,4 @@ public class FastAnalyzerImp implements  FastAnalyzer{
 	}
 }
 
- 
  

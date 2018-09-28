@@ -4,8 +4,6 @@ public class DataString{
 	public static final String EMPTY_STRING = "";
 	public static final String SPACE_STRING = " ";
 	public static final String UNCHECKED = "unchecked";
-	
-	
 	public static final int INT_ZERO = 0;
 	public static final int INT_ONE = 1;
 	public static final int INT_TWO = 2;
