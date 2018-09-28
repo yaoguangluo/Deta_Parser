@@ -1,6 +1,6 @@
 # Fast-Chinese-NeroParser
 #
-#版本号：2.1.0
+#版本号：2.2.0
 #
 #一种 基于 神经 森林 网络 欧几里德加权 的 中文分词 包 每秒400万中文简体字准确分词(此为1.0版本 已更新)。大小90Kb，作者：罗瑶光
 本人定义 协议 为 BSD, 可任意集成到任何公司组织个人项目中。谢谢。
@@ -14,7 +14,8 @@
 #
 #使用如下：
 #   //1 实例化
-    Analyzer analyzer=new PrettyAnalyzerImp() ;
+    //Analyzer analyzer=new PrettyAnalyzerImp() ;
+    Analyzer analyzer=new BinaryForestAnalyzerImp() ;
 #   //2初始
     analyzer.init();
 #   //3 创建字符串 utf 8
