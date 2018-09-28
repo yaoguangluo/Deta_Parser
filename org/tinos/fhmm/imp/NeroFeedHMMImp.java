@@ -3,8 +3,8 @@ import java.util.List;
 import java.util.LinkedHashMap;
 import org.tinos.fhmm.NeroFeedHMM;
 import org.tinos.obj.FDHMMNode;
+import org.tinos.obj.FFHMMNode;
 import org.tinos.zabbi.DataString;
-
 public class NeroFeedHMMImp implements NeroFeedHMM{
 	@SuppressWarnings({ DataString.RAW_TYPES, DataString.UNCHECKED})
 	public String getPrettyRecurWord(String temp, String input, int i, int length, LinkedHashMap<Integer, LinkedHashMap> roots,int depth) {
@@ -57,29 +57,31 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 		}
 		return temp;
 	}
-	
+
+	@Override
 	@SuppressWarnings({ DataString.RAW_TYPES, DataString.UNCHECKED})
-	public String getPrettyRecurWord1(String temp, String input, int i, int length, LinkedHashMap<Integer, LinkedHashMap> roots) {
+	public String getBinaryForestRecurWord(String temp, String input, int i, int length, LinkedHashMap<Integer, LinkedHashMap> roots, int depth) {
+		if(depth == DataString.INT_THREE) {
+			return temp;
+		}
 		String char_i = DataString.EMPTY_STRING + input.charAt(i);
 		int range = ((int)(char_i.charAt(DataString.INT_ZERO))/DataString.INT_SIXTY_FOUR);
 		int rangeHigh = range / DataString.INT_SIXTEEN;
 		if(roots.containsKey(rangeHigh)){
 			LinkedHashMap <Integer,LinkedHashMap> root = roots.get(rangeHigh);
 			if(root.containsKey(range)){
-				LinkedHashMap<String, FDHMMNode> maps =root.get(range);
-				FDHMMNode fDHMMNode = maps.get(char_i);
-				if(fDHMMNode != null) {
-					if(fDHMMNode.next != null) {
-						List<String> tempList = fDHMMNode.next;
-						for(int j = DataString.INT_ZERO; j < tempList.size(); j++) {
+				LinkedHashMap<String, FFHMMNode> maps =root.get(range);
+				FFHMMNode fFHMMNode = maps.get(char_i);
+				if(fFHMMNode != null) {
+					if(fFHMMNode.next != null) {
+						LinkedHashMap<String, Integer> tempList = fFHMMNode.next;
 							if(i + DataString.INT_ONE < length) {
 								String char_iAddOne = DataString.EMPTY_STRING + input.charAt(i+DataString.INT_ONE);
-								if(tempList.get(j).equalsIgnoreCase(char_iAddOne)){
+								if(tempList.containsKey(char_iAddOne)){
 									temp += char_iAddOne;
-									temp = getPrettyRecurWord1(temp, input,i+DataString.INT_ONE, length, roots);
+									temp = getBinaryForestRecurWord(temp, input,i+DataString.INT_ONE, length, roots, depth+DataString.INT_ONE);
 								}
 							}
-						}
 					}
 				}
 			}
