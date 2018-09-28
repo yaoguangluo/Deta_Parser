@@ -9,7 +9,7 @@
 #1 支持 java JDK 8 以上
 #2 大家可以自由添加词汇，添加在 org/tinos/fhmm/imp/words.lyg文件里。
 #2.1 大家可以自由添加 3连词词汇的前后缀 动 介 词区分，添加在 org/tinos/fhmm/imp/ogld.lyg文件里。
-#2.2 大家可以自由添加 4字成词词汇，添加在 org/tinos/fhmm/imp/cy.lyg文件里。(2.1的版本只需要在words.lyg里面加成语词汇就可以了，cy文件可以删除。)
+#2.2 大家可以自由添加 4字成词词汇，添加在 org/tinos/fhmm/imp/cy.lyg文件里。(2.1以上的版本只需要在words.lyg里面加成语词汇就可以了，cy文件可以删除。)
 #3 可以看下org/tinos/test里面的例子。
 #
 #使用如下：
