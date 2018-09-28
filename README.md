@@ -14,8 +14,8 @@
 #
 #使用如下：
 #   //1 实例化
-    //Analyzer analyzer=new PrettyAnalyzerImp() ;
-    Analyzer analyzer=new BinaryForestAnalyzerImp() ;
+    //Analyzer analyzer=new PrettyAnalyzerImp() ;//线性森林加权分析
+    Analyzer analyzer=new BinaryForestAnalyzerImp() ;//哈希森林加权分析
 #   //2初始
     analyzer.init();
 #   //3 创建字符串 utf 8
