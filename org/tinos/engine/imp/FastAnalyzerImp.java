@@ -26,7 +26,7 @@ public class FastAnalyzerImp implements  FastAnalyzer{
 		for(int i = DataString.INT_ZERO; i < length; i += DataString.INT_ZERO){
 			String char_i = DataString.EMPTY_STRING+ input.charAt(i);
 			String temp = char_i ;
-			temp = neroFeedHMM.getFastRecurWord(temp,maps,input,i,length);
+			temp = neroFeedHMM.getFastRecurWord(temp, maps, input, i, length);
 			output.add(temp);
 			int t_length = temp.length();
 			i += (t_length == DataString.INT_ZERO ? DataString.INT_ONE : t_length);

@@ -16,7 +16,6 @@ public class FDHMMListImp implements FDHMMList{
 	public LinkedHashMap <String, FDHMMNode> linkedHashMap;
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public LinkedHashMap <Integer, LinkedHashMap> linkedHashMapRoot;
-	
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public LinkedHashMap<Integer, LinkedHashMap> getRoot() {
 		return this.linkedHashMapRoot;
@@ -46,12 +45,13 @@ public class FDHMMListImp implements FDHMMList{
 							int find = DataString.INT_ZERO;
 							for(int j = DataString.INT_ZERO; j < temp.size(); j++) {
 								if(i + DataString.INT_ONE < ctempString.length()) {
-									if(temp.get(j).equalsIgnoreCase(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE))){
+									if(temp.get(j).equalsIgnoreCase(DataString.EMPTY_STRING + 
+											ctempString.charAt(i + DataString.INT_ONE))){
 										find = DataString.INT_ONE;
 									}
 								}	 
 							}
-							if(find == 0) {
+							if(find == DataString.INT_ZERO) {
 								if(i + DataString.INT_ONE < ctempString.length()) {
 									temp.add(DataString.EMPTY_STRING + ctempString.charAt(i+DataString.INT_ONE));
 									fDHMMNode.next = temp;
@@ -82,7 +82,7 @@ public class FDHMMListImp implements FDHMMList{
 		linkedHashMapRoot = new UtilsImp().OGLD(linkedHashMap);	
 		InputStream ojld = getClass().getResourceAsStream(DataString.OGLD_SOURSE_LINK);
 		BufferedReader cReaderojld = new BufferedReader(new InputStreamReader(ojld, DataString.GBK_STRING));  
-		String ctempStringojld  = null; 
+		String ctempStringojld = null; 
 		while ((ctempStringojld = cReaderojld.readLine()) != null) {  
 			if(!ctempStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
 				euclid += ctempStringojld;
@@ -93,13 +93,11 @@ public class FDHMMListImp implements FDHMMList{
 
 	@Override
 	public String getEuclid() {
-		// TODO Auto-generated method stub
 		return this.euclid;
 	}
 
 	@Override
 	public LinkedHashMap<String, Integer> getWords() {
-		// TODO Auto-generated method stub
 		return this.words;
 	}
 }

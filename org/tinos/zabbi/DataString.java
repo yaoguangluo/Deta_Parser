@@ -15,5 +15,5 @@ public class DataString{
 	public static final String UTF8_STRING = "UTF8";
 	public static final String WORDS_SOURSE_LINK = "words.lyg";
 	public static final String OGLD_SOURSE_LINK = "ogld.lyg";
-	public static final String CY_SOURSE_LINK = "cy.lyg";
+	public static final int INT_SIX = 6;
 }

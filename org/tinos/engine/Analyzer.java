@@ -4,7 +4,6 @@ import java.util.List;
 public abstract interface Analyzer {
 	public void init() throws IOException;
 	public List<String> parserString(String input);
-	public void parserStringWithType(String[] types, String string);
 }
 
  

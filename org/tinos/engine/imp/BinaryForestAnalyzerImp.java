@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.tinos.engine.BinaryForestAnalyzer;
-import org.tinos.fhmm.FFHMMList;
+import org.tinos.fhmm.FHMMList;
 import org.tinos.fhmm.NeroFeedHMM;
 import org.tinos.fhmm.imp.FFHMMListImp;
 import org.tinos.fhmm.imp.NeroFeedHMMImp;
 import org.tinos.zabbi.DataString;
 public class BinaryForestAnalyzerImp implements  BinaryForestAnalyzer{
-	public FFHMMList fHMMList;
+	public FHMMList fHMMList;
 	public NeroFeedHMM neroFeedHMM;
 	
 	@Override
@@ -62,12 +62,6 @@ public class BinaryForestAnalyzerImp implements  BinaryForestAnalyzer{
 			i += (t_length == DataString.INT_ZERO ? DataString.INT_ONE : t_length);
 		}
 		return output;
-	}
-
-	@Override
-	public void parserStringWithType(String[] types, String string) {
-		// TODO Auto-generated method stub
-		
 	}
 }
 

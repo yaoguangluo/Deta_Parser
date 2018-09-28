@@ -12,27 +12,27 @@ public class UtilsImp implements Utils{
 		Iterator<String> iter = linkedHashMap.keySet().iterator();
 		while (iter.hasNext()) {
 			String key_value = iter.next();
-			int range = ((int)(key_value.charAt(DataString.INT_ZERO))/DataString.INT_SIXTY_FOUR);
-			int rangehHigh = range/DataString.INT_SIXTEEN;
-			if(linkedHashMapRoot.containsKey(rangehHigh)) {
-				LinkedHashMap <Integer,LinkedHashMap> root = linkedHashMapRoot.get(rangehHigh);
+			int range = ((int)(key_value.charAt(DataString.INT_ZERO)) >> DataString.INT_SIX);
+			int rangeHigh = range >> DataString.INT_FOUR; 
+			if(linkedHashMapRoot.containsKey(rangeHigh)) {
+				LinkedHashMap <Integer,LinkedHashMap> root = linkedHashMapRoot.get(rangeHigh);
 				if(root.containsKey(range)) {
 					LinkedHashMap <String, FDHMMNode> temp = root.get(range); 
 					temp.put(key_value,linkedHashMap.get(key_value));
 					root.put(range, temp);
-					linkedHashMapRoot.put(rangehHigh, root);
+					linkedHashMapRoot.put(rangeHigh, root);
 				}else {
 					LinkedHashMap <String, FDHMMNode> temp = new LinkedHashMap <String, FDHMMNode>();
 					temp.put(key_value,linkedHashMap.get(key_value));
 					root.put(range, temp);
-					linkedHashMapRoot.put(rangehHigh, root);
+					linkedHashMapRoot.put(rangeHigh, root);
 				}
 			}else {
 					LinkedHashMap <String, FDHMMNode> temp = new LinkedHashMap <String, FDHMMNode>();
 					temp.put(key_value, linkedHashMap.get(key_value));
 					LinkedHashMap <Integer,LinkedHashMap> root = new LinkedHashMap <Integer,LinkedHashMap>();
 					root.put(range, temp);
-					linkedHashMapRoot.put(rangehHigh, root);	
+					linkedHashMapRoot.put(rangeHigh, root);	
 			}		
 		}
 		return linkedHashMapRoot;
@@ -44,27 +44,27 @@ public class UtilsImp implements Utils{
 		Iterator<String> iter = linkedHashMap.keySet().iterator();
 		while (iter.hasNext()) {
 			String key_value = iter.next();
-			int range = ((int)(key_value.charAt(DataString.INT_ZERO))/DataString.INT_SIXTY_FOUR);
-			int rangehHigh = range / DataString.INT_SIXTEEN;
-			if(linkedHashMapRoot.containsKey(rangehHigh)) {
-				LinkedHashMap <Integer,LinkedHashMap> root = linkedHashMapRoot.get(rangehHigh);
+			int range = ((int)(key_value.charAt(DataString.INT_ZERO)) >> DataString.INT_SIX);
+			int rangeHigh = range >> DataString.INT_FOUR; 
+			if(linkedHashMapRoot.containsKey(rangeHigh)) {
+				LinkedHashMap <Integer,LinkedHashMap> root = linkedHashMapRoot.get(rangeHigh);
 				if(root.containsKey(range)) {
 					LinkedHashMap <String, FFHMMNode> temp = root.get(range); 
 					temp.put(key_value, linkedHashMap.get(key_value));
 					root.put(range, temp);
-					linkedHashMapRoot.put(rangehHigh, root);
+					linkedHashMapRoot.put(rangeHigh, root);
 				}else {
 					LinkedHashMap <String, FFHMMNode> temp = new LinkedHashMap <String, FFHMMNode>();
 					temp.put(key_value,linkedHashMap.get(key_value));
 					root.put(range, temp);
-					linkedHashMapRoot.put(rangehHigh, root);
+					linkedHashMapRoot.put(rangeHigh, root);
 				}
 			}else {
 					LinkedHashMap <String, FFHMMNode> temp = new LinkedHashMap <String, FFHMMNode>();
 					temp.put(key_value, linkedHashMap.get(key_value));
 					LinkedHashMap <Integer,LinkedHashMap> root = new LinkedHashMap <Integer,LinkedHashMap>();
 					root.put(range, temp);
-					linkedHashMapRoot.put(rangehHigh, root);	
+					linkedHashMapRoot.put(rangeHigh, root);	
 			}		
 		}
 		return linkedHashMapRoot;

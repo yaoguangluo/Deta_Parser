@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.tinos.engine.PrettyAnalyzer;
-import org.tinos.fhmm.FDHMMList;
+import org.tinos.fhmm.FHMMList;
 import org.tinos.fhmm.NeroFeedHMM;
 import org.tinos.fhmm.imp.FDHMMListImp;
 import org.tinos.fhmm.imp.NeroFeedHMMImp;
 import org.tinos.zabbi.DataString;
 public class PrettyAnalyzerImp implements  PrettyAnalyzer{
-	public FDHMMList fDHMMList;
+	public FHMMList fDHMMList;
 	public NeroFeedHMM neroFeedHMM;
 	
 	@Override
@@ -62,12 +62,6 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 			i += (t_length == DataString.INT_ZERO ? DataString.INT_ONE : t_length);
 		}
 		return output;
-	}
-
-	@Override
-	public void parserStringWithType(String[] types, String string) {
-		// TODO Auto-generated method stub
-		
 	}
 }
 
