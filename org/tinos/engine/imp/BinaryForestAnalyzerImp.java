@@ -16,7 +16,7 @@ public class BinaryForestAnalyzerImp implements  BinaryForestAnalyzer{
 	@Override
 	public void init() throws IOException {
 		this.fHMMList = new FFHMMListImp();
-		fHMMList.indexF();
+		fHMMList.index();
 		neroFeedHMM = new NeroFeedHMMImp(); 
 	}
 	

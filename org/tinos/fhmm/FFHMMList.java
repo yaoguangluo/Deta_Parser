@@ -4,5 +4,5 @@ import java.util.LinkedHashMap;
 import org.tinos.obj.FFHMMNode;
 public interface FFHMMList extends FHMMList{
 	public LinkedHashMap<String, FFHMMNode> getFMap() ;
-	public void indexF() throws IOException; 
+	public void index() throws IOException; 
 }

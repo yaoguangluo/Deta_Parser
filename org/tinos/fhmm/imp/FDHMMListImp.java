@@ -16,6 +16,7 @@ public class FDHMMListImp implements FDHMMList{
 	public LinkedHashMap <String, FDHMMNode> linkedHashMap;
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public LinkedHashMap <Integer, LinkedHashMap> linkedHashMapRoot;
+	
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public LinkedHashMap<Integer, LinkedHashMap> getRoot() {
 		return this.linkedHashMapRoot;
@@ -78,54 +79,6 @@ public class FDHMMListImp implements FDHMMList{
 			}
 		}
 		cReader.close();
-//		InputStream out = getClass().getResourceAsStream(DataString.WORDS_SOURSE_LINK);
-//		BufferedReader cReaderout = new BufferedReader(new InputStreamReader(out, DataString.GBK_STRING));  
-//		String ctempStringout  = null; 
-//		while ((ctempStringout = cReaderout.readLine()) != null) {  
-//			if(!ctempStringout.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
-//				words.put(ctempStringout, DataString.INT_ONE);
-//				for(int i = ctempStringout.length() - DataString.INT_ONE; i > DataString.INT_ZERO; i--) {
-//					//you mei you wo
-//					if(linkedHashMap.containsKey(DataString.EMPTY_STRING + ctempStringout.charAt(i))) {
-//						FDHMMNode fDHMMNode = linkedHashMap.get(DataString.EMPTY_STRING + ctempStringout.charAt(i));
-//						if(fDHMMNode.prev != null) {
-//							List<String> temp = fDHMMNode.prev;
-//							int find = DataString.INT_ZERO;
-//							for(int j = DataString.INT_ZERO; j < temp.size(); j++) {
-//								if(i - DataString.INT_ONE >= DataString.INT_ZERO) {
-//									if(temp.get(j).equalsIgnoreCase(DataString.EMPTY_STRING + ctempStringout.charAt(i-DataString.INT_ONE))){
-//										find = DataString.INT_ONE;
-//									}
-//								}	 
-//							}
-//							if(find == DataString.INT_ZERO) {
-//								if(i - DataString.INT_ONE >= DataString.INT_ZERO) {
-//									temp.add(DataString.EMPTY_STRING + ctempStringout.charAt(i - DataString.INT_ONE));
-//									fDHMMNode.prev = temp;
-//									linkedHashMap.put(DataString.EMPTY_STRING + ctempStringout.charAt(i), fDHMMNode);
-//								}
-//							}
-//						}else {
-//							List<String> temp = new ArrayList<String>();
-//							if(i - DataString.INT_ONE >= DataString.INT_ZERO ) {
-//								temp.add(DataString.EMPTY_STRING + ctempStringout.charAt(i - DataString.INT_ONE));
-//							} 
-//							fDHMMNode.prev = temp;
-//							linkedHashMap.put(DataString.EMPTY_STRING + ctempStringout.charAt(i), fDHMMNode);
-//						}
-//					}else {
-//						FDHMMNode fDHMMNode = new FDHMMNode();
-//						fDHMMNode.vb = DataString.EMPTY_STRING + ctempStringout.charAt(i);
-//						if(i - DataString.INT_ONE >= DataString.INT_ZERO) {
-//							fDHMMNode.prev = new ArrayList<String> ();
-//							fDHMMNode.prev.add(DataString.EMPTY_STRING + ctempStringout.charAt(i - DataString.INT_ONE));
-//						}
-//						linkedHashMap.put(DataString.EMPTY_STRING + ctempStringout.charAt(i), fDHMMNode);
-//					}
-//				}
-//			}
-//		}
-//		cReaderout.close();
 		linkedHashMapRoot = new UtilsImp().OGLD(linkedHashMap);	
 		InputStream ojld = getClass().getResourceAsStream(DataString.OGLD_SOURSE_LINK);
 		BufferedReader cReaderojld = new BufferedReader(new InputStreamReader(ojld, DataString.GBK_STRING));  

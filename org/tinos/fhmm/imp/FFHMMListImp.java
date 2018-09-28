@@ -24,7 +24,7 @@ public class FFHMMListImp implements FFHMMList{
 	}
 	
 	@SuppressWarnings({DataString.RAW_TYPES})
-	public void indexF() throws IOException {
+	public void index() throws IOException {
 		words = new LinkedHashMap <String, Integer>();
 		euclid = DataString.EMPTY_STRING;
 		linkedHashMap = new LinkedHashMap <String, FFHMMNode>();
@@ -41,7 +41,7 @@ public class FFHMMListImp implements FFHMMList{
 						if(fFHMMNode.next != null) {
 							if(i + DataString.INT_ONE < ctempString.length()) {
 								if(!fFHMMNode.next.containsKey(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE))) {
-									fFHMMNode.next.put(DataString.EMPTY_STRING + ctempString.charAt(i+DataString.INT_ONE), DataString.INT_ONE);
+									fFHMMNode.next.put(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE), DataString.INT_ONE);
 									linkedHashMap.put(DataString.EMPTY_STRING + ctempString.charAt(i), fFHMMNode);
 								}
 							}
@@ -80,13 +80,11 @@ public class FFHMMListImp implements FFHMMList{
 
 	@Override
 	public String getEuclid() {
-		// TODO Auto-generated method stub
 		return this.euclid;
 	}
 
 	@Override
 	public LinkedHashMap<String, Integer> getWords() {
-		// TODO Auto-generated method stub
 		return this.words;
 	}
 }
