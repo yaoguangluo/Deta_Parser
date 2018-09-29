@@ -41,10 +41,10 @@ public class DemoexCogs{
 		System.out.println("计时开始");
 		ExecutorService eXECUTOR_SERVICE = Executors.newFixedThreadPool(1);	
 		tc.begin();	
-		for(int i = 0; i < 25000; i++) { //重复执行 10万次 相当于1000 万字分词
+		for(int i = 0; i < 2500; i++) { //重复执行 ..万次 相当于.. 万字分词
 			eXECUTOR_SERVICE.submit(new TaskWithResult(i, analyzer, ss));
 		}
-		while(sets.size() < 25000) {//拿到4000万总数线程跳出
+		while(sets.size() < 2500) {//拿到4000万总数线程跳出
 			Thread.sleep(300);
 		}
 		tc.end();
