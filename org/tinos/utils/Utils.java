@@ -1,11 +1,11 @@
 package org.tinos.utils;
-import java.util.LinkedHashMap;
+import java.util.Map;
 import org.tinos.obj.FDHMMNode;
 import org.tinos.obj.FFHMMNode;
 import org.tinos.zabbi.DataString;
 public interface Utils{
 	@SuppressWarnings({DataString.RAW_TYPES})
-	public LinkedHashMap <Integer,LinkedHashMap> OGLD(LinkedHashMap<String, FDHMMNode> linkedHashMap);
+	public Map <Integer,Map> euclid(Map<String, FDHMMNode> linkedHashMap);
 	@SuppressWarnings({DataString.RAW_TYPES})
-	public LinkedHashMap <Integer,LinkedHashMap> FOGLD(LinkedHashMap<String, FFHMMNode> linkedHashMap);
+	public Map <Integer,Map> fEuclid(Map<String, FFHMMNode> linkedHashMap);
 }

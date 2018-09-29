@@ -6,100 +6,147 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import org.tinos.fhmm.FDHMMList;
 import org.tinos.obj.FDHMMNode;
 import org.tinos.utils.imp.UtilsImp;
 import org.tinos.zabbi.DataString;
 public class FDHMMListImp implements FDHMMList{
-	public String euclid;
-	public LinkedHashMap <String, Integer> words;
-	public LinkedHashMap <String, FDHMMNode> linkedHashMap;
+	private String euclid;
+	private Map <String, Integer> words;
+	private Map <String, FDHMMNode> linkedHashMap;
 	@SuppressWarnings(DataString.RAW_TYPES)
-	public LinkedHashMap <Integer, LinkedHashMap> linkedHashMapRoot;
+	private Map<Integer, Map> linkedHashMapRoot;
 	@SuppressWarnings(DataString.RAW_TYPES)
-	public LinkedHashMap<Integer, LinkedHashMap> getRoot() {
+	public Map<Integer, Map> getRoot() {
 		return this.linkedHashMapRoot;
 	}
 	
-	public LinkedHashMap<String, FDHMMNode> getMap() {
+	public Map<String, FDHMMNode> getMap() {
 		return this.linkedHashMap;
 	}
 	
-	@SuppressWarnings({DataString.RAW_TYPES})
 	public void index() throws IOException {
-		words = new LinkedHashMap <String, Integer>();
+		words = new LinkedHashMap <>();
 		euclid = DataString.EMPTY_STRING;
-		linkedHashMap = new LinkedHashMap <String, FDHMMNode>();
-		linkedHashMapRoot = new LinkedHashMap <Integer, LinkedHashMap>();
+		linkedHashMap = new LinkedHashMap <>();
+		linkedHashMapRoot = new LinkedHashMap <>();
 		InputStream in = getClass().getResourceAsStream(DataString.WORDS_SOURSE_LINK);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, DataString.GBK_STRING));  
 		String ctempString = null; 
 		while ((ctempString = cReader.readLine()) != null) {  
 			if(!ctempString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.
 					EMPTY_STRING)) {
-				words.put(ctempString, DataString.INT_ONE);
-				for(int i = DataString.INT_ZERO; i < ctempString.length(); i++) {
-					if(linkedHashMap.containsKey(DataString.EMPTY_STRING + ctempString.charAt(i))) {
-						FDHMMNode fDHMMNode = linkedHashMap.get(DataString.EMPTY_STRING + ctempString.charAt(i));
-						if(fDHMMNode.next != null) {
-							List<String> temp = fDHMMNode.next;
-							int find = DataString.INT_ZERO;
-							for(int j = DataString.INT_ZERO; j < temp.size(); j++) {
-								if(i + DataString.INT_ONE < ctempString.length()) {
-									if(temp.get(j).equalsIgnoreCase(DataString.EMPTY_STRING + 
-											ctempString.charAt(i + DataString.INT_ONE))){
-										find = DataString.INT_ONE;
-									}
-								}	 
-							}
-							if(find == DataString.INT_ZERO) {
-								if(i + DataString.INT_ONE < ctempString.length()) {
-									temp.add(DataString.EMPTY_STRING + ctempString.charAt(i+DataString.INT_ONE));
-									fDHMMNode.next = temp;
-									linkedHashMap.put(DataString.EMPTY_STRING + ctempString.charAt(i), fDHMMNode);
-								}
-							}
-						}else {
-							List<String> temp = new ArrayList<String>();
-							if(i + DataString.INT_ONE < ctempString.length()) {
-								temp.add(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE));
-							} 
-							fDHMMNode.next = temp;
-							linkedHashMap.put(DataString.EMPTY_STRING + ctempString.charAt(i), fDHMMNode);
-						}
-					}else {
-						FDHMMNode fDHMMNode = new FDHMMNode();
-						fDHMMNode.vb = DataString.EMPTY_STRING + ctempString.charAt(i);
-						if(i + DataString.INT_ONE < ctempString.length()) {
-							fDHMMNode.next = new ArrayList<String> ();
-							fDHMMNode.next.add(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE));
-						}
-						linkedHashMap.put(DataString.EMPTY_STRING + ctempString.charAt(i), fDHMMNode);
-					}
-				}
+				words.put(ctempString, DataString.INT_ONE);	
+				linkedHashMap = loopLoadForest(ctempString);
 			}
 		}
 		cReader.close();
-		linkedHashMapRoot = new UtilsImp().OGLD(linkedHashMap);	
+		linkedHashMapRoot = new UtilsImp().euclid(linkedHashMap);	
 		InputStream ojld = getClass().getResourceAsStream(DataString.OGLD_SOURSE_LINK);
 		BufferedReader cReaderojld = new BufferedReader(new InputStreamReader(ojld, DataString.GBK_STRING));  
 		String ctempStringojld = null; 
 		while ((ctempStringojld = cReaderojld.readLine()) != null) {  
-			if(!ctempStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).
-					equals(DataString.EMPTY_STRING)) {
-				euclid += ctempStringojld;
+			if(!ctempStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
+				 StringBuilder bld = new StringBuilder();
+				 bld.append(ctempStringojld);
+				 euclid = bld.toString();
 			}
 		}
 		cReaderojld.close();
 	}
 
-	@Override
+	public Map<String, FDHMMNode> loopLoadForest(String ctempString) {
+		for(int i = DataString.INT_ZERO; i < ctempString.length(); i++) {
+			if(linkedHashMap.containsKey(DataString.EMPTY_STRING + ctempString.charAt(i))) {
+				FDHMMNode fDHMMNode = linkedHashMap.get(DataString.EMPTY_STRING + ctempString.charAt(i));
+				linkedHashMap = doNeroPostCognitive(fDHMMNode,ctempString,i);
+			}else {
+				FDHMMNode fDHMMNode = new FDHMMNode();
+				fDHMMNode.setVb(DataString.EMPTY_STRING + ctempString.charAt(i));
+				if(i + DataString.INT_ONE < ctempString.length()) {
+					List<String> next = new ArrayList<> ();
+					next.add(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE));
+					fDHMMNode.setNext(next);
+				}
+				linkedHashMap.put(DataString.EMPTY_STRING + ctempString.charAt(i), fDHMMNode);
+			}
+		}
+		return linkedHashMap;
+	}
+
+	public Map<String, FDHMMNode> doNeroPostCognitive(FDHMMNode fDHMMNode, String ctempString, int i) {
+		if(fDHMMNode.getNext() != null) {
+			List<String> temp = fDHMMNode.getNext();
+			int find = DataString.INT_ZERO;
+			for(int j = DataString.INT_ZERO; j < temp.size(); j++) {
+				if(i + DataString.INT_ONE < ctempString.length()) {
+					find = docheckNeroPostFix(temp, j, ctempString, i, find);
+				}	 
+			}
+			if(find == DataString.INT_ZERO) {
+				linkedHashMap = doRunNeroPostFIX(i, ctempString, fDHMMNode, temp);
+			}
+		}else {
+			List<String> temp = new ArrayList<>();
+			if(i + DataString.INT_ONE < ctempString.length()) {
+				temp.add(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE));
+			} 
+			fDHMMNode.setNext(temp);
+			linkedHashMap.put(DataString.EMPTY_STRING + ctempString.charAt(i), fDHMMNode);
+		}
+		return linkedHashMap;
+	}
+
+	public Map<String, FDHMMNode> doRunNeroPostFIX(int i, String ctempString, FDHMMNode fDHMMNode, List<String> temp) {
+		if(i + DataString.INT_ONE < ctempString.length()) {
+			temp.add(DataString.EMPTY_STRING + ctempString.charAt(i+DataString.INT_ONE));
+			fDHMMNode.setNext(temp);
+			linkedHashMap.put(DataString.EMPTY_STRING + ctempString.charAt(i), fDHMMNode);
+		}
+		return linkedHashMap;
+	}
+
+	public int docheckNeroPostFix(List<String> temp, int j, String ctempString, int i, int find) {
+		if(temp.get(j).equalsIgnoreCase(DataString.EMPTY_STRING + 
+				ctempString.charAt(i + DataString.INT_ONE))){
+			find = DataString.INT_ONE;
+		}
+		return find;
+	}
+
 	public String getEuclid() {
 		return this.euclid;
 	}
 
-	@Override
-	public LinkedHashMap<String, Integer> getWords() {
+	public Map<String, Integer> getWords() {
 		return this.words;
 	}
+	
+	public Map<String, FDHMMNode> getLinkedHashMap() {
+		return linkedHashMap;
+	}
+
+	public void setLinkedHashMap(Map<String, FDHMMNode> linkedHashMap) {
+		this.linkedHashMap = linkedHashMap;
+	}
+
+	@SuppressWarnings("rawtypes")
+	public Map<Integer, Map> getLinkedHashMapRoot() {
+		return linkedHashMapRoot;
+	}
+
+	@SuppressWarnings("rawtypes")
+	public void setLinkedHashMapRoot(Map<Integer, Map> linkedHashMapRoot) {
+		this.linkedHashMapRoot = linkedHashMapRoot;
+	}
+
+	public void setEuclid(String euclid) {
+		this.euclid = euclid;
+	}
+
+	public void setWords(Map<String, Integer> words) {
+		this.words = words;
+	}
+	
 }

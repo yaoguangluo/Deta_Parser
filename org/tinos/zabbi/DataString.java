@@ -16,4 +16,8 @@ public class DataString{
 	public static final String UTF8_STRING = "UTF8";
 	public static final String WORDS_SOURSE_LINK = "words.lyg";
 	public static final String OGLD_SOURSE_LINK = "ogld.lyg";
+	private DataString() {
+		throw new IllegalStateException("Utility class");
+	}
+
 }
