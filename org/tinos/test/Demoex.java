@@ -30,7 +30,7 @@ public class Demoex{
 		for(int i = 0; i < 40000; i++) {//重复执行 4万次 相当于800 万字分词
 			sets = analyzer.parserString(ss); 
 		}
-		tc.end();;
+		tc.end();
 		System.out.println("计时结束");
 		tc.duration();
 		System.out.println("分词效果如下");

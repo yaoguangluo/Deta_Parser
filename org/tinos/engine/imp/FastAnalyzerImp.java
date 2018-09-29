@@ -9,7 +9,7 @@ import org.tinos.fhmm.NeroFeedHMM;
 import org.tinos.fhmm.imp.FDHMMListImp;
 import org.tinos.fhmm.imp.NeroFeedHMMImp;
 import org.tinos.obj.FDHMMNode;
-import org.tinos.zabbi.DataString;;
+import org.tinos.zabbi.DataString;
 public class FastAnalyzerImp implements  FastAnalyzer{
 	private FDHMMList fDHMMList;
 	private NeroFeedHMM neroFeedHMM;

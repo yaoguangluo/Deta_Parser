@@ -5,5 +5,3 @@ public abstract interface Analyzer {
 	public void init() throws IOException;
 	public List<String> parserString(String input);
 }
-
- 

@@ -5,11 +5,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import org.tinos.fhmm.FFHMMList;
 import org.tinos.obj.FFHMMNode;
 import org.tinos.utils.imp.UtilsImp;
 import org.tinos.zabbi.DataString;
 public class FFHMMListImp implements FFHMMList{
+	private String euclid;
+	private Map <String, Integer> words;
+	private Map <String, FFHMMNode> linkedHashMap;
+	@SuppressWarnings(DataString.RAW_TYPES)
+	private Map <Integer, Map> linkedHashMapRoot;
 	public Map<String, FFHMMNode> getLinkedHashMap() {
 		return linkedHashMap;
 	}
@@ -36,12 +42,7 @@ public class FFHMMListImp implements FFHMMList{
 		this.words = words;
 	}
 
-	private String euclid;
-	private Map <String, Integer> words;
-	private Map <String, FFHMMNode> linkedHashMap;
-	@SuppressWarnings(DataString.RAW_TYPES)
-	private Map <Integer, Map> linkedHashMapRoot;
-	@SuppressWarnings(DataString.RAW_TYPES)
+	@SuppressWarnings("rawtypes")
 	public Map<Integer, Map> getRoot() {
 		return this.linkedHashMapRoot;
 	}
@@ -51,10 +52,10 @@ public class FFHMMListImp implements FFHMMList{
 	}
 	
 	public void index() throws IOException {
-		words = new LinkedHashMap <>();
+		words = new ConcurrentHashMap <>();
 		euclid = DataString.EMPTY_STRING;
-		linkedHashMap = new LinkedHashMap <>();
-		linkedHashMapRoot = new LinkedHashMap <>();
+		linkedHashMap = new ConcurrentHashMap <>();
+		linkedHashMapRoot = new ConcurrentHashMap <>();
 		InputStream in = getClass().getResourceAsStream(DataString.WORDS_SOURSE_LINK);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, DataString.GBK_STRING));  
 		String ctempString = null; 
@@ -126,7 +127,6 @@ public class FFHMMListImp implements FFHMMList{
 		}
 		return linkedHashMap;
 	}
-	
 	
 	@Override
 	public String getEuclid() {

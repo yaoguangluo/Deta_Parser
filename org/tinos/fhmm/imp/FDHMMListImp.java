@@ -3,10 +3,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import org.tinos.fhmm.FDHMMList;
 import org.tinos.obj.FDHMMNode;
 import org.tinos.utils.imp.UtilsImp;
@@ -27,10 +27,10 @@ public class FDHMMListImp implements FDHMMList{
 	}
 	
 	public void index() throws IOException {
-		words = new LinkedHashMap <>();
+		words = new ConcurrentHashMap <>();
 		euclid = DataString.EMPTY_STRING;
-		linkedHashMap = new LinkedHashMap <>();
-		linkedHashMapRoot = new LinkedHashMap <>();
+		linkedHashMap = new ConcurrentHashMap <>();
+		linkedHashMapRoot = new ConcurrentHashMap <>();
 		InputStream in = getClass().getResourceAsStream(DataString.WORDS_SOURSE_LINK);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, DataString.GBK_STRING));  
 		String ctempString = null; 
@@ -65,7 +65,7 @@ public class FDHMMListImp implements FDHMMList{
 				FDHMMNode fDHMMNode = new FDHMMNode();
 				fDHMMNode.setVb(DataString.EMPTY_STRING + ctempString.charAt(i));
 				if(i + DataString.INT_ONE < ctempString.length()) {
-					List<String> next = new ArrayList<> ();
+					List<String> next = new CopyOnWriteArrayList<> ();
 					next.add(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE));
 					fDHMMNode.setNext(next);
 				}
@@ -88,7 +88,7 @@ public class FDHMMListImp implements FDHMMList{
 				linkedHashMap = doRunNeroPostFIX(i, ctempString, fDHMMNode, temp);
 			}
 		}else {
-			List<String> temp = new ArrayList<>();
+			List<String> temp = new CopyOnWriteArrayList<>();
 			if(i + DataString.INT_ONE < ctempString.length()) {
 				temp.add(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE));
 			} 
