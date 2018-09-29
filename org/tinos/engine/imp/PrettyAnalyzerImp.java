@@ -44,7 +44,7 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 			String temp = charPosition;
 			temp = neroFeedHMM.getPrettyRecurWord(temp, input, i, length, roots, depth);
 			if(temp.length() == DataString.INT_THREE) {
-				output=engineUtils.doEuclidCheck(output,euclid,temp);
+				output = engineUtils.doEuclidCheck(output,euclid,temp);
 			}else if(temp.length() == DataString.INT_FOUR) {
 				output = engineUtils.doSlangCheck(output,words,temp);
 			}else if(temp.length() == DataString.INT_TWO){ 

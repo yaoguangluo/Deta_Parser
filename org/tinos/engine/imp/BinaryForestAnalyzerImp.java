@@ -34,9 +34,9 @@ public class BinaryForestAnalyzerImp implements  BinaryForestAnalyzer{
 		int tempLength;
 		for(int i = DataString.INT_ZERO; i < length; i += (tempLength == DataString.INT_ZERO ? DataString.INT_ONE : tempLength)){
 			String temp = DataString.EMPTY_STRING + input.charAt(i);
-			temp = neroFeedHMM.getBinaryForestRecurWord(temp,input,i,length,roots, depth);
+			temp = neroFeedHMM.getBinaryForestRecurWord(temp, input, i, length, roots, depth);
 			if(temp.length() == DataString.INT_THREE) {
-				output=engineUtils.doEuclidCheck(output,euclid,temp);
+				output = engineUtils.doEuclidCheck(output, euclid, temp);
 			}else if(temp.length() == DataString.INT_FOUR) {
 				output = engineUtils.doSlangCheck(output,words,temp);
 			}else if(temp.length() == DataString.INT_TWO){

@@ -75,6 +75,7 @@ public class FFHMMListImp implements FFHMMList{
 		while ((ctempStringojld = cReaderojld.readLine()) != null) {  
 			if(!ctempStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
 				 StringBuilder bld = new StringBuilder();
+				 bld.append(euclid);
 				 bld.append(ctempStringojld);
 				 euclid = bld.toString();
 			}
