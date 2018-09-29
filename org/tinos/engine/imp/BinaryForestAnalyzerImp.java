@@ -48,8 +48,10 @@ public class BinaryForestAnalyzerImp implements  BinaryForestAnalyzer{
 				if(words.containsKey(temp)){
 					output.add(temp);
 				}else {
-					output.add(DataString.EMPTY_STRING + temp.charAt(DataString.INT_ZERO) + temp.charAt(DataString.INT_ONE));
-					output.add(DataString.EMPTY_STRING + temp.charAt(DataString.INT_TWO) + temp.charAt(DataString.INT_THREE));
+					output.add(DataString.EMPTY_STRING + temp.charAt(DataString.INT_ZERO) + 
+							temp.charAt(DataString.INT_ONE));
+					output.add(DataString.EMPTY_STRING + temp.charAt(DataString.INT_TWO) +
+							temp.charAt(DataString.INT_THREE));
 				}
 			}else if(temp.length() == DataString.INT_TWO){
 				output.add(temp);

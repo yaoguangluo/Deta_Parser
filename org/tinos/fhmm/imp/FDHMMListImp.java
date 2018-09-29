@@ -35,7 +35,8 @@ public class FDHMMListImp implements FDHMMList{
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, DataString.GBK_STRING));  
 		String ctempString = null; 
 		while ((ctempString = cReader.readLine()) != null) {  
-			if(!ctempString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
+			if(!ctempString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.
+					EMPTY_STRING)) {
 				words.put(ctempString, DataString.INT_ONE);
 				for(int i = DataString.INT_ZERO; i < ctempString.length(); i++) {
 					if(linkedHashMap.containsKey(DataString.EMPTY_STRING + ctempString.charAt(i))) {
@@ -84,7 +85,8 @@ public class FDHMMListImp implements FDHMMList{
 		BufferedReader cReaderojld = new BufferedReader(new InputStreamReader(ojld, DataString.GBK_STRING));  
 		String ctempStringojld = null; 
 		while ((ctempStringojld = cReaderojld.readLine()) != null) {  
-			if(!ctempStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
+			if(!ctempStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).
+					equals(DataString.EMPTY_STRING)) {
 				euclid += ctempStringojld;
 			}
 		}

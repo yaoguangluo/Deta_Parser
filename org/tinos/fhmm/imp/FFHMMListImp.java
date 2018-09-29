@@ -33,22 +33,26 @@ public class FFHMMListImp implements FFHMMList{
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, DataString.GBK_STRING));  
 		String ctempString = null; 
 		while ((ctempString = cReader.readLine()) != null) {  
-			if(!ctempString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
+			if(!ctempString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.
+					EMPTY_STRING)) {
 				words.put(ctempString, DataString.INT_ONE);
 				for(int i = DataString.INT_ZERO; i < ctempString.length(); i++) {
 					if(linkedHashMap.containsKey(DataString.EMPTY_STRING + ctempString.charAt(i))) {
 						FFHMMNode fFHMMNode = linkedHashMap.get(DataString.EMPTY_STRING + ctempString.charAt(i));
 						if(fFHMMNode.next != null) {
 							if(i + DataString.INT_ONE < ctempString.length()) {
-								if(!fFHMMNode.next.containsKey(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE))) {
-									fFHMMNode.next.put(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE), DataString.INT_ONE);
+								if(!fFHMMNode.next.containsKey(DataString.EMPTY_STRING + ctempString.charAt(i +
+										DataString.INT_ONE))) {
+									fFHMMNode.next.put(DataString.EMPTY_STRING + ctempString.charAt(i + 
+											DataString.INT_ONE), DataString.INT_ONE);
 									linkedHashMap.put(DataString.EMPTY_STRING + ctempString.charAt(i), fFHMMNode);
 								}
 							}
 						}else {
 							LinkedHashMap<String, Integer>  temp = new  LinkedHashMap<String, Integer> ();
 							if(i + DataString.INT_ONE < ctempString.length()) {
-								temp.put(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE), DataString.INT_ONE);
+								temp.put(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE), 
+										DataString.INT_ONE);
 							} 
 							fFHMMNode.next = temp;
 							linkedHashMap.put(DataString.EMPTY_STRING + ctempString.charAt(i), fFHMMNode);
@@ -58,7 +62,8 @@ public class FFHMMListImp implements FFHMMList{
 						fFHMMNode.vb = DataString.EMPTY_STRING + ctempString.charAt(i);
 						if(i + DataString.INT_ONE < ctempString.length()) {
 							fFHMMNode.next = new LinkedHashMap<String, Integer>();
-							fFHMMNode.next.put(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE), DataString.INT_ONE);
+							fFHMMNode.next.put(DataString.EMPTY_STRING + ctempString.charAt(i + 
+									DataString.INT_ONE), DataString.INT_ONE);
 						}
 						linkedHashMap.put(DataString.EMPTY_STRING + ctempString.charAt(i), fFHMMNode);
 					}
@@ -71,7 +76,8 @@ public class FFHMMListImp implements FFHMMList{
 		BufferedReader cReaderojld = new BufferedReader(new InputStreamReader(ojld, DataString.GBK_STRING));  
 		String ctempStringojld  = null; 
 		while ((ctempStringojld = cReaderojld.readLine()) != null) {  
-			if(!ctempStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
+			if(!ctempStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).
+					equals(DataString.EMPTY_STRING)) {
 				euclid += ctempStringojld;
 			}
 		}
