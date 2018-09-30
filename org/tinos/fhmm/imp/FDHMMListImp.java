@@ -132,12 +132,12 @@ public class FDHMMListImp implements FDHMMList{
 		this.linkedHashMap = linkedHashMap;
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public Map<Integer, Map> getLinkedHashMapRoot() {
 		return linkedHashMapRoot;
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public void setLinkedHashMapRoot(Map<Integer, Map> linkedHashMapRoot) {
 		this.linkedHashMapRoot = linkedHashMapRoot;
 	}
