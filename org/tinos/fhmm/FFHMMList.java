@@ -7,9 +7,9 @@ public interface FFHMMList extends FHMMList{
 	public Map<String, FFHMMNode> getFMap();
 	public Map<String, FFHMMNode> getLinkedHashMap();
 	public void setLinkedHashMap(Map<String, FFHMMNode> linkedHashMap);
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public Map<Integer, Map> getLinkedHashMapRoot() ;
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public void setLinkedHashMapRoot(Map<Integer, Map> linkedHashMapRoot) ;
 	public void setEuclid(String euclid) ;
 	public void setWords(Map<String, Integer> words) ;
