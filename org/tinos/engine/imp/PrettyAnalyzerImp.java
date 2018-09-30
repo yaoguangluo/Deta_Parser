@@ -34,7 +34,7 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 		return output;
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public List<String> kerner(List<String> output, int depth, int length, Map<Integer, Map> roots, Map<String, Integer> words,
 			String euclid, String input) {
 		EngineUtils engineUtils = new EngineUtilsImp();

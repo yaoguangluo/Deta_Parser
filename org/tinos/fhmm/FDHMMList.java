@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import org.tinos.obj.FDHMMNode;
+import org.tinos.zabbi.DataString;
 public interface FDHMMList extends FHMMList{
 	public Map<String, FDHMMNode> getMap();
 	public void index() throws IOException ;
