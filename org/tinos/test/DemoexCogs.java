@@ -9,7 +9,8 @@ import java.util.concurrent.Executors;
 
 import org.tinos.engine.Analyzer;
 import org.tinos.engine.imp.BinaryForestAnalyzerImp;
-import org.tinos.engine.imp.FastAnalyzerImp;
+import org.tinos.engine.imp.CogsBinaryForestAnalyzerImp;
+import org.tinos.engine.imp.BaseAnalyzerImp;
 import org.tinos.engine.imp.PrettyAnalyzerImp;
 import timeProcessor.TimeCheck;
 @SuppressWarnings("unused")
@@ -18,21 +19,16 @@ public class DemoexCogs{
 	static String ss;
 	static int c=0;
 	public static void main(String []args) throws IOException, InterruptedException{
-		Analyzer analyzer = new BinaryForestAnalyzerImp();  //哈希森林索引
-		//Analyzer analyzer = new FastAnalyzerImp();        //快速线性索引
-		//Analyzer analyzer = new PrettyAnalyzerImp();      //线性森林索引
-		//Analyzer analyzer = new BaseAnalyzerImp();        //一元线性索引
-		//Analyzer analyzer = new ScoreAnalyzerImp();       //森林打分索引
+		Analyzer analyzer = new CogsBinaryForestAnalyzerImp();  
+		//Analyzer analyzer = new FastAnalyzerImp();      
+		//Analyzer analyzer = new PrettyAnalyzerImp();    
+		//Analyzer analyzer = new BaseAnalyzerImp();     
+		//Analyzer analyzer = new ScoreAnalyzerImp();     
 		analyzer.init();
 		//返回分词数据集合
 		sets =new CopyOnWriteArrayList<>();
 		TimeCheck tc = new TimeCheck();
-		String ss = "如果从容易开始于是从容不迫天下等于是非常识时务必为俊杰沿海南方向逃跑他说的确实在"
-				  + "结婚的和尚的提高产品质量中外科学名著内科学是临床医学的基础 内科学作为临床医未结婚"
-				  +"如果从容易开始于是从容不迫天下等于是非常识时务必为俊杰沿海南方向逃跑他说的确实在"
-				  + "结婚的和尚未结婚的提高产品质量中外科学名著内科学是临床医学的基础 内科学作为临床医"
-				  + "结婚的和尚未结婚的提高产品质量中外科学名著内科学是临床医学的基础 内科学作为临床医"
-				  +"如果从容易开始于是从容不迫天下等于是非常识时务必为俊杰沿海南方向逃跑他说的确实在"
+		String ss ="如果从容易开始于是从容不迫天下等于是非常识时务必为俊杰沿海南方向逃跑他说的确实在"
 				  + "结婚的和尚的提高产品质量中外科学名著内科学是临床医学的基础 内科学作为临床医未结婚"
 				  +"如果从容易开始于是从容不迫天下等于是非常识时务必为俊杰沿海南方向逃跑他说的确实在"
 				  + "结婚的和尚未结婚的提高产品质量中外科学名著内科学是临床医学的基础 内科学作为临床医"

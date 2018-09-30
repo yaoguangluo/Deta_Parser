@@ -6,7 +6,7 @@ import java.util.Map;
 import org.tinos.engine.BinaryForestAnalyzer;
 import org.tinos.fhmm.FHMMList;
 import org.tinos.fhmm.NeroFeedHMM;
-import org.tinos.fhmm.imp.FFHMMListImp;
+import org.tinos.fhmm.imp.FHHMMListImp;
 import org.tinos.fhmm.imp.NeroFeedHMMImp;
 import org.tinos.utils.EngineUtils;
 import org.tinos.utils.imp.EngineUtilsImp;
@@ -17,7 +17,7 @@ public class BinaryForestAnalyzerImp implements  BinaryForestAnalyzer{
 	
 	@Override
 	public void init() throws IOException {
-		this.fHMMList = new FFHMMListImp();
+		this.fHMMList = new FHHMMListImp();
 		fHMMList.index();
 		neroFeedHMM = new NeroFeedHMMImp(); 
 	}
@@ -32,7 +32,8 @@ public class BinaryForestAnalyzerImp implements  BinaryForestAnalyzer{
 		int length = input.length();
 		int depth = DataString.INT_ZERO;
 		int tempLength;
-		for(int i = DataString.INT_ZERO; i < length; i += (tempLength == DataString.INT_ZERO ? DataString.INT_ONE : tempLength)){
+		for(int i = DataString.INT_ZERO; i < length; i += (tempLength == DataString.INT_ZERO ? 
+				DataString.INT_ONE : tempLength)){
 			String temp = DataString.EMPTY_STRING + input.charAt(i);
 			temp = neroFeedHMM.getBinaryForestRecurWord(temp, input, i, length, roots, depth);
 			if(temp.length() == DataString.INT_THREE) {
