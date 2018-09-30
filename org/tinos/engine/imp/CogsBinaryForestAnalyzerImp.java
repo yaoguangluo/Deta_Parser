@@ -14,17 +14,17 @@ import org.tinos.zabbi.DataString;
 public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 	private FHMMList fHMMList;
 	private NeroFeedHMM neroFeedHMM;
-	
+	private EngineUtils engineUtils;
 	@Override
 	public void init() throws IOException {
 		this.fHMMList = new FMHMMListImp();
 		fHMMList.index();
 		neroFeedHMM = new NeroFeedHMMImp(); 
+		engineUtils = new EngineUtilsImp();
 	}
 	
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public List<String> parserString(String input) {
-		EngineUtils engineUtils = new EngineUtilsImp();
 		Map <String, Integer> words = fHMMList.getWords();
 		String euclid = fHMMList.getEuclid();
 		List<String> output = new ArrayList<>();
@@ -36,12 +36,14 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 				DataString.INT_ONE : tempLength)){
 			String temp = DataString.EMPTY_STRING + input.charAt(i);
 			temp = neroFeedHMM.getBinaryForestRecurWord(temp, input, i, length, roots, depth);
-			if(temp.length() == DataString.INT_THREE) {
-				output = engineUtils.doEuclidCheck(output, euclid, temp);
-			}else if(temp.length() == DataString.INT_FOUR) {
-				output = engineUtils.doSlangCheck(output,words,temp);
+			if(temp.length() == DataString.INT_ONE){
+				output.add(temp);
 			}else if(temp.length() == DataString.INT_TWO){
 				output.add(temp);
+			}else if(temp.length() == DataString.INT_THREE) {
+				output = engineUtils.doEuclidCheck(output, euclid, temp);
+			}else if(temp.length() == DataString.INT_FOUR){
+				output = engineUtils.doSlangCheck(output,words,temp);
 			}else{
 				for(int j = DataString.INT_ZERO; j < temp.length(); j++) {
 					output.add(DataString.EMPTY_STRING + temp.charAt(j));

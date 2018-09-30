@@ -36,8 +36,7 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public List<String> kerner(List<String> output, int depth, int length, Map<Integer, Map> roots,
-			Map<String, Integer> words,
-			String euclid, String input) {
+			Map<String, Integer> words, String euclid, String input) {
 		EngineUtils engineUtils = new EngineUtilsImp();
 		int tempLength;
 		for(int i = DataString.INT_ZERO; i < length; i += (tempLength == DataString.INT_ZERO ?
@@ -46,9 +45,9 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 			String temp = charPosition;
 			temp = neroFeedHMM.getPrettyRecurWord(temp, input, i, length, roots, depth);
 			if(temp.length() == DataString.INT_THREE) {
-				output = engineUtils.doEuclidCheck(output,euclid,temp);
+				output = engineUtils.doEuclidCheck(output, euclid, temp);
 			}else if(temp.length() == DataString.INT_FOUR) {
-				output = engineUtils.doSlangCheck(output,words,temp);
+				output = engineUtils.doSlangCheck(output, words, temp);
 			}else if(temp.length() == DataString.INT_TWO){ 
 				output.add(temp);
 			}else{

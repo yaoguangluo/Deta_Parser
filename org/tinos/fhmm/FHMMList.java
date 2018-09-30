@@ -8,4 +8,8 @@ public abstract interface FHMMList{
 	public Map<String, Integer> getWords();
 	public void index() throws IOException;
 	public String getEuclid();
+	public void setEuclid(String euclid) ;
+	public void setWords(Map<String, Integer> words) ;
+	@SuppressWarnings(DataString.RAW_TYPES)
+	public Map<Integer, Map> getLinkedHashMapRoot() ;
 }
