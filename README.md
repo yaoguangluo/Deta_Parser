@@ -1,6 +1,6 @@
 ## Fast-Chinese-NeroParser
 #
-### 版本号：2.2.6 经过SONAR 最高级认证（感知最高认证，语义最高认证，语法最高认证，行为最高认证，逻辑最高认证）。
+### 版本号：3.0.0 经过SONAR 最高级认证（感知最高认证，语义最高认证，语法最高认证，行为最高认证，逻辑最高认证）。
 ####支持海量并发运算，后端接口调用运算，纯全接口同步运算。
 ####2.2.6版本涉及多核运算正在研发中，谢谢。稍后更新请等待。
 ### 一种 基于 《神经森林网络》+《欧基里德加权》+《2分法位运算》+《索引树深度搜索》+《词性修正策略》 的 中文分词包 每秒高达1050万中文简体字准确分词。大小55Kb，如果想用多核模式，可以自己写 parallelStream() 函数去实现，jdk8以上已经支持, 本人定义协议为FreeBSD, 可任意集成到任何公司组织个人项目中,谢谢。
@@ -13,8 +13,12 @@
 #
 ## 使用如下：
 ###   //1 实例化
-    //Analyzer analyzer=new PrettyAnalyzerImp() ;//线性森林加权分析
-    Analyzer analyzer=new BinaryForestAnalyzerImp() ;//哈希森林加权分析
+   		//Analyzer analyzer = new CogsBinaryForestAnalyzerImp();  //哈希森林索引 多核多线程安全 支持并发
+		Analyzer analyzer = new BinaryForestAnalyzerImp();  //哈希森林索引 单线程
+		//Analyzer analyzer = new FastAnalyzerImp();        //快速线性索引 单线程
+		//Analyzer analyzer = new PrettyAnalyzerImp();      //线性森林索引 单线程
+		//Analyzer analyzer = new BaseAnalyzerImp();        //一元线性索引
+		//Analyzer analyzer = new ScoreAnalyzerImp();       //森林打分索引
 ###   //2初始
     analyzer.init();
 ###   //3 创建字符串 utf 8
