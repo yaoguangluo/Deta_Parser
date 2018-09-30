@@ -14,9 +14,9 @@ public interface FDHMMList extends FHMMList{
 	public Map<String, Integer> getWords() ;
 	public Map<String, FDHMMNode> getLinkedHashMap() ;
 	public void setLinkedHashMap(Map<String, FDHMMNode> linkedHashMap) ;
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public Map<Integer, Map> getLinkedHashMapRoot();
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public void setLinkedHashMapRoot(Map<Integer, Map> linkedHashMapRoot);
 	public void setEuclid(String euclid) ;
 	public void setWords(Map<String, Integer> words);
