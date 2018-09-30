@@ -68,7 +68,7 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 				return temp;
 	}
 	
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public String doBinaryForestRecurWordKerner(String temp, FFHMMNode fFHMMNode, int length, String input, int i, Map<Integer, Map> roots, int depth) {
 		if(fFHMMNode != null && fFHMMNode.getNext() != null) {
 			Map<String, Integer> tempList = fFHMMNode.getNext();
@@ -86,7 +86,7 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 		return temp;
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public String doPrettyRecurWordKerner(String temp, FDHMMNode fDHMMNode, int length, String input, int i, Map<Integer, Map> roots, int depth) {
 		if(fDHMMNode != null && fDHMMNode.getNext() != null) {
 			List<String> tempList = fDHMMNode.getNext();
