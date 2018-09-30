@@ -12,8 +12,8 @@ public interface NeroFeedHMM{
 			Map<Integer, Map> roots, int depth);
 	public String getFastRecurWord(String temp, Map<String, FDHMMNode> maps,
 			String input, int i, int length);
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public String doBinaryForestRecurWordKerner(String temp, FFHMMNode fFHMMNode, int length, String input, int i, Map<Integer, Map> roots,int depth) ;
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public String doPrettyRecurWordKerner(String temp, FDHMMNode fDHMMNode, int length, String input, int i, Map<Integer, Map> roots, int depth) ;
 }
