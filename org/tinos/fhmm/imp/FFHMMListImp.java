@@ -24,12 +24,12 @@ public class FFHMMListImp implements FFHMMList{
 		this.linkedHashMap = linkedHashMap;
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public Map<Integer, Map> getLinkedHashMapRoot() {
 		return linkedHashMapRoot;
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public void setLinkedHashMapRoot(Map<Integer, Map> linkedHashMapRoot) {
 		this.linkedHashMapRoot = linkedHashMapRoot;
 	}
@@ -42,7 +42,7 @@ public class FFHMMListImp implements FFHMMList{
 		this.words = words;
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public Map<Integer, Map> getRoot() {
 		return this.linkedHashMapRoot;
 	}
