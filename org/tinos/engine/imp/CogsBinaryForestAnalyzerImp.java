@@ -56,4 +56,5 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 		return outputString;
 	}
 }
+
  

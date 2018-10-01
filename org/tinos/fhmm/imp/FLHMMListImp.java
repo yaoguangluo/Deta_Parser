@@ -76,25 +76,25 @@ public class FLHMMListImp implements FLHMMList{
 		return linkedHashMap;
 	}
 
-	public Map<String, FLHMMNode> doNeroPostCognitive(FLHMMNode fDHMMNode, String cTempString, int i) {
+	public Map<String, FLHMMNode> doNeroPostCognitive(FLHMMNode fDHMMNode, String cTempString, int Positon) {
 		if(fDHMMNode.getNext() != null) {
 			List<String> temp = fDHMMNode.getNext();
 			int find = DataString.INT_ZERO;
 			for(int j = DataString.INT_ZERO; j < temp.size(); j++) {
-				if(i + DataString.INT_ONE < cTempString.length()) {
-					find = docheckNeroPostFix(temp, j, cTempString, i, find);
+				if(Positon + DataString.INT_ONE < cTempString.length()) {
+					find = docheckNeroPostFix(temp, j, cTempString, Positon, find);
 				}	 
 			}
 			if(find == DataString.INT_ZERO) {
-				linkedHashMap = doRunNeroPostFIX(i, cTempString, fDHMMNode, temp);
+				linkedHashMap = doRunNeroPostFIX(Positon, cTempString, fDHMMNode, temp);
 			}
 		}else {
 			List<String> temp = new CopyOnWriteArrayList<>();
-			if(i + DataString.INT_ONE < cTempString.length()) {
-				temp.add(DataString.EMPTY_STRING + cTempString.charAt(i + DataString.INT_ONE));
+			if(Positon + DataString.INT_ONE < cTempString.length()) {
+				temp.add(DataString.EMPTY_STRING + cTempString.charAt(Positon + DataString.INT_ONE));
 			} 
 			fDHMMNode.setNext(temp);
-			linkedHashMap.put(DataString.EMPTY_STRING + cTempString.charAt(i), fDHMMNode);
+			linkedHashMap.put(DataString.EMPTY_STRING + cTempString.charAt(Positon), fDHMMNode);
 		}
 		return linkedHashMap;
 	}

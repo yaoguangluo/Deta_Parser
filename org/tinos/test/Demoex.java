@@ -29,7 +29,7 @@ public class Demoex{
 		System.out.println("计时开始");
 		tc.begin();
 		long c=0;
-		for(int i = 0; i < 30000; i++) {//重复执行 3万次 相当于600 万字分词
+		for(int i = 0; i < 40000; i++) {//重复执行 4万次 相当于800 万字分词
 			sets = analyzer.parserString(ss); 
 		}
 		tc.end();;
