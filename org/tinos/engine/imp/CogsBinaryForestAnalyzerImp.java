@@ -46,8 +46,9 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 			}else if(tempWordNode.length() == DataString.INT_FOUR){
 				outputString = engineUtils.doSlangCheck(outputString, wordsForest, tempWordNode);
 			}else{
-				for(int j = DataString.INT_ZERO; j < tempWordNode.length(); j++) {
-					outputString.add(DataString.EMPTY_STRING + tempWordNode.charAt(j));
+				for(int tempWordNodeCharPosition = DataString.INT_ZERO; tempWordNodeCharPosition < tempWordNode.length();
+						tempWordNodeCharPosition++) {
+					outputString.add(DataString.EMPTY_STRING + tempWordNode.charAt(tempWordNodeCharPosition));
 				}
 			}			
 			tempInputStringLength = tempWordNode.length();
@@ -55,5 +56,4 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 		return outputString;
 	}
 }
-
  
