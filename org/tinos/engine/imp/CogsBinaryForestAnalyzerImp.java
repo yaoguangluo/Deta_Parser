@@ -28,7 +28,7 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 		Map <String, Integer> wordsForest = fHMMList.getWords();
 		String linerEuclid = fHMMList.getEuclid();
 		List<String> outputString = new ArrayList<>();
-		Map <Integer, Map> roots = fHMMList.getRoot();
+		Map <Integer, Map> forestRoots = fHMMList.getRoot();
 		int inputStringLength = inputString.length();
 		int forestDepth = DataString.INT_ZERO;
 		int tempInputStringLength;
@@ -36,7 +36,7 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 				(tempInputStringLength == DataString.INT_ZERO ? DataString.INT_ONE : tempInputStringLength)){
 			String tempWordNode = DataString.EMPTY_STRING + inputString.charAt(charPosition);
 			tempWordNode = neroFeedHMM.getBinaryForestRecurWord(tempWordNode, inputString, charPosition, 
-					inputStringLength, roots, forestDepth);
+					inputStringLength, forestRoots, forestDepth);
 			if(tempWordNode.length() == DataString.INT_ONE){
 				outputString.add(tempWordNode);
 			}else if(tempWordNode.length() == DataString.INT_TWO){

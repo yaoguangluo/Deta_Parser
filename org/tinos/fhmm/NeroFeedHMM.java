@@ -5,8 +5,8 @@ import org.tinos.obj.FHHMMNode;
 import org.tinos.zabbi.DataString;
 public interface NeroFeedHMM{
 	@SuppressWarnings(DataString.RAW_TYPES)
-	public String getBinaryForestRecurWord(String temp, String input, int i, int length, 
-			Map<Integer, Map> roots, int forestforestDepth);
+	public String getBinaryForestRecurWord(String tempWordNode, String inputString, int charPosition, int inputStringLength, 
+			Map<Integer, Map> forestRoots, int forestDepth);
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public String getPrettyRecurWord(String temp, String input, int i, int length, 
 			Map<Integer, Map> roots, int forestDepth);

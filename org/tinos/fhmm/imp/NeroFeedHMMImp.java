@@ -51,23 +51,24 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 	
 	@Override
 	@SuppressWarnings({DataString.RAW_TYPES, DataString.UNCHECKED})
-	public String getBinaryForestRecurWord(String temp, String input, int i, int length, Map<Integer, Map> 
-	roots, int forestDepth) {
+	public String getBinaryForestRecurWord(String tempWordNode, String inputString, int charPosition, int inputStringLength, 
+			Map<Integer, Map> forestRoots, int forestDepth) {
 		if(forestDepth == DataString.INT_THREE) {
-			return temp;
+			return tempWordNode;
 		}
-		String charPosition = DataString.EMPTY_STRING + input.charAt(i);	
-		int range = ((int)(charPosition.charAt(DataString.INT_ZERO)) >> DataString.INT_SIX);
+		String StringPosition = DataString.EMPTY_STRING + inputString.charAt(charPosition);	
+		int range = ((int)(StringPosition.charAt(DataString.INT_ZERO)) >> DataString.INT_SIX);
 		int rangeHigh = range >> DataString.INT_FOUR; 	
-				if(roots.containsKey(rangeHigh)){
-					Map <Integer, Map> root = roots.get(rangeHigh);
-					if(root.containsKey(range)){
-						Map<String, FHHMMNode> maps = root.get(range);
-						FHHMMNode fFHMMNode = maps.get(charPosition);
-						temp = doBinaryForestRecurWordKerner(temp, fFHMMNode, length, input, i, roots, forestDepth);
+				if(forestRoots.containsKey(rangeHigh)){
+					Map <Integer, Map> trees = forestRoots.get(rangeHigh);
+					if(trees.containsKey(range)){
+						Map<String, FHHMMNode> maps = trees.get(range);
+						FHHMMNode fFHMMNode = maps.get(StringPosition);
+						tempWordNode = doBinaryForestRecurWordKerner(tempWordNode, fFHMMNode, inputStringLength, inputString,
+								charPosition, forestRoots, forestDepth);
 					}
 				}
-				return temp;
+				return tempWordNode;
 	}
 	
 	@SuppressWarnings(DataString.RAW_TYPES)
