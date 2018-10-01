@@ -3,14 +3,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import org.tinos.fhmm.FLHMMList;
 import org.tinos.obj.FLHMMNode;
 import org.tinos.utils.imp.UtilsImp;
 import org.tinos.zabbi.DataString;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 public class FLHMMListImp implements FLHMMList{
 	private String euclid;
 	private Map <String, Integer> words;
@@ -42,7 +42,7 @@ public class FLHMMListImp implements FLHMMList{
 			}
 		}
 		cReader.close();
-		linkedHashMapRoot = new UtilsImp().lEuclid(linkedHashMap);	
+		linkedHashMapRoot = new UtilsImp().linerEuclid(linkedHashMap);	
 		InputStream ojld = getClass().getResourceAsStream(DataString.OGLD_SOURSE_LINK);
 		BufferedReader cReaderojld = new BufferedReader(new InputStreamReader(ojld, DataString.GBK_STRING));  
 		String ctempStringojld = null; 

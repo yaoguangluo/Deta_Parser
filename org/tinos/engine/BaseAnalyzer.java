@@ -1,5 +1,5 @@
 package org.tinos.engine;
-public interface BaseAnalyzer extends Analyzer {
+public abstract interface BaseAnalyzer extends Analyzer {
 }
 
  

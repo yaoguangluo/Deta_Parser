@@ -31,10 +31,6 @@ public class Demoex{
 		long c=0;
 		for(int i = 0; i < 30000; i++) {//重复执行 3万次 相当于600 万字分词
 			sets = analyzer.parserString(ss); 
-//			for(int j = 0; j < ss.length(); j++) {//重复执行 3万次 相当于600 万字分
-//				c +=	ss.charAt(j);
-//				c +=	ss.charAt(j);
-//			}
 		}
 		tc.end();;
 		System.out.println("计时结束");

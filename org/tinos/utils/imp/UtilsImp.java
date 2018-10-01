@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 public class UtilsImp implements Utils{
 	@SuppressWarnings({ DataString.RAW_TYPES, DataString.UNCHECKED })
-	public Map <Integer, Map> lEuclid(Map<String, FLHMMNode> concurrentHashMap) {
+	public Map <Integer, Map> linerEuclid(Map<String, FLHMMNode> concurrentHashMap) {
 		Map <Integer, Map> concurrentHashMapRoot = new LinkedHashMap<>();
 		Iterator<String> iter = concurrentHashMap.keySet().iterator();
 		while (iter.hasNext()) {
@@ -41,7 +41,7 @@ public class UtilsImp implements Utils{
 	}
 	
 	@SuppressWarnings({ DataString.RAW_TYPES, DataString.UNCHECKED })
-	public Map<Integer, Map> hEuclid(Map<String, FHHMMNode> concurrentHashMap) {
+	public Map<Integer, Map> hashEuclid(Map<String, FHHMMNode> concurrentHashMap) {
 		Map <Integer, Map> concurrentHashMapRoot = new LinkedHashMap <>();
 		Iterator<String> iter = concurrentHashMap.keySet().iterator();
 		while (iter.hasNext()) {
@@ -74,7 +74,7 @@ public class UtilsImp implements Utils{
 	
 	
 	@SuppressWarnings({ DataString.RAW_TYPES, DataString.UNCHECKED })
-	public Map<Integer, Map> mEuclid(Map<String, FHHMMNode> concurrentHashMap) {
+	public Map<Integer, Map> mcogsEuclid(Map<String, FHHMMNode> concurrentHashMap) {
 		Map <Integer, Map> concurrentHashMapRoot = new ConcurrentHashMap <>();
 		Iterator<String> iter = concurrentHashMap.keySet().iterator();
 		while (iter.hasNext()) {

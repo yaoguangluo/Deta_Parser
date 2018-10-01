@@ -67,7 +67,7 @@ public class FMHMMListImp implements FMHMMList{
 			}
 		}
 		cReader.close();
-		linkedHashMapRoot = new UtilsImp().mEuclid(linkedHashMap);	
+		linkedHashMapRoot = new UtilsImp().mcogsEuclid(linkedHashMap);	
 		InputStream ojld = getClass().getResourceAsStream(DataString.OGLD_SOURSE_LINK);
 		BufferedReader cReaderojld = new BufferedReader(new InputStreamReader(ojld, DataString.GBK_STRING));  
 		String ctempStringojld  = null; 

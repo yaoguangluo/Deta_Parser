@@ -1,5 +1,5 @@
 package org.tinos.engine;
-public interface CogsBinaryForestAnalyzer extends BinaryForestAnalyzer{
+public abstract interface CogsBinaryForestAnalyzer extends BinaryForestAnalyzer{
 }
 
  

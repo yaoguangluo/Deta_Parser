@@ -17,7 +17,7 @@ import timeProcessor.TimeCheck;
 public class DemoexCogs{
 	static List<List<String>> sets ;
 	static String ss;
-	static int c=0;
+	static int c = 0;
 	public static void main(String []args) throws IOException, InterruptedException{
 		Analyzer analyzer = new CogsBinaryForestAnalyzerImp();  
 		//Analyzer analyzer = new FastAnalyzerImp();      
@@ -35,10 +35,10 @@ public class DemoexCogs{
 				  + "结婚的和尚未结婚的提高产品质量中外科学名著内科学是临床医学的基础 内科学作为临床医"; //大概400字
 		System.out.println("");
 		System.out.println("计时开始");
-		ExecutorService eXECUTOR_SERVICE = Executors.newFixedThreadPool(1);	
+		ExecutorService executorService = Executors.newFixedThreadPool(1);	
 		tc.begin();	
 		for(int i = 0; i < 25000; i++) { //重复执行 10万次 相当于1000 万字分词
-			eXECUTOR_SERVICE.submit(new TaskWithResult(i, analyzer, ss));
+			executorService.submit(new TaskWithResult(i, analyzer, ss));
 		}
 		while(sets.size() < 25000) {//拿到4000万总数线程跳出
 			Thread.sleep(300);

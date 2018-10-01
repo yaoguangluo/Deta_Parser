@@ -1,5 +1,5 @@
 package org.tinos.engine;
-public interface BinaryForestAnalyzer extends Analyzer{
+public abstract interface BinaryForestAnalyzer extends Analyzer{
 }
 
  

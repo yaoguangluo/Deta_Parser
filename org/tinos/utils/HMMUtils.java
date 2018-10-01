@@ -1,3 +1,3 @@
 package org.tinos.utils;
-public interface HMMUtils{
+public abstract interface HMMUtils{
 }

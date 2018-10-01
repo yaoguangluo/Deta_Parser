@@ -27,31 +27,32 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 	public List<String> parserString(String inputString) {
 		Map <String, Integer> wordsForest = fHMMList.getWords();
 		String linerEuclid = fHMMList.getEuclid();
-		List<String> output = new ArrayList<>();
+		List<String> outputString = new ArrayList<>();
 		Map <Integer, Map> roots = fHMMList.getRoot();
 		int inputStringLength = inputString.length();
 		int forestDepth = DataString.INT_ZERO;
 		int tempInputStringLength;
-		for(int charPosition = DataString.INT_ZERO; charPosition < inputStringLength; charPosition += (tempInputStringLength 
-				== DataString.INT_ZERO ? DataString.INT_ONE : tempInputStringLength)){
-			String temp = DataString.EMPTY_STRING + inputString.charAt(charPosition);
-			temp = neroFeedHMM.getBinaryForestRecurWord(temp, inputString, charPosition, inputStringLength, roots, forestDepth);
-			if(temp.length() == DataString.INT_ONE){
-				output.add(temp);
-			}else if(temp.length() == DataString.INT_TWO){
-				output.add(temp);
-			}else if(temp.length() == DataString.INT_THREE) {
-				output = engineUtils.doEuclidCheck(output, linerEuclid, temp);
-			}else if(temp.length() == DataString.INT_FOUR){
-				output = engineUtils.doSlangCheck(output, wordsForest, temp);
+		for(int charPosition = DataString.INT_ZERO; charPosition < inputStringLength; charPosition += 
+				(tempInputStringLength == DataString.INT_ZERO ? DataString.INT_ONE : tempInputStringLength)){
+			String tempWordNode = DataString.EMPTY_STRING + inputString.charAt(charPosition);
+			tempWordNode = neroFeedHMM.getBinaryForestRecurWord(tempWordNode, inputString, charPosition, 
+					inputStringLength, roots, forestDepth);
+			if(tempWordNode.length() == DataString.INT_ONE){
+				outputString.add(tempWordNode);
+			}else if(tempWordNode.length() == DataString.INT_TWO){
+				outputString.add(tempWordNode);
+			}else if(tempWordNode.length() == DataString.INT_THREE) {
+				outputString = engineUtils.doEuclidCheck(outputString, linerEuclid, tempWordNode);
+			}else if(tempWordNode.length() == DataString.INT_FOUR){
+				outputString = engineUtils.doSlangCheck(outputString, wordsForest, tempWordNode);
 			}else{
-				for(int j = DataString.INT_ZERO; j < temp.length(); j++) {
-					output.add(DataString.EMPTY_STRING + temp.charAt(j));
+				for(int j = DataString.INT_ZERO; j < tempWordNode.length(); j++) {
+					outputString.add(DataString.EMPTY_STRING + tempWordNode.charAt(j));
 				}
 			}			
-			tempInputStringLength = temp.length();
+			tempInputStringLength = tempWordNode.length();
 		}
-		return output;
+		return outputString;
 	}
 }
 
