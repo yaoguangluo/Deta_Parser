@@ -24,32 +24,32 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 	}
 	
 	@SuppressWarnings(DataString.RAW_TYPES)
-	public List<String> parserString(String input) {
-		Map <String, Integer> words = fHMMList.getWords();
-		String euclid = fHMMList.getEuclid();
+	public List<String> parserString(String inputString) {
+		Map <String, Integer> wordsForest = fHMMList.getWords();
+		String linerEuclid = fHMMList.getEuclid();
 		List<String> output = new ArrayList<>();
 		Map <Integer, Map> roots = fHMMList.getRoot();
-		int length = input.length();
-		int depth = DataString.INT_ZERO;
-		int tempLength;
-		for(int i = DataString.INT_ZERO; i < length; i += (tempLength == DataString.INT_ZERO ?
-				DataString.INT_ONE : tempLength)){
-			String temp = DataString.EMPTY_STRING + input.charAt(i);
-			temp = neroFeedHMM.getBinaryForestRecurWord(temp, input, i, length, roots, depth);
+		int inputStringLength = inputString.length();
+		int forestDepth = DataString.INT_ZERO;
+		int tempInputStringLength;
+		for(int charPosition = DataString.INT_ZERO; charPosition < inputStringLength; charPosition += (tempInputStringLength 
+				== DataString.INT_ZERO ? DataString.INT_ONE : tempInputStringLength)){
+			String temp = DataString.EMPTY_STRING + inputString.charAt(charPosition);
+			temp = neroFeedHMM.getBinaryForestRecurWord(temp, inputString, charPosition, inputStringLength, roots, forestDepth);
 			if(temp.length() == DataString.INT_ONE){
 				output.add(temp);
 			}else if(temp.length() == DataString.INT_TWO){
 				output.add(temp);
 			}else if(temp.length() == DataString.INT_THREE) {
-				output = engineUtils.doEuclidCheck(output, euclid, temp);
+				output = engineUtils.doEuclidCheck(output, linerEuclid, temp);
 			}else if(temp.length() == DataString.INT_FOUR){
-				output = engineUtils.doSlangCheck(output,words,temp);
+				output = engineUtils.doSlangCheck(output, wordsForest, temp);
 			}else{
 				for(int j = DataString.INT_ZERO; j < temp.length(); j++) {
 					output.add(DataString.EMPTY_STRING + temp.charAt(j));
 				}
 			}			
-			tempLength = temp.length();
+			tempInputStringLength = temp.length();
 		}
 		return output;
 	}

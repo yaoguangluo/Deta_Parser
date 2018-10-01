@@ -8,8 +8,8 @@ import org.tinos.zabbi.DataString;
 public class NeroFeedHMMImp implements NeroFeedHMM{
 	@SuppressWarnings({DataString.RAW_TYPES, DataString.UNCHECKED})
 	public String getPrettyRecurWord(String temp, String input, int i, int length, Map<Integer, Map> roots,
-			int depth) {
-		if(depth == DataString.INT_THREE) {
+			int forestDepth) {
+		if(forestDepth == DataString.INT_THREE) {
 			return temp;
 		}
 		String charPosition = DataString.EMPTY_STRING + input.charAt(i);	
@@ -20,7 +20,7 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 			if(root.containsKey(range)){
 				Map<String, FLHMMNode> maps = root.get(range);
 				FLHMMNode fDHMMNode = maps.get(charPosition);
-				temp = doPrettyRecurWordKerner(temp, fDHMMNode, length, input, i, roots, depth);
+				temp = doPrettyRecurWordKerner(temp, fDHMMNode, length, input, i, roots, forestDepth);
 			}
 		}
 		return temp;
@@ -52,8 +52,8 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 	@Override
 	@SuppressWarnings({DataString.RAW_TYPES, DataString.UNCHECKED})
 	public String getBinaryForestRecurWord(String temp, String input, int i, int length, Map<Integer, Map> 
-	roots, int depth) {
-		if(depth == DataString.INT_THREE) {
+	roots, int forestDepth) {
+		if(forestDepth == DataString.INT_THREE) {
 			return temp;
 		}
 		String charPosition = DataString.EMPTY_STRING + input.charAt(i);	
@@ -64,15 +64,15 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 					if(root.containsKey(range)){
 						Map<String, FHHMMNode> maps = root.get(range);
 						FHHMMNode fFHMMNode = maps.get(charPosition);
-						temp = doBinaryForestRecurWordKerner(temp, fFHMMNode, length, input, i, roots, depth);
+						temp = doBinaryForestRecurWordKerner(temp, fFHMMNode, length, input, i, roots, forestDepth);
 					}
 				}
 				return temp;
 	}
 	
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public String doBinaryForestRecurWordKerner(String temp, FHHMMNode fFHMMNode, int length, String input,
-			int i, Map<Integer, Map> roots, int depth) {
+			int i, Map<Integer, Map> roots, int forestDepth) {
 		if(fFHMMNode != null && fFHMMNode.getNext() != null) {
 			Map<String, Integer> tempList = fFHMMNode.getNext();
 			if(i + DataString.INT_ONE < length) {
@@ -83,7 +83,7 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 					bld.append(charPostPosition);
 					temp = bld.toString();
 					temp = getBinaryForestRecurWord(temp, input, i + DataString.INT_ONE, length, roots,
-							depth + DataString.INT_ONE);
+							forestDepth + DataString.INT_ONE);
 				}
 			}
 		}
@@ -92,7 +92,7 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public String doPrettyRecurWordKerner(String temp, FLHMMNode fDHMMNode, int length, String input, int i, 
-			Map<Integer, Map> roots, int depth) {
+			Map<Integer, Map> roots, int forestDepth) {
 		if(fDHMMNode != null && fDHMMNode.getNext() != null) {
 			List<String> tempList = fDHMMNode.getNext();
 			for(int j = DataString.INT_ZERO; j < tempList.size(); j++) {
@@ -104,7 +104,7 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 						bld.append(charPostPosition);
 						temp = bld.toString();
 						temp = getPrettyRecurWord(temp, input, i + DataString.INT_ONE, length, roots, 
-								depth+DataString.INT_ONE);
+								forestDepth+DataString.INT_ONE);
 					}
 				}
 			}

@@ -22,7 +22,7 @@ public class FLHMMListImp implements FLHMMList{
 		return this.linkedHashMapRoot;
 	}
 	
-	public Map<String, FLHMMNode> getMap() {
+	public Map<String, FLHMMNode> getForestMaps() {
 		return this.linkedHashMap;
 	}
 	
