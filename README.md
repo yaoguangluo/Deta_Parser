@@ -32,7 +32,7 @@
 ####   //5 输出
     int j=0;
 		for(int i = 0; i < sets.size(); i++){
-			System.out.print(sets.get(i)+"-");
+			System.out.print(sets.get(i)+" | ");
 			j++;
 			if(j>25) {
 				j=0;
