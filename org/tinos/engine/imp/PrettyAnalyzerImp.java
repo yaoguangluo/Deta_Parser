@@ -15,7 +15,6 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 	private FHMMList fLHMMList;
 	private NeroFeedHMM neroFeedHMM;
 	
-	@Override
 	public void init() throws IOException {
 		fLHMMList = new FLHMMListImp();
 		fLHMMList.index();
@@ -24,9 +23,9 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 	
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public List<String> parserString(String input) {
-		Map <String, Integer> words = fLHMMList.getWords();
+		Map <String, String> words = fLHMMList.getWords();
 		String euclid = fLHMMList.getEuclid();
-		List<String> output = new ArrayList<>();
+		List<String> output = new ArrayList<String>();
 		Map <Integer, Map> roots = fLHMMList.getRoot();
 		int length = input.length();
 		int depth = DataString.INT_ZERO;
@@ -36,7 +35,7 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public List<String> kerner(List<String> output, int depth, int length, Map<Integer, Map> roots,
-			Map<String, Integer> words, String euclid, String input) {
+			Map<String, String> words, String euclid, String input) {
 		EngineUtils engineUtils = new EngineUtilsImp();
 		int tempLength;
 		for(int i = DataString.INT_ZERO; i < length; i += (tempLength == DataString.INT_ZERO ?
@@ -58,6 +57,11 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 			tempLength = temp.length();
 		}
 		return output;
+	}
+
+	public Map<String, String> getWord() throws IOException {
+		// TODO Auto-generated method stub
+		return fLHMMList.getWords();
 	}	
 }
 

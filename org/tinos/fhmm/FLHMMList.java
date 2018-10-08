@@ -6,7 +6,7 @@ import org.tinos.zabbi.DataString;
 public interface FLHMMList extends FHMMList{
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public Map<Integer, Map> getLinkedHashMapRoot();
-	public void setWords(Map<String, Integer> words);
+	public void setWords(Map<String, String> words);
 	public Map<String, FLHMMNode> getForestMaps();
 	public Map<String, FLHMMNode> getLinkedHashMap() ;
 	public Map<String, FLHMMNode> loopLoadForest(String cTempString);

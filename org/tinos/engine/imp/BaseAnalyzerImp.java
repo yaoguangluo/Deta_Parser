@@ -20,7 +20,7 @@ public class BaseAnalyzerImp implements  BaseAnalyzer{
 	}
 
 	public List<String> parserString(String input) {
-		List<String> output = new ArrayList<>();
+		List<String> output = new ArrayList<String>();
 		Map<String, FLHMMNode> linerForestMaps = fLHMMList.getForestMaps();
 		int length = input.length();
 		int tempLength; 
@@ -32,6 +32,11 @@ public class BaseAnalyzerImp implements  BaseAnalyzer{
 			tempLength = temp.length();
 		}
 		return output;
+	}
+
+	public Map<String, String> getWord() throws IOException {
+		// TODO Auto-generated method stub
+		return fLHMMList.getWords();
 	}
 
 }

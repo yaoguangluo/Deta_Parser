@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 public class FLHMMListImp implements FLHMMList{
 	private String euclid;
-	private Map <String, Integer> words;
+	private Map <String, String> words;
 	private Map <String, FLHMMNode> linkedHashMap;
 	@SuppressWarnings(DataString.RAW_TYPES)
 	private Map<Integer, Map> linkedHashMapRoot;
@@ -26,18 +26,19 @@ public class FLHMMListImp implements FLHMMList{
 		return this.linkedHashMap;
 	}
 	
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public void index() throws IOException {
-		words = new ConcurrentHashMap <>();
+		words = new ConcurrentHashMap <String, String>();
 		euclid = DataString.EMPTY_STRING;
-		linkedHashMap = new ConcurrentHashMap <>();
-		linkedHashMapRoot = new ConcurrentHashMap <>();
+		linkedHashMap = new ConcurrentHashMap <String, FLHMMNode>();
+		linkedHashMapRoot = new ConcurrentHashMap <Integer, Map>();
 		InputStream in = getClass().getResourceAsStream(DataString.WORDS_SOURSE_LINK);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, DataString.GBK_STRING));  
 		String cTempString = null; 
 		while ((cTempString = cReader.readLine()) != null) {  
 			if(!cTempString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.
 					EMPTY_STRING)) {
-				words.put(cTempString, DataString.INT_ONE);	
+				words.put(cTempString.split("/")[0], cTempString.split("/")[1]);	
 				linkedHashMap = loopLoadForest(cTempString);
 			}
 		}
@@ -66,7 +67,7 @@ public class FLHMMListImp implements FLHMMList{
 				FLHMMNode fDHMMNode = new FLHMMNode();
 				fDHMMNode.setVb(DataString.EMPTY_STRING + cTempString.charAt(i));
 				if(i + DataString.INT_ONE < cTempString.length()) {
-					List<String> next = new CopyOnWriteArrayList<> ();
+					List<String> next = new CopyOnWriteArrayList<String> ();
 					next.add(DataString.EMPTY_STRING + cTempString.charAt(i + DataString.INT_ONE));
 					fDHMMNode.setNext(next);
 				}
@@ -89,7 +90,7 @@ public class FLHMMListImp implements FLHMMList{
 				linkedHashMap = doRunNeroPostFIX(Positon, cTempString, fDHMMNode, temp);
 			}
 		}else {
-			List<String> temp = new CopyOnWriteArrayList<>();
+			List<String> temp = new CopyOnWriteArrayList<String>();
 			if(Positon + DataString.INT_ONE < cTempString.length()) {
 				temp.add(DataString.EMPTY_STRING + cTempString.charAt(Positon + DataString.INT_ONE));
 			} 
@@ -120,7 +121,7 @@ public class FLHMMListImp implements FLHMMList{
 		return this.euclid;
 	}
 
-	public Map<String, Integer> getWords() {
+	public Map<String, String> getWords() {
 		return this.words;
 	}
 	
@@ -146,7 +147,7 @@ public class FLHMMListImp implements FLHMMList{
 		this.euclid = euclid;
 	}
 
-	public void setWords(Map<String, Integer> words) {
+	public void setWords(Map<String, String> words) {
 		this.words = words;
 	}
 	

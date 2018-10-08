@@ -4,7 +4,7 @@ import java.util.Map;
 import org.tinos.utils.EngineUtils;
 import org.tinos.zabbi.DataString;
 public class EngineUtilsImp implements EngineUtils{
-	public List<String> doSlangCheck(List<String> output, Map<String, Integer> words, String temp) {
+	public List<String> doSlangCheck(List<String> output, Map<String, String> words, String temp) {
 		if(words.containsKey(temp)){
 			output.add(temp);
 		}else {

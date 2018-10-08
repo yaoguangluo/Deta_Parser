@@ -11,4 +11,3 @@ public abstract interface Utils{
 	@SuppressWarnings({DataString.RAW_TYPES})
 	public Map<Integer, Map> mcogsEuclid(Map<String, FHHMMNode> concurrentHashMap);
 }
-

@@ -49,7 +49,6 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 		return temp;
 	}
 	
-	@Override
 	@SuppressWarnings({DataString.RAW_TYPES, DataString.UNCHECKED})
 	public String getBinaryForestRecurWord(String tempWordNode, String inputString, int charPosition, int inputStringLength, 
 			Map<Integer, Map> forestRoots, int forestDepth) {

@@ -15,7 +15,6 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 	private FHMMList fHMMList;
 	private NeroFeedHMM neroFeedHMM;
 	private EngineUtils engineUtils;
-	@Override
 	public void init() throws IOException {
 		this.fHMMList = new FMHMMListImp();
 		fHMMList.index();
@@ -25,9 +24,9 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 	
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public List<String> parserString(String inputString) {
-		Map <String, Integer> wordsForest = fHMMList.getWords();
+		Map <String, String> wordsForest = fHMMList.getWords();
 		String linerEuclid = fHMMList.getEuclid();
-		List<String> outputString = new ArrayList<>();
+		List<String> outputString = new ArrayList<String>();
 		Map <Integer, Map> forestRoots = fHMMList.getRoot();
 		int inputStringLength = inputString.length();
 		int forestDepth = DataString.INT_ZERO;
@@ -37,6 +36,8 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 			String tempWordNode = DataString.EMPTY_STRING + inputString.charAt(charPosition);
 			tempWordNode = neroFeedHMM.getBinaryForestRecurWord(tempWordNode, inputString, charPosition, 
 					inputStringLength, forestRoots, forestDepth);
+			int tempWordNodeLength = tempWordNode.length();
+			tempInputStringLength = tempWordNodeLength;
 			if(tempWordNode.length() == DataString.INT_ONE){
 				outputString.add(tempWordNode);
 			}else if(tempWordNode.length() == DataString.INT_TWO){
@@ -51,9 +52,13 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 					outputString.add(DataString.EMPTY_STRING + tempWordNode.charAt(tempWordNodeCharPosition));
 				}
 			}			
-			tempInputStringLength = tempWordNode.length();
 		}
 		return outputString;
+	}
+
+	public Map<String, String> getWord() throws IOException {
+		// TODO Auto-generated method stub
+		return fHMMList.getWords();
 	}
 }
 

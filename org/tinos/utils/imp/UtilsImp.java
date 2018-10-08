@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class UtilsImp implements Utils{
 	@SuppressWarnings({ DataString.RAW_TYPES, DataString.UNCHECKED })
 	public Map <Integer, Map> linerEuclid(Map<String, FLHMMNode> linkedHashMap) {
-		Map <Integer, Map> linkedHashMapRoot = new LinkedHashMap<>();
+		Map <Integer, Map> linkedHashMapRoot = new LinkedHashMap<Integer, Map>();
 		Iterator<String> iter = linkedHashMap.keySet().iterator();
 		while (iter.hasNext()) {
 			String keyValue = iter.next();
@@ -24,15 +24,15 @@ public class UtilsImp implements Utils{
 					root.put(range, temp);
 					linkedHashMapRoot.put(rangeHigh, root);
 				}else {
-					LinkedHashMap <String, FLHMMNode> temp = new LinkedHashMap <>();
+					LinkedHashMap <String, FLHMMNode> temp = new LinkedHashMap <String, FLHMMNode>();
 					temp.put(keyValue,linkedHashMap.get(keyValue));
 					root.put(range, temp);
 					linkedHashMapRoot.put(rangeHigh, root);
 				}
 			}else {
-					LinkedHashMap <String, FLHMMNode> temp = new LinkedHashMap <>();
+					LinkedHashMap <String, FLHMMNode> temp = new LinkedHashMap <String, FLHMMNode>();
 					temp.put(keyValue, linkedHashMap.get(keyValue));
-					LinkedHashMap <Integer,LinkedHashMap> root = new LinkedHashMap <>();
+					LinkedHashMap <Integer,LinkedHashMap> root = new LinkedHashMap <Integer, LinkedHashMap>();
 					root.put(range, temp);
 					linkedHashMapRoot.put(rangeHigh, root);	
 			}		
@@ -42,7 +42,7 @@ public class UtilsImp implements Utils{
 	
 	@SuppressWarnings({ DataString.RAW_TYPES, DataString.UNCHECKED })
 	public Map<Integer, Map> hashEuclid(Map<String, FHHMMNode> linkedHashMap) {
-		Map <Integer, Map> linkedHashMapRoot = new LinkedHashMap <>();
+		Map <Integer, Map> linkedHashMapRoot = new LinkedHashMap <Integer, Map>();
 		Iterator<String> iter = linkedHashMap.keySet().iterator();
 		while (iter.hasNext()) {
 			String keyValue = iter.next();
@@ -56,15 +56,15 @@ public class UtilsImp implements Utils{
 					root.put(range, temp);
 					linkedHashMapRoot.put(rangeHigh, root);
 				}else {
-					LinkedHashMap <String, FHHMMNode> temp = new LinkedHashMap <>();
+					LinkedHashMap <String, FHHMMNode> temp = new LinkedHashMap <String, FHHMMNode>();
 					temp.put(keyValue,linkedHashMap.get(keyValue));
 					root.put(range, temp);
 					linkedHashMapRoot.put(rangeHigh, root);
 				}
 			}else {
-					LinkedHashMap <String, FHHMMNode> temp = new LinkedHashMap <>();
+					LinkedHashMap <String, FHHMMNode> temp = new LinkedHashMap <String, FHHMMNode>();
 					temp.put(keyValue, linkedHashMap.get(keyValue));
-					LinkedHashMap <Integer,LinkedHashMap> root = new LinkedHashMap <>();
+					LinkedHashMap <Integer,LinkedHashMap> root = new LinkedHashMap <Integer, LinkedHashMap>();
 					root.put(range, temp);
 					linkedHashMapRoot.put(rangeHigh, root);	
 			}		
@@ -75,7 +75,7 @@ public class UtilsImp implements Utils{
 	
 	@SuppressWarnings({ DataString.RAW_TYPES, DataString.UNCHECKED })
 	public Map<Integer, Map> mcogsEuclid(Map<String, FHHMMNode> concurrentHashMap) {
-		Map <Integer, Map> concurrentHashMapRoot = new ConcurrentHashMap <>();
+		Map <Integer, Map> concurrentHashMapRoot = new ConcurrentHashMap <Integer, Map>();
 		Iterator<String> iter = concurrentHashMap.keySet().iterator();
 		while (iter.hasNext()) {
 			String keyValue = iter.next();
@@ -89,15 +89,15 @@ public class UtilsImp implements Utils{
 					root.put(range, temp);
 					concurrentHashMapRoot.put(rangeHigh, root);
 				}else {
-					ConcurrentHashMap <String, FHHMMNode> temp = new ConcurrentHashMap <>();
+					ConcurrentHashMap <String, FHHMMNode> temp = new ConcurrentHashMap <String, FHHMMNode>();
 					temp.put(keyValue,concurrentHashMap.get(keyValue));
 					root.put(range, temp);
 					concurrentHashMapRoot.put(rangeHigh, root);
 				}
 			}else {
-					ConcurrentHashMap <String, FHHMMNode> temp = new ConcurrentHashMap <>();
+					ConcurrentHashMap <String, FHHMMNode> temp = new ConcurrentHashMap <String, FHHMMNode>();
 					temp.put(keyValue, concurrentHashMap.get(keyValue));
-					ConcurrentHashMap <Integer,ConcurrentHashMap> root = new ConcurrentHashMap <>();
+					ConcurrentHashMap <Integer,ConcurrentHashMap> root = new ConcurrentHashMap <Integer, ConcurrentHashMap>();
 					root.put(range, temp);
 					concurrentHashMapRoot.put(rangeHigh, root);	
 			}		

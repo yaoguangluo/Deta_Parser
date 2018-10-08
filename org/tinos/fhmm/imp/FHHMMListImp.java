@@ -11,7 +11,7 @@ import org.tinos.utils.imp.UtilsImp;
 import org.tinos.zabbi.DataString;
 public class FHHMMListImp implements FHHMMList{
 	private String euclid;
-	private Map <String, Integer> words;
+	private Map <String, String> words;
 	private Map <String, FHHMMNode> linkedHashMap;
 	@SuppressWarnings(DataString.RAW_TYPES)
 	private Map <Integer, Map> linkedHashMapRoot;
@@ -37,7 +37,7 @@ public class FHHMMListImp implements FHHMMList{
 		this.euclid = euclid;
 	}
 
-	public void setWords(Map<String, Integer> words) {
+	public void setWords(Map<String, String> words) {
 		this.words = words;
 	}
 
@@ -50,19 +50,20 @@ public class FHHMMListImp implements FHHMMList{
 		return this.linkedHashMap;
 	}
 	
+	@SuppressWarnings(DataString.RAW_TYPES)
 	public void index() throws IOException {
-		words = new LinkedHashMap <>();
+		words = new LinkedHashMap <String, String>();
 		euclid = DataString.EMPTY_STRING;
-		linkedHashMap = new LinkedHashMap <>();
-		linkedHashMapRoot = new LinkedHashMap <>();
+		linkedHashMap = new LinkedHashMap <String, FHHMMNode>();
+		linkedHashMapRoot = new LinkedHashMap <Integer, Map>();
 		InputStream in = getClass().getResourceAsStream(DataString.WORDS_SOURSE_LINK);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, DataString.GBK_STRING));  
-		String ctempString = null; 
-		while ((ctempString = cReader.readLine()) != null) {  
-			if(!ctempString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.
+		String cTempString = null; 
+		while ((cTempString = cReader.readLine()) != null) {  
+			if(!cTempString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.
 					EMPTY_STRING)) {
-				words.put(ctempString, DataString.INT_ONE);
-				linkedHashMap = loopLoadForest(ctempString);
+				words.put(cTempString.split("/")[0], cTempString.split("/")[1]);	
+				linkedHashMap = loopLoadForest(cTempString);
 				 
 			}
 		}
@@ -91,7 +92,7 @@ public class FHHMMListImp implements FHHMMList{
 				FHHMMNode fFHMMNode = new FHHMMNode();
 				fFHMMNode.setVb(DataString.EMPTY_STRING + ctempString.charAt(i));
 				if(i + DataString.INT_ONE < ctempString.length()) {
-					Map<String, Integer> next = new LinkedHashMap<>();
+					Map<String, Integer> next = new LinkedHashMap<String, Integer>();
 					next.put(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE), DataString.INT_ONE);
 					fFHMMNode.setNext(next);
 				}
@@ -107,7 +108,7 @@ public class FHHMMListImp implements FHHMMList{
 				linkedHashMap=doCheckAndRunNeroPostFix(fFHMMNode,ctempString,i);
 			}
 		}else {
-			LinkedHashMap<String, Integer>  temp = new  LinkedHashMap<> ();
+			LinkedHashMap<String, Integer>  temp = new  LinkedHashMap<String, Integer> ();
 			if(i + DataString.INT_ONE < ctempString.length()) {
 				temp.put(DataString.EMPTY_STRING + ctempString.charAt(i + DataString.INT_ONE), 
 						DataString.INT_ONE);
@@ -128,13 +129,11 @@ public class FHHMMListImp implements FHHMMList{
 		return linkedHashMap;
 	}
 	
-	@Override
 	public String getEuclid() {
 		return this.euclid;
 	}
 
-	@Override
-	public Map<String, Integer> getWords() {
+	public Map<String, String> getWords() {
 		return this.words;
 	}
 }

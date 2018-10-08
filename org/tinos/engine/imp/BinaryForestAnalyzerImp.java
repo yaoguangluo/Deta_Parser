@@ -16,7 +16,6 @@ public class BinaryForestAnalyzerImp implements  BinaryForestAnalyzer{
 	private NeroFeedHMM neroFeedHMM;
 	private EngineUtils engineUtils;
 	
-	@Override
 	public void init() throws IOException {
 		this.fHMMList = new FHHMMListImp();
 		fHMMList.index();
@@ -26,9 +25,9 @@ public class BinaryForestAnalyzerImp implements  BinaryForestAnalyzer{
 	
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public List<String> parserString(String input) {
-		Map <String, Integer> words = fHMMList.getWords();
+		Map <String, String> words = fHMMList.getWords();
 		String euclid = fHMMList.getEuclid();
-		List<String> output = new ArrayList<>();
+		List<String> output = new ArrayList<String>();
 		Map <Integer, Map> roots = fHMMList.getRoot();
 		int length = input.length();
 		int depth = DataString.INT_ZERO;
@@ -53,6 +52,11 @@ public class BinaryForestAnalyzerImp implements  BinaryForestAnalyzer{
 			tempLength = temp.length();
 		}
 		return output;
+	}
+
+	public Map<String, String> getWord() throws IOException {
+		// TODO Auto-generated method stub
+		return fHMMList.getWords();
 	}
 }
 
