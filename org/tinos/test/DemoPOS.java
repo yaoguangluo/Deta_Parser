@@ -19,33 +19,20 @@ public class DemoPOS{
 		analyzer.init();
 		Map<String, String> nlp = analyzer.getWord();
 		List<String> sets = new ArrayList<String>();
-		String ss = "如果从容易开始于是"
-				+ "从容不迫天下等于是"
-				+ "非常识时务必为俊杰"
-				+ "沿海南方向逃跑他说"
-				+ "的确实在理结婚的和"
-				+ "尚未结婚的提高产品"
-				+ "质量中外科学名著内"
-				+ "沿海南方向逃跑他说"
-				+ "的确实在理结婚的和"
-				+ "尚未结婚的提高产品"
-				+ "质量中外科学名著内"
-				+ "科学是临床医学的基础"
-				+ "内科学作为临床医学"
-				+ "的确实在理结婚的和"
-				+ "尚未结婚的提高产品"
-				+ "质量中外科学名著内"
-				+ "科学是临床医学的基础"
-				+ "内科学作为临床医学"
-				+ "的基础学科，重点论";//200字
-		long c=0;
+		String ss = "内科学作为临床医学的基础学科，重点论述人体各个系统各种疾病的病因、发病机" + 
+				"制、临床表现、诊断、治疗与预防。编纂《内科学》作为医学教育的教材，其目的是引导" + 
+				"医学生在已掌握基础医学、临床前期学科知识的基础上，从理论走向实践、从书本走向临" + 
+				"床，帮助他们掌握为患者诊治疾病的实际本领。";//150字
+		long c = 0;
 		TimeCheck t= new TimeCheck();
 		t.begin();
-		for(int i = 0; i < 100000; i++) { //次10万次 循环 相当于 2000万字文章
+		for(int i = 0; i < 100000; i++) { //次10万次 循环 相当于 1500万字文章
 			sets = analyzer.parserString(ss); 
 		}
 		t.end();
+		t.duration();
 		int j=0;
+		t.begin();
 		for(int i = 0; i < sets.size(); i++){
 			if(!sets.get(i).replaceAll("\\s+", "").equals("")) {
 				System.out.print(sets.get(i)+"/"+nlp.get(sets.get(i)) +"  ");
@@ -56,19 +43,19 @@ public class DemoPOS{
 				}
 			}
 		}
-		
-		System.out.println("");
-		System.out.println("");
-		for(int i = 0; i < sets.size(); i++){
-			if(!sets.get(i).replaceAll("\\s+", "").equals("")) {
-				System.out.print(sets.get(i)+" ");
-				j++;
-				if(j>8) {
-					j=0;
-					System.out.println("");
-				}
-			}
-		}
+		t.end();
+//		System.out.println("");
+//		System.out.println("");
+//		for(int i = 0; i < sets.size(); i++){
+//			if(!sets.get(i).replaceAll("\\s+", "").equals("")) {
+//				System.out.print(sets.get(i)+" ");
+//				j++;
+//				if(j>8) {
+//					j=0;
+//					System.out.println("");
+//				}
+//			}
+//		}
 		System.out.println("");
 		System.out.println("");
 		t.duration();

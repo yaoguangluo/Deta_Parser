@@ -35,7 +35,6 @@ public class BaseAnalyzerImp implements  BaseAnalyzer{
 	}
 
 	public Map<String, String> getWord() throws IOException {
-		// TODO Auto-generated method stub
 		return fLHMMList.getWords();
 	}
 

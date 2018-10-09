@@ -62,9 +62,10 @@ public class FMHMMListImp implements FMHMMList{
 		while ((cTempString = cReader.readLine()) != null) {  
 			if(!cTempString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.
 					EMPTY_STRING)) {
-				words.put(cTempString.split("/")[0], cTempString.split("/")[1]);	
-				linkedHashMap = loopLoadForest(cTempString);
-				 
+				if(cTempString.split("/").length > 1) {
+					words.put(cTempString.split("/")[0], cTempString.split("/")[1]);	
+					linkedHashMap = loopLoadForest(cTempString);
+				}			 
 			}
 		}
 		cReader.close();
