@@ -26,93 +26,92 @@ public class FLHMMListImp implements FLHMMList{
 		return this.linkedHashMap;
 	}
 	
-	@SuppressWarnings(DataString.RAW_TYPES)
 	public void index() throws IOException {
-		words = new ConcurrentHashMap <String, String>();
+		words = new ConcurrentHashMap <>();
 		euclid = DataString.EMPTY_STRING;
-		linkedHashMap = new ConcurrentHashMap <String, FLHMMNode>();
-		linkedHashMapRoot = new ConcurrentHashMap <Integer, Map>();
+		linkedHashMap = new ConcurrentHashMap <>();
+		linkedHashMapRoot = new ConcurrentHashMap <>();
 		InputStream in = getClass().getResourceAsStream(DataString.WORDS_SOURSE_LINK);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, DataString.GBK_STRING));  
-		String cTempString = null; 
-		while ((cTempString = cReader.readLine()) != null) {  		
-			if(!cTempString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.
-					EMPTY_STRING)&&cTempString.split(DataString.SLASH_STRING).length > DataString.INT_ONE) {
-					words.put(cTempString.split(DataString.SLASH_STRING)[DataString.INT_ZERO], cTempString.
+		String cInputString = null; 
+		while ((cInputString = cReader.readLine()) != null) {  		
+			if(!cInputString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.
+					EMPTY_STRING)&&cInputString.split(DataString.SLASH_STRING).length > DataString.INT_ONE) {
+					words.put(cInputString.split(DataString.SLASH_STRING)[DataString.INT_ZERO], cInputString.
 							split(DataString.SLASH_STRING)[DataString.INT_ONE]);	
-					linkedHashMap = loopLoadForest(cTempString);		 
+					linkedHashMap = loopLoadForest(cInputString);		 
 			}
 		}
 		cReader.close();
 		linkedHashMapRoot = new UtilsImp().linerEuclid(linkedHashMap);	
 		InputStream ojld = getClass().getResourceAsStream(DataString.OGLD_SOURSE_LINK);
 		BufferedReader cReaderojld = new BufferedReader(new InputStreamReader(ojld, DataString.GBK_STRING));  
-		String cTempStringojld = null; 
-		while ((cTempStringojld = cReaderojld.readLine()) != null) {  
-			if(!cTempStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
+		String cInputStringojld = null; 
+		while ((cInputStringojld = cReaderojld.readLine()) != null) {  
+			if(!cInputStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
 				 StringBuilder bld = new StringBuilder();
 				 bld.append(euclid);
-				 bld.append(cTempStringojld);
+				 bld.append(cInputStringojld);
 				 euclid = bld.toString();
 			}
 		}
 		cReaderojld.close();
 	}
 
-	public Map<String, FLHMMNode> loopLoadForest(String cTempString) {
-		for(int i = DataString.INT_ZERO; i < cTempString.length(); i++) {
-			if(linkedHashMap.containsKey(DataString.EMPTY_STRING + cTempString.charAt(i))) {
-				FLHMMNode fDHMMNode = linkedHashMap.get(DataString.EMPTY_STRING + cTempString.charAt(i));
-				linkedHashMap = doNeroPostCognitive(fDHMMNode,cTempString,i);
+	public Map<String, FLHMMNode> loopLoadForest(String cInputString) {
+		for(int i = DataString.INT_ZERO; i < cInputString.length(); i++) {
+			if(linkedHashMap.containsKey(DataString.EMPTY_STRING + cInputString.charAt(i))) {
+				FLHMMNode fDHMMNode = linkedHashMap.get(DataString.EMPTY_STRING + cInputString.charAt(i));
+				linkedHashMap = doNeroPostCognitive(fDHMMNode,cInputString,i);
 			}else {
 				FLHMMNode fDHMMNode = new FLHMMNode();
-				fDHMMNode.setVb(DataString.EMPTY_STRING + cTempString.charAt(i));
-				if(i + DataString.INT_ONE < cTempString.length()) {
-					List<String> next = new CopyOnWriteArrayList<String> ();
-					next.add(DataString.EMPTY_STRING + cTempString.charAt(i + DataString.INT_ONE));
+				fDHMMNode.setVb(DataString.EMPTY_STRING + cInputString.charAt(i));
+				if(i + DataString.INT_ONE < cInputString.length()) {
+					List<String> next = new CopyOnWriteArrayList<> ();
+					next.add(DataString.EMPTY_STRING + cInputString.charAt(i + DataString.INT_ONE));
 					fDHMMNode.setNext(next);
 				}
-				linkedHashMap.put(DataString.EMPTY_STRING + cTempString.charAt(i), fDHMMNode);
+				linkedHashMap.put(DataString.EMPTY_STRING + cInputString.charAt(i), fDHMMNode);
 			}
 		}
 		return linkedHashMap;
 	}
 
-	public Map<String, FLHMMNode> doNeroPostCognitive(FLHMMNode fDHMMNode, String cTempString, int Positon) {
+	public Map<String, FLHMMNode> doNeroPostCognitive(FLHMMNode fDHMMNode, String cInputString, int Positon) {
 		if(fDHMMNode.getNext() != null) {
-			List<String> temp = fDHMMNode.getNext();
+			List<String> list = fDHMMNode.getNext();
 			int find = DataString.INT_ZERO;
-			for(int j = DataString.INT_ZERO; j < temp.size(); j++) {
-				if(Positon + DataString.INT_ONE < cTempString.length()) {
-					find = docheckNeroPostFix(temp, j, cTempString, Positon, find);
+			for(int j = DataString.INT_ZERO; j < list.size(); j++) {
+				if(Positon + DataString.INT_ONE < cInputString.length()) {
+					find = docheckNeroPostFix(list, j, cInputString, Positon, find);
 				}	 
 			}
 			if(find == DataString.INT_ZERO) {
-				linkedHashMap = doRunNeroPostFIX(Positon, cTempString, fDHMMNode, temp);
+				linkedHashMap = doRunNeroPostFIX(Positon, cInputString, fDHMMNode, list);
 			}
 		}else {
-			List<String> temp = new CopyOnWriteArrayList<String>();
-			if(Positon + DataString.INT_ONE < cTempString.length()) {
-				temp.add(DataString.EMPTY_STRING + cTempString.charAt(Positon + DataString.INT_ONE));
+			List<String> list = new CopyOnWriteArrayList<String>();
+			if(Positon + DataString.INT_ONE < cInputString.length()) {
+				list.add(DataString.EMPTY_STRING + cInputString.charAt(Positon + DataString.INT_ONE));
 			} 
-			fDHMMNode.setNext(temp);
-			linkedHashMap.put(DataString.EMPTY_STRING + cTempString.charAt(Positon), fDHMMNode);
+			fDHMMNode.setNext(list);
+			linkedHashMap.put(DataString.EMPTY_STRING + cInputString.charAt(Positon), fDHMMNode);
 		}
 		return linkedHashMap;
 	}
 
-	public Map<String, FLHMMNode> doRunNeroPostFIX(int i, String cTempString, FLHMMNode fDHMMNode, List<String> temp) {
-		if(i + DataString.INT_ONE < cTempString.length()) {
-			temp.add(DataString.EMPTY_STRING + cTempString.charAt(i+DataString.INT_ONE));
-			fDHMMNode.setNext(temp);
-			linkedHashMap.put(DataString.EMPTY_STRING + cTempString.charAt(i), fDHMMNode);
+	public Map<String, FLHMMNode> doRunNeroPostFIX(int i, String cInputString, FLHMMNode fDHMMNode, List<String> list) {
+		if(i + DataString.INT_ONE < cInputString.length()) {
+			list.add(DataString.EMPTY_STRING + cInputString.charAt(i+DataString.INT_ONE));
+			fDHMMNode.setNext(list);
+			linkedHashMap.put(DataString.EMPTY_STRING + cInputString.charAt(i), fDHMMNode);
 		}
 		return linkedHashMap;
 	}
 
-	public int docheckNeroPostFix(List<String> temp, int j, String cTempString, int i, int find) {
-		if(temp.get(j).equalsIgnoreCase(DataString.EMPTY_STRING + 
-				cTempString.charAt(i + DataString.INT_ONE))){
+	public int docheckNeroPostFix(List<String> list, int j, String cInputString, int i, int find) {
+		if(list.get(j).equalsIgnoreCase(DataString.EMPTY_STRING + 
+				cInputString.charAt(i + DataString.INT_ONE))){
 			find = DataString.INT_ONE;
 		}
 		return find;

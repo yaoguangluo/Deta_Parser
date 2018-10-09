@@ -26,30 +26,31 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 	public List<String> parserString(String inputString) {
 		Map <String, String> wordsForest = fHMMList.getWords();
 		String linerEuclid = fHMMList.getEuclid();
-		List<String> outputString = new ArrayList<String>();
+		List<String> outputString = new ArrayList<>();
 		Map <Integer, Map> forestRoots = fHMMList.getRoot();
 		int inputStringLength = inputString.length();
 		int forestDepth = DataString.INT_ZERO;
-		int tempInputStringLength;
+		int countInputStringLength;
 		for(int charPosition = DataString.INT_ZERO; charPosition < inputStringLength; charPosition += 
-				(tempInputStringLength == DataString.INT_ZERO ? DataString.INT_ONE : tempInputStringLength)){
-			String tempWordNode = DataString.EMPTY_STRING + inputString.charAt(charPosition);
-			tempWordNode = neroFeedHMM.getBinaryForestRecurWord(tempWordNode, inputString, charPosition, 
+				(countInputStringLength == DataString.INT_ZERO ? DataString.INT_ONE : countInputStringLength)){
+			String countWordNode = DataString.EMPTY_STRING + inputString.charAt(charPosition);
+			countWordNode = neroFeedHMM.getBinaryForestRecurWord(countWordNode, inputString, charPosition, 
 					inputStringLength, forestRoots, forestDepth);
-			int tempWordNodeLength = tempWordNode.length();
-			tempInputStringLength = tempWordNodeLength;
-			if(tempWordNode.length() == DataString.INT_ONE){
-				outputString.add(tempWordNode);
-			}else if(tempWordNode.length() == DataString.INT_TWO){
-				outputString.add(tempWordNode);
-			}else if(tempWordNode.length() == DataString.INT_THREE) {
-				outputString = engineUtils.doEuclidCheck(outputString, linerEuclid, tempWordNode);
-			}else if(tempWordNode.length() == DataString.INT_FOUR){
-				outputString = engineUtils.doSlangCheck(outputString, wordsForest, tempWordNode);
+			int countWordNodeLength = countWordNode.length();
+			countInputStringLength = countWordNodeLength;
+			if(countWordNode.length() == DataString.INT_ONE){
+				outputString.add(countWordNode);
+			}else if(countWordNode.length() == DataString.INT_TWO){
+				outputString.add(countWordNode);
+			}else if(countWordNode.length() == DataString.INT_THREE) {
+				//outputString = engineUtils.doEuclidCheck(outputString, linerEuclid, countWordNode);
+				outputString = engineUtils.doPOSAndEMMCheck(outputString, linerEuclid, wordsForest, countWordNode);
+			}else if(countWordNode.length() == DataString.INT_FOUR){
+				outputString = engineUtils.doSlangCheck(outputString, wordsForest, countWordNode);
 			}else{
-				for(int tempWordNodeCharPosition = DataString.INT_ZERO; tempWordNodeCharPosition < tempWordNode.length();
-						tempWordNodeCharPosition++) {
-					outputString.add(DataString.EMPTY_STRING + tempWordNode.charAt(tempWordNodeCharPosition));
+				for(int countWordNodeCharPosition = DataString.INT_ZERO; countWordNodeCharPosition < countWordNode.length();
+						countWordNodeCharPosition++) {
+					outputString.add(DataString.EMPTY_STRING + countWordNode.charAt(countWordNodeCharPosition));
 				}
 			}			
 		}
@@ -57,7 +58,6 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 	}
 
 	public Map<String, String> getWord() throws IOException {
-		// TODO Auto-generated method stub
 		return fHMMList.getWords();
 	}
 }

@@ -9,29 +9,29 @@ import org.tinos.engine.imp.BaseAnalyzerImp;
 import org.tinos.engine.imp.PrettyAnalyzerImp;
 @SuppressWarnings("unused")
 public class PartOfSpeech{
-	public static void main(String args[]) throws IOException{
-		Analyzer analyzer = new CogsBinaryForestAnalyzerImp();  //¹şÏ£É­ÁÖË÷Òı ¶àºËÏß³Ì°²È« Ö§³Ö²¢·¢
-		//Analyzer analyzer = new BinaryForestAnalyzerImp();  //¹şÏ£É­ÁÖË÷Òı µ¥Ïß³Ì
-		//Analyzer analyzer = new FastAnalyzerImp();        //¿ìËÙÏßĞÔË÷Òı µ¥Ïß³Ì
-		//Analyzer analyzer = new PrettyAnalyzerImp();      //ÏßĞÔÉ­ÁÖË÷Òı µ¥Ïß³Ì
-		//Analyzer analyzer = new BaseAnalyzerImp();        //Ò»ÔªÏßĞÔË÷Òı
-		//Analyzer analyzer = new ScoreAnalyzerImp();       //É­ÁÖ´ò·ÖË÷Òı
+	public static void main(String []args) throws IOException{
+		Analyzer analyzer = new CogsBinaryForestAnalyzerImp();  //å“ˆå¸Œæ£®æ—ç´¢å¼• å¤šæ ¸çº¿ç¨‹å®‰å…¨ æ”¯æŒå¹¶å‘
+		//Analyzer analyzer = new BinaryForestAnalyzerImp();  //å“ˆå¸Œæ£®æ—ç´¢å¼• å•çº¿ç¨‹
+		//Analyzer analyzer = new FastAnalyzerImp();        //å¿«é€Ÿçº¿æ€§ç´¢å¼• å•çº¿ç¨‹
+		//Analyzer analyzer = new PrettyAnalyzerImp();      //çº¿æ€§æ£®æ—ç´¢å¼• å•çº¿ç¨‹
+		//Analyzer analyzer = new BaseAnalyzerImp();        //ä¸€å…ƒçº¿æ€§ç´¢å¼•
+		//Analyzer analyzer = new ScoreAnalyzerImp();       //æ£®æ—æ‰“åˆ†ç´¢å¼•
 		analyzer.init();
-		List<String> sets = new ArrayList<String>();
-		String ss = "Õâd ºÍÉĞm Î´x ½á»éd ºÍ ÉĞÎ´x ½á»éd µÄs ºÍÉĞm Î´x µ½d"  ;	
+		List<String> sets = new ArrayList<>();
+		String ss = "è¿™d å’Œå°šm æœªx ç»“å©šd å’Œ å°šæœªx ç»“å©šd çš„s å’Œå°šm æœªx åˆ°d"  ;	
 		System.out.println("");
-		System.out.println("¼ÆÊ±¿ªÊ¼");
+		System.out.println("è®¡æ—¶å¼€å§‹");
 		long c=0;
-		for(int i = 0; i < 10; i++) {//ÖØ¸´Ö´ĞĞ 4Íò´Î Ïàµ±ÓÚ800 Íò×Ö·Ö´Ê
+		for(int i = 0; i < 10; i++) {//é‡å¤æ‰§è¡Œ 4ä¸‡æ¬¡ ç›¸å½“äº800 ä¸‡å­—åˆ†è¯
 			sets = analyzer.parserString(ss); 
 		}
-		System.out.println("¼ÆÊ±½áÊø");
-		System.out.println("·Ö´ÊĞ§¹ûÈçÏÂ");
+		System.out.println("è®¡æ—¶ç»“æŸ");
+		System.out.println("åˆ†è¯æ•ˆæœå¦‚ä¸‹");
 		int j=0;
 		for(int i = 0; i < sets.size(); i++){
 			System.out.print(sets.get(i)+"  |  ");
 			j++;
-			if(j>15) {//Ã¿ĞĞ15¸ö´ÊÓïÊä³ö
+			if(j>15) {//æ¯è¡Œ15ä¸ªè¯è¯­è¾“å‡º
 				j=0;
 				System.out.println("");
 			}

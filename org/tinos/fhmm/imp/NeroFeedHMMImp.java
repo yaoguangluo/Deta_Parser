@@ -7,10 +7,10 @@ import org.tinos.obj.FHHMMNode;
 import org.tinos.zabbi.DataString;
 public class NeroFeedHMMImp implements NeroFeedHMM{
 	@SuppressWarnings({DataString.RAW_TYPES, DataString.UNCHECKED})
-	public String getPrettyRecurWord(String temp, String input, int i, int length, Map<Integer, Map> roots,
+	public String getPrettyRecurWord(String output, String input, int i, int length, Map<Integer, Map> roots,
 			int forestDepth) {
 		if(forestDepth == DataString.INT_THREE) {
-			return temp;
+			return output;
 		}
 		String charPosition = DataString.EMPTY_STRING + input.charAt(i);	
 		int range = ((int)(charPosition.charAt(DataString.INT_ZERO)) >> DataString.INT_SIX);
@@ -20,40 +20,40 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 			if(root.containsKey(range)){
 				Map<String, FLHMMNode> maps = root.get(range);
 				FLHMMNode fDHMMNode = maps.get(charPosition);
-				temp = doPrettyRecurWordKerner(temp, fDHMMNode, length, input, i, roots, forestDepth);
+				output = doPrettyRecurWordKerner(output, fDHMMNode, length, input, i, roots, forestDepth);
 			}
 		}
-		return temp;
+		return output;
 	}
 
-	public String getFastRecurWord(String temp, Map<String, FLHMMNode> maps, String input, int i, int length) {
+	public String getFastRecurWord(String output, Map<String, FLHMMNode> maps, String input, int i, int length) {
 		String charPosition = DataString.EMPTY_STRING + input.charAt(i);
 		if(maps.containsKey(charPosition)){
 			FLHMMNode fDHMMNode = maps.get(charPosition);
 			if(fDHMMNode.getNext() != null) {
-				List<String> tempList = fDHMMNode.getNext();
-				for(int j = DataString.INT_ZERO; j < tempList.size(); j++) {
+				List<String> outputList = fDHMMNode.getNext();
+				for(int j = DataString.INT_ZERO; j < outputList.size(); j++) {
 					if(i + DataString.INT_ONE < length) {
 						String charPostPosition = DataString.EMPTY_STRING + input.charAt(i + DataString.INT_ONE);
-						if(tempList.get(j).equalsIgnoreCase(charPostPosition)){
+						if(outputList.get(j).equalsIgnoreCase(charPostPosition)){
 							StringBuilder bld = new StringBuilder();
-							bld.append(temp);
+							bld.append(output);
 							bld.append(charPostPosition);
-							temp = bld.toString();
-							temp = getFastRecurWord(temp, maps, input, i + DataString.INT_ONE, length);
+							output = bld.toString();
+							output = getFastRecurWord(output, maps, input, i + DataString.INT_ONE, length);
 						}
 					}
 				}
 			}
 		}
-		return temp;
+		return output;
 	}
 	
 	@SuppressWarnings({DataString.RAW_TYPES, DataString.UNCHECKED})
-	public String getBinaryForestRecurWord(String tempWordNode, String inputString, int charPosition, int inputStringLength, 
+	public String getBinaryForestRecurWord(String outputWordNode, String inputString, int charPosition, int inputStringLength, 
 			Map<Integer, Map> forestRoots, int forestDepth) {
 		if(forestDepth == DataString.INT_THREE) {
-			return tempWordNode;
+			return outputWordNode;
 		}
 		String StringPosition = DataString.EMPTY_STRING + inputString.charAt(charPosition);	
 		int range = ((int)(StringPosition.charAt(DataString.INT_ZERO)) >> DataString.INT_SIX);
@@ -63,52 +63,52 @@ public class NeroFeedHMMImp implements NeroFeedHMM{
 					if(trees.containsKey(range)){
 						Map<String, FHHMMNode> maps = trees.get(range);
 						FHHMMNode fFHMMNode = maps.get(StringPosition);
-						tempWordNode = doBinaryForestRecurWordKerner(tempWordNode, fFHMMNode, inputStringLength, inputString,
+						outputWordNode = doBinaryForestRecurWordKerner(outputWordNode, fFHMMNode, inputStringLength, inputString,
 								charPosition, forestRoots, forestDepth);
 					}
 				}
-				return tempWordNode;
+				return outputWordNode;
 	}
 	
 	@SuppressWarnings(DataString.RAW_TYPES)
-	public String doBinaryForestRecurWordKerner(String temp, FHHMMNode fFHMMNode, int length, String input,
+	public String doBinaryForestRecurWordKerner(String output, FHHMMNode fFHMMNode, int length, String input,
 			int i, Map<Integer, Map> roots, int forestDepth) {
 		if(fFHMMNode != null && fFHMMNode.getNext() != null) {
-			Map<String, Integer> tempList = fFHMMNode.getNext();
+			Map<String, Integer> outputList = fFHMMNode.getNext();
 			if(i + DataString.INT_ONE < length) {
 				String charPostPosition = DataString.EMPTY_STRING + input.charAt(i + DataString.INT_ONE);
-				if(tempList.containsKey(charPostPosition)){
+				if(outputList.containsKey(charPostPosition)){
 					StringBuilder bld = new StringBuilder();
-					bld.append(temp);
+					bld.append(output);
 					bld.append(charPostPosition);
-					temp = bld.toString();
-					temp = getBinaryForestRecurWord(temp, input, i + DataString.INT_ONE, length, roots,
+					output = bld.toString();
+					output = getBinaryForestRecurWord(output, input, i + DataString.INT_ONE, length, roots,
 							forestDepth + DataString.INT_ONE);
 				}
 			}
 		}
-		return temp;
+		return output;
 	}
 
 	@SuppressWarnings(DataString.RAW_TYPES)
-	public String doPrettyRecurWordKerner(String temp, FLHMMNode fDHMMNode, int length, String input, int i, 
+	public String doPrettyRecurWordKerner(String output, FLHMMNode fDHMMNode, int length, String input, int i, 
 			Map<Integer, Map> roots, int forestDepth) {
 		if(fDHMMNode != null && fDHMMNode.getNext() != null) {
-			List<String> tempList = fDHMMNode.getNext();
-			for(int j = DataString.INT_ZERO; j < tempList.size(); j++) {
+			List<String> outputList = fDHMMNode.getNext();
+			for(int j = DataString.INT_ZERO; j < outputList.size(); j++) {
 				if(i + DataString.INT_ONE < length) {
 					String charPostPosition = DataString.EMPTY_STRING + input.charAt(i+DataString.INT_ONE);
-					if(tempList.get(j).equalsIgnoreCase(charPostPosition)){
+					if(outputList.get(j).equalsIgnoreCase(charPostPosition)){
 						StringBuilder bld = new StringBuilder();
-						bld.append(temp);
+						bld.append(output);
 						bld.append(charPostPosition);
-						temp = bld.toString();
-						temp = getPrettyRecurWord(temp, input, i + DataString.INT_ONE, length, roots, 
+						output = bld.toString();
+						output = getPrettyRecurWord(output, input, i + DataString.INT_ONE, length, roots, 
 								forestDepth+DataString.INT_ONE);
 					}
 				}
 			}
 		}
-		return temp;
+		return output;
 	}
 }

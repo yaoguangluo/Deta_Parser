@@ -20,16 +20,16 @@ public class BaseAnalyzerImp implements  BaseAnalyzer{
 	}
 
 	public List<String> parserString(String input) {
-		List<String> output = new ArrayList<String>();
+		List<String> output = new ArrayList<>();
 		Map<String, FLHMMNode> linerForestMaps = fLHMMList.getForestMaps();
 		int length = input.length();
-		int tempLength; 
-		for(int i = DataString.INT_ZERO; i < length; i += (tempLength == DataString.INT_ZERO ?
-				DataString.INT_ONE : tempLength)){
-			String temp = DataString.EMPTY_STRING + input.charAt(i);
-			temp = neroFeedHMM.getFastRecurWord(temp, linerForestMaps, input, i, length);
-			output.add(temp);
-			tempLength = temp.length();
+		int countLength; 
+		for(int i = DataString.INT_ZERO; i < length; i += (countLength == DataString.INT_ZERO ?
+				DataString.INT_ONE : countLength)){
+			String count = DataString.EMPTY_STRING + input.charAt(i);
+			count = neroFeedHMM.getFastRecurWord(count, linerForestMaps, input, i, length);
+			output.add(count);
+			countLength = count.length();
 		}
 		return output;
 	}

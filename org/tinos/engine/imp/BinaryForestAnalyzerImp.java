@@ -27,35 +27,34 @@ public class BinaryForestAnalyzerImp implements  BinaryForestAnalyzer{
 	public List<String> parserString(String input) {
 		Map <String, String> words = fHMMList.getWords();
 		String euclid = fHMMList.getEuclid();
-		List<String> output = new ArrayList<String>();
+		List<String> output = new ArrayList<>();
 		Map <Integer, Map> roots = fHMMList.getRoot();
 		int length = input.length();
 		int depth = DataString.INT_ZERO;
-		int tempLength;
-		for(int i = DataString.INT_ZERO; i < length; i += (tempLength == DataString.INT_ZERO ? 
-				DataString.INT_ONE : tempLength)){
-			String temp = DataString.EMPTY_STRING + input.charAt(i);
-			temp = neroFeedHMM.getBinaryForestRecurWord(temp, input, i, length, roots, depth);
-			if(temp.length() == DataString.INT_ONE){
-				output.add(temp);
-			}else if(temp.length() == DataString.INT_TWO){
-				output.add(temp);
-			}else if(temp.length() == DataString.INT_THREE) {
-				output = engineUtils.doEuclidCheck(output, euclid, temp);
-			}else if(temp.length() == DataString.INT_FOUR){
-				output = engineUtils.doSlangCheck(output,words,temp);
+		int countLength;
+		for(int i = DataString.INT_ZERO; i < length; i += (countLength == DataString.INT_ZERO ? 
+				DataString.INT_ONE : countLength)){
+			String count = DataString.EMPTY_STRING + input.charAt(i);
+			count = neroFeedHMM.getBinaryForestRecurWord(count, input, i, length, roots, depth);
+			if(count.length() == DataString.INT_ONE){
+				output.add(count);
+			}else if(count.length() == DataString.INT_TWO){
+				output.add(count);
+			}else if(count.length() == DataString.INT_THREE) {
+				output = engineUtils.doEuclidCheck(output, euclid, count);
+			}else if(count.length() == DataString.INT_FOUR){
+				output = engineUtils.doSlangCheck(output,words,count);
 			}else{
-				for(int j = DataString.INT_ZERO; j < temp.length(); j++) {
-					output.add(DataString.EMPTY_STRING + temp.charAt(j));
+				for(int j = DataString.INT_ZERO; j < count.length(); j++) {
+					output.add(DataString.EMPTY_STRING + count.charAt(j));
 				}
 			}			
-			tempLength = temp.length();
+			countLength = count.length();
 		}
 		return output;
 	}
 
 	public Map<String, String> getWord() throws IOException {
-		// TODO Auto-generated method stub
 		return fHMMList.getWords();
 	}
 }

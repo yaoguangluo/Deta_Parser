@@ -17,6 +17,16 @@ public class DataString{
 	public static final String UTF8_STRING = "UTF8";
 	public static final String WORDS_SOURSE_LINK = "words.lyg";
 	public static final String OGLD_SOURSE_LINK = "ogld.lyg";
+	public static final String NLP_XING_RONG_CI = "形容词";
+	public static final String NLP_QING_TAI_CI = "情态词";
+	public static final String NLP_ZHU_CI = "助词";
+	public static final String NLP_LIANG_CI = "量词";
+	public static final String NLP_FU_CI = "副词";
+	public static final String NLP_DAI_CI = "代词";
+	public static final String NLP_LIAN_CI = "连词";
+	public static final String NLP_MING_CI = "名词";
+	public static final String NLP_JIE_CI = "介词";
+	public static final String NLP_XIAN_DING_CI = "限定词";
 	private DataString() {
 		throw new IllegalStateException("Utility class");
 	}

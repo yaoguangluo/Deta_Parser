@@ -1,15 +1,11 @@
 package org.tinos.test;
 import java.io.IOException;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 import org.tinos.engine.Analyzer;
-import org.tinos.engine.imp.BinaryForestAnalyzerImp;
 import org.tinos.engine.imp.CogsBinaryForestAnalyzerImp;
 import org.tinos.engine.imp.BaseAnalyzerImp;
 import org.tinos.engine.imp.PrettyAnalyzerImp;
@@ -25,28 +21,21 @@ public class DemoexCogs{
 		//Analyzer analyzer = new BaseAnalyzerImp();     
 		//Analyzer analyzer = new ScoreAnalyzerImp();     
 		analyzer.init();
-		//返回分词数据集合
-		sets =new CopyOnWriteArrayList<List<String>>();
-		String ss =" 和尚未结婚"; //大概400字
+		sets =new CopyOnWriteArrayList<>();
+		String ss =" 从容易开始念经的和尚未从容易知和尚未结婚的施主"; 
 		System.out.println("");
-		System.out.println("计时开始");
-		ExecutorService executorService = Executors.newFixedThreadPool(1);	
-
-		for(int i = 0; i < 25000; i++) { //重复执行 10万次 相当于1000 万字分词
+		ExecutorService executorService = Executors.newFixedThreadPool(1);
+		for(int i = 0; i < 25000; i++) { 
 			executorService.submit(new TaskWithResult(i, analyzer, ss));
 		}
-		while(sets.size() < 25000) {//拿到4000万总数线程跳出
+		while(sets.size() < 25000) {
 			Thread.sleep(300);
 		}
-
-		System.out.println("计时结束"+sets.size());
-
-		System.out.println("分词效果如下");
 		int j=0;
 		for(int i = 0; i < sets.get(0).size(); i++){
 			System.out.print(sets.get(0).get(i)+"  |  ");
 			j++;
-			if(j>15) {//每行15个词语输出
+			if(j>15) {
 				j=0;
 				System.out.println("");
 			}

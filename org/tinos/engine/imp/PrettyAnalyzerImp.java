@@ -37,30 +37,29 @@ public class PrettyAnalyzerImp implements  PrettyAnalyzer{
 	public List<String> kerner(List<String> output, int depth, int length, Map<Integer, Map> roots,
 			Map<String, String> words, String euclid, String input) {
 		EngineUtils engineUtils = new EngineUtilsImp();
-		int tempLength;
-		for(int i = DataString.INT_ZERO; i < length; i += (tempLength == DataString.INT_ZERO ?
-				DataString.INT_ONE : tempLength)){
+		int inputStringLength;
+		for(int i = DataString.INT_ZERO; i < length; i += (inputStringLength == DataString.INT_ZERO ?
+				DataString.INT_ONE : inputStringLength)){
 			String charPosition = DataString.EMPTY_STRING + input.charAt(i);
-			String temp = charPosition;
-			temp = neroFeedHMM.getPrettyRecurWord(temp, input, i, length, roots, depth);
-			if(temp.length() == DataString.INT_THREE) {
-				output = engineUtils.doEuclidCheck(output, euclid, temp);
-			}else if(temp.length() == DataString.INT_FOUR) {
-				output = engineUtils.doSlangCheck(output, words, temp);
-			}else if(temp.length() == DataString.INT_TWO){ 
-				output.add(temp);
+			String charPositionforCaculation = charPosition;
+			charPositionforCaculation = neroFeedHMM.getPrettyRecurWord(charPositionforCaculation, input, i, length, roots, depth);
+			inputStringLength = charPositionforCaculation.length();
+			if(charPositionforCaculation.length() == DataString.INT_THREE) {
+				output = engineUtils.doEuclidCheck(output, euclid, charPositionforCaculation);
+			}else if(charPositionforCaculation.length() == DataString.INT_FOUR) {
+				output = engineUtils.doSlangCheck(output, words, charPositionforCaculation);
+			}else if(charPositionforCaculation.length() == DataString.INT_TWO){ 
+				output.add(charPositionforCaculation);
 			}else{
-				for(int j = DataString.INT_ZERO; j < temp.length(); j++) { 
-					output.add(DataString.EMPTY_STRING + temp.charAt(j));
+				for(int j = DataString.INT_ZERO; j < charPositionforCaculation.length(); j++) { 
+					output.add(DataString.EMPTY_STRING + charPositionforCaculation.charAt(j));
 				}
 			}			
-			tempLength = temp.length();
 		}
 		return output;
 	}
 
 	public Map<String, String> getWord() throws IOException {
-		// TODO Auto-generated method stub
 		return fLHMMList.getWords();
 	}	
 }
