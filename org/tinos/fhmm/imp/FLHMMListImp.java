@@ -35,11 +35,12 @@ public class FLHMMListImp implements FLHMMList{
 		InputStream in = getClass().getResourceAsStream(DataString.WORDS_SOURSE_LINK);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, DataString.GBK_STRING));  
 		String cTempString = null; 
-		while ((cTempString = cReader.readLine()) != null) {  
+		while ((cTempString = cReader.readLine()) != null) {  		
 			if(!cTempString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.
-					EMPTY_STRING)) {
-				words.put(cTempString.split("/")[0], cTempString.split("/")[1]);	
-				linkedHashMap = loopLoadForest(cTempString);
+					EMPTY_STRING)&&cTempString.split(DataString.SLASH_STRING).length > DataString.INT_ONE) {
+					words.put(cTempString.split(DataString.SLASH_STRING)[DataString.INT_ZERO], cTempString.
+							split(DataString.SLASH_STRING)[DataString.INT_ONE]);	
+					linkedHashMap = loopLoadForest(cTempString);		 
 			}
 		}
 		cReader.close();

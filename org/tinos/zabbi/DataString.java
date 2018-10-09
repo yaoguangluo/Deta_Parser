@@ -9,6 +9,7 @@ public class DataString{
 	public static final int INT_SIXTEEN = 16;
 	public static final int INT_SIXTY_FOUR = 64;
 	public static final String RAW_TYPES = "rawtypes";
+	public static final String SLASH_STRING = "/";
 	public static final String EMPTY_STRING = "";
 	public static final String SPACE_STRING = " ";
 	public static final String UNCHECKED = "unchecked";
