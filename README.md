@@ -14,7 +14,7 @@
 ## 使用方法：
 #### 1 支持 java JDK 8 以上。
 #### 2 大家可以自由添加词汇，添加在 org/tinos/fhmm/imp/words.lyg文件里。
-https://github.com/yaoguangluo/Fast_Chinese_NeroParser/blob/master/org/tinos/fhmm/imp/words.lyg
+https://github.com/yaoguangluo/Fast_Chinese_NeroParser/blob/master/org/tinos/ortho/fhmm/imp/words.lyg
 #### 2.1 大家可以自由添加 三连词 词汇的前后缀 动名与介词区分，添加在 org/tinos/fhmm/imp/ogld.lyg文件里。
 #### 3 可以看下org/tinos/test里面的例子。
 #
