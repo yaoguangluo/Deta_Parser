@@ -25,34 +25,32 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public List<String> parserString(String inputString) {
 		Map <String, String> wordsForest = fHMMList.getWords();
-		String linerEuclid = fHMMList.getEuclid();
 		List<String> outputString = new ArrayList<>();
 		Map <Integer, Map> forestRoots = fHMMList.getRoot();
 		int inputStringLength = inputString.length();
 		int forestDepth = DataString.INT_ZERO;
 		int countInputStringLength;
-		for(int charPosition = DataString.INT_ZERO; charPosition < inputStringLength; charPosition += 
-				(countInputStringLength == DataString.INT_ZERO ? DataString.INT_ONE : countInputStringLength)){
+		for(int charPosition = DataString.INT_ZERO; charPosition < inputStringLength; charPosition 
+				+= (countInputStringLength == DataString.INT_ZERO ? DataString.INT_ONE 
+						: countInputStringLength)){
 			String countWordNode = DataString.EMPTY_STRING + inputString.charAt(charPosition);
-			countWordNode = neroFeedHMM.getBinaryForestRecurWord(countWordNode, inputString, charPosition, 
-					inputStringLength, forestRoots, forestDepth);
+			countWordNode = neroFeedHMM.getBinaryForestRecurWord(countWordNode, inputString
+					, charPosition, inputStringLength, forestRoots
+					, forestDepth);
 			int countWordNodeLength = countWordNode.length();
 			countInputStringLength = countWordNodeLength;
 			if(countWordNode.length() == DataString.INT_ONE){
 				outputString.add(countWordNode);
 			}else if(countWordNode.length() == DataString.INT_TWO){
-				outputString.add(countWordNode);
+				countInputStringLength = engineUtils.doSlangPartCheck(countInputStringLength
+						,outputString, countWordNode, wordsForest);	 
 			}else if(countWordNode.length() == DataString.INT_THREE) {
-				//outputString = engineUtils.doEuclidCheck(outputString, linerEuclid, countWordNode);
-				outputString = engineUtils.doPOSAndEMMCheck(outputString, linerEuclid, wordsForest, countWordNode);
+				countInputStringLength = engineUtils.doPOSAndEMMCheck(countInputStringLength
+						,outputString, wordsForest, countWordNode);	 
 			}else if(countWordNode.length() == DataString.INT_FOUR){
-				outputString = engineUtils.doSlangCheck(outputString, wordsForest, countWordNode);
-			}else{
-				for(int countWordNodeCharPosition = DataString.INT_ZERO; countWordNodeCharPosition < countWordNode.length();
-						countWordNodeCharPosition++) {
-					outputString.add(DataString.EMPTY_STRING + countWordNode.charAt(countWordNodeCharPosition));
-				}
-			}			
+				countInputStringLength = engineUtils.doSlangCheck(countInputStringLength
+						,outputString, countWordNode, wordsForest);
+			}		
 		}
 		return outputString;
 	}

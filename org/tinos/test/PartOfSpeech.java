@@ -3,10 +3,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.tinos.engine.Analyzer;
-import org.tinos.engine.imp.BinaryForestAnalyzerImp;
 import org.tinos.engine.imp.CogsBinaryForestAnalyzerImp;
 import org.tinos.engine.imp.BaseAnalyzerImp;
-import org.tinos.engine.imp.PrettyAnalyzerImp;
 @SuppressWarnings("unused")
 public class PartOfSpeech{
 	public static void main(String []args) throws IOException{

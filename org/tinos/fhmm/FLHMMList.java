@@ -13,10 +13,10 @@ public interface FLHMMList extends FHMMList{
 	public void setLinkedHashMap(Map<String, FLHMMNode> linkedHashMap);
 	@SuppressWarnings(DataString.RAW_TYPES)
 	public void setLinkedHashMapRoot(Map<Integer, Map> linkedHashMapRoot);
-	public int docheckNeroPostFix(List<String> list, int j, String cInputString, 
-			int i, int find) ;
-	public Map<String, FLHMMNode> doNeroPostCognitive(FLHMMNode fDHMMNode, String
-			cInputString, int Positon) ;
-	public Map<String, FLHMMNode> doRunNeroPostFIX(int i, String cInputString, 
-			FLHMMNode fDHMMNode, List<String> list);
+	public int docheckNeroPostFix(List<String> list, int j, String cInputString
+			, int i, int find) ;
+	public Map<String, FLHMMNode> doNeroPostCognitive(FLHMMNode fDHMMNode
+			, String cInputString, int Positon) ;
+	public Map<String, FLHMMNode> doRunNeroPostFIX(int i, String cInputString
+			, FLHMMNode fDHMMNode, List<String> list);
 }

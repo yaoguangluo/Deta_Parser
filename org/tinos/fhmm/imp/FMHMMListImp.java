@@ -59,8 +59,8 @@ public class FMHMMListImp implements FMHMMList{
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, DataString.UTF8_STRING));  
 		String cInputString = null; 
 		while ((cInputString = cReader.readLine()) != null) {  
-			if(!cInputString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.
-					EMPTY_STRING)&&cInputString.split(DataString.SLASH_STRING).length > DataString.INT_ONE) {
+			if(!cInputString.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString
+					.EMPTY_STRING)&&cInputString.split(DataString.SLASH_STRING).length > DataString.INT_ONE) {
 					words.put(cInputString.split(DataString.SLASH_STRING)[DataString.INT_ZERO], cInputString.
 							split(DataString.SLASH_STRING)[DataString.INT_ONE]);	
 					linkedHashMap = loopLoadForest(cInputString);		 
@@ -68,20 +68,8 @@ public class FMHMMListImp implements FMHMMList{
 		}
 		cReader.close();
 		linkedHashMapRoot = new UtilsImp().mcogsEuclid(linkedHashMap);	
-		InputStream ojld = getClass().getResourceAsStream(DataString.OGLD_SOURSE_LINK);
-		BufferedReader cReaderojld = new BufferedReader(new InputStreamReader(ojld, DataString.GBK_STRING));  
-		String cInputStringojld  = null; 
-		while ((cInputStringojld = cReaderojld.readLine()) != null) {  
-			if(!cInputStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
-				 StringBuilder bld = new StringBuilder();
-				 bld.append(euclid);
-				 bld.append(cInputStringojld);
-				 euclid = bld.toString();
-			}
-		}
-		cReaderojld.close();
 	}
-
+	
 	public Map<String, FHHMMNode> loopLoadForest(String cInputString) {
 		for(int i = DataString.INT_ZERO; i < cInputString.length(); i++) {
 			if(linkedHashMap.containsKey(DataString.EMPTY_STRING + cInputString.charAt(i))) {
@@ -92,7 +80,8 @@ public class FMHMMListImp implements FMHMMList{
 				fHHMMNode.setVb(DataString.EMPTY_STRING + cInputString.charAt(i));
 				if(i + DataString.INT_ONE < cInputString.length()) {
 					Map<String, Integer> next = new ConcurrentHashMap<>();
-					next.put(DataString.EMPTY_STRING + cInputString.charAt(i + DataString.INT_ONE), DataString.INT_ONE);
+					next.put(DataString.EMPTY_STRING + cInputString.charAt(i + DataString.INT_ONE)
+					, DataString.INT_ONE);
 					fHHMMNode.setNext(next);
 				}
 				linkedHashMap.put(DataString.EMPTY_STRING + cInputString.charAt(i), fHHMMNode);
@@ -119,9 +108,11 @@ public class FMHMMListImp implements FMHMMList{
 	}
 
 	public Map<String, FHHMMNode> doCheckAndRunNeroPostFix(FHHMMNode fFHMMNode, String cInputString, int i) {
-		if(!fFHMMNode.getNext().containsKey(DataString.EMPTY_STRING + cInputString.charAt(i + DataString.INT_ONE))) {
+		if(!fFHMMNode.getNext().containsKey(DataString.EMPTY_STRING + cInputString.charAt(i 
+				+ DataString.INT_ONE))) {
 			Map<String, Integer> map = fFHMMNode.getNext();
-			map.put(DataString.EMPTY_STRING + cInputString.charAt(i + DataString.INT_ONE), DataString.INT_ONE);
+			map.put(DataString.EMPTY_STRING + cInputString.charAt(i + DataString.INT_ONE)
+			, DataString.INT_ONE);
 			fFHMMNode.setNext(map);
 			linkedHashMap.put(DataString.EMPTY_STRING + cInputString.charAt(i), fFHMMNode);
 		}

@@ -48,7 +48,8 @@ public class FLHMMListImp implements FLHMMList{
 		BufferedReader cReaderojld = new BufferedReader(new InputStreamReader(ojld, DataString.GBK_STRING));  
 		String cInputStringojld = null; 
 		while ((cInputStringojld = cReaderojld.readLine()) != null) {  
-			if(!cInputStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString.EMPTY_STRING)) {
+			if(!cInputStringojld.replace(DataString.SPACE_STRING, DataString.EMPTY_STRING).equals(DataString
+					.EMPTY_STRING)) {
 				 StringBuilder bld = new StringBuilder();
 				 bld.append(euclid);
 				 bld.append(cInputStringojld);
@@ -77,7 +78,8 @@ public class FLHMMListImp implements FLHMMList{
 		return linkedHashMap;
 	}
 
-	public Map<String, FLHMMNode> doNeroPostCognitive(FLHMMNode fDHMMNode, String cInputString, int Positon) {
+	public Map<String, FLHMMNode> doNeroPostCognitive(FLHMMNode fDHMMNode, String cInputString
+			, int Positon) {
 		if(fDHMMNode.getNext() != null) {
 			List<String> list = fDHMMNode.getNext();
 			int find = DataString.INT_ZERO;
@@ -100,7 +102,8 @@ public class FLHMMListImp implements FLHMMList{
 		return linkedHashMap;
 	}
 
-	public Map<String, FLHMMNode> doRunNeroPostFIX(int i, String cInputString, FLHMMNode fDHMMNode, List<String> list) {
+	public Map<String, FLHMMNode> doRunNeroPostFIX(int i, String cInputString, FLHMMNode fDHMMNode
+			, List<String> list) {
 		if(i + DataString.INT_ONE < cInputString.length()) {
 			list.add(DataString.EMPTY_STRING + cInputString.charAt(i+DataString.INT_ONE));
 			fDHMMNode.setNext(list);

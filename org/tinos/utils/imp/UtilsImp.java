@@ -14,7 +14,8 @@ public class UtilsImp implements Utils{
 		Iterator<String> iter = linkedHashMap.keySet().iterator();
 		while (iter.hasNext()) {
 			String keyValue = iter.next();
-			int range = ((int)(keyValue.charAt(DataString.INT_ZERO)) >> DataString.INT_SIX);
+			int range = ((int)(keyValue.charAt(DataString.INT_ZERO)) 
+					>> DataString.INT_SIX);
 			int rangeHigh = range >> DataString.INT_FOUR; 
 			if(linkedHashMapRoot.containsKey(rangeHigh)) {
 				Map <Integer,Map> root = linkedHashMapRoot.get(rangeHigh);
@@ -24,13 +25,15 @@ public class UtilsImp implements Utils{
 					root.put(range, innerMap);
 					linkedHashMapRoot.put(rangeHigh, root);
 				}else {
-					LinkedHashMap <String, FLHMMNode> innerLinkedHashMap = new LinkedHashMap <>();
+					LinkedHashMap <String, FLHMMNode> innerLinkedHashMap 
+					= new LinkedHashMap <>();
 					innerLinkedHashMap.put(keyValue,linkedHashMap.get(keyValue));
 					root.put(range, innerLinkedHashMap);
 					linkedHashMapRoot.put(rangeHigh, root);
 				}
 			}else {
-					LinkedHashMap <String, FLHMMNode> innerLinkedHashMap = new LinkedHashMap <>();
+					LinkedHashMap <String, FLHMMNode> innerLinkedHashMap 
+					= new LinkedHashMap <>();
 					innerLinkedHashMap.put(keyValue, linkedHashMap.get(keyValue));
 					LinkedHashMap <Integer,LinkedHashMap> root = new LinkedHashMap <>();
 					root.put(range, innerLinkedHashMap);
@@ -53,18 +56,21 @@ public class UtilsImp implements Utils{
 			if(linkedHashMapRoot.containsKey(rangeHigh)) {
 				Map <Integer,LinkedHashMap> root = linkedHashMapRoot.get(rangeHigh);
 				if(root.containsKey(range)) {
-					LinkedHashMap <String, FHHMMNode> innerLinkedHashMap = root.get(range); 
+					LinkedHashMap <String, FHHMMNode> innerLinkedHashMap 
+					= root.get(range); 
 					innerLinkedHashMap.put(keyValue, linkedHashMap.get(keyValue));
 					root.put(range, innerLinkedHashMap);
 					linkedHashMapRoot.put(rangeHigh, root);
 				}else {
-					LinkedHashMap <String, FHHMMNode> innerLinkedHashMap = new LinkedHashMap <>();
+					LinkedHashMap <String, FHHMMNode> innerLinkedHashMap 
+					= new LinkedHashMap <>();
 					innerLinkedHashMap.put(keyValue,linkedHashMap.get(keyValue));
 					root.put(range, innerLinkedHashMap);
 					linkedHashMapRoot.put(rangeHigh, root);
 				}
 			}else {
-					LinkedHashMap <String, FHHMMNode> innerLinkedHashMap = new LinkedHashMap <>();
+					LinkedHashMap <String, FHHMMNode> innerLinkedHashMap 
+					= new LinkedHashMap <>();
 					innerLinkedHashMap.put(keyValue, linkedHashMap.get(keyValue));
 					LinkedHashMap <Integer,LinkedHashMap> root = new LinkedHashMap <>();
 					root.put(range, innerLinkedHashMap);
@@ -88,20 +94,24 @@ public class UtilsImp implements Utils{
 			if(concurrentHashMapRoot.containsKey(rangeHigh)) {
 				Map <Integer,ConcurrentHashMap> root = concurrentHashMapRoot.get(rangeHigh);
 				if(root.containsKey(range)) {
-					ConcurrentHashMap <String, FHHMMNode> innerConcurrentHashMap = root.get(range); 
+					ConcurrentHashMap <String, FHHMMNode> innerConcurrentHashMap 
+					= root.get(range); 
 					innerConcurrentHashMap.put(keyValue, concurrentHashMap.get(keyValue));
 					root.put(range, innerConcurrentHashMap);
 					concurrentHashMapRoot.put(rangeHigh, root);
 				}else {
-					ConcurrentHashMap <String, FHHMMNode> innerConcurrentHashMap = new ConcurrentHashMap <>();
+					ConcurrentHashMap <String, FHHMMNode> innerConcurrentHashMap 
+					= new ConcurrentHashMap <>();
 					innerConcurrentHashMap.put(keyValue,concurrentHashMap.get(keyValue));
 					root.put(range, innerConcurrentHashMap);
 					concurrentHashMapRoot.put(rangeHigh, root);
 				}
 			}else {
-					ConcurrentHashMap <String, FHHMMNode> innerConcurrentHashMap = new ConcurrentHashMap <>();
+					ConcurrentHashMap <String, FHHMMNode> innerConcurrentHashMap 
+					= new ConcurrentHashMap <>();
 					innerConcurrentHashMap.put(keyValue, concurrentHashMap.get(keyValue));
-					ConcurrentHashMap <Integer,ConcurrentHashMap> root = new ConcurrentHashMap <>();
+					ConcurrentHashMap <Integer,ConcurrentHashMap> root 
+					= new ConcurrentHashMap <>();
 					root.put(range, innerConcurrentHashMap);
 					concurrentHashMapRoot.put(rangeHigh, root);	
 			}		

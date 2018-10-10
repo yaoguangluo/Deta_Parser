@@ -1,5 +1,6 @@
 package org.tinos.test;
 import java.io.IOException;
+
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -8,7 +9,6 @@ import java.util.concurrent.Executors;
 import org.tinos.engine.Analyzer;
 import org.tinos.engine.imp.CogsBinaryForestAnalyzerImp;
 import org.tinos.engine.imp.BaseAnalyzerImp;
-import org.tinos.engine.imp.PrettyAnalyzerImp;
 @SuppressWarnings("unused")
 public class DemoexCogs{
 	static List<List<String>> sets ;

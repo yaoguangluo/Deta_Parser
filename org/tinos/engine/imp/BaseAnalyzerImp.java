@@ -34,6 +34,7 @@ public class BaseAnalyzerImp implements  BaseAnalyzer{
 		return output;
 	}
 
+	
 	public Map<String, String> getWord() throws IOException {
 		return fLHMMList.getWords();
 	}
