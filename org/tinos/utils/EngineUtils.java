@@ -12,6 +12,8 @@ public abstract interface EngineUtils{
 			, Map<String, String> wordsForest);
 	public int chuLiLianCi(Map<String, String> wordsForest, List<String> outputList
 			, int countInputStringLength,String[] strings);
+	public int chuLiZhuCi(Map<String, String> wordsForest, List<String> outputList
+			, int countInputStringLength,String[] strings);
 	public int chuLiJieCi(Map<String, String> wordsForest, List<String> outputList
 			, int countInputStringLength,String[] strings); 
 	public int chuLiLiangCi(Map<String, String> wordsForest, List<String> outputList

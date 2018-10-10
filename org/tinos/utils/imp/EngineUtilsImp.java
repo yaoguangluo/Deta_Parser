@@ -42,10 +42,45 @@ public class EngineUtilsImp implements EngineUtils{
 		}else if(wordsForest.get(strings[DataString.INT_ZERO]).contains(DataString.NLP_LIAN_CI)){
 			countInputStringLength = chuLiLianCi(wordsForest, outputList, countInputStringLength, strings);	
 			return countInputStringLength;
+		}else if(wordsForest.get(strings[DataString.INT_ZERO]).contains(DataString.NLP_ZHU_CI)){
+			countInputStringLength = chuLiZhuCi(wordsForest, outputList, countInputStringLength, strings);	
+			return countInputStringLength;
 		}	
 		countInputStringLength = doSlangPartCheck(countInputStringLength - DataString.INT_ONE, outputList
 				, strings[DataString.INT_ONE], wordsForest);
 		return countInputStringLength;
+	}
+
+	public int chuLiZhuCi(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength,
+			String[] strings) {
+		if(outputList.size() > DataString.INT_ZERO) {
+			if(wordsForest.get(outputList.get(outputList.size() - DataString.INT_ONE))
+					.contains(DataString.NLP_DONG_CI)){
+				countInputStringLength -= DataString.INT_THREE;
+				outputList.add(strings[DataString.INT_ZERO]);
+				countInputStringLength += DataString.INT_ONE;
+				if(wordsForest.containsKey(strings[DataString.INT_TWO])) {
+					outputList.add(strings[DataString.INT_TWO]);
+					countInputStringLength += DataString.INT_TWO;
+					return countInputStringLength;
+				}
+				return countInputStringLength;
+			}else {
+				countInputStringLength -= DataString.INT_THREE;
+				if(wordsForest.containsKey(strings[DataString.INT_ONE])) {
+					outputList.add(strings[DataString.INT_ONE]);
+					countInputStringLength += DataString.INT_TWO;
+				}
+				return countInputStringLength;
+			}
+		}else {
+			if(wordsForest.get(strings[DataString.INT_TWO]).contains(DataString.NLP_FU_CI)){
+				outputList.add(strings[DataString.INT_ZERO]);
+				outputList.add(strings[DataString.INT_TWO]);
+				return countInputStringLength;
+			}
+		}
+		return countInputStringLength; 
 	}
 
 	public int chuLiLianCi(Map<String, String> wordsForest, List<String> outputList
