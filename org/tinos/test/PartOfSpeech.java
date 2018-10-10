@@ -2,9 +2,9 @@ package org.tinos.test;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.tinos.engine.Analyzer;
-import org.tinos.engine.imp.CogsBinaryForestAnalyzerImp;
-import org.tinos.engine.imp.BaseAnalyzerImp;
+
+import org.tinos.engine.analysis.Analyzer;
+import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
 @SuppressWarnings("unused")
 public class PartOfSpeech{
 	public static void main(String []args) throws IOException{
@@ -20,16 +20,16 @@ public class PartOfSpeech{
 		System.out.println("");
 		System.out.println("计时开始");
 		long c=0;
-		for(int i = 0; i < 10; i++) {//重复执行 4万次 相当于800 万字分词
+		for(int i = 0; i < 10; i++){//重复执行 4万次 相当于800 万字分词
 			sets = analyzer.parserString(ss); 
 		}
 		System.out.println("计时结束");
 		System.out.println("分词效果如下");
-		int j=0;
+		int j = 0;
 		for(int i = 0; i < sets.size(); i++){
 			System.out.print(sets.get(i)+"  |  ");
 			j++;
-			if(j>15) {//每行15个词语输出
+			if(j>15){//每行15个词语输出
 				j=0;
 				System.out.println("");
 			}

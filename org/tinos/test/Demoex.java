@@ -3,8 +3,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import org.tinos.engine.Analyzer;
-import org.tinos.engine.imp.CogsBinaryForestAnalyzerImp;
+
+import org.tinos.engine.analysis.Analyzer;
+import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
+
 import timeProcessor.TimeCheck;
 public class Demoex{
 	public static void main(String []args) throws IOException{
@@ -18,14 +20,14 @@ public class Demoex{
 		System.out.println("输入病句-->"+ss);
 		TimeCheck t= new TimeCheck();
 		t.begin();
-		for(int i = 0; i < 1; i++) { //重复1次数 相当于处理0万字
+		for(int i = 0; i < 1; i++){ //重复1次数 相当于处理0万字
 			sets = analyzer.parserString(ss);//词性分析
 		}
 		t.end();
 		t.duration();
 		System.out.print("真实结果-->");
 		for(int i = 0; i < sets.size(); i++){
-			if(!sets.get(i).replaceAll("\\s+", "").equals("")) {
+			if(!sets.get(i).replaceAll("\\s+", "").equals("")){
 				System.out.print(sets.get(i)+" ");
 			}
 		}
@@ -33,7 +35,7 @@ public class Demoex{
 		System.out.println("词性分析-->");
 		t.begin();
 		for(int i = 0; i < sets.size(); i++){
-			if(!sets.get(i).replaceAll("\\s+", "").equals("")) {
+			if(!sets.get(i).replaceAll("\\s+", "").equals("")){
 				System.out.println(sets.get(i)+"/"+nlp.get(sets.get(i)) +"  ");
 			}
 		}

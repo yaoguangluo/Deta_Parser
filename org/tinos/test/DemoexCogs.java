@@ -1,14 +1,13 @@
 package org.tinos.test;
 import java.io.IOException;
-
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import org.tinos.engine.Analyzer;
-import org.tinos.engine.imp.CogsBinaryForestAnalyzerImp;
-import org.tinos.engine.imp.BaseAnalyzerImp;
+
+import org.tinos.engine.analysis.Analyzer;
+import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
 @SuppressWarnings("unused")
 public class DemoexCogs{
 	static List<List<String>> sets ;
@@ -25,33 +24,33 @@ public class DemoexCogs{
 		String ss =" 从容易开始念经的和尚未从容易知和尚未结婚的施主"; 
 		System.out.println("");
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
-		for(int i = 0; i < 25000; i++) { 
+		for(int i = 0; i < 25000; i++){ 
 			executorService.submit(new TaskWithResult(i, analyzer, ss));
 		}
-		while(sets.size() < 25000) {
+		while(sets.size() < 25000){
 			Thread.sleep(300);
 		}
 		int j=0;
 		for(int i = 0; i < sets.get(0).size(); i++){
 			System.out.print(sets.get(0).get(i)+"  |  ");
 			j++;
-			if(j>15) {
+			if(j>15){
 				j=0;
 				System.out.println("");
 			}
 		}
 	}
 
-	public static class TaskWithResult implements Callable<String> {  
+	public static class TaskWithResult implements Callable<String>{  
 	    private int id;  
 	    private Analyzer analyzer;  
 	    private String sss;    
-	    public TaskWithResult(int id, Analyzer analyzer, String sss) {  
+	    public TaskWithResult(int id, Analyzer analyzer, String sss){  
 	        this.id = id;  
 	        this.analyzer = analyzer;  
 	        this.sss = sss;  
 	    } 
-	    public String call() throws Exception {
+	    public String call() throws Exception{
 	    	List<String> te = analyzer.parserString(sss);
 	    	sets.add(te);
 			return null;    
