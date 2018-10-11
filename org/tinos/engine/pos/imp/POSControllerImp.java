@@ -45,6 +45,7 @@ public class POSControllerImp implements POSController{
 			if(wordsForest.get(prefixWord[StableData.INT_ZERO]).contains(StableData.NLP_FU_CI) 
 					|| wordsForest.get(prefixWord[StableData.INT_ZERO]).contains(StableData.NLP_DONG_CI)
 					|| wordsForest.get(prefixWord[StableData.INT_ZERO]).contains(StableData.NLP_WEI_CI)
+					|| wordsForest.get(prefixWord[StableData.INT_ZERO]).contains(StableData.NLP_ZHU_CI)
 					|| wordsForest.get(prefixWord[StableData.INT_ZERO]).contains(StableData.NLP_DAI_CI)){
 				countInputStringLength -= StableData.INT_THREE;
 				outputList.add(strings[StableData.INT_ZERO]);
