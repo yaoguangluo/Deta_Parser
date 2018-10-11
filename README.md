@@ -98,7 +98,7 @@ https://github.com/yaoguangluo/Fast_Chinese_NeroParser/blob/master/org/tinos/ort
 尚无
 
 ## 参与讨论者
-神州泰岳（化名）
+神州泰岳（化名）在扩充词库量的方法上提出了很多新颖的意见。
 
 ## 有疑问联系313699483@qq.com 罗瑶光
 #### 谢谢！
