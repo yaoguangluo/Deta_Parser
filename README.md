@@ -1,5 +1,5 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)
-## 版本号：4.0.1，如果有志同道和的人指点和参与修正运算思维并提高版本的安全和性能，本人采用立即赠予现金形式， 并将协作者名字公布在项目中。
+## 版本号：5.0.6，如果有志同道和的人指点和参与修正运算思维并提高版本的安全和性能，本人采用立即赠予现金形式， 并将协作者名字公布在项目中。
 #### 1 首次采用《VPC架构》。
 #### 2 支持海量并发运算，后端接口调用运算，纯全虚接口同步运算。
 #### 3 经过SONAR 最高级认证（感知最高认证，语义最高认证，语法最高认证，行为最高认证，逻辑最高认证）。
@@ -10,13 +10,11 @@
 #### 6 大小55Kb。
 #### 7 如果想用多核模式，可以自己写 parallelStream() 函数去实现，jdk8以上已经支持, CogsBinaryForestAnalyzer 支持海量多核多线程并发安全 。
 #### 8 VPC架构采用纯虚函数做反向映射跳过IOC，效率增加，线程安全高度严格保障。
-
 ## 使用方法：
 #### 1 支持 java JDK 8 以上。
 #### 2 大家可以自由添加词汇，添加在 org/tinos/fhmm/imp/words.lyg文件里。
 https://github.com/yaoguangluo/Fast_Chinese_NeroParser/blob/master/org/tinos/ortho/fhmm/imp/words.lyg
 #### 3 可以看下org/tinos/test里面的例子。
-#
 ## 分词使用如下：
 ####   //1 实例化
    		//Analyzer analyzer = new CogsBinaryForestAnalyzerImp();  //哈希森林索引 多核多线程安全 支持并发
