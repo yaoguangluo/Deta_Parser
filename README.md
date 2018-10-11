@@ -97,6 +97,9 @@ https://github.com/yaoguangluo/Fast_Chinese_NeroParser/blob/master/org/tinos/ort
 ## 第三方开源包的引用和修改
 尚无
 
+## 参与讨论者
+神州泰岳（化名）
+
 ## 有疑问联系313699483@qq.com 罗瑶光
 #### 谢谢！
 #### 2018/10/11
