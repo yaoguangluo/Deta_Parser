@@ -29,12 +29,12 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 	@SuppressWarnings(StableData.RAW_TYPES)
 	public List<String> parserString(String inputString){
 		Map <String, String> wordsForest = fHMMList.getWords();
-		List<String> outputString = new LinkedList<>();
+		List<String> outputList = new LinkedList<>();
 		Map <Integer, Map> forestRoots = fHMMList.getRoot();
 		int inputStringLength = inputString.length();
 		int forestDepth = StableData.INT_ZERO;
 		int countInputStringLength;
-		String []prefixWord = new String[StableData.INT_ONE];
+		String []fixWords = new String[StableData.INT_TWO];
 		for(int charPosition = StableData.INT_ZERO; charPosition < inputStringLength; charPosition 
 				+= (countInputStringLength == StableData.INT_ZERO ? StableData.INT_ONE : countInputStringLength)){
 			String countWordNode = StableData.EMPTY_STRING + inputString.charAt(charPosition);
@@ -42,20 +42,32 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 					, inputStringLength, forestRoots, forestDepth);
 			countInputStringLength = countWordNode.length();
 			if(countWordNode.length() == StableData.INT_ONE){
-				outputString.add(countWordNode);
-				prefixWord[StableData.INT_ZERO] = countWordNode;
+				outputList.add(countWordNode);
+				fixWords[StableData.INT_ZERO] = countWordNode;
 			}else if(countWordNode.length() == StableData.INT_TWO){
-				countInputStringLength = nlpUtils.doSlangPartCheck(countInputStringLength, outputString
-						, countWordNode, wordsForest, prefixWord);	 
+				countInputStringLength = nlpUtils.doSlangPartCheck(countInputStringLength, outputList
+						, countWordNode, wordsForest, fixWords);	 
 			}else if(countWordNode.length() == StableData.INT_THREE){
-				countInputStringLength = nlpUtils.doPOSAndEMMCheck(countInputStringLength, outputString
-						, wordsForest, countWordNode, prefixWord, posUtils);	 
+				if(charPosition+StableData.INT_EIGHT < inputString.length()) {
+					fixWords[StableData.INT_ONE] = inputString.substring(charPosition+StableData.INT_THREE
+							, charPosition + StableData.INT_EIGHT);
+				}else {
+					fixWords[StableData.INT_ONE] = StableData.EMPTY_STRING;
+				}
+				countInputStringLength = nlpUtils.doPOSAndEMMCheck(countInputStringLength, outputList
+						, wordsForest, countWordNode, fixWords, posUtils);	 
 			}else if(countWordNode.length() == StableData.INT_FOUR){
-				countInputStringLength = nlpUtils.doSlangCheck(countInputStringLength, outputString
-						, countWordNode, wordsForest, prefixWord, posUtils);
-			}		
+				if(charPosition+StableData.INT_EIGHT < inputString.length()) {
+					fixWords[StableData.INT_ONE] = inputString.substring(charPosition + StableData.INT_THREE
+							, charPosition + StableData.INT_EIGHT);
+				}else {
+					fixWords[StableData.INT_ONE] = StableData.EMPTY_STRING;
+				}
+				countInputStringLength = nlpUtils.doSlangCheck(countInputStringLength, outputList
+						, countWordNode, wordsForest, fixWords, posUtils);
+			}			
 		}
-		return outputString;
+		return outputList;
 	}
 
 	public Map<String, String> getWord() throws IOException{

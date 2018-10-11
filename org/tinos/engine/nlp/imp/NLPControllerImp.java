@@ -35,20 +35,20 @@ public class NLPControllerImp implements NLPController{
 		+ inputString.charAt(StableData.INT_TWO);
 		strings[StableData.INT_THREE] = StableData.EMPTY_STRING + inputString.charAt(StableData.INT_TWO);
 		if(wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_LIANG_CI)){
-			countInputStringLength = posUtils.chuLiLiangCi(wordsForest, outputList
-					, countInputStringLength, strings, prefixWord);	
+			countInputStringLength = posUtils.chuLiLiangCi(wordsForest, outputList, countInputStringLength
+					, strings, prefixWord);	
 			return countInputStringLength;
 		}else if(wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_JIE_CI)){
-			countInputStringLength = posUtils.chuLiJieCi(wordsForest, outputList
-					, countInputStringLength, strings, prefixWord);	
+			countInputStringLength = posUtils.chuLiJieCi(wordsForest, outputList, countInputStringLength
+					, strings, prefixWord);	
 			return countInputStringLength;
 		}else if(wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_LIAN_CI)){
-			countInputStringLength = posUtils.chuLiLianCi(wordsForest, outputList
-					, countInputStringLength, strings, prefixWord);	
+			countInputStringLength = posUtils.chuLiLianCi(wordsForest, outputList, countInputStringLength
+					, strings, prefixWord);	
 			return countInputStringLength;
 		}else if(wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_ZHU_CI)){
-			countInputStringLength =posUtils. chuLiZhuCi(wordsForest, outputList
-					, countInputStringLength, strings, prefixWord);	
+			countInputStringLength =posUtils. chuLiZhuCi(wordsForest, outputList, countInputStringLength
+					, strings, prefixWord);	
 			return countInputStringLength;
 		}	
 		countInputStringLength = doSlangPartCheck(countInputStringLength - StableData.INT_ONE, outputList

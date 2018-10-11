@@ -18,6 +18,8 @@ public class StableData{
 	public static final int INT_THREE = 3;
 	public static final int INT_FOUR = 4;
 	public static final int INT_SIX = 6;
+	public static final int INT_EIGHT = 8;
+	public static final int INT_NINE = 9;
 	public static final int INT_SIXTEEN = 16;
 	public static final int INT_SIXTY_FOUR = 64;
 	public static final String RAW_TYPES = "rawtypes";

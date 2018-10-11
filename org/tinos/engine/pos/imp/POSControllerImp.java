@@ -57,6 +57,28 @@ public class POSControllerImp implements POSController{
 					return countInputStringLength;
 				}
 				return countInputStringLength;
+			}else if(wordsForest.get(prefixWord[StableData.INT_ZERO]).contains(StableData.NLP_ZHU_CI)){	
+				if(prefixWord[StableData.INT_ONE].contains(prefixWord[StableData.INT_ZERO])){
+					countInputStringLength -= StableData.INT_THREE;
+					outputList.add(strings[StableData.INT_ZERO]);
+					prefixWord[StableData.INT_ZERO] = strings[StableData.INT_ZERO];
+					countInputStringLength += StableData.INT_ONE;
+					if(wordsForest.containsKey(strings[StableData.INT_TWO])){
+						outputList.add(strings[StableData.INT_TWO]);
+						prefixWord[StableData.INT_ZERO] = strings[StableData.INT_TWO];
+						countInputStringLength += StableData.INT_TWO;
+						return countInputStringLength;
+					}
+					return countInputStringLength;
+				}else {
+					countInputStringLength -= StableData.INT_THREE;
+					if(wordsForest.containsKey(strings[StableData.INT_ONE])){
+						outputList.add(strings[StableData.INT_ONE]);
+						prefixWord[StableData.INT_ZERO] = strings[StableData.INT_ONE];
+						countInputStringLength += StableData.INT_TWO;
+					}
+					return countInputStringLength;
+				}
 			}else{
 				countInputStringLength -= StableData.INT_THREE;
 				if(wordsForest.containsKey(strings[StableData.INT_ONE])){
