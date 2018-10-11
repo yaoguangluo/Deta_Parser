@@ -1,6 +1,6 @@
 package org.tinos.engine.analysis.imp;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.tinos.engine.analysis.CogsBinaryForestAnalyzer;
@@ -29,7 +29,7 @@ public class CogsBinaryForestAnalyzerImp implements  CogsBinaryForestAnalyzer{
 	@SuppressWarnings(StableData.RAW_TYPES)
 	public List<String> parserString(String inputString){
 		Map <String, String> wordsForest = fHMMList.getWords();
-		List<String> outputString = new ArrayList<>();
+		List<String> outputString = new LinkedList<>();
 		Map <Integer, Map> forestRoots = fHMMList.getRoot();
 		int inputStringLength = inputString.length();
 		int forestDepth = StableData.INT_ZERO;

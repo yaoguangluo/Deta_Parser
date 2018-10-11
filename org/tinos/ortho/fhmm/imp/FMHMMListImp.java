@@ -1,14 +1,14 @@
 package org.tinos.ortho.fhmm.imp;
+import java.util.Map;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.tinos.engine.euclid.imp.EuclidControllerImp;
 import org.tinos.ortho.fhmm.FMHMMList;
 import org.tinos.view.obj.FMHMMNode;
 import org.tinos.view.stable.StableData;
+import org.tinos.engine.euclid.imp.EuclidControllerImp;
+import java.util.concurrent.ConcurrentHashMap;
 public class FMHMMListImp implements FMHMMList{
 	private Map <String, String> words;
 	private Map <String, FMHMMNode> linkedHashMap;

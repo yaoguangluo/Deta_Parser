@@ -5,7 +5,6 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
 @SuppressWarnings("unused")
@@ -21,13 +20,13 @@ public class DemoexCogs{
 		//Analyzer analyzer = new ScoreAnalyzerImp();     
 		analyzer.init();
 		sets =new CopyOnWriteArrayList<>();
-		String ss =" 从容易开始念经的和尚未从容易知和尚未结婚的施主"; 
+		String ss ="从容易开始念经的和尚未从容易知和尚未结婚的施主"; 
 		System.out.println("");
 		ExecutorService executorService = Executors.newFixedThreadPool(1);
-		for(int i = 0; i < 25000; i++){ 
+		for(int i = 0; i < 100; i++){ 
 			executorService.submit(new TaskWithResult(i, analyzer, ss));
 		}
-		while(sets.size() < 25000){
+		while(sets.size() < 100){
 			Thread.sleep(300);
 		}
 		int j=0;

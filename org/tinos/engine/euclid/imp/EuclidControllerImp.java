@@ -1,11 +1,9 @@
 package org.tinos.engine.euclid.imp;
 import java.util.Map;
-
+import java.util.Iterator;
 import org.tinos.engine.euclid.EuclidController;
 import org.tinos.view.obj.FMHMMNode;
 import org.tinos.view.stable.StableData;
-
-import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 public class EuclidControllerImp implements EuclidController{
 	@SuppressWarnings({StableData.RAW_TYPES, StableData.UNCHECKED})

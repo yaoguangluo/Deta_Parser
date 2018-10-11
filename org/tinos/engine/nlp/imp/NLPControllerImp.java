@@ -1,7 +1,6 @@
 package org.tinos.engine.nlp.imp;
 import java.util.List;
 import java.util.Map;
-
 import org.tinos.engine.nlp.NLPController;
 import org.tinos.engine.pos.POSController;
 import org.tinos.view.stable.StableData;

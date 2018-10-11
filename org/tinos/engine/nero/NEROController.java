@@ -8,5 +8,5 @@ public abstract interface NEROController{
 			, int charPosition, int inputStringLength, Map<Integer, Map> forestRoots, int forestDepth);
 	@SuppressWarnings(StableData.RAW_TYPES)
 	public String doBinaryForestRecurWordKerner(String inputString, FMHMMNode fFHMMNode, int length, 
-			String input, int i, Map<Integer, Map> roots,int forestDepth) ;
+			String input, int i, Map<Integer, Map> roots,int forestDepth);
 }

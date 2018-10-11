@@ -1,10 +1,9 @@
 package org.tinos.engine.nero.imp;
 import java.util.Map;
-
 import org.tinos.engine.nero.NEROController;
 import org.tinos.view.obj.FMHMMNode;
 import org.tinos.view.stable.StableData;
-public class NEROControllermp implements NEROController{
+public class NEROControllermp implements NEROController{	
 	@SuppressWarnings({StableData.RAW_TYPES, StableData.UNCHECKED})
 	public String getBinaryForestRecurWord(String outputWordNode, String inputString, int charPosition
 			, int inputStringLength, Map<Integer, Map> forestRoots, int forestDepth){

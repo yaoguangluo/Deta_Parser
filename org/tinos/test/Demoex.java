@@ -3,11 +3,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
+import timeProcessor.TimeCheck;
 import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
-
-import timeProcessor.TimeCheck;
 public class Demoex{
 	public static void main(String []args) throws IOException{
 		Analyzer analyzer = new CogsBinaryForestAnalyzerImp(); 

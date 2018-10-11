@@ -1,7 +1,6 @@
 package org.tinos.ortho.fhmm;
 import java.io.IOException;
 import java.util.Map;
-
 import org.tinos.view.stable.StableData;
 public abstract interface FHMMList{
 	public void index() throws IOException;
