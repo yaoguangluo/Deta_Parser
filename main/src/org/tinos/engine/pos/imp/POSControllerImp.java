@@ -1,10 +1,10 @@
 package org.tinos.engine.pos.imp;
 
-import org.tinos.engine.pos.POSController;
-import org.tinos.view.stable.StableData;
-
 import java.util.List;
 import java.util.Map;
+
+import org.tinos.engine.pos.POSController;
+import org.tinos.view.stable.StableData;
 
 public class POSControllerImp implements POSController {
     public int chuLiLianCi(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
@@ -26,10 +26,10 @@ public class POSControllerImp implements POSController {
                 || wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_SHENG_LUE_CI)) {
             for (int BackPosition = StableData.INT_ZERO; BackPosition < fixWord[StableData.INT_ONE].length()
                     ; BackPosition++) {
-                String charPositionAtfixWord = StableData.EMPTY_STRING + fixWord[StableData.INT_ONE]
+                String charPositionAtFixWord = StableData.EMPTY_STRING + fixWord[StableData.INT_ONE]
                         .charAt(BackPosition);
-                if (wordsForest.containsKey(charPositionAtfixWord) && (wordsForest.get(charPositionAtfixWord)
-                        .contains(StableData.NLP_ZHU_CI) || wordsForest.get(charPositionAtfixWord)
+                if (wordsForest.containsKey(charPositionAtFixWord) && (wordsForest.get(charPositionAtFixWord)
+                        .contains(StableData.NLP_ZHU_CI) || wordsForest.get(charPositionAtFixWord)
                         .contains(StableData
                                 .NLP_SHENG_LUE_CI))) {
                     countInputStringLength = parserFirstChar(countInputStringLength, outputList, strings, fixWord
