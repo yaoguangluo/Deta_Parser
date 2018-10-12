@@ -19,15 +19,6 @@ public class FMHMMListImp implements FMHMMList {
     private Map<Integer, Map> linkedHashMapRoot;
 
     @SuppressWarnings(StableData.RAW_TYPES)
-    public Map<Integer, Map> getLinkedHashMapRoot() {
-        return linkedHashMapRoot;
-    }
-
-    public void setWords(Map<String, String> words) {
-        this.words = words;
-    }
-
-    @SuppressWarnings(StableData.RAW_TYPES)
     public Map<Integer, Map> getRoot() {
         return this.linkedHashMapRoot;
     }
@@ -38,7 +29,7 @@ public class FMHMMListImp implements FMHMMList {
         linkedHashMapRoot = new ConcurrentHashMap<>();
         InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK);
         BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
-        String cInputString = null;
+        String cInputString;
         while ((cInputString = cReader.readLine()) != null) {
             if (!cInputString.replace(StableData.SPACE_STRING, StableData.EMPTY_STRING).equals(StableData.EMPTY_STRING)
                     && cInputString.split(StableData.SLASH_STRING).length > StableData.INT_ONE) {

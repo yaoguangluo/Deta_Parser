@@ -11,14 +11,5 @@ public class FMHMMNode extends HMMNode {
         this.next = next;
     }
 
-    public Map<String, Integer> getPrev() {
-        return prev;
-    }
-
-    public void setPrev(Map<String, Integer> prev) {
-        this.prev = prev;
-    }
-
     private Map<String, Integer> next;
-    private Map<String, Integer> prev;
 }
