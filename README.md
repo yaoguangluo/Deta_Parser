@@ -13,7 +13,7 @@
 ## 使用方法：
 #### 1 支持 java JDK 8 以上。
 #### 2 大家可以自由添加词汇，添加在 org/tinos/fhmm/imp/words.lyg文件里。
-https://github.com/yaoguangluo/Fast_Chinese_NeroParser/blob/master/org/tinos/ortho/fhmm/imp/words.lyg
+https://github.com/yaoguangluo/Fast_Chinese_NeroParser/blob/master/main/src/org/tinos/ortho/fhmm/imp/words.lyg
 #### 3 可以看下org/tinos/test里面的例子。
 ## 分词使用如下：
 ####   //1 实例化
