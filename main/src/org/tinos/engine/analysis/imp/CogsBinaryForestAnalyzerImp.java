@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import org.tinos.engine.analysis.CogsBinaryForestAnalyzer;
 import org.tinos.engine.nero.NEROController;
-import org.tinos.engine.nero.imp.NEROControllermp;
+import org.tinos.engine.nero.imp.NEROControllerImp;
 import org.tinos.engine.nlp.NLPController;
 import org.tinos.engine.nlp.imp.NLPControllerImp;
 import org.tinos.engine.pos.POSController;
@@ -25,7 +25,7 @@ public class CogsBinaryForestAnalyzerImp implements CogsBinaryForestAnalyzer {
     public void init() throws IOException {
         this.fHMMList = new FMHMMListImp();
         fHMMList.index();
-        neroController = new NEROControllermp();
+        neroController = new NEROControllerImp();
         nlpController = new NLPControllerImp();
         posController = new POSControllerImp();
     }
