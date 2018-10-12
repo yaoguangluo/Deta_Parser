@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-//import timeProcessor.TimeCheck;
 public class Demoex {
     public static void main(String[] args) throws IOException {
         Analyzer analyzer = new CogsBinaryForestAnalyzerImp();
