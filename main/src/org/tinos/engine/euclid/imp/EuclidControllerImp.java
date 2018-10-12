@@ -16,14 +16,13 @@ public class EuclidControllerImp implements EuclidController {
         while (iter.hasNext()) {
             String keyValue = iter.next();
             char charOfKeyValue = keyValue.charAt(StableData.INT_ZERO);
-            Integer charOfkeyValueToInteger = Integer.valueOf(charOfKeyValue);
-            int range = (charOfkeyValueToInteger.intValue() >> StableData.INT_SIX);
+            Integer charOfKeyValueToInteger = Integer.valueOf(charOfKeyValue);
+            int range = (charOfKeyValueToInteger.intValue() >> StableData.INT_SIX);
             int rangeHigh = range >> StableData.INT_FOUR;
             if (concurrentHashMapRoot.containsKey(rangeHigh)) {
                 Map<Integer, ConcurrentHashMap> root = concurrentHashMapRoot.get(rangeHigh);
                 if (root.containsKey(range)) {
-                    ConcurrentHashMap<String, FMHMMNode> innerConcurrentHashMap
-                            = root.get(range);
+                    ConcurrentHashMap<String, FMHMMNode> innerConcurrentHashMap = root.get(range);
                     innerConcurrentHashMap.put(keyValue, concurrentHashMap.get(keyValue));
                     root.put(range, innerConcurrentHashMap);
                     concurrentHashMapRoot.put(rangeHigh, root);
