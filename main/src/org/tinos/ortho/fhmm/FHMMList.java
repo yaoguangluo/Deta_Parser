@@ -12,5 +12,4 @@ public interface FHMMList {
 
     @SuppressWarnings(StableData.RAW_TYPES)
     Map<Integer, Map> getRoot();
-
 }

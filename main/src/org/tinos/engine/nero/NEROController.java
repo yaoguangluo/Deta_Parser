@@ -5,12 +5,12 @@ import org.tinos.view.stable.StableData;
 
 import java.util.Map;
 
-public  interface NEROController {
+public interface NEROController {
     @SuppressWarnings(StableData.RAW_TYPES)
-     String getBinaryForestRecurWord(String inputStringWordNode, String inputString, int charPosition
+    String getBinaryForestRecurWord(String inputStringWordNode, String inputString, int charPosition
             , int inputStringLength, Map<Integer, Map> forestRoots, int forestDepth);
 
     @SuppressWarnings(StableData.RAW_TYPES)
-     String doBinaryForestRecurWordKerner(String inputString, FMHMMNode fFHMMNode, int length, String input
+    String doBinaryForestRecurWordKernel(String inputString, FMHMMNode fFHMMNode, int length, String input
             , int i, Map<Integer, Map> roots, int forestDepth);
 }

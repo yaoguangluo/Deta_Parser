@@ -15,4 +15,10 @@ public interface POSController {
 
     int chuLiLiangCi(Map<String, String> wordsForest, List<String> outputList
             , int countInputStringLength, String[] strings, String[] prefixWord);
+
+    void didNotFindFirstChar(List<String> outputList, String[] strings, String[] fixWord
+            , Map<String, String> wordsForest);
+
+    int parserFirstChar(int countInputStringLength, List<String> outputList, String[] strings, String[] fixWord
+            , Map<String, String> wordsForest);
 }

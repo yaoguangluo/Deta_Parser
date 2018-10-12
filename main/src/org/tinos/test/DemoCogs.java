@@ -11,7 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @SuppressWarnings("unused")
-public class DemoexCogs {
+public class DemoCogs {
     static List<List<String>> sets;
     static String ss;
     static int c = 0;

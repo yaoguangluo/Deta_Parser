@@ -1,10 +1,10 @@
 package org.tinos.engine.nero.imp;
 
-import org.tinos.engine.nero.NEROController;
+import java.util.Map;
+
 import org.tinos.view.obj.FMHMMNode;
 import org.tinos.view.stable.StableData;
-
-import java.util.Map;
+import org.tinos.engine.nero.NEROController;
 
 public class NEROControllermp implements NEROController {
     @SuppressWarnings({StableData.RAW_TYPES, StableData.UNCHECKED})
@@ -13,15 +13,15 @@ public class NEROControllermp implements NEROController {
         if (forestDepth == StableData.INT_THREE) {
             return outputWordNode;
         }
-        String StringPosition = StableData.EMPTY_STRING + inputString.charAt(charPosition);
-        int range = ((int) (StringPosition.charAt(StableData.INT_ZERO)) >> StableData.INT_SIX);
+        String stringPosition = StableData.EMPTY_STRING + inputString.charAt(charPosition);
+        int range = ((int) (stringPosition.charAt(StableData.INT_ZERO)) >> StableData.INT_SIX);
         int rangeHigh = range >> StableData.INT_FOUR;
         if (forestRoots.containsKey(rangeHigh)) {
             Map<Integer, Map> trees = forestRoots.get(rangeHigh);
             if (trees.containsKey(range)) {
                 Map<String, FMHMMNode> maps = trees.get(range);
-                FMHMMNode fFHMMNode = maps.get(StringPosition);
-                outputWordNode = doBinaryForestRecurWordKerner(outputWordNode, fFHMMNode
+                FMHMMNode fFHMMNode = maps.get(stringPosition);
+                outputWordNode = doBinaryForestRecurWordKernel(outputWordNode, fFHMMNode
                         , inputStringLength, inputString, charPosition, forestRoots, forestDepth);
             }
         }
@@ -29,7 +29,7 @@ public class NEROControllermp implements NEROController {
     }
 
     @SuppressWarnings(StableData.RAW_TYPES)
-    public String doBinaryForestRecurWordKerner(String output, FMHMMNode fFHMMNode, int length, String input
+    public String doBinaryForestRecurWordKernel(String output, FMHMMNode fFHMMNode, int length, String input
             , int i, Map<Integer, Map> roots, int forestDepth) {
         if (fFHMMNode != null && fFHMMNode.getNext() != null) {
             Map<String, Integer> outputList = fFHMMNode.getNext();

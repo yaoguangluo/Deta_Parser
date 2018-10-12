@@ -1,12 +1,14 @@
 package org.tinos.test;
 
-import org.tinos.engine.analysis.Analyzer;
-import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import org.tinos.engine.analysis.Analyzer;
+import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
+
+import static java.lang.System.*;
 
 @SuppressWarnings("unused")
 public class DemoPOS {
@@ -78,45 +80,26 @@ public class DemoPOS {
         ss1[23] = "王军 虎头虎脑 的";
         ss1[24] = "将军 任命 了 一名 中将";
         ss1[25] = "产量 三年 中 将 增长 两倍";
-        //System.out.println("期望分词-->"+ss1);
-//		TimeCheck t= new TimeCheck();
-//		t.begin();
-        for (int i = 0; i < ss.length; i++) { //重复40万次数 相当于处理 1000万字
+
+
+        for (int i = 0; i < ss.length; i++) {
             System.out.println("超级变态复杂病句-->" + ss[i]);
             sets = analyzer.parserString(ss[i].replace(" ", ""));//词性分析
-            System.out.print("分析处理真实结果-->");
+            out.print("分析处理真实结果-->");
             for (int j = 0; j < sets.size(); j++) {
                 if (!sets.get(j).replaceAll("\\s+", "").equals("")) {
-                    System.out.print(sets.get(j) + " ");
+                    out.print(sets.get(j) + " ");
                 }
             }
-            System.out.println();
-            System.out.println("期望得到分词效果-->" + ss1[i]);
-            System.out.println();
+            out.println();
+            out.println("期望得到分词效果-->" + ss1[i]);
+            for (int k = 0; k < sets.size(); k++) {
+                if (!sets.get(k).replaceAll("\\s+", "").equals("")) {
+                    nlp.get(sets.get(k));
+                    out.println(sets.get(k) + "/" + nlp.get(sets.get(k)) + "  ");
+                }
+            }
+            out.println("");
         }
-////		t.end();
-////		t.duration();
-//		System.out.print("分析处理真实结果-->");
-//		for(int i = 0; i < sets.size(); i++){
-//			if(!sets.get(i).replaceAll("\\s+", "").equals("")){
-//				System.out.print(sets.get(i)+" ");
-//			}
-//		}
-//		System.out.println("");
-//		System.out.println("词性分析-->");
-//		t.begin();
-//		for(int j = 0; j < 1; j++){ 
-//			for(int i = 0; i < sets.size(); i++){
-//				if(!sets.get(i).replaceAll("\\s+", "").equals("")){
-//					nlp.get(sets.get(i));
-//
-//					System.out.println(sets.get(i)+"/"+nlp.get(sets.get(i)) +"  ");
-//				}
-//			}
-//		}
-//		t.end();
-//		System.out.println("");
-//		System.out.println("");
-//		t.duration();
     }
 }

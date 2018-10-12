@@ -18,16 +18,16 @@ import org.tinos.view.stable.StableData;
 
 public class CogsBinaryForestAnalyzerImp implements CogsBinaryForestAnalyzer {
     private FHMMList fHMMList;
-    private NEROController neroUtils;
-    private NLPController nlpUtils;
-    private POSController posUtils;
+    private NEROController neroController;
+    private NLPController nlpController;
+    private POSController posController;
 
     public void init() throws IOException {
         this.fHMMList = new FMHMMListImp();
         fHMMList.index();
-        neroUtils = new NEROControllermp();
-        nlpUtils = new NLPControllerImp();
-        posUtils = new POSControllerImp();
+        neroController = new NEROControllermp();
+        nlpController = new NLPControllerImp();
+        posController = new POSControllerImp();
     }
 
     @SuppressWarnings(StableData.RAW_TYPES)
@@ -42,43 +42,42 @@ public class CogsBinaryForestAnalyzerImp implements CogsBinaryForestAnalyzer {
         for (int charPosition = StableData.INT_ZERO; charPosition < inputStringLength; charPosition
                 += (countInputStringLength == StableData.INT_ZERO ? StableData.INT_ONE : countInputStringLength)) {
             String countWordNode = StableData.EMPTY_STRING + inputString.charAt(charPosition);
-            countWordNode = neroUtils.getBinaryForestRecurWord(countWordNode, inputString, charPosition
+            countWordNode = neroController.getBinaryForestRecurWord(countWordNode, inputString, charPosition
                     , inputStringLength, forestRoots, forestDepth);
             countInputStringLength = countWordNode.length();
             if (countWordNode.length() == StableData.INT_ONE) {
                 outputList.add(countWordNode);
                 fixWords[StableData.INT_ZERO] = countWordNode;
-            } else if (countWordNode.length() == StableData.INT_TWO) {
-                countInputStringLength = nlpUtils.doSlangPartCheck(countInputStringLength, outputList, countWordNode
+            }
+            if (countWordNode.length() == StableData.INT_TWO) {
+                countInputStringLength = nlpController.doSlangPartCheck(countInputStringLength, outputList, countWordNode
                         , wordsForest, fixWords);
-            } else if (countWordNode.length() == StableData.INT_THREE) {
-                if (charPosition + StableData.INT_EIGHT < inputString.length()) {
-                    fixWords[StableData.INT_ONE] = inputString.substring(charPosition + StableData.INT_THREE
-                            , charPosition + StableData.INT_EIGHT);
-                } else {
-                    fixWords[StableData.INT_ONE] = inputString.substring(charPosition + StableData.INT_THREE
-                            , inputString.length());
-                }
-                countInputStringLength = nlpUtils.doPOSAndEMMCheck(countInputStringLength, outputList, wordsForest
-                        , countWordNode, fixWords, posUtils);
-            } else if (countWordNode.length() == StableData.INT_FOUR) {
-                if (charPosition + StableData.INT_EIGHT < inputString.length()) {
-                    fixWords[StableData.INT_ONE] = inputString.substring(charPosition + StableData.INT_THREE
-                            , charPosition + StableData.INT_EIGHT);
-                } else {
-                    fixWords[StableData.INT_ONE] = inputString.substring(charPosition + StableData.INT_THREE
-                            , inputString.length());
-                }
-                countInputStringLength = nlpUtils.doSlangCheck(countInputStringLength, outputList, countWordNode
-                        , wordsForest, fixWords, posUtils);
+            }
+            if (countWordNode.length() == StableData.INT_THREE) {
+                addFixWords(charPosition,inputString,fixWords);
+                countInputStringLength = nlpController.doPOSAndEMMCheck(countInputStringLength, outputList, wordsForest
+                        , countWordNode, fixWords, posController);
+            }
+            if (countWordNode.length() == StableData.INT_FOUR) {
+                addFixWords(charPosition,inputString,fixWords);
+                countInputStringLength = nlpController.doSlangCheck(countInputStringLength, outputList, countWordNode
+                        , wordsForest, fixWords, posController);
             }
         }
         return outputList;
     }
 
-    public Map<String, String> getWord() throws IOException {
+    private void addFixWords(int charPosition, String inputString, String[] fixWords) {
+        if (charPosition + StableData.INT_EIGHT < inputString.length()) {
+            fixWords[StableData.INT_ONE] = inputString.substring(charPosition + StableData.INT_THREE
+                    , charPosition + StableData.INT_EIGHT);
+        } else {
+            fixWords[StableData.INT_ONE] = inputString.substring(charPosition + StableData.INT_THREE
+                    , inputString.length());
+        }
+    }
+
+    public Map<String, String> getWord() {
         return fHMMList.getWords();
     }
 }
-
- 

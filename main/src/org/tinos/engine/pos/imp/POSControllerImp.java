@@ -55,7 +55,7 @@ public class POSControllerImp implements POSController {
 
     }
 
-    private void didNotFindFirstChar(List<String> outputList, String[] strings
+    public void didNotFindFirstChar(List<String> outputList, String[] strings
             , String[] fixWord, Map<String, String> wordsForest) {
         if (wordsForest.get(strings[StableData.INT_TWO]).contains(StableData.NLP_FU_CI)) {
             outputList.add(strings[StableData.INT_ZERO]);
@@ -64,7 +64,7 @@ public class POSControllerImp implements POSController {
         }
     }
 
-    private int parserFirstChar(int countInputStringLength, List<String> outputList, String[] strings, String[] fixWord
+    public int parserFirstChar(int countInputStringLength, List<String> outputList, String[] strings, String[] fixWord
             , Map<String, String> wordsForest) {
         countInputStringLength -= StableData.INT_THREE;
         outputList.add(strings[StableData.INT_ZERO]);
