@@ -34,13 +34,11 @@ public class NEROControllerImp implements NEROController {
         if (fFHMMNode != null && fFHMMNode.getNext() != null) {
             Map<String, Integer> outputList = fFHMMNode.getNext();
             if (i + StableData.INT_ONE < length) {
-                String charPostPosition = StableData.EMPTY_STRING + input.charAt(i + StableData.INT_ONE);
+                String charPostPosition;
+                charPostPosition = StableData.EMPTY_STRING + input.charAt(i + StableData.INT_ONE);
                 if (outputList.containsKey(charPostPosition)) {
-                    StringBuilder stringBuilder = new StringBuilder();
-                    stringBuilder.append(output);
-                    stringBuilder.append(charPostPosition);
-                    output = stringBuilder.toString();
-                    output = getBinaryForestRecurWord(output, input, i + StableData.INT_ONE, length
+                    String stringBuilder = output + charPostPosition;
+                    output = getBinaryForestRecurWord(stringBuilder, input, i + StableData.INT_ONE, length
                             , roots, forestDepth + StableData.INT_ONE);
                 }
             }
