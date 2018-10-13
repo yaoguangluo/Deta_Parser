@@ -45,19 +45,19 @@ public class CogsBinaryForestAnalyzerImp implements CogsBinaryForestAnalyzer {
             countWordNode = neroController.getBinaryForestRecurWord(countWordNode, inputString, charPosition
                     , inputStringLength, forestRoots, forestDepth);
             int compare = countInputStringLength = countWordNode.length();
+            if (compare == StableData.INT_THREE) {
+                addFixWords(charPosition, inputString, fixWords);
+                countInputStringLength = nlpController.doPOSAndEMMCheckOfThree(countInputStringLength, outputList
+                        , wordsForest, countWordNode, fixWords, posController);
+            }
+            if (compare == StableData.INT_TWO) {
+                countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength
+                        , outputList, countWordNode, wordsForest, fixWords, posController);
+            }
             if (compare == StableData.INT_FOUR) {
                 addFixWords(charPosition, inputString, fixWords);
                 countInputStringLength = nlpController.doSlangCheck(countInputStringLength, outputList, countWordNode
                         , wordsForest, fixWords, posController);
-            }
-            if (compare == StableData.INT_THREE) {
-                addFixWords(charPosition, inputString, fixWords);
-                countInputStringLength = nlpController.doPOSAndEMMCheck(countInputStringLength, outputList, wordsForest
-                        , countWordNode, fixWords, posController);
-            }
-            if (compare == StableData.INT_TWO) {
-                countInputStringLength = nlpController.doSlangPartCheck(countInputStringLength, outputList, countWordNode
-                        , wordsForest, fixWords);
             }
             if (compare == StableData.INT_ONE) {
                 outputList.add(countWordNode);

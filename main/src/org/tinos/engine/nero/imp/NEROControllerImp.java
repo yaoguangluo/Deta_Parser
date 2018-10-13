@@ -17,12 +17,10 @@ public class NEROControllerImp implements NEROController {
         int range = stringPosition.charAt(StableData.INT_ZERO) >> StableData.INT_SIX;
         int rangeHigh = range >> StableData.INT_FOUR;
         Map<Integer, Map> trees = forestRoots.get(rangeHigh);
-        if (trees!=null && trees.containsKey(range)) {
+        if (trees != null && trees.containsKey(range)) {
             Map<String, FMHMMNode> maps = trees.get(range);
-            outputWordNode = doBinaryForestRecurWordKernel(outputWordNode, maps.get(stringPosition)
-                    , inputStringLength, inputString, charPosition + StableData.INT_ONE, forestRoots
-                    , forestDepth);
-
+            outputWordNode = doBinaryForestRecurWordKernel(outputWordNode, maps.get(stringPosition), inputStringLength
+                    , inputString, charPosition + StableData.INT_ONE, forestRoots, forestDepth);
         }
         return outputWordNode;
     }
@@ -35,8 +33,8 @@ public class NEROControllerImp implements NEROController {
             if (i < length) {
                 String charPostPosition = StableData.EMPTY_STRING + input.charAt(i);
                 if (outputList.containsKey(charPostPosition)) {
-                    output = getBinaryForestRecurWord(output + charPostPosition, input, i, length, roots
-                            , forestDepth + StableData.INT_ONE);
+                    output = getBinaryForestRecurWord(output + charPostPosition, input, i, length
+                            , roots, forestDepth + StableData.INT_ONE);
                 }
             }
         }

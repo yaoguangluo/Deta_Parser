@@ -9,9 +9,9 @@ public  interface NLPController {
      int doSlangCheck(int countInputStringLength, List<String> output, String inputString
             , Map<String, String> words, String[] prefixWord, POSController posUtils);
 
-     int doPOSAndEMMCheck(int countInputStringLength, List<String> output, Map<String, String> wordsForest
+     int doPOSAndEMMCheckOfThree(int countInputStringLength, List<String> output, Map<String, String> wordsForest
             , String inputString, String[] prefixWord, POSController posUtils);
 
-     int doSlangPartCheck(int countInputStringLength, List<String> outputString, String countWordNode
-            , Map<String, String> wordsForest, String[] prefixWord);
+     int doSlangPartAndPOSCheckForTwoChar(int countInputStringLength, List<String> outputString, String countWordNode
+             , Map<String, String> wordsForest, String[] prefixWord, POSController posUtils);
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
+import timeProcessor.TimeCheck;
+
 @SuppressWarnings("unused")
 public class DemoEX {
     public static void main(String[] args) throws IOException {
@@ -12,14 +14,18 @@ public class DemoEX {
         analyzer.init();
         Map<String, String> nlp = analyzer.getWord();
         List<String> sets = new ArrayList<>();
+		TimeCheck t = new TimeCheck();
         String ss = "结婚的和尚未结婚的等和尚未成家之人都和尚未"
                 + "成佛的和尚未必一样和尚未来的和尚未和从容"
                 + "易开始念经那和尚未进行告别不显得从容易知"
                 + "和尚未结婚的施主一样其实都不和尚未成佛的"
                 + "心态有关因为这和尚未成佛";
+		 //       String ss = "北京大学生前来应聘";
+		t.begin();
         for (int i = 0; i < 100000; i++) { //重复40万次数 相当于处理 1000万字
             sets = analyzer.parserString(ss);//词性分析
         }
+        t.end();
 		System.out.print("分析处理真实结果-->");
 		for(int i = 0; i < sets.size(); i++){
 			if(!sets.get(i).equals("")){
@@ -36,5 +42,6 @@ public class DemoEX {
 				}
 			}
 		}
+		t.duration();
     }
 }
