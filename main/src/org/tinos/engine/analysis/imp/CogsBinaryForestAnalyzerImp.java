@@ -5,16 +5,16 @@ import java.util.Map;
 import java.util.LinkedList;
 import java.io.IOException;
 
-import org.tinos.engine.analysis.CogsBinaryForestAnalyzer;
+import org.tinos.ortho.fhmm.FHMMList;
+import org.tinos.ortho.fhmm.imp.FMHMMListImp;
+import org.tinos.view.stable.StableData;
 import org.tinos.engine.nero.NEROController;
 import org.tinos.engine.nero.imp.NEROControllerImp;
 import org.tinos.engine.nlp.NLPController;
 import org.tinos.engine.nlp.imp.NLPControllerImp;
 import org.tinos.engine.pos.POSController;
 import org.tinos.engine.pos.imp.POSControllerImp;
-import org.tinos.ortho.fhmm.FHMMList;
-import org.tinos.ortho.fhmm.imp.FMHMMListImp;
-import org.tinos.view.stable.StableData;
+import org.tinos.engine.analysis.CogsBinaryForestAnalyzer;
 
 public class CogsBinaryForestAnalyzerImp implements CogsBinaryForestAnalyzer {
     private FHMMList fHMMList;
