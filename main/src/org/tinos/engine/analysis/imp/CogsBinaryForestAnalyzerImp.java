@@ -39,6 +39,7 @@ public class CogsBinaryForestAnalyzerImp implements CogsBinaryForestAnalyzer {
         int forestDepth = StableData.INT_ZERO;
         int countInputStringLength;
         String[] fixWords = new String[StableData.INT_TWO];
+        Here:
         for (int charPosition = StableData.INT_ZERO; charPosition < inputStringLength; charPosition
                 += (countInputStringLength == StableData.INT_ZERO ? StableData.INT_ONE : countInputStringLength)) {
             String countWordNode = StableData.EMPTY_STRING + inputString.charAt(charPosition);
@@ -49,19 +50,23 @@ public class CogsBinaryForestAnalyzerImp implements CogsBinaryForestAnalyzer {
                 addFixWords(charPosition, inputString, fixWords);
                 countInputStringLength = nlpController.doPOSAndEMMCheckOfThree(countInputStringLength, outputList
                         , wordsForest, countWordNode, fixWords, posController);
+                continue Here;
             }
             if (compare == StableData.INT_TWO) {
                 countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength
                         , outputList, countWordNode, wordsForest, fixWords, posController);
+                continue Here;
             }
             if (compare == StableData.INT_FOUR) {
                 addFixWords(charPosition, inputString, fixWords);
                 countInputStringLength = nlpController.doSlangCheck(countInputStringLength, outputList, countWordNode
                         , wordsForest, fixWords, posController);
+                continue Here;
             }
             if (compare == StableData.INT_ONE) {
                 outputList.add(countWordNode);
                 fixWords[StableData.INT_ZERO] = countWordNode;
+                continue Here;
             }
         }
         return outputList;
