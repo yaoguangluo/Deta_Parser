@@ -101,7 +101,7 @@ public class NLPControllerImp implements NLPController {
                 outputList.add(countWordNode);
                 return countInputStringLength;
             }
-            return countInputStringLength--;
+            return StableData.INT_ZERO;
         }
         if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_MING_CI)) {
             countInputStringLength = posUtils.chuLiMingCiOfTwo(wordsForest, outputList, countInputStringLength, strings
@@ -113,6 +113,6 @@ public class NLPControllerImp implements NLPController {
             outputList.add(countWordNode);
             return countInputStringLength;
         }
-        return countInputStringLength;
+        return StableData.INT_ZERO;
     }
 }
