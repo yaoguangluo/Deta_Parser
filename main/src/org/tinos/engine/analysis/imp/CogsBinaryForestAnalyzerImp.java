@@ -44,24 +44,24 @@ public class CogsBinaryForestAnalyzerImp implements CogsBinaryForestAnalyzer {
             String countWordNode = StableData.EMPTY_STRING + inputString.charAt(charPosition);
             countWordNode = neroController.getBinaryForestRecurWord(countWordNode, inputString, charPosition
                     , inputStringLength, forestRoots, forestDepth);
-            countInputStringLength = countWordNode.length();
-            if (countWordNode.length() == StableData.INT_ONE) {
-                outputList.add(countWordNode);
-                fixWords[StableData.INT_ZERO] = countWordNode;
+            int compare = countInputStringLength = countWordNode.length();
+            if (compare == StableData.INT_FOUR) {
+                addFixWords(charPosition, inputString, fixWords);
+                countInputStringLength = nlpController.doSlangCheck(countInputStringLength, outputList, countWordNode
+                        , wordsForest, fixWords, posController);
             }
-            if (countWordNode.length() == StableData.INT_TWO) {
-                countInputStringLength = nlpController.doSlangPartCheck(countInputStringLength, outputList, countWordNode
-                        , wordsForest, fixWords);
-            }
-            if (countWordNode.length() == StableData.INT_THREE) {
-                addFixWords(charPosition,inputString,fixWords);
+            if (compare == StableData.INT_THREE) {
+                addFixWords(charPosition, inputString, fixWords);
                 countInputStringLength = nlpController.doPOSAndEMMCheck(countInputStringLength, outputList, wordsForest
                         , countWordNode, fixWords, posController);
             }
-            if (countWordNode.length() == StableData.INT_FOUR) {
-                addFixWords(charPosition,inputString,fixWords);
-                countInputStringLength = nlpController.doSlangCheck(countInputStringLength, outputList, countWordNode
-                        , wordsForest, fixWords, posController);
+            if (compare == StableData.INT_TWO) {
+                countInputStringLength = nlpController.doSlangPartCheck(countInputStringLength, outputList, countWordNode
+                        , wordsForest, fixWords);
+            }
+            if (compare == StableData.INT_ONE) {
+                outputList.add(countWordNode);
+                fixWords[StableData.INT_ZERO] = countWordNode;
             }
         }
         return outputList;
