@@ -14,6 +14,8 @@ public class StableData {
     public static final String NLP_WEI_CI = "谓词";
     public static final String NLP_SHENG_LUE_CI = "省略词";
     public static final String NLP_XIAN_DING_CI = "限定词";
+    public static final int INT_ERROR = -1;
+    public static final int INT_RIGHT = 1;
     public static final int INT_ZERO = 0;
     public static final int INT_ONE = 1;
     public static final int INT_TWO = 2;

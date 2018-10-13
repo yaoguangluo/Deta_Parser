@@ -13,28 +13,26 @@ public class POSControllerImp implements POSController {
             didNotFindFirstChar(outputList, strings, fixWord, wordsForest);
             return countInputStringLength;
         }
-        if (wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_FU_CI)
-                || wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_DONG_CI)
-                || wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_WEI_CI)
-                || wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_DAI_CI)
-                || wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_MING_CI)) {
+        if (wordsForest.containsKey(fixWord[StableData.INT_ZERO]) && (wordsForest.get(fixWord[StableData.INT_ZERO])
+                .contains(StableData.NLP_FU_CI) || wordsForest.get(fixWord[StableData.INT_ZERO])
+                .contains(StableData.NLP_DONG_CI) || wordsForest.get(fixWord[StableData.INT_ZERO])
+                .contains(StableData.NLP_WEI_CI) || wordsForest.get(fixWord[StableData.INT_ZERO])
+                .contains(StableData.NLP_DAI_CI) || wordsForest.get(fixWord[StableData.INT_ZERO])
+                .contains(StableData.NLP_MING_CI))) {
             countInputStringLength = parserFirstChar(countInputStringLength, outputList, strings, fixWord
                     , wordsForest);
             return countInputStringLength;
         }
-        if (wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_ZHU_CI)
-                || wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_SHENG_LUE_CI)) {
+        if (wordsForest.containsKey(fixWord[StableData.INT_ZERO]) && (wordsForest.get(fixWord[StableData.INT_ZERO])
+                .contains(StableData.NLP_ZHU_CI) || wordsForest.get(fixWord[StableData.INT_ZERO])
+                .contains(StableData.NLP_SHENG_LUE_CI))) {
             for (int BackPosition = StableData.INT_ZERO; BackPosition < fixWord[StableData.INT_ONE].length()
                     ; BackPosition++) {
-                String charPositionAtFixWord = StableData.EMPTY_STRING + fixWord[StableData.INT_ONE]
-                        .charAt(BackPosition);
-                if (wordsForest.containsKey(charPositionAtFixWord) && (wordsForest.get(charPositionAtFixWord)
-                        .contains(StableData.NLP_ZHU_CI) || wordsForest.get(charPositionAtFixWord)
-                        .contains(StableData
-                                .NLP_SHENG_LUE_CI))) {
-                    countInputStringLength = parserFirstChar(countInputStringLength, outputList, strings, fixWord
-                            , wordsForest);
-                    return countInputStringLength;
+                int[] nestCountInputStringLength = new int[1];
+                int result = loopCheckBackFix(fixWord, BackPosition, wordsForest, countInputStringLength
+                        , outputList, strings, nestCountInputStringLength);
+                if (result == StableData.INT_RIGHT) {
+                    return nestCountInputStringLength[StableData.INT_ZERO];
                 }
             }
             countInputStringLength -= StableData.INT_THREE;
@@ -52,11 +50,23 @@ public class POSControllerImp implements POSController {
             countInputStringLength += StableData.INT_TWO;
         }
         return countInputStringLength;
-
     }
 
-    public void didNotFindFirstChar(List<String> outputList, String[] strings
-            , String[] fixWord, Map<String, String> wordsForest) {
+    public int loopCheckBackFix(String[] fixWord, int backPosition, Map<String, String> wordsForest
+            , int countInputStringLength, List<String> outputList, String[] strings, int[] nestCountInputStringLength) {
+        String charPositionAtFixWord = StableData.EMPTY_STRING + fixWord[StableData.INT_ONE].charAt(backPosition);
+        if (wordsForest.containsKey(charPositionAtFixWord) && (wordsForest.get(charPositionAtFixWord)
+                .contains(StableData.NLP_ZHU_CI) || wordsForest.get(charPositionAtFixWord)
+                .contains(StableData.NLP_SHENG_LUE_CI))) {
+            nestCountInputStringLength[StableData.INT_ZERO] = parserFirstChar(countInputStringLength, outputList
+                    , strings, fixWord, wordsForest);
+            return StableData.INT_RIGHT;
+        }
+        return StableData.INT_ERROR;
+    }
+
+    public void didNotFindFirstChar(List<String> outputList, String[] strings, String[] fixWord
+            , Map<String, String> wordsForest) {
         if (wordsForest.get(strings[StableData.INT_TWO]).contains(StableData.NLP_FU_CI)) {
             outputList.add(strings[StableData.INT_ZERO]);
             outputList.add(strings[StableData.INT_TWO]);
@@ -79,25 +89,28 @@ public class POSControllerImp implements POSController {
         return countInputStringLength;
     }
 
-    public int chuLiZhuCi(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength,
-                          String[] strings, String[] fixWord) {
+    public int chuLiZhuCi(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
+            , String[] strings, String[] fixWord) {
         if (outputList.size() == StableData.INT_ZERO) {
             didNotFindFirstChar(outputList, strings, fixWord, wordsForest);
             return countInputStringLength;
         }
-        if (wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_DONG_CI)) {
-            countInputStringLength = parserFirstChar(countInputStringLength, outputList, strings, fixWord
-                    , wordsForest);
-            return countInputStringLength;
-        } else {
-            countInputStringLength -= StableData.INT_THREE;
-            if (wordsForest.containsKey(strings[StableData.INT_ONE])) {
-                outputList.add(strings[StableData.INT_ONE]);
-                fixWord[StableData.INT_ZERO] = strings[StableData.INT_ONE];
-                countInputStringLength += StableData.INT_TWO;
+        if (wordsForest.containsKey(fixWord[StableData.INT_ZERO])) {
+            if (wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_DONG_CI)) {
+                countInputStringLength = parserFirstChar(countInputStringLength, outputList, strings, fixWord
+                        , wordsForest);
+                return countInputStringLength;
+            } else {
+                countInputStringLength -= StableData.INT_THREE;
+                if (wordsForest.containsKey(strings[StableData.INT_ONE])) {
+                    outputList.add(strings[StableData.INT_ONE]);
+                    fixWord[StableData.INT_ZERO] = strings[StableData.INT_ONE];
+                    countInputStringLength += StableData.INT_TWO;
+                }
+                return countInputStringLength;
             }
-            return countInputStringLength;
         }
+        return countInputStringLength;
     }
 
     public int chuLiJieCi(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
@@ -109,7 +122,7 @@ public class POSControllerImp implements POSController {
             fixWord[StableData.INT_ZERO] = strings[StableData.INT_TWO];
             return countInputStringLength;
         }
-        if (outputList.size() > StableData.INT_ZERO) {
+        if (outputList.size() > StableData.INT_ZERO && wordsForest.containsKey(fixWord[StableData.INT_ZERO])) {
             if (wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_LIAN_CI)
                     || wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_QING_TAI_CI)
                     || wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_WEI_CI)) {
@@ -129,20 +142,24 @@ public class POSControllerImp implements POSController {
         return countInputStringLength;
     }
 
-    public int chuLiLiangCi(Map<String, String> wordsForest, List<String> outputList
-            , int countInputStringLength, String[] strings, String[] fixWord) {
-        if (wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_MING_CI)
-                || wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_DAI_CI)) {
-            countInputStringLength = parserFirstChar(countInputStringLength, outputList, strings, fixWord, wordsForest);
-            return countInputStringLength;
-        } else {
-            countInputStringLength -= StableData.INT_THREE;
-            if (wordsForest.containsKey(strings[StableData.INT_ONE])) {
-                outputList.add(strings[StableData.INT_ONE]);
-                fixWord[StableData.INT_ZERO] = strings[StableData.INT_ONE];
-                countInputStringLength += StableData.INT_TWO;
+    public int chuLiLiangCi(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
+            , String[] strings, String[] fixWord) {
+        if (wordsForest.containsKey(fixWord[StableData.INT_ZERO])) {
+            if (wordsForest.get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_MING_CI) || wordsForest
+                    .get(fixWord[StableData.INT_ZERO]).contains(StableData.NLP_DAI_CI)) {
+                countInputStringLength = parserFirstChar(countInputStringLength, outputList, strings, fixWord
+                        , wordsForest);
+                return countInputStringLength;
+            } else {
+                countInputStringLength -= StableData.INT_THREE;
+                if (wordsForest.containsKey(strings[StableData.INT_ONE])) {
+                    outputList.add(strings[StableData.INT_ONE]);
+                    fixWord[StableData.INT_ZERO] = strings[StableData.INT_ONE];
+                    countInputStringLength += StableData.INT_TWO;
+                }
+                return countInputStringLength;
             }
-            return countInputStringLength;
         }
+        return countInputStringLength;
     }
 }
