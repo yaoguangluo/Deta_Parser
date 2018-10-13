@@ -38,47 +38,53 @@ public class CogsBinaryForestAnalyzerImp implements CogsBinaryForestAnalyzer {
         int inputStringLength = inputString.length();
         int forestDepth = StableData.INT_ZERO;
         int countInputStringLength;
-        String[] fixWords = new String[StableData.INT_TWO];
+        StringBuilder[] fixWords = new StringBuilder[StableData.INT_TWO];
+        fixWords[StableData.INT_ZERO] = new StringBuilder();
+        fixWords[StableData.INT_ONE] = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         Here:
         for (int charPosition = StableData.INT_ZERO; charPosition < inputStringLength; charPosition
                 += (countInputStringLength == StableData.INT_ZERO ? StableData.INT_ONE : countInputStringLength)) {
-            String countWordNode = StableData.EMPTY_STRING + inputString.charAt(charPosition);
-            countWordNode = neroController.getBinaryForestRecurWord(countWordNode, inputString, charPosition
-                    , inputStringLength, forestRoots, forestDepth);
+            stringBuilder.delete(StableData.INT_ZERO, stringBuilder.length());
+            stringBuilder = neroController.getBinaryForestRecurWord(stringBuilder.append(inputString
+                    .charAt(charPosition)), inputString, charPosition, inputStringLength, forestRoots, forestDepth);
+            String countWordNode = stringBuilder.toString();
             int compare = countInputStringLength = countWordNode.length();
             if (compare == StableData.INT_THREE) {
                 addFixWords(charPosition, inputString, fixWords);
                 countInputStringLength = nlpController.doPOSAndEMMCheckOfThree(countInputStringLength, outputList
-                        , wordsForest, countWordNode, fixWords, posController);
+                        , wordsForest, stringBuilder, fixWords, posController);
                 continue Here;
             }
             if (compare == StableData.INT_TWO) {
                 countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength
-                        , outputList, countWordNode, wordsForest, fixWords, posController);
+                        , outputList, stringBuilder, wordsForest, fixWords, posController);
                 continue Here;
             }
             if (compare == StableData.INT_FOUR) {
                 addFixWords(charPosition, inputString, fixWords);
-                countInputStringLength = nlpController.doSlangCheck(countInputStringLength, outputList, countWordNode
+                countInputStringLength = nlpController.doSlangCheck(countInputStringLength, outputList, stringBuilder
                         , wordsForest, fixWords, posController);
                 continue Here;
             }
             if (compare == StableData.INT_ONE) {
                 outputList.add(countWordNode);
-                fixWords[StableData.INT_ZERO] = countWordNode;
+                fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
+                fixWords[StableData.INT_ZERO].append(countWordNode);
                 continue Here;
             }
         }
         return outputList;
     }
 
-    private void addFixWords(int charPosition, String inputString, String[] fixWords) {
+    private void addFixWords(int charPosition, String inputString, StringBuilder[] fixWords) {
+        fixWords[StableData.INT_ONE].delete(0, fixWords[StableData.INT_ONE].length());
         if (charPosition + StableData.INT_EIGHT < inputString.length()) {
-            fixWords[StableData.INT_ONE] = inputString.substring(charPosition + StableData.INT_THREE
-                    , charPosition + StableData.INT_EIGHT);
+            fixWords[StableData.INT_ONE].append(inputString.substring(charPosition + StableData.INT_THREE
+                    , charPosition + StableData.INT_EIGHT));
         } else {
-            fixWords[StableData.INT_ONE] = inputString.substring(charPosition + StableData.INT_THREE
-                    , inputString.length());
+            fixWords[StableData.INT_ONE].append(inputString.substring(charPosition + StableData.INT_THREE
+                    , inputString.length()));
         }
     }
 

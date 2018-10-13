@@ -5,7 +5,7 @@ import org.tinos.view.stable.StableData;
 
 import java.util.Map;
 
-public  interface EuclidController {
+public interface EuclidController {
     @SuppressWarnings({StableData.RAW_TYPES})
-     Map<Integer, Map> mCogsEuclid(Map<String, FMHMMNode> concurrentHashMap);
+    Map<Integer, Map> mCogsEuclid(Map<String, FMHMMNode> concurrentHashMap);
 }
