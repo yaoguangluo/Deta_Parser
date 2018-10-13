@@ -74,6 +74,7 @@ public class NLPControllerImp implements NLPController {
             outputList.add(inputString);
             return countInputStringLength;
         }
+
         countInputStringLength = doSlangPartAndPOSCheckForTwoChar(countInputStringLength
                 - StableData.INT_ONE, outputList, strings[StableData.INT_ONE], wordsForest, prefixWord, posUtils);
         return countInputStringLength;
@@ -84,7 +85,7 @@ public class NLPControllerImp implements NLPController {
         if (!wordsForest.containsKey(countWordNode)) {
             outputList.add(StableData.EMPTY_STRING + countWordNode.charAt(StableData.INT_ZERO));
             prefixWord[StableData.INT_ZERO] = StableData.EMPTY_STRING + countWordNode.charAt(StableData.INT_ZERO);
-            return countInputStringLength--;
+            return --countInputStringLength;
         }
         if (prefixWord[StableData.INT_ZERO] == null) {
             prefixWord[StableData.INT_ZERO] = countWordNode;

@@ -15,12 +15,12 @@ public class DemoEX {
         Map<String, String> nlp = analyzer.getWord();
         List<String> sets = new ArrayList<>();
 		TimeCheck t = new TimeCheck();
-        String ss = "结婚的和尚未结婚的等和尚未成家之人都和尚未"
-                + "成佛的和尚未必一样和尚未来的和尚未和从容"
-                + "易开始念经那和尚未进行告别不显得从容易知"
-                + "和尚未结婚的施主一样其实都不和尚未成佛的"
-                + "心态有关因为这和尚未成佛";
-		 //       String ss = "北京大学生前来应聘";
+//        String ss = "结婚的和尚未结婚的等和尚未成家之人都和尚未"
+//                + "成佛的和尚未必一样和尚未来的和尚未和从容"
+//                + "易开始念经那和尚未进行告别不显得从容易知"
+//                + "和尚未结婚的施主一样其实都不和尚未成佛的"
+//                + "心态有关因为这和尚未成佛";
+		     String ss = "为人民办公益";
 		t.begin();
         for (int i = 0; i < 100000; i++) { //重复40万次数 相当于处理 1000万字
             sets = analyzer.parserString(ss);//词性分析
