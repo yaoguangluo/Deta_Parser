@@ -22,6 +22,7 @@ public class StableData {
     public static final int INT_THREE = 3;
     public static final int INT_FOUR = 4;
     public static final int INT_SIX = 6;
+    public static final int INT_SEVEN = 7;
     public static final int INT_TEN = 10;
     public static final int INT_EIGHT = 8;
     public static final int INT_NINE = 9;

@@ -7,44 +7,27 @@ import java.util.Map;
 
 import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
+import org.tinos.view.obj.WordFrequency;
 import timeProcessor.TimeCheck;
 
 @SuppressWarnings("unused")
 public class DemoEX {
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public static void main(String[] args) throws IOException {
         Analyzer analyzer = new CogsBinaryForestAnalyzerImp();
         analyzer.init();
-        Map<String, String> nlp = analyzer.getWord();
+        Map<String, String> pos = analyzer.getWord();
         List<String> sets = new ArrayList<>();
         TimeCheck t = new TimeCheck();
-        String ss = "结婚的和尚未结婚的等和尚未成家之人都和尚未"
-                + "成佛的和尚未必一样和尚未来的和尚未和从容"
-                + "易开始念经那和尚未进行告别不显得从容易知"
-                + "和尚未结婚的施主一样其实都不和尚未成佛的"
-                + "心态有关因为这和尚未成佛虎头虎脑的虎头虎脑人";
-//		     String ss = "杨过和小龙女重逢了";
-        t.begin();
-        String a = new String();
+        // String ss = "和尚未出家前这个和尚未和尚未成家之人组成家庭过，各位和尚们不要怪这个和尚";
 
-        for (int i = 0; i < 100000; i++) { //重复40万次数 相当于处理 1000万字
+        String ss = "科学的发展是一种传承，每一个获得诺贝尔奖的科学家，都是通过长时间对问题的优化中不断总结和分化" +
+                "，最终得到科学的成果";
+        t.begin();
+        for (int i = 0; i < 1000000; i++) { //重复100万次数 相当于处理 5700来万字
             sets = analyzer.parserString(ss);//词性分析
         }
-//        for (int i = 0; i < 100000000; i++) { //重复40万次数 相当于处理 1000万字
-//           // sets = analyzer.parserString(ss);//词性分析
-////			a="sas";
-////			a="";
-//        }
         t.end();
-
-
-        StringBuilder a2 = new StringBuilder();
-        for (int i = 0; i < 100000000; i++) { //重复40万次数 相当于处理 1000万字
-            // sets = analyzer.parserString(ss);//词性分析
-            a2.append("sas");
-            a2.delete(0, 3);
-        }
-
-
         System.out.print("分析处理真实结果-->");
         for (int i = 0; i < sets.size(); i++) {
             if (!sets.get(i).equals("")) {
@@ -52,15 +35,29 @@ public class DemoEX {
             }
         }
         System.out.println("");
+        t.duration();
+        System.out.println("");
         System.out.println("词性分析-->");
+        t.begin();
         for (int j = 0; j < 1; j++) {
             for (int i = 0; i < sets.size(); i++) {
                 if (!sets.get(i).replaceAll("\\s+", "").equals("")) {
-                    nlp.get(sets.get(i));
-                    System.out.println(sets.get(i) + "/" + nlp.get(sets.get(i)) + "  ");
+                    System.out.print(sets.get(i) + "/" + pos.get(sets.get(i)) + "----");
                 }
             }
         }
+        t.end();
+        System.out.println("");
+        t.duration();
+        System.out.println("");
+        System.out.println("词频分析-->");
+        t.begin();
+        List<WordFrequency> fwa = analyzer.getWordFrequency(sets);
+        t.end();
+        for (int i = fwa.size() - 1; i >= 0; i--) {
+            System.out.print(fwa.get(i).getWord() + ":" + fwa.get(i).getFrequency() + "----");
+        }
+        System.out.println("");
         t.duration();
     }
 }
