@@ -1,4 +1,4 @@
-# Fast-Chinese-NeroParser(快速神经网络分词包)
+# Fast-Chinese-NeroParser(快速神经网络分词包)                                                 Github 点个赞↑+1,感谢您的支持!
 
 ## 版本号：5.0.9
 ## 功能：
