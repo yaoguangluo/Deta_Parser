@@ -27,7 +27,7 @@
 #### 1 支持 java JDK 8 以上。
 #### 2 字符集UTF-8
 #### 3 大家可以自由添加词汇，添加在 org/tinos/fhmm/imp/words.lyg文件里。
-https://github.com/yaoguangluo/Fast_Chinese_NeroParser/blob/master/main/src/org/tinos/ortho/fhmm/imp/words.lyg
+https://github.com/yaoguangluo/NeroParser/blob/master/main/src/org/tinos/fhmm/imp/poscc.lyg
 #### 4 可以看下org/tinos/test里面的例子。
 ## 分词使用如下：
 ####   //1 实例化
@@ -107,4 +107,4 @@ LetWang（神州泰岳）在扩充词库量的方法上提出了很多新颖的�
 ## 有疑问联系313699483@qq.com 罗瑶光
 ## 电话 15116110525
 #### 谢谢！
-#### 2018/12/21
+#### 2018/12/24
