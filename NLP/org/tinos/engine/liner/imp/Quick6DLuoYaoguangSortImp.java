@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
 import org.tinos.engine.liner.Quick6DLuoYaoguangSort;
 import org.tinos.view.obj.WordFrequency;
 import org.tinos.view.stable.StableData;

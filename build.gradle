@@ -1,0 +1,25 @@
+group 'NeroParser'
+version '1.0-SNAPSHOT'
+apply plugin: 'java'
+sourceCompatibility = 1.8
+ext {
+    springBootVersion = '1.5.2.RELEASE'
+}
+repositories {
+    //   mavenCentral()
+    def REPOSITORY_URL = 'http://maven.aliyun.com/nexus/content/groups/public/'
+    all { ArtifactRepository repo ->
+        if (repo instanceof MavenArtifactRepository) {
+            def url = repo.url.toString()
+            if (url.startsWith('https://repo1.maven.org/maven2') || url.startsWith('https://jcenter.bintray.com/')) {
+                project.logger.lifecycle "Repository ${repo.url} replaced by $REPOSITORY_URL."
+                remove repo
+            }
+        }
+    }
+    maven {
+        url REPOSITORY_URL
+    }
+}
+dependencies {
+}

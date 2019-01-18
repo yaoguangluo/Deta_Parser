@@ -1,12 +1,11 @@
 package org.tinos.engine.nlp.imp;
-
 import java.util.List;
 import java.util.Map;
+import org.tinos.engin.utils.WordForestUtil;
 import org.tinos.engine.nlp.NLPController;
 import org.tinos.engine.pos.POSController;
 import org.tinos.view.obj.WordFrequency;
 import org.tinos.view.stable.StableData;
-
 public class NLPControllerImp implements NLPController {
 	public int doSlangPartAndPOSCheckForTwoChar(int countInputStringLength, List<String> outputList
 			, StringBuilder stringBuilder, Map<String, String> wordsForest, StringBuilder[] prefixWord
@@ -125,33 +124,11 @@ public class NLPControllerImp implements NLPController {
 			, POSController posUtils) {
 		String countWordNode = stringBuilder.toString();
 		if (!wordsForest.containsKey(countWordNode)) {
-			if (outputList.containsKey(String.valueOf(countWordNode.charAt(StableData.INT_ZERO)))) {
-				WordFrequency wordFrequency = outputList.get(String.valueOf(countWordNode.charAt(StableData.INT_ZERO)));
-				wordFrequency.setFrequency(wordFrequency.getFrequency() + StableData.INT_ONE);
-				outputList.put(String.valueOf(countWordNode.charAt(StableData.INT_ZERO)), wordFrequency);
-			} else {
-				WordFrequency wordFrequency = new WordFrequency();
-				wordFrequency.setFrequency(StableData.INT_ONE);
-				wordFrequency.setWord(String.valueOf(countWordNode.charAt(StableData.INT_ZERO)));
-				outputList.put(String.valueOf(countWordNode.charAt(StableData.INT_ZERO)), wordFrequency);
-			}
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(countWordNode.charAt(StableData.INT_ZERO));
+			WordForestUtil.wordsForestNotContainsKey(outputList, countWordNode, prefixWord);
 			return --countInputStringLength;
 		}
 		if (prefixWord[StableData.INT_ZERO].length() == StableData.INT_ZERO) {
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(countWordNode);
-			if (outputList.containsKey(countWordNode)) {
-				WordFrequency wordFrequency = outputList.get(countWordNode);
-				wordFrequency.setFrequency(wordFrequency.getFrequency() + StableData.INT_ONE);
-				outputList.put(countWordNode, wordFrequency);
-			} else {
-				WordFrequency wordFrequency = new WordFrequency();
-				wordFrequency.setFrequency(StableData.INT_ONE);
-				wordFrequency.setWord(countWordNode);
-				outputList.put(countWordNode, wordFrequency);
-			}
+			WordForestUtil.prefixWordEqualZero(outputList, countWordNode, prefixWord);
 			return countInputStringLength;
 		}
 		String[] strings = new String[StableData.INT_TWO];
@@ -166,18 +143,7 @@ public class NLPControllerImp implements NLPController {
 			}
 		}
 		if (wordsForest.containsKey(strings[StableData.INT_ONE])) {
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(countWordNode);
-			if (outputList.containsKey(countWordNode)) {
-				WordFrequency wordFrequency = outputList.get(countWordNode);
-				wordFrequency.setFrequency(wordFrequency.getFrequency() + StableData.INT_ONE);
-				outputList.put(countWordNode, wordFrequency);
-			} else {
-				WordFrequency wordFrequency = new WordFrequency();
-				wordFrequency.setFrequency(StableData.INT_ONE);
-				wordFrequency.setWord(countWordNode);
-				outputList.put(countWordNode, wordFrequency);
-			}
+			WordForestUtil.wordsForestContainsKey(outputList, countWordNode, prefixWord);
 			return countInputStringLength;
 		}
 		return StableData.INT_ZERO;
@@ -196,18 +162,7 @@ public class NLPControllerImp implements NLPController {
 		strings[StableData.INT_THREE] = String.valueOf(inputString.charAt(StableData.INT_TWO));
 		if (prefixWord[StableData.INT_ZERO] == null) {
 			if (wordsForest.containsKey(inputString)) {
-				prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-				prefixWord[StableData.INT_ZERO].append(inputString);
-				if (outputList.containsKey(inputString)) {
-					WordFrequency wordFrequency = outputList.get(inputString);
-					wordFrequency.setFrequency(wordFrequency.getFrequency() + StableData.INT_ONE);
-					outputList.put(inputString, wordFrequency);
-				} else {
-					WordFrequency wordFrequency = new WordFrequency();
-					wordFrequency.setFrequency(StableData.INT_ONE);
-					wordFrequency.setWord(inputString);
-					outputList.put(inputString, wordFrequency);
-				}
+				WordForestUtil.wordsForestContainsKey(outputList, inputString, prefixWord);
 				return countInputLength;
 			} 
 			StringBuilder stringsBuilder = new StringBuilder();
@@ -242,18 +197,7 @@ public class NLPControllerImp implements NLPController {
 			return countInputLength;
 		}
 		if (wordsForest.containsKey(inputString)) {
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(inputString);
-			if (outputList.containsKey(inputString)) {
-				WordFrequency wordFrequency = outputList.get(inputString);
-				wordFrequency.setFrequency(wordFrequency.getFrequency() + StableData.INT_ONE);
-				outputList.put(inputString, wordFrequency);
-			} else {
-				WordFrequency wordFrequency = new WordFrequency();
-				wordFrequency.setFrequency(StableData.INT_ONE);
-				wordFrequency.setWord(inputString);
-				outputList.put(inputString, wordFrequency);
-			}
+			WordForestUtil.wordsForestContainsKey(outputList, inputString, prefixWord);
 			return countInputLength;
 		}
 		StringBuilder stringsBuilder = new StringBuilder();
@@ -266,18 +210,7 @@ public class NLPControllerImp implements NLPController {
 			, Map<String, String> wordsForest, StringBuilder[] prefixWord, POSController posUtils) {
 		String inputString = stringBuilder.toString();
 		if (wordsForest.containsKey(inputString)) {
-			if (output.containsKey(inputString)) {
-				WordFrequency wordFrequency = output.get(inputString);
-				wordFrequency.setFrequency(wordFrequency.getFrequency() + StableData.INT_ONE);
-				output.put(inputString, wordFrequency);
-			} else {
-				WordFrequency wordFrequency = new WordFrequency();
-				wordFrequency.setFrequency(StableData.INT_ONE);
-				wordFrequency.setWord(inputString);
-				output.put(inputString, wordFrequency);
-			}
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(inputString);
+			WordForestUtil.wordsForestContainsKey(output, inputString, prefixWord);
 			return countInputStringLength;
 		} else {
 			countInputStringLength = doPOSAndEMMCheckOfThreeForMap(--countInputStringLength, output, wordsForest

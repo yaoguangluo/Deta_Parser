@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
 import org.tinos.view.obj.WordFrequency;
-import timeProcessor.TimeCheck;
+//import timeProcessor.TimeCheck;
 public class DemoEX {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) throws IOException {
@@ -17,7 +17,7 @@ public class DemoEX {
 		Map<String, String> pos = analyzer.getPosCnToCn();
 		List<String> sets = new ArrayList<>();
 		Map<String, WordFrequency> seta = new ConcurrentHashMap<>();
-		TimeCheck t = new TimeCheck();
+//		TimeCheck t = new TimeCheck();
 		String ss = "科学的发展是一种传承，每一个获得诺贝尔奖的科学家，都是通过长时间对问题的优化中不断总结和分化" +
 				"，最终得到科学的成果痴呆鉴别";//65字
 //		String ss = "科学，是方法论和逻辑观的具体称谓，是一hgjj345345种劳动传承，和尚未解开谜团的盒子一样，需要打"
@@ -30,30 +30,29 @@ public class DemoEX {
 //				  + "尚nic8d主一样其"
 //				  + "实都不和尚未成佛的心"
 //				  + "态hdu72和尚未成佛";//341字
-		t.begin();
+//		t.begin();
 		for (int i = 0; i < 1000000; i++) { //重复100万次数 相当于处理 6500多万字
-			//sets = analyzer.parserString(ss);//词性分析
-			seta = analyzer.parserStringByReturnFrequencyMap(ss);
-			//new Quick6DLYGWithStringSwap();
+		//	seta = analyzer.parserStringByReturnFrequencyMap(ss);
+			sets= analyzer.parserMixedString(ss);
 		}
 
-		t.end();
+//		t.end();
 		System.out.print("分析处理真实结果-->");
-//		for (int i = 0; i < seta.size(); i++) {
-//			if (!seta.get(i).equals("")) {
-//				System.out.print(seta.get(i) + " ");
-//			}
-//		}
+		for (int i = 0; i < sets.size(); i++) {
+			if (sets.get(i) != null) {
+				System.out.print(sets.get(i) + " ");
+			}
+		}
 //		for (int i = 0; i < sets.size(); i++) {
 //			if (!sets.get(i).equals("")) {
 //				System.out.print(sets.get(i) + " ");
 //			}
 //		}
 		System.out.println("");
-		t.duration();
+//		t.duration();
 		System.out.println("");
 		System.out.println("词性分析-->");
-		t.begin();
+//		t.begin();
 		for (int j = 0; j < 1; j++) {
 			for (int i = 0; i < sets.size(); i++) {
 				if (!sets.get(i).replaceAll("\\s+", "").equals("")) {
@@ -61,18 +60,18 @@ public class DemoEX {
 				}
 			}
 		}
-		t.end();
+//		t.end();
 		System.out.println("");
-		t.duration();
+//		t.duration();
 		System.out.println("");
 		System.out.println("词频分析-->");
-		t.begin();
+//		t.begin();
 		Map<Integer, WordFrequency> fwa = analyzer.getWordFrequencyByReturnSortMap(sets);
-		t.end();
+//		t.end();
 		for (int i = fwa.size() - 1; i >= 0; i--) {
 			System.out.print(fwa.get(i).getWord() + ":" + fwa.get(i).getFrequency() + "----");
 		}
 		System.out.println("");
-		t.duration();
+//		t.duration();
 	}
 }

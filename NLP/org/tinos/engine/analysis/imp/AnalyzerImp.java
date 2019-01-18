@@ -16,6 +16,7 @@ import org.tinos.engine.nlp.NLPController;
 import org.tinos.engine.nlp.imp.NLPControllerImp;
 import org.tinos.engine.pos.POSController;
 import org.tinos.engine.pos.imp.POSControllerImp;
+import org.tinos.engin.utils.WordFrequencyUtil;
 import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.liner.Quick6DLuoYaoguangSort;
 import org.tinos.engine.liner.imp.Quick6DLuoYaoguangSortMapImp;
@@ -24,7 +25,7 @@ public class AnalyzerImp implements Analyzer {
 	protected NEROControllerOneTime neroController;
 	protected NLPController nlpController;
 	protected POSController posController;
-	protected Quick6DLuoYaoguangSort quick6DLuoYaoguangSort;
+	protected Quick6DLuoYaoguangSort quick6DLuoYaoguangSort;	
 	public void init() throws IOException {
 		this.fHMMList = new FMHMMListOneTimeImp();
 		fHMMList.index();
@@ -42,10 +43,10 @@ public class AnalyzerImp implements Analyzer {
 
 	public List<String> parserMixedString(String mixedString) {
 			mixedString += "  ";
+			int inputStringLength = mixedString.length();
 			Map<String, String> wordsForest = fHMMList.getPosCnToCn();
 			List<String> outputList = new LinkedList<>();
 			Map<String, FMHMMNode> forestRoots = fHMMList.getMap();//.getRoot();
-			int inputStringLength = mixedString.length();
 			int forestDepth = StableData.INT_ZERO;
 			int countInputStringLength;
 			StringBuilder[] fixWords = new StringBuilder[StableData.INT_TWO];
@@ -56,7 +57,6 @@ public class AnalyzerImp implements Analyzer {
 			Here:
 				for (int charPosition = StableData.INT_ZERO; charPosition < inputStringLength; charPosition
 						+= (countInputStringLength == StableData.INT_ZERO ? StableData.INT_ONE : countInputStringLength)) {
-					//luan ma
 					if(mixedString.charAt(charPosition) < StableData.INT_ONE_TWO_EIGHT && charPosition < mixedString.length()
 							- StableData.INT_ONE){
 						if(find == StableData.INT_ZERO) {
@@ -208,16 +208,7 @@ public class AnalyzerImp implements Analyzer {
 				}
 				if(find == StableData.INT_ONE) {
 					find = StableData.INT_ZERO;
-					if (outputList.containsKey(fixWords[StableData.INT_ZERO].toString())) {
-						WordFrequency wordFrequency = outputList.get(fixWords[StableData.INT_ZERO].toString());
-						wordFrequency.setFrequency(wordFrequency.getFrequency() + StableData.INT_ONE);
-						outputList.put(fixWords[StableData.INT_ZERO].toString(), wordFrequency);
-					} else {
-						WordFrequency wordFrequency = new WordFrequency();
-						wordFrequency.setFrequency(StableData.INT_ONE);
-						wordFrequency.setWord(fixWords[StableData.INT_ZERO].toString());
-						outputList.put(fixWords[StableData.INT_ZERO].toString(), wordFrequency);
-					}
+					WordFrequencyUtil.WordFrequencyFindCheck(outputList, fixWords);
 				}
 				stringBuilder.delete(StableData.INT_ZERO, stringBuilder.length());
 				stringBuilder = neroController.getBinaryForestRecurWordOneTime(stringBuilder.append(inputString
@@ -237,16 +228,7 @@ public class AnalyzerImp implements Analyzer {
 					continue Here;
 				}
 				if (compare == StableData.INT_ONE) {
-					if (outputList.containsKey(countWordNode)) {
-						WordFrequency wordFrequency = outputList.get(countWordNode);
-						wordFrequency.setFrequency(wordFrequency.getFrequency() + StableData.INT_ONE);
-						outputList.put(countWordNode, wordFrequency);
-					} else {
-						WordFrequency wordFrequency = new WordFrequency();
-						wordFrequency.setFrequency(StableData.INT_ONE);
-						wordFrequency.setWord(fixWords[StableData.INT_ZERO].toString());
-						outputList.put(countWordNode, wordFrequency);
-					}
+					WordFrequencyUtil.WordFrequencyCompareCheck(outputList, fixWords, countWordNode);
 					fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
 					fixWords[StableData.INT_ZERO].append(countWordNode);
 					continue Here;

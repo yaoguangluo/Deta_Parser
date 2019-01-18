@@ -1,15 +1,16 @@
 package org.tinos.test;
 import java.io.IOException;
+
 import java.util.List;
 import java.util.Map;
 import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
 import org.tinos.engine.base.translator.Translator;
 import org.tinos.engine.base.translator.imp.TranslatorImp;
-import org.tinos.freetts.thread.read.ReadEnglish;
+//import org.tinos.freetts.thread.read.ReadEnglish;
 import org.tinos.view.obj.Verbal;
 
-import timeProcessor.TimeCheck;
+//import timeProcessor.TimeCheck;
 public class DemoTSLT {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) throws IOException {
@@ -31,11 +32,11 @@ public class DemoTSLT {
 		System.out.println(v);
 		Translator ts = new TranslatorImp();
 		ts.init(analyzer); 
-		TimeCheck t = new TimeCheck();
-		t.begin();
+//		TimeCheck t = new TimeCheck();
+//		t.begin();
 		List<Verbal> verbals = ts.index(analyzer, v);
 		String ch = ts.getChineseSentenseFromVerbalList(verbals);
-		t.end();
+//		t.end();
 		System.out.println("中文");
 		System.out.println(ch);
 		
@@ -63,10 +64,10 @@ public class DemoTSLT {
 		for(int i=0;i<verbals.size();i++) {
 			System.out.print(verbals.get(i).getExplain()==null?verbals.get(i).getChinese():verbals.get(i).getExplain());
 		}
-		t.duration();
+//		t.duration();
 		
-		ReadEnglish readEnglish = new ReadEnglish();
-		readEnglish.setPreReadText(en);
-		readEnglish.start();
+//		ReadEnglish readEnglish = new ReadEnglish();
+//		readEnglish.setPreReadText(en);
+//		readEnglish.start();
 	}
 }
