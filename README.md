@@ -1,7 +1,6 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)                                                
-Github 点个赞↑+1,感谢您的支持!
 
-## 版本号：5.0.9
+## 版本号：9.0.1
 ## 功能：
 #### 1 首次采用《VPC架构》海量线程注册保证调用函数速度。
 #### 2 支持海量并发运算，后端接口调用运算，纯全虚接口同步运算。
@@ -15,15 +14,19 @@ Github 点个赞↑+1,感谢您的支持!
 #### 11 速度：每秒高达1200万中文简体字准确分词。 因为通过国际SONAR最高认证，牺牲了程序执行时间十分之三的速度效率（自行修改去掉sonar认知模式可达1600万字分词每秒，性能比应该是世界第二，世界第一赠给高斯林先生，因为我用的是java，没办法）。
 ##### 11.1 速度每秒高达900万词语的中文词性索引。（Part Of Speech, POS），
 ##### 11.2 机制为分词和词性分析可拆分使用。采用一次实例，多并发执行思想。
-#### 12 词库：多达12700+的中文语料库精确简体中文词汇，有效的辨别新词。
+#### 12 词库：多达23700+的中文语料库精确简体中文词汇，有效的辨别新词。
 #### 13 大小：55Kb。
 #### 14 多核模式：可以自己写 parallelStream() 函数去实现，jdk8以上已经支持, CogsBinaryForestAnalyzer 支持海量多核多线程并发安全 。
 #### 15 安全：VPC架构采用纯虚函数做反向映射跳过IOC，效率增加，线程安全高度严格保障。
+#### 16 部分中文短句翻译英语。
+#### 17 中英混合分词。每秒2700万英文常规格式分词。
+#### 18 病句中乱码分析。
+
 ## 使用方法：
 #### 1 支持 java JDK 8 以上。
 #### 2 字符集UTF-8
 #### 3 大家可以自由添加词汇，添加在 org/tinos/fhmm/imp/words.lyg文件里。
-https://github.com/yaoguangluo/Fast_Chinese_NeroParser/blob/master/main/src/org/tinos/ortho/fhmm/imp/words.lyg
+https://github.com/yaoguangluo/NeroParser/blob/master/main/src/org/tinos/fhmm/imp/poscc.lyg
 #### 4 可以看下org/tinos/test里面的例子。
 ## 分词使用如下：
 ####   //1 实例化
@@ -101,5 +104,6 @@ https://github.com/yaoguangluo/Fast_Chinese_NeroParser/blob/master/main/src/org/
 LetWang（神州泰岳）在扩充词库量的方法上提出了很多新颖的意见。
 
 ## 有疑问联系313699483@qq.com 罗瑶光
+## 电话 15116110525
 #### 谢谢！
-#### 2018/10/13
+#### 2018/12/24
