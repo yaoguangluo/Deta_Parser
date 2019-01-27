@@ -26,12 +26,13 @@
 ##### VPC进化到VPCS, 静态分流加速每秒又多增100万分词。@@
 
 ## 使用方法：
-#### 1 支持 java JDK 8 以上。
-#### 2 字符集UTF-8
-#### 3 大家可以自由添加词汇，添加在 org/tinos/fhmm/imp/words.lyg文件里。
-https://github.com/yaoguangluo/NeroParser/blob/master/main/src/org/tinos/fhmm/imp/poscc.lyg
-#### 4 可以看下org/tinos/test里面的例子。
+#### 1 支持 java JDK 8 以上，字符集UTF-8 就够了。
+
 ## 分词使用如下：
+#### 大家可以自由添加词汇，添加在 org/tinos/fhmm/imp/words.lyg文件里。
+https://github.com/yaoguangluo/NeroParser/blob/master/main/src/org/tinos/fhmm/imp/poscc.lyg
+#### 可以看下org/tinos/test里面的例子。
+
 ####   //1 实例化
    	Analyzer analyzer = new CogsBinaryForestAnalyzerImp();  //哈希森林索引 多核多线程安全 支持并发
 ####   //2初始
