@@ -6,6 +6,9 @@ import java.util.Map;
 import org.tinos.engine.liner.Quick6DLuoYaoguangSort;
 import org.tinos.view.obj.WordFrequency;
 import org.tinos.view.stable.StableData;
+/*
+** 快排6小高峰修正算法 作者 罗瑶光
+*/
 public class Quick6DLuoYaoguangSortImp implements Quick6DLuoYaoguangSort {
 	public void quick6DLuoYaoGuangSortWordFrequency(List<WordFrequency> list, int leftPosition, int rightPosition) {
 		if (leftPosition < rightPosition) {
@@ -36,6 +39,7 @@ public class Quick6DLuoYaoguangSortImp implements Quick6DLuoYaoguangSort {
 		int leftPositionNew = leftPosition;
 		WordFrequency wordFrequencyX = list.get(leftPosition);
 		WordFrequency wordFrequencyY = list.get(rightPosition);
+		//小高峰修正
 		if (wordFrequencyX.getFrequency() <= wordFrequencyY.getFrequency()) {
 			wordFrequencyY = wordFrequencyX;
 		}
