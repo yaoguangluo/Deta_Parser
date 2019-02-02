@@ -108,6 +108,7 @@ https://github.com/yaoguangluo/NeroParser/blob/master/main/src/org/tinos/fhmm/im
 LetWang（神州泰岳）在扩充词库量的方法上提出了很多新颖的意见。
 
 ####  未完善功能：英语复句翻译。
+####  未完善功能：混合分词的时候空格问题对第一个英文单词的区分校准。
 ####  未完善功能：英语特殊句型翻译。
 ####  未完善功能：分词情感识别。
 ####  未完善功能：分词矫正识别。
