@@ -9,6 +9,7 @@
 ###### 4 ：Esta semana se prepara el francés, D, han, el día, el idioma del oeste cinco traductores.
 ###### 5 ： Cette semaine est prête à faire le français, de la Corée du Sud, de la Corée du Sud, de la espagnole
 ###### 6 ：In dieser Woche bereit, französisch, DE, Korea, Japan und fünf West - Sprache zu übersetzen.
+###### 7 ：今週は、ドイツ語、韓国語、日本語、スペイン語の5つの翻訳を準備します。
 ## 功能：
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 首次采用《VPC架构》海量线程注册保证调用函数速度。 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  支持海量并发运算，后端接口调用运算，纯全虚接口同步运算。
