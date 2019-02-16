@@ -2,6 +2,7 @@
 
 
 ## 版本号：10.0.0   正在做短句子中文英文互译 功能。
+#####  ![实例](http://progressed.io/bar/1?title=completed)This week we will prepare five translations in French, German, Korean, Japanese and Spanish languages.
 ## 功能：
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 首次采用《VPC架构》海量线程注册保证调用函数速度。 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  支持海量并发运算，后端接口调用运算，纯全虚接口同步运算。
