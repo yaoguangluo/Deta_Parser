@@ -1,7 +1,7 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
 
-## 版本号：10.0.2  正在做日语，韩语语料库
+## 版本号：10.0.2  正在做日语，韩语语料库 今天我会把日语料库完善。
 ###### 1 ：这个星期准备做法语，德，韩，日，西 语言 5种翻译。
 ###### 2 ：This week we will prepare five translations in French, German, Korean, Japanese and Spanish languages.
 ###### 3 ：이번 주는 프랑스어 덕, 한, 한, 일, 서언어로 번역할 예정이다.
