@@ -1,7 +1,7 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
 
-## 版本号：10.0.5  正在做印度语，西班牙语，德国语言 语料库
+## 版本号：10.0.5  正在做印度语，德国语言 语料库
 ###### 1 ：这个星期准备做法语，德，韩，日，西 语言 5种翻译。
 ###### 2 ：This week we will prepare five translations in French, German, Korean, Japanese and Spanish languages.
 ###### 3 ：이번 주는 프랑스어 덕, 한, 한, 일, 서언어로 번역할 예정이다.
@@ -10,8 +10,9 @@
 ###### 6 ：In dieser Woche bereit, französisch, DE, Korea, Japan und fünf West - Sprache zu übersetzen.
 ###### 7 ：今週は、ドイツ語、韓国語、日本語、スペイン語の5つの翻訳を準備します。
 ## 功能：
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 한국의 언어 자재 고는 이미 완벽하다
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 日本语のデータベースはすでに第1版が完成しました
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Versión no detectada del corpus español completa。
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 한국의 언어 자재 고는 이미 완벽하다。
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 日本语のデータベースはすでに第1版が完成しました。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Le corpus français est terminé  A1, A2, A3, A4, B1, B2。 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 首次采用《VPC架构》海量线程注册保证调用函数速度。 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  支持海量并发运算，后端接口调用运算，纯全虚接口同步运算。
