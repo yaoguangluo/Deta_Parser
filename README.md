@@ -1,7 +1,7 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
 
-## 版本号：10.0.2  正在做日语，韩语语料库 今天我会把日语料库完善。
+## 版本号：10.0.3  正在做韩语，印度语料库 今天我会把韩语料库完善。
 ###### 1 ：这个星期准备做法语，德，韩，日，西 语言 5种翻译。
 ###### 2 ：This week we will prepare five translations in French, German, Korean, Japanese and Spanish languages.
 ###### 3 ：이번 주는 프랑스어 덕, 한, 한, 일, 서언어로 번역할 예정이다.
@@ -10,6 +10,7 @@
 ###### 6 ：In dieser Woche bereit, französisch, DE, Korea, Japan und fünf West - Sprache zu übersetzen.
 ###### 7 ：今週は、ドイツ語、韓国語、日本語、スペイン語の5つの翻訳を準備します。
 ## 功能：
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：日本语のデータベースはすでに第1版が完成しました
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 法语 A1, A2, A3, A4, B1, B2语料库。 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 首次采用《VPC架构》海量线程注册保证调用函数速度。 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  支持海量并发运算，后端接口调用运算，纯全虚接口同步运算。
@@ -105,6 +106,7 @@ https://github.com/yaoguangluo/NeroParser/blob/master/main/src/org/tinos/fhmm/im
 ## 感谢声明
 #### 1 感谢中国复旦大学的FNLP人工智能团队。 本人在设计数据字典扩充的时候 应用其新词识别函数 帮我节省了大量词语录入需花费的时间。
 应用方法：本人用FNLP函数将文章中的词语将我分出词进行词性标注，得到的标注如果在我的词库里面没有出现，于是扩充在我的词库。特此声明。
+#### 2 谷歌翻译，百度翻译，有道翻译团队。本人在做多国语言翻译的时候 应用其免费在线翻译网页进行词语翻译和矫正。减少大量词汇录入时间。
 
 ## 代码协作贡献者 （协作者按代码百分比享有项目各种合法权益与收益）
 尚无
