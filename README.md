@@ -1,7 +1,7 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
 
-## 版本号：10.0.7  正在做俄国语言，德国 语料库
+## 版本号：10.0.8  正在做俄语 语料库
 ###### 1 ：这个星期准备做法语，德，韩，日，西，俄，阿 语言 7种翻译。
 ###### 2 ：This week we will prepare five translations in French, German, Korean, Japanese and Spanish languages.
 ###### 3 ：이번 주는 프랑스어 덕, 한, 한, 일, 서언어로 번역할 예정이다.
@@ -10,6 +10,8 @@
 ###### 6 ：In dieser Woche bereit, französisch, DE, Korea, Japan und fünf West - Sprache zu übersetzen.
 ###### 7 ：今週は、ドイツ語、韓国語、日本語、スペイン語の5つの翻訳を準備します。
 ## 功能：
+
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Die deutsche sprachdatenbank wurde nicht geändert.
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： أُنجزت نسخة غير معدلة من قاعدة المفردات المتخصصة باللغة العربية 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Versión no detectada del corpus español completa。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 한국의 언어 자재 고는 이미 완벽하다。
