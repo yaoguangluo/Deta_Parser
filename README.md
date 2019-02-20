@@ -10,6 +10,8 @@
 ###### 6 ：In dieser Woche bereit, französisch, DE, Korea, Japan und fünf West - Sprache zu übersetzen.
 ###### 7 ：今週は、ドイツ語、韓国語、日本語、スペイン語の5つの翻訳を準備します。
 ## 功能：
+
+أُنجزت نسخة غير معدلة من قاعدة المفردات المتخصصة باللغة العربية ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Versión no detectada del corpus español completa。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 한국의 언어 자재 고는 이미 완벽하다。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 日本语のデータベースはすでに第1版が完成しました。
