@@ -2,7 +2,6 @@
 
 
 ## 版本号：10.0.6  正在做阿拉伯语，俄国语言 语料库
-###### 网上的搜索软件没有找到免费的中印词汇翻译，鉴于德文的词汇和一些小语种词汇不完整，作者现在改为准备做中俄和中阿拉伯语言翻译先。
 ###### 1 ：这个星期准备做法语，德，韩，日，西 语言 5种翻译。
 ###### 2 ：This week we will prepare five translations in French, German, Korean, Japanese and Spanish languages.
 ###### 3 ：이번 주는 프랑스어 덕, 한, 한, 일, 서언어로 번역할 예정이다.
