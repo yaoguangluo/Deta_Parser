@@ -1,14 +1,14 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
-
-## 版本号：10.0.8  正在做俄语 语料库
-###### 1 ：这个星期准备做法语，德，韩，日，西，俄，阿 语言 7种翻译。
-###### 2 ：This week we will prepare five translations in French, German, Korean, Japanese and Spanish languages.
-###### 3 ：이번 주는 프랑스어 덕, 한, 한, 일, 서언어로 번역할 예정이다.
-###### 4 ：Esta semana se prepara el francés, D, han, el día, el idioma del oeste cinco traductores.
-###### 5 ： Cette semaine est prête à faire le français, de la Corée du Sud, de la Corée du Sud, de la espagnole
-###### 6 ：In dieser Woche bereit, französisch, DE, Korea, Japan und fünf West - Sprache zu übersetzen.
-###### 7 ：今週は、ドイツ語、韓国語、日本語、スペイン語の5つの翻訳を準備します。
+## 版本号：10.0.8  已经完成第一版未修正版：中，英，法，德，韩，日，西，俄，阿 语言 9种专业级别语料库。
+###### 1 ：The first unrevised version has been completed: 8 professional level corpora of Chinese, French, German, Korean, Japanese, Spanish, Russian and Arabic languages.
+###### 2 ：第1版未修正版:中国、フランス、ドイツ、韩国、日本、スペイン、ロシア、アラビア语8种类の専门レベルの言语データベースが完成した。
+###### 3 ：이미 제1 판의 수정되지 않은 수정판은 중국, 프랑스, 독일, 한국, 일본, 서부, 로씨야, 아랍어 등 8개 전업급 언어자료창고이다.
+###### 4 ：La première édition n’a pas été modifiée: le corpus des langues chinoise, française, allemande, coréenne, japonaise, occidentale, russe et arabe.
+###### 5 ：Die erste unänderte fassung der ersten ausgabe wurde abgeschlossen: in der mitte, frankreich, korea, japan, russland, dem 8. Sprachzentrum auf hoher ebene
+###### 6 ：Завершено первое неисправленное издание: Китай, Франция, Германия, хан, Япония, западная, российская и арабская языки, восемь специализированных корпусов.
+###### 7 ：Se han completado las primeras ediciones sin modificaciones: el corpus juris de 8 niveles profesionales en idiomas chino, francés, alemán, coreano, japonés, occidental, ruso y árabe.
+###### 8 ：وقد اكتملت الطبعة الأولى من دون تعديل، وهي مجموعة من ثماني مجموعات متخصصة من اللغات الإسبانية والفرنسية والألمانية والورية واليابانية والغربية والروسية.
 ## 功能：
 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Die deutsche sprachdatenbank wurde nicht geändert.
