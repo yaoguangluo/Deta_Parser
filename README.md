@@ -12,7 +12,7 @@
 ## 功能：
 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 情感语料库第一版本未修正版本。 MR.Yaoguang.Luo
-注意：该正面，褒义，负面，贬义，中性语料库有一定比重的表达作者的主观判断，比如思维误差，肯定环境，否定环境，哲学精神论等，如果引起不适，请慎重使用和借鉴修改。如果改情感库对第三方导致任何工程问题，作者不做任何解释和负法律责任。特此声明！
+注意：该正面，褒义，负面，贬义，中性情感语料库有一定比重的表达作者的主观判断，比如思维误差，肯定环境，否定环境，哲学精神论等，如果引起不适，请慎重使用和借鉴修改。如果改情感库对第三方导致任何工程问题，作者不做任何解释和负法律责任。特此声明！
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Die deutsche sprachdatenbank wurde nicht geändert.
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： أُنجزت نسخة غير معدلة من قاعدة المفردات المتخصصة باللغة العربية 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Versión no detectada del corpus español completa。
