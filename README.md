@@ -2,7 +2,7 @@
 
 ## 版本号：10.0.9  已经完成第一版未修正版：简体中文带情感识别的声调拼音包，英，法，德，韩，日，西，俄，阿 语言 9种专业级别语料库。
 
-### 正在做趋势推到，判断打分预测，动机判断的情态语料库。
+### 正在做趋势推导，判断打分预测，动机判断的情态语料库。
 
 ###### 1 ：The first unrevised version has been completed: 8 professional level corpora of Chinese, French, German, Korean, Japanese, Spanish, Russian and Arabic languages.
 ###### 2 ：第1版未修正版:中国、フランス、ドイツ、韩国、日本、スペイン、ロシア、アラビア语8种类の専门レベルの言语データベースが完成した。
