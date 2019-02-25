@@ -1,6 +1,6 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
-## 版本号：10.0.8  已经完成第一版未修正版：简体中文带声调拼音包，英，法，德，韩，日，西，俄，阿 语言 9种专业级别语料库。
+## 版本号：10.0.9  已经完成第一版未修正版：简体中文带情感识别的声调拼音包，英，法，德，韩，日，西，俄，阿 语言 9种专业级别语料库。
 ###### 1 ：The first unrevised version has been completed: 8 professional level corpora of Chinese, French, German, Korean, Japanese, Spanish, Russian and Arabic languages.
 ###### 2 ：第1版未修正版:中国、フランス、ドイツ、韩国、日本、スペイン、ロシア、アラビア语8种类の専门レベルの言语データベースが完成した。
 ###### 3 ：이미 제1 판의 수정되지 않은 수정판은 중국, 프랑스, 독일, 한국, 일본, 서부, 로씨야, 아랍어 등 8개 전업급 언어자료창고이다.
@@ -11,6 +11,8 @@
 ###### 8 ：وقد اكتملت الطبعة الأولى من دون تعديل، وهي مجموعة من ثماني مجموعات متخصصة من اللغات الإسبانية والفرنسية والألمانية والورية واليابانية والغربية والروسية.
 ## 功能：
 
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 情感语料库第一版本未修正版本。 MR.Yaoguang.Luo
+注意：该正面，褒义，负面，贬义，中性语料库有一定比重的表达作者的主观判断，比如思维误差，肯定环境，否定环境，哲学精神论等，如果引起不适，请慎重使用和借鉴修改。如果改情感库对第三方导致任何工程问题，作者不做任何解释和负法律责任。特此声明！
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Die deutsche sprachdatenbank wurde nicht geändert.
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： أُنجزت نسخة غير معدلة من قاعدة المفردات المتخصصة باللغة العربية 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Versión no detectada del corpus español completa。
