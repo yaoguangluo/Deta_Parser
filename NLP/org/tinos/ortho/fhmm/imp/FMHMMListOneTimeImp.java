@@ -12,6 +12,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.tinos.ortho.fhmm.FHMMList;
 import org.tinos.view.obj.FMHMMNode;
 import org.tinos.view.stable.StableData;
+//I will build a collection class for managing this maps. at the next version.
 public class FMHMMListOneTimeImp implements FHMMList {
 	private Map<String, String> posCnToCn;
 	private Map<String, String> posEnToEn;
