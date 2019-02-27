@@ -388,7 +388,6 @@ public class FMHMMListOneTimeImp implements FHMMList {
 		return this.posEnToEn;
 	}
 
-	@Override
 	public List<String> englishStringToWordsList(String string) {
 		List<String> list = new LinkedList<>();
 		string = string.replaceAll(StableData.NLP_SPASE_REP, StableData.SPACE_STRING);
