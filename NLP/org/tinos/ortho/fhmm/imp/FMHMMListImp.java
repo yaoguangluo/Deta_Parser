@@ -250,4 +250,28 @@ public class FMHMMListImp implements FMHMMList {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void indexFullNegative() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void indexFullPositive() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Map<String, String> getFullNegative() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, String> getFullPositive() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

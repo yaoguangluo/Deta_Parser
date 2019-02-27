@@ -20,6 +20,8 @@ public interface FHMMList {
 	void indexFullCnToKo() throws IOException;
 	void indexFullCnToSp() throws IOException;
 	void indexFullCnToPy() throws IOException;
+	void indexFullNegative() throws IOException;
+	void indexFullPositive() throws IOException;
 	Map<String, FMHMMNode> getMap();
 	Map<String, String> getPosEnToCn(); 
 	Map<String, String> getPosEnToEn(); 
@@ -36,5 +38,7 @@ public interface FHMMList {
 	Map<String, String> getFullCnToKo();
 	Map<String, String> getFullCnToSp();
 	Map<String, String> getFullCnToPy();
+	Map<String, String> getFullNegative();
+	Map<String, String> getFullPositive();
 	List<String> englishStringToWordsList(String string); 
 }

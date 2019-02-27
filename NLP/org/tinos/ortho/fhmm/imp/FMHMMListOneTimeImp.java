@@ -29,6 +29,8 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	private Map<String, String> fullCnToGm;
 	private Map<String, String> fullCnToRs;
 	private Map<String, String> fullCnToPy;
+	private Map<String, String> fullPositive;
+	private Map<String, String> fullNegative;
 	private List<String> listEn;
 	private List<String> listCn;
 	private List<String> listFn;
@@ -436,5 +438,41 @@ public class FMHMMListOneTimeImp implements FHMMList {
 
 	public Map<String, String> getFullCnToPy() {
 		return this.fullCnToPy;
+	}
+
+	public void indexFullNegative() throws IOException {
+		fullNegative = new ConcurrentHashMap<>();
+		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_NEGATIVE);
+		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
+		String cInputString;
+			while ((cInputString = cReader.readLine()) != null) {
+				if(!fullNegative.containsKey(cInputString)) {
+					fullNegative.put(cInputString, StableData.EMPTY_STRING);
+				}
+			}
+		cReader.close();
+		
+	}
+	
+	public void indexFullPositive() throws IOException {
+		fullPositive = new ConcurrentHashMap<>();
+		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_POSITIVE);
+		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
+		String cInputString;
+			while ((cInputString = cReader.readLine()) != null) {
+				if(!fullPositive.containsKey(cInputString)) {
+					fullPositive.put(cInputString, StableData.EMPTY_STRING);
+				}
+			}
+		cReader.close();
+		
+	}
+
+	public Map<String, String> getFullNegative() {
+		return this.fullNegative;
+	}
+
+	public Map<String, String> getFullPositive() {
+		return this.fullPositive;
 	}
 }
