@@ -118,37 +118,37 @@ public class TranslatorImp implements Translator{
 		Iterator<String> it = nodes.iterator();
 		while(it.hasNext()) {
 			String word = it.next();
-			Verbal v = new Verbal();
+			Verbal verbal = new Verbal();
 			if(poscc.containsKey(word)) {
-				v.setChinese(word);
-				v.setPartOfSpeech(poscc.get(word));
+				verbal.setChinese(word);
+				verbal.setPartOfSpeech(poscc.get(word));
 				if(cte.containsKey(word)) {
-					v.setEnglish(cte.get(word));
+					verbal.setEnglish(cte.get(word));
 					if(etc.containsKey(cte.get(word))) {
-						v.setExplain(etc.get(cte.get(word)));
+						verbal.setExplain(etc.get(cte.get(word)));
 					}
 				}else if(fullcte.containsKey(word)){
-					v.setEnglish(fullcte.get(word));
-					v.setExplain(fullcte.get(word));
+					verbal.setEnglish(fullcte.get(word));
+					verbal.setExplain(fullcte.get(word));
 				}
 			}else if(posee.containsKey(word)) {
-				v.setEnglish(word);
+				verbal.setEnglish(word);
 				if(fulletc.containsKey(word)) {
-					v.setChinese(fulletc.get(word));
+					verbal.setChinese(fulletc.get(word));
 				}
 				if(poscc.containsKey(fulletc.get(word))) {
-					v.setPartOfSpeech(poscc.get(fulletc.get(word)));
+					verbal.setPartOfSpeech(poscc.get(fulletc.get(word)));
 				}
 				if(etc.containsKey(word)) {
-					v.setExplain(etc.get(word));
+					verbal.setExplain(etc.get(word));
 				}
 			}else {
-				v.setEnglish(word);
-				v.setChinese(fulletc.get(word));
-				v.setPartOfSpeech(StableData.NLP_NULL);
-				v.setExplain(StableData.NLP_NULL);
+				verbal.setEnglish(word);
+				verbal.setChinese(fulletc.get(word));
+				verbal.setPartOfSpeech(StableData.NLP_NULL);
+				verbal.setExplain(StableData.NLP_NULL);
 			}	
-			verbals.add(v);
+			verbals.add(verbal);
 		}
 		return verbals;
 	}

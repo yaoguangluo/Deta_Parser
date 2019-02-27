@@ -72,6 +72,14 @@ public interface StableData {
 	public static final String WORDS_SOURSE_LINK_POS_CN_TO_CN = "poscc.lyg";
 	public static final String WORDS_SOURSE_LINK_POS_EN_TO_CN = "posec.lyg";
 	public static final String WORDS_SOURSE_LINK_POS_EN_TO_EN = "posee.lyg";
+	public static final String WORDS_SOURSE_LINK_POS_CN_TO_FN = "poscf.lyg";
+	public static final String WORDS_SOURSE_LINK_POS_CN_TO_KO = "posck.lyg";
+	public static final String WORDS_SOURSE_LINK_POS_CN_TO_JP = "poscj.lyg";
+	public static final String WORDS_SOURSE_LINK_POS_CN_TO_GM = "poscg.lyg";
+	public static final String WORDS_SOURSE_LINK_POS_CN_TO_SP = "poscs.lyg";
+	public static final String WORDS_SOURSE_LINK_POS_CN_TO_RS = "poscr.lyg";
+	public static final String WORDS_SOURSE_LINK_POS_CN_TO_AB = "posca.lyg";
+	public static final String WORDS_SOURSE_LINK_POS_CN_TO_PY = "pospy.lyg";
 	public static final String WORDS_SOURSE_LINK_EN_TO_CN = "ec.lyg";
 	public static final String WORDS_SOURSE_LINK_CN_TO_EN = "ce.lyg";
 }

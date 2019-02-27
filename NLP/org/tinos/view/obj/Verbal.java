@@ -1,4 +1,5 @@
 package org.tinos.view.obj;
+@SuppressWarnings("unused")
 public class Verbal{
 	public String getChinese() {
 		return chinese;
@@ -37,6 +38,14 @@ public class Verbal{
 		this.prev = prev;
 	}
 	private String chinese;
+	private String japanese;
+	private String korea;
+	private String russian;
+	private String arabic;
+	private String french;
+	private String german;
+	private String spanish;
+	private String pinyin;
 	private String english;
 	private String partOfSpeech;
 	private String explain;

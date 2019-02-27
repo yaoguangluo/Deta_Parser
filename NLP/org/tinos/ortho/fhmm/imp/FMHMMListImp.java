@@ -154,4 +154,100 @@ public class FMHMMListImp implements FMHMMList {
 	public List<String> englishStringToWordsList(String string) {
 		return null;
 	}
+
+	@Override
+	public void indexFullCnToJp() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void indexFullCnToRs() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void indexFullCnToAb() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void indexFullCnToFn() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void indexFullCnToGm() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void indexFullCnToKo() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void indexFullCnToSp() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void indexFullCnToPy() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Map<String, String> getFullCnToJp() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, String> getFullCnToRs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, String> getFullCnToAb() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, String> getFullCnToFn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, String> getFullCnToGm() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, String> getFullCnToKo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, String> getFullCnToSp() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, String> getFullCnToPy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
