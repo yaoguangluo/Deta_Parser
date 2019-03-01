@@ -13,6 +13,7 @@ import org.tinos.ortho.fhmm.FHMMList;
 import org.tinos.view.obj.FMHMMNode;
 import org.tinos.view.stable.StableData;
 //I will build a collection class for managing this maps. at the next version.
+@SuppressWarnings("unchecked")
 public class FMHMMListOneTimeImp implements FHMMList {
 	private Map<String, String> posCnToCn;
 	private Map<String, String> posEnToEn;
@@ -45,7 +46,28 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	public Map<String, FMHMMNode> getMap() {
 		return this.linkedHashMap;
 	}
-
+	
+	public Map<String, FMHMMNode>[] getMaps() {
+		int segment = this.linkedHashMap.size();
+		int perRatio = segment/ StableData.INT_SIX;
+		Map<String, FMHMMNode>[] maps = new ConcurrentHashMap[StableData.INT_SIX];
+		Iterator<String> iterator = this.linkedHashMap.keySet().iterator();
+		maps[0] = new ConcurrentHashMap<>();
+		int index = 0;
+		int count = 1;
+		while(iterator.hasNext()) {
+			if(count++ % perRatio == 0) {
+				if(index < 5) {
+					index++;
+					maps[index] = new ConcurrentHashMap<>();
+				}
+			}
+			String key = iterator.next();
+			maps[index].put(key, this.linkedHashMap.get(key));
+		}
+		return maps;
+	}
+	
 	public void index() throws IOException {
 		posCnToCn = new ConcurrentHashMap<>();
 		linkedHashMap = new ConcurrentHashMap<>();
@@ -395,7 +417,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 		List<String> list = new LinkedList<>();
 		string = string.replaceAll(StableData.NLP_SPASE_REP, StableData.SPACE_STRING);
 		StringBuilder sb = new StringBuilder();
-		for(int i=0;i<string.length();i++) {
+		for(int i = 0; i < string.length(); i++) {
 			if((string.charAt(i) > StableData.INT_SIXTY_FOUR && string.charAt(i) <= StableData.INT_NINTY)
 					||(string.charAt(i) >= StableData.INT_NINTY_SEVEN && string.charAt(i) <= StableData.INT_ONE_TWO_TWO)) {
 				sb.append(string.charAt(i));

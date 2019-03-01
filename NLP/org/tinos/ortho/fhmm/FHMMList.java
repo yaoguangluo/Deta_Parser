@@ -23,6 +23,7 @@ public interface FHMMList {
 	void indexFullNegative() throws IOException;
 	void indexFullPositive() throws IOException;
 	Map<String, FMHMMNode> getMap();
+	Map<String, FMHMMNode>[] getMaps();
 	Map<String, String> getPosEnToCn(); 
 	Map<String, String> getPosEnToEn(); 
 	Map<String, String> getPosCnToCn(); 

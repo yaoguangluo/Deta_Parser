@@ -274,4 +274,10 @@ public class FMHMMListImp implements FMHMMList {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Map<String, FMHMMNode>[] getMaps() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

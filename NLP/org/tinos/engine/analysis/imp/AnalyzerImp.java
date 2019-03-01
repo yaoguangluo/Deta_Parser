@@ -26,6 +26,9 @@ public class AnalyzerImp implements Analyzer {
 	protected NLPController nlpController;
 	protected POSController posController;
 	protected Quick6DLuoYaoguangSort quick6DLuoYaoguangSort;	
+	protected Map<String, FMHMMNode> forestRoots;
+	protected Map<String, FMHMMNode> []forestsRoots;
+	protected Map<String, String> wordsForest;
 	public void init() throws IOException {
 		this.fHMMList = new FMHMMListOneTimeImp();
 		fHMMList.index();
@@ -39,14 +42,15 @@ public class AnalyzerImp implements Analyzer {
 		nlpController = new NLPControllerImp();
 		posController = new POSControllerImp();
 		quick6DLuoYaoguangSort = new Quick6DLuoYaoguangSortMapImp();
+		forestRoots = fHMMList.getMap();
+		forestsRoots = fHMMList.getMaps();
+		wordsForest = fHMMList.getPosCnToCn();
 	}
 
 	public List<String> parserMixedString(String mixedString) {
 			mixedString += "  ";
 			int inputStringLength = mixedString.length();
-			Map<String, String> wordsForest = fHMMList.getPosCnToCn();
 			List<String> outputList = new LinkedList<>();
-			Map<String, FMHMMNode> forestRoots = fHMMList.getMap();//.getRoot();
 			int forestDepth = StableData.INT_ZERO;
 			int countInputStringLength;
 			StringBuilder[] fixWords = new StringBuilder[StableData.INT_TWO];
@@ -109,9 +113,7 @@ public class AnalyzerImp implements Analyzer {
 	}
 	
 	public List<String> parserString(String inputString) {
-		Map<String, String> wordsForest = fHMMList.getPosCnToCn();
 		List<String> outputList = new LinkedList<>();
-		Map<String, FMHMMNode> forestRoots = fHMMList.getMap();//.getRoot();
 		int inputStringLength = inputString.length();
 		int forestDepth = StableData.INT_ZERO;
 		int countInputStringLength;
