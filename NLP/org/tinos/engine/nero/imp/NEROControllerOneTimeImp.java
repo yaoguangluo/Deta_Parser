@@ -4,6 +4,7 @@ import org.tinos.view.obj.FMHMMNode;
 import org.tinos.view.stable.StableData;
 import org.tinos.engine.nero.NEROControllerOneTime;
 public class NEROControllerOneTimeImp implements NEROControllerOneTime {
+	//prepare for the big map collection in the future.
 	public StringBuilder getBinaryForestsRecurWordOneTime(StringBuilder outputWordNode, String inputString
 			, int charPosition, int inputStringLength, Map<String, FMHMMNode>[] forestsRoots, int forestDepth
 			,int charPositionNext) {
