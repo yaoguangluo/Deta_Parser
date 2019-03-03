@@ -1,9 +1,12 @@
 package org.tinos.vpcs.neroMap.controller;
 
-public class VerbalController{
-	//近义词synonyms
+public interface VerbalController{
+	 
+	//get verbal
 	
-	//反义词antonyms
+	//近义词 synonyms
+	
+	//反义词 antonyms
 	
 	//词性the part of speech
 	

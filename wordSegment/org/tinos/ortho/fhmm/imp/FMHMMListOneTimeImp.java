@@ -473,7 +473,6 @@ public class FMHMMListOneTimeImp implements FHMMList {
 				}
 			}
 		cReader.close();
-		
 	}
 	
 	public void indexFullPositive() throws IOException {
