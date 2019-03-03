@@ -1,6 +1,7 @@
-package org.tinos.vpcs.neroMap.controller;
+package org.tinos.vpcs.neroMap.controller.imp;
+import org.tinos.vpcs.neroMap.controller.VerbalMapController;
 
-public interface VerbalMapController{
+public class VerbalMapControllerImp implements VerbalMapController{
 	//近义词synonymsMap
 	
 	//反义词antonymsMap
