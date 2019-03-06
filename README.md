@@ -1,10 +1,10 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
-## 版本号：10.1.1 开始第二个主题基础研究：人类语言神经网络系统设计和应用。
+## 版本号：10.1.2 开始第二个主题基础研究：人类语言神经网络系统设计和应用。
 
 ### 正在做趋势推导，判断打分预测，动机判断的情态语料库。
 
-###### 1 ：The first unrevised version has been completed: 8 professional level corpora of Chinese, French, German, Korean, Japanese, Spanish, Russian and Arabic languages.
+###### 1 ：The first unrevised version has been completed: 10 professional level corpora of Chinese, Chinese pinyin, French, German, Korean, Japanese, Spanish, Russian, indonesia and Arabic languages.
 ###### 2 ：第1版未修正版:中国、フランス、ドイツ、韩国、日本、スペイン、ロシア、アラビア语8种类の専门レベルの言语データベースが完成した。
 ###### 3 ：이미 제1 판의 수정되지 않은 수정판은 중국, 프랑스, 독일, 한국, 일본, 서부, 로씨야, 아랍어 등 8개 전업급 언어자료창고이다.
 ###### 4 ：La première édition n’a pas été modifiée: le corpus des langues chinoise, française, allemande, coréenne, japonaise, occidentale, russe et arabe.
@@ -12,6 +12,7 @@
 ###### 6 ：Завершено первое неисправленное издание: Китай, Франция, Германия, хан, Япония, западная, российская и арабская языки, восемь специализированных корпусов.
 ###### 7 ：Se han completado las primeras ediciones sin modificaciones: el corpus juris de 8 niveles profesionales en idiomas chino, francés, alemán, coreano, japonés, occidental, ruso y árabe.
 ###### 8 ：وقد اكتملت الطبعة الأولى من دون تعديل، وهي مجموعة من ثماني مجموعات متخصصة من اللغات الإسبانية والفرنسية والألمانية والورية واليابانية والغربية والروسية.
+###### 9 ：Rumah corpus indonesia selesai. Versi tak dioptimalkan。
 ## 功能：
 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：9国语言翻译词汇录入系统。 Mr.Yaoguang.Luo 20190227
@@ -19,6 +20,7 @@
 注意1：该正面，褒义，负面，贬义，中性情感语料库有一定比重的表达作者的主观判断，比如思维误差，肯定环境，否定环境，哲学精神论等，如果引起不适，请慎重使用和借鉴修改。如果该情感库对第三方导致任何工程问题，作者不做任何解释和负法律责任。
 注意2: 因为关键字和形谓词模型的应用不确定性，意识和社会形态的溯源问题以及字典理解的误差率，该情感语料库不做任何解释在基于法律与道德的临界线区分应用上。
 注意3: 多语意识场合，该情态库不做任何情形分类评估标准，也不做引导性评估。
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Rumah corpus indonesia selesai. Versi tak dioptimalkan。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Die deutsche sprachdatenbank wurde nicht geändert.
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： أُنجزت نسخة غير معدلة من قاعدة المفردات المتخصصة باللغة العربية 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Versión no detectada del corpus español completa。
