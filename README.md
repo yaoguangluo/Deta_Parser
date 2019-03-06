@@ -51,8 +51,8 @@
 #### 1 支持 java JDK 8 以上，字符集UTF-8 就够了，不需要任何插件和资源包。
 
 ## 分词使用如下：
-#### 大家可以自由添加词汇，添加在 org/tinos/fhmm/imp/words.lyg文件里。
-https://github.com/yaoguangluo/NeroParser/blob/master/main/src/org/tinos/fhmm/imp/poscc.lyg
+#### 大家可以自由添加词汇，添加在 org/tinos/fhmm/imp/words.lyg文件里。语料库集合地址如下：
+https://github.com/yaoguangluo/Nero_Parser/tree/master/wordSegment/org/tinos/ortho/fhmm/imp
 #### 可以看下org/tinos/test里面的例子。
 
 ####   //1 实例化
