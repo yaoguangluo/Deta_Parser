@@ -2,7 +2,7 @@
 
 ## 版本号：10.1.3 开始第二个主题基础研究：人类语言神经网络系统设计和应用。
 
-### 正在做趋势推导，判断打分预测，动机判断的情态语料库。
+##### ![实例](http://progressed.io/bar/5)正在做功能： Unit test case。
 
 ###### 1 ：The first unrevised version has been completed: 11 professional level corpora of Chinese, Chinese pinyin, French, German, Korean, Japanese, Spanish, Russian, indonesia and Arabic languages.
 ###### 2 ：第1版未修正版:中国、フランス、ドイツ、韩国、日本、スペイン、ロシア、アラビア语8种类の専门レベルの言语データベースが完成した。
