@@ -16,6 +16,8 @@
 ###### 10 ：Cơ sở dữ liệu tiếng việt chuẩn hoàn thành, không tối ưu hóa phiên bản。
 ## 功能：
 
+##### ![实例](http://progressed.io/bar/5)正在做功能： Unit test case。
+##### ![实例](http://progressed.io/bar/2)正在做功能： 正在做趋势推导，判断打分预测，动机判断的情态语料库。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：9国语言翻译词汇录入系统。 Mr.Yaoguang.Luo 20190227
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：情感语料库第一版本未修正版本。 Mr.Yaoguang.Luo
 注意1：该正面，褒义，负面，贬义，中性情感语料库有一定比重的表达作者的主观判断，比如思维误差，肯定环境，否定环境，哲学精神论等，如果引起不适，请慎重使用和借鉴修改。如果该情感库对第三方导致任何工程问题，作者不做任何解释和负法律责任。
