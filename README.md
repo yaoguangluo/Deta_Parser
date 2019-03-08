@@ -136,6 +136,9 @@ https://github.com/yaoguangluo/Nero_Parser/tree/master/wordSegment/org/tinos/ort
 
 ## 参与讨论者
 LetWang（神州泰岳）在扩充词库量的方法上提出了很多新颖的意见。
+1 建议我向搜狗等商业公司买词库。
+2 建议我和开源的分词公司合作。
+3 建议我招聘相关人员录入词库工作。
 
 ####  未完善功能：英语复句翻译。![实例](http://progressed.io/bar/20?title=completed)
 ####  未完善功能：混合分词的时候空格问题对第一个英文单词的区分校准。
