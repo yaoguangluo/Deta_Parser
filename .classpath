@@ -4,6 +4,7 @@
 	<classpathentry kind="src" path="neroMap"/>
 	<classpathentry kind="src" path="testWordSegment"/>
 	<classpathentry kind="src" path="testNeroMap"/>
+	<classpathentry kind="src" path="emotionMap"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
 	<classpathentry kind="output" path="bin/default"/>
