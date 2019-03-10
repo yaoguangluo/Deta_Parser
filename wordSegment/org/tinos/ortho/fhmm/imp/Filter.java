@@ -12,8 +12,8 @@
 //public class Filter{
 //	public static void main(String[] argv) throws IOException {
 //		Filter filter = new Filter();
-////		filter.filterADJ();	
-//		filter.filterNegative();
+//		filter.filterADJ();	
+////		filter.filterNegative();
 //	}
 //	
 //	public void filterADJ() throws IOException {
@@ -23,9 +23,13 @@
 //		String readLine = "";
 //		BufferedReader fileInputStream = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_CN_TO_CN)));
 //		while((readLine = fileInputStream.readLine()) != null) {	
-//			if(readLine.contains("形")||readLine.contains("副")) {
-//				bufferedWriter.write(readLine.split("/")[0]);
-//				bufferedWriter.write("\r\n");
+//			if(readLine.contains("动")) {
+//				String v= readLine.split("/")[0];
+//				if(v.length()>1) {
+//					bufferedWriter.write(v+"/");
+//					bufferedWriter.write("\r\n");
+//				}
+//
 //			}
 //		}
 //		bufferedWriter.close();
