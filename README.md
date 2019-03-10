@@ -4,18 +4,18 @@
 
 ##### ![实例](http://progressed.io/bar/23)正在做功能：动机判断的情态语料库。
 
-###### 1 ：The first unrevised version has been completed: 11 professional level corpora of Chinese, Chinese pinyin, French, German, Korean, Japanese, Spanish, Russian, indonesia and Arabic languages.
-###### 2 ：第1版未修正版:中国、フランス、ドイツ、韩国、日本、スペイン、ロシア、アラビア语8种类の専门レベルの言语データベースが完成した。
-###### 3 ：이미 제1 판의 수정되지 않은 수정판은 중국, 프랑스, 독일, 한국, 일본, 서부, 로씨야, 아랍어 등 8개 전업급 언어자료창고이다.
-###### 4 ：La première édition n’a pas été modifiée: le corpus des langues chinoise, française, allemande, coréenne, japonaise, occidentale, russe et arabe.
-###### 5 ：Die erste unänderte fassung der ersten ausgabe wurde abgeschlossen: in der mitte, frankreich, korea, japan, russland, dem 8. Sprachzentrum auf hoher ebene
-###### 6 ：Завершено первое неисправленное издание: Китай, Франция, Германия, хан, Япония, западная, российская и арабская языки, восемь специализированных корпусов.
-###### 7 ：Se han completado las primeras ediciones sin modificaciones: el corpus juris de 8 niveles profesionales en idiomas chino, francés, alemán, coreano, japonés, occidental, ruso y árabe.
-###### 8 ：وقد اكتملت الطبعة الأولى من دون تعديل، وهي مجموعة من ثماني مجموعات متخصصة من اللغات الإسبانية والفرنسية والألمانية والورية واليابانية والغربية والروسية.
-###### 9 ：Rumah corpus indonesia selesai. Versi tak dioptimalkan。
-###### 10 ：Cơ sở dữ liệu tiếng việt chuẩn hoàn thành, không tối ưu hóa phiên bản。
+###### 1 ： The first unrevised version has been completed: 12 professional level corpora of Chinese, Chinese pinyin, French, German, Korean, Japanese, Spanish, Russian, indonesia , Arabic, Vietnam and Thailand languages.
+###### 2 ： 第1版未修正版:中国、フランス、ドイツ、韩国、日本、スペイン、ロシア、アラビア语8种类の専门レベルの言语データベースが完成した。
+###### 3 ： 이미 제1 판의 수정되지 않은 수정판은 중국, 프랑스, 독일, 한국, 일본, 서부, 로씨야, 아랍어 등 8개 전업급 언어자료창고이다.
+###### 4 ： La première édition n’a pas été modifiée: le corpus des langues chinoise, française, allemande, coréenne, japonaise, occidentale, russe et arabe.
+###### 5 ： Die erste unänderte fassung der ersten ausgabe wurde abgeschlossen: in der mitte, frankreich, korea, japan, russland, dem 8. Sprachzentrum auf hoher ebene
+###### 6 ： Завершено первое неисправленное издание: Китай, Франция, Германия, хан, Япония, западная, российская и арабская языки, восемь специализированных корпусов.
+###### 7 ： Se han completado las primeras ediciones sin modificaciones: el corpus juris de 8 niveles profesionales en idiomas chino, francés, alemán, coreano, japonés, occidental, ruso y árabe.
+###### 8 ： وقد اكتملت الطبعة الأولى من دون تعديل، وهي مجموعة من ثماني مجموعات متخصصة من اللغات الإسبانية والفرنسية والألمانية والورية واليابانية والغربية والروسية.
+###### 9 ： Rumah corpus indonesia selesai. Versi tak dioptimalkan。
+###### 10 ： Cơ sở dữ liệu tiếng việt chuẩn hoàn thành, không tối ưu hóa phiên bản。
+###### 11 ： คลังข้อความภาษาไทยขนาดใหญ่สำหรับการปรับรุ่นเสร็จสมบูรณ์。
 ## 功能：
-
 ##### ![实例](http://progressed.io/bar/5)正在做功能： Unit test case。
 ##### ![实例](http://progressed.io/bar/23)正在做功能：动机判断的情态语料库。
 ##### ![实例](http://progressed.io/bar/2)正在做功能： 正在做趋势推导，判断打分预测。
