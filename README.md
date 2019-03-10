@@ -24,6 +24,7 @@
 注意1：该正面，褒义，负面，贬义，中性情感语料库有一定比重的表达作者的主观判断，比如思维误差，肯定环境，否定环境，哲学精神论等，如果引起不适，请慎重使用和借鉴修改。如果该情感库对第三方导致任何工程问题，作者不做任何解释和负法律责任。
 注意2: 因为关键字和形谓词模型的应用不确定性，意识和社会形态的溯源问题以及字典理解的误差率，该情感语料库不做任何解释在基于法律与道德的临界线区分应用上。
 注意3: 多语意识场合，该情态库不做任何情形分类评估标准，也不做引导性评估。
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： คลังข้อความภาษาไทยขนาดใหญ่สำหรับการปรับรุ่นเสร็จสมบูรณ์。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Cơ sở dữ liệu tiếng việt chuẩn hoàn thành, không tối ưu hóa phiên bản。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Rumah corpus indonesia selesai. Versi tak dioptimalkan。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Die deutsche sprachdatenbank wurde nicht geändert.
