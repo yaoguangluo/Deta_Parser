@@ -1,8 +1,8 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
-## 版本号：10.1.7 开始第二个主题基础研究：人类语言神经网络系统设计和应用。
+## 版本号：10.1.8 开始第二个主题基础研究：人类语言神经网络系统设计和应用。
 
-### ![实例](http://progressed.io/bar/23)正在做功能：动机判断的情态语料库。
+### ![实例](http://progressed.io/bar/58)正在做功能：动机判断的情态语料库。已经附带可运行实例。
 
 ###### 1 ： The first unrevised version has been completed: 12 professional level corpora of Chinese, Chinese pinyin, French, German, Korean, Japanese, Spanish, Russian, indonesia , Arabic, Vietnam and Thailand languages.
 ###### 2 ： 第1版未修正版:中国、フランス、ドイツ、韩国、日本、スペイン、ロシア、アラビア语8种类の専门レベルの言语データベースが完成した。
@@ -17,8 +17,8 @@
 ###### 11 ： คลังข้อความภาษาไทยขนาดใหญ่สำหรับการปรับรุ่นเสร็จสมบูรณ์。
 ## 功能：
 ##### ![实例](http://progressed.io/bar/5)正在做功能： Unit test case。
-##### ![实例](http://progressed.io/bar/23)正在做功能：动机判断的情态语料库。
-##### ![实例](http://progressed.io/bar/2)正在做功能： 正在做趋势推导，判断打分预测。
+##### ![实例](http://progressed.io/bar/58)正在做功能：动机判断的情态语料库。
+##### ![实例](http://progressed.io/bar/22)正在做功能： 正在做趋势推导，判断打分预测。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：12国语言翻译词汇录入系统。 Mr.Yaoguang.Luo 20190310
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：情感语料库第一版本未修正版本。 Mr.Yaoguang.Luo
 注意1：该正面，褒义，负面，贬义，中性情感语料库有一定比重的表达作者的主观判断，比如思维误差，肯定环境，否定环境，哲学精神论等，如果引起不适，请慎重使用和借鉴修改。如果该情感库对第三方导致任何工程问题，作者不做任何解释和负法律责任。
