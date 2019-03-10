@@ -2,7 +2,8 @@
 
 ## 版本号：10.1.8 开始第二个主题基础研究：人类语言神经网络系统设计和应用。
 
-### ![实例](http://progressed.io/bar/58)正在做功能：动机判断的情态语料库。已经附带可运行实例。
+### ![实例](http://progressed.io/bar/58)正在做功能：动机判断的情态语料库。已经附带可运行实例地址如下。
+https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EmotionTest.java
 
 ###### 1 ： The first unrevised version has been completed: 12 professional level corpora of Chinese, Chinese pinyin, French, German, Korean, Japanese, Spanish, Russian, indonesia , Arabic, Vietnam and Thailand languages.
 ###### 2 ： 第1版未修正版:中国、フランス、ドイツ、韩国、日本、スペイン、ロシア、アラビア语8种类の専门レベルの言语データベースが完成した。
