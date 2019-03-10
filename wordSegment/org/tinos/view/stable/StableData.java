@@ -84,6 +84,8 @@ public interface StableData {
 	public static final String WORDS_SOURSE_LINK_POS_NEGATIVE = "posNegative.lyg";
 	public static final String WORDS_SOURSE_LINK_POS_POSITIVE = "posPositive.lyg";
 	
+	public static final String WORDS_SOURSE_LINK_MOTIVATION = "motivation.lyg";
+	
 	public static final String WORDS_SOURSE_LINK_EN_TO_CN = "ec.lyg";
 	public static final String WORDS_SOURSE_LINK_CN_TO_EN = "ce.lyg";
 }
