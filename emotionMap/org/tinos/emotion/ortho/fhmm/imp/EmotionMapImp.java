@@ -11,6 +11,11 @@ import org.tinos.emotion.ortho.fhmm.EmotionMap;
 import org.tinos.view.stable.StableData;
 
 public class EmotionMapImp implements EmotionMap{
+	private Map<String, Object> positiveMap;
+	private Map<String, Object> negativeMap;
+	private Map<String, Object> motivationMap;
+	private Map<String, Object> trendingMap;
+	
 	public Map<String, Object> getPositiveMap() {
 		return positiveMap;
 	}
@@ -35,9 +40,13 @@ public class EmotionMapImp implements EmotionMap{
 		this.motivationMap = motivationMap;
 	}
 
-	private Map<String, Object> positiveMap;
-	private Map<String, Object> negativeMap;
-	private Map<String, Object> motivationMap;
+	public Map<String, Object> getTrendingMap() {
+		return trendingMap;
+	}
+
+	public void setTrendingMap(Map<String, Object> trendingMap) {
+		this.trendingMap = trendingMap;
+	}
 
 	public void initPositiveMap() throws IOException{
 		positiveMap = new HashMap<>();
@@ -58,9 +67,23 @@ public class EmotionMapImp implements EmotionMap{
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
 		String cInputString;
 		while ((cInputString = cReader.readLine()) != null) {
-			String[] value= cInputString.split(StableData.NLP_SYMBO_SLASH);
+			String[] value = cInputString.split(StableData.NLP_SYMBO_SLASH);
 			if(!motivationMap.containsKey(value[StableData.INT_ZERO])) {
 				motivationMap.put(value[StableData.INT_ZERO], value[StableData.INT_ONE]);
+			}
+		}
+		cReader.close();
+	}
+	
+	public void initTrendingMap() throws IOException{
+		trendingMap = new HashMap<>();
+		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_TRENDING);
+		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
+		String cInputString;
+		while ((cInputString = cReader.readLine()) != null) {
+			String[] value= cInputString.split(StableData.NLP_SYMBO_SLASH);
+			if(!trendingMap.containsKey(value[StableData.INT_ZERO])) {
+				trendingMap.put(value[StableData.INT_ZERO], value[StableData.INT_ONE]);
 			}
 		}
 		cReader.close();

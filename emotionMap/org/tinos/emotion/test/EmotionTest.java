@@ -17,6 +17,7 @@ public class EmotionTest{
 		emotionMap.initMotivationMap();
 		emotionMap.initNegativeMap();
 		emotionMap.initPositiveMap();
+		emotionMap.initTrendingMap();
 		
 		//get sentence
 		String text = "少年哲学智慧启蒙教育丛书《我眼中的美与丑》里，蕴含着十分丰富的道理，每一章都告诉我们不一样的道理。\\\\r\\\\n\\\" + \\r\\n\" + \r\n" + 
@@ -39,12 +40,14 @@ public class EmotionTest{
 		Map<String, Object> positive = emotionMap.getPositiveMap();
 		Map<String, Object> negative = emotionMap.getNegativeMap();
 		Map<String, Object> motivation = emotionMap.getMotivationMap();
+		Map<String, Object> trending = emotionMap.getTrendingMap();
 		//map
 		List<String> sets = analyzer.parserString(text);
 		Map<Integer, WordFrequency> fwa = analyzer.getWordFrequencyByReturnSortMap(sets);
 		int positiveCount=0;
 		int nagativeCount=0;
 		String motivationSION="";
+		String trendingSION="";
 		for (int i = fwa.size() - 1; i >= 0; i--) {
 			if(fwa.get(i).getWord().length() > 1) {
 				//frequency
@@ -65,12 +68,18 @@ public class EmotionTest{
 					System.out.print(motivation.get(fwa.get(i).getWord()));
 					motivationSION+=" "+motivation.get(fwa.get(i).getWord());
 				}
+				//trending
+				if(trending.containsKey(fwa.get(i).getWord())) {
+					System.out.print(trending.get(fwa.get(i).getWord()));
+					trendingSION+=" "+trending.get(fwa.get(i).getWord());
+				}
 				System.out.println("");
 			} 
 		}
 		//reduce
 		System.out.println("正面数：" +positiveCount);
 		System.out.println("负面数：" +nagativeCount);
-		System.out.println("倾    向：" +motivationSION);
+		System.out.println("动    机：" +motivationSION);
+		System.out.println("倾    向：" +trendingSION);
 	}
 }
