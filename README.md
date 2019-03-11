@@ -1,6 +1,6 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
-## 版本号：10.1.8 开始第二个主题基础研究：人类语言神经网络系统设计和应用。
+## 版本号：10.1.9 开始第二个主题基础研究：人类语言神经网络系统设计和应用。
 
 ### ![实例](http://progressed.io/bar/72)正在做功能：动机判断的情态语料库。已经附带可运行实例地址如下。
 https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EmotionTest.java
