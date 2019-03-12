@@ -200,7 +200,9 @@ public class RatioMapImp implements RatioMap{
 			EmotionSample emotionSample = emotionSampleMap.get(word);
 			if(prediction.containsKey(emotionSample.getTrending())) {
 				emotionSample.setPrediction(prediction.get(emotionSample.getTrending()).toString());
-			}  
+			} else if(prediction.containsKey(emotionSample.getMotivation())) {
+				emotionSample.setPrediction(prediction.get(emotionSample.getMotivation()).toString());
+			} 
 			emotionSampleMap.put(word, emotionSample);
 		}	
 	}
