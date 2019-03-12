@@ -185,7 +185,7 @@ public class RatioMapImp implements RatioMap{
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
 			if(trending.containsKey(word)) {
-				emotionSample.setMotivation(trending.get(word).toString());
+				emotionSample.setTrending(trending.get(word).toString());
 			}  
 			emotionSampleMap.put(word, emotionSample);
 		}		
@@ -198,7 +198,7 @@ public class RatioMapImp implements RatioMap{
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
 			if(prediction.containsKey(word)) {
-				emotionSample.setMotivation(prediction.get(word).toString());
+				emotionSample.setPrediction(prediction.get(word).toString());
 			}  
 			emotionSampleMap.put(word, emotionSample);
 		}	

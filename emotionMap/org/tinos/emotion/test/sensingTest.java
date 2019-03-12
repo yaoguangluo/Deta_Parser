@@ -269,29 +269,24 @@ public class sensingTest{
 		System.out.println("情感比率：" + emotionRatio);
 		
 		Iterator<String> Iterator=emotionSampleMap.keySet().iterator();
-		Here:
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
 			
-			double sum = emotionSample.getEmotionRatio() + emotionSample.getMotivationRatio()+ emotionSample.getCorrelationRatio()
-			+ emotionSample.getContinusRatio() + emotionSample.getTrendsRatio()+ emotionSample.getPredictionRatio() + emotionSample.getGuessRatio()+ emotionSample.getSensingRatio();
-			if(sum == 0) {
-				continue Here;
-			}
-			System.out.println(word);
-			System.out.print("动机：" + emotionSample.getMotivation());
-			System.out.print("倾向：" + emotionSample.getTrending());
-			System.out.print("预测：" + emotionSample.getPrediction());
-			System.out.print("情感：" + emotionSample.getEmotionRatio());
-			System.out.print("动机：" + emotionSample.getMotivationRatio());
-			System.out.print("关联：" + emotionSample.getCorrelationRatio());
-			System.out.print("韧性：" + emotionSample.getContinusRatio());
-			System.out.print("趋势：" + emotionSample.getTrendsRatio());
-			System.out.print("预测：" + emotionSample.getPredictionRatio());
-			System.out.print("猜测：" + emotionSample.getGuessRatio());
-			System.out.println("冥想：" + emotionSample.getSensingRatio());
+			if(null != emotionSample.getMotivation() || null != emotionSample.getTrending() || null != emotionSample.getPrediction()) {
+				System.out.println(word);
+				System.out.print("动机：" + emotionSample.getMotivation());
+				System.out.print("倾向：" + emotionSample.getTrending());
+				System.out.print("预测：" + emotionSample.getPrediction());
+				System.out.print("情感：" + emotionSample.getEmotionRatio());
+				System.out.print("动机：" + emotionSample.getMotivationRatio());
+				System.out.print("关联：" + emotionSample.getCorrelationRatio());
+				System.out.print("韧性：" + emotionSample.getContinusRatio());
+				System.out.print("趋势：" + emotionSample.getTrendsRatio());
+				System.out.print("预测：" + emotionSample.getPredictionRatio());
+				System.out.print("猜测：" + emotionSample.getGuessRatio());
+				System.out.println("冥想：" + emotionSample.getSensingRatio());
+			}	 
 		}
-		
 	}
 }
