@@ -15,6 +15,15 @@ public class EmotionMapImp implements EmotionMap{
 	private Map<String, Object> negativeMap;
 	private Map<String, Object> motivationMap;
 	private Map<String, Object> trendingMap;
+	private Map<String, Object> predictionMap;
+	
+	public Map<String, Object> getPredictionMap() {
+		return predictionMap;
+	}
+
+	public void setPredictionMap(Map<String, Object> predictionMap) {
+		this.predictionMap = predictionMap;
+	}
 	
 	public Map<String, Object> getPositiveMap() {
 		return positiveMap;
@@ -101,4 +110,20 @@ public class EmotionMapImp implements EmotionMap{
 		}
 		cReader.close();
 	}
+
+	public void initPredictionMap() throws IOException {
+		predictionMap = new HashMap<>();
+		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_PREDICTION);
+		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
+		String cInputString;
+		while ((cInputString = cReader.readLine()) != null) {
+			String[] value= cInputString.split(StableData.NLP_SYMBO_SLASH);
+			if(!predictionMap.containsKey(value[StableData.INT_ZERO])) {
+				predictionMap.put(value[StableData.INT_ZERO], value[StableData.INT_ONE]);
+			}
+		}
+		cReader.close();
+	}
+
+
 }

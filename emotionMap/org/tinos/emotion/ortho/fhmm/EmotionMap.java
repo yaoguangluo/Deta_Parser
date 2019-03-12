@@ -6,6 +6,7 @@ public interface EmotionMap{
 	void initPositiveMap() throws IOException;
 	void initNegativeMap() throws IOException;
 	void initTrendingMap() throws IOException;
+	void initPredictionMap() throws IOException;
 	public Map<String, Object> getPositiveMap();
 	public void setPositiveMap(Map<String, Object> positiveMap);
 	public Map<String, Object> getNegativeMap();
@@ -13,5 +14,7 @@ public interface EmotionMap{
 	public Map<String, Object> getMotivationMap() ;
 	public void setMotivationMap(Map<String, Object> motivationMap);
 	public Map<String, Object> getTrendingMap() ;
-	public void setTrendingMap(Map<String, Object> motivationMap);
+	public void setTrendingMap(Map<String, Object> TrendingMap);
+	public Map<String, Object> getPredictionMap() ;
+	public void setPredictionMap(Map<String, Object> PredictionMap);
 }
