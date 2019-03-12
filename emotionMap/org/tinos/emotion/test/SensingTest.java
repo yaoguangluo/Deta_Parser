@@ -14,7 +14,7 @@ import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
 import org.tinos.view.obj.WordFrequency;
 
-public class sensingTest{
+public class SensingTest{
 	public static void main(String[] argv) throws IOException {
 		//init
 		EmotionMap emotionMap = new EmotionMapImp(); 
