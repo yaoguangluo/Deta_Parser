@@ -249,7 +249,6 @@ public class sensingTest{
 		double negativeCount = rationMap.findTotalNegativeCount(emotionSampleMap);
 		//double keyCount = rationMap.findTotalKeyCount(emotionSampleMap);
 		
-		
 		rationMap.getMotivation(emotionSampleMap, motivation);
 		rationMap.getTrending(emotionSampleMap, trending);
 		rationMap.getPrediction(emotionSampleMap,prediction);
@@ -272,12 +271,11 @@ public class sensingTest{
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
-			
 			if(null != emotionSample.getMotivation() || null != emotionSample.getTrending() || null != emotionSample.getPrediction()) {
-				System.out.println(word);
+				System.out.print(word+":");
 				System.out.print("动机：" + emotionSample.getMotivation());
 				System.out.print("倾向：" + emotionSample.getTrending());
-				System.out.print("预测：" + emotionSample.getPrediction());
+				System.out.println("预测：" + emotionSample.getPrediction());
 				System.out.print("情感：" + emotionSample.getEmotionRatio());
 				System.out.print("动机：" + emotionSample.getMotivationRatio());
 				System.out.print("关联：" + emotionSample.getCorrelationRatio());

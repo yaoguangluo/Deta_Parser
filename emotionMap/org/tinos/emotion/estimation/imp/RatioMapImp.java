@@ -8,6 +8,7 @@ import java.util.Map;
 import org.tinos.emotion.estimation.EmotionSample;
 import org.tinos.emotion.estimation.RatioMap;
 import org.tinos.view.obj.WordFrequency;
+import org.tinos.view.stable.StableData;
 
 public class RatioMapImp implements RatioMap{
 
@@ -15,7 +16,7 @@ public class RatioMapImp implements RatioMap{
 	public Map<String, EmotionSample> getEmotionSampleMap(Map<Integer, WordFrequency> wordFrequencyMap,
 			Map<String, Object> positive, Map<String, Object> negative) {
 		 Map<String, EmotionSample> output = new HashMap<>();
-		 for (int i = wordFrequencyMap.size() - 1; i >= 0; i--) {
+		 for (int i = wordFrequencyMap.size() - StableData.INT_ONE; i >= 0; i--) {
 				if(wordFrequencyMap.get(i).getWord().length() > 1) {
 					EmotionSample emotionSample=new EmotionSample();
 					if(positive.containsKey(wordFrequencyMap.get(i).getWord())) {
@@ -117,7 +118,7 @@ public class RatioMapImp implements RatioMap{
 
 	@Override
 	public double findTotalPositiveCount(Map<String, EmotionSample> emotionSampleMap) {
-		double output = 1;
+		double output = StableData.INT_ONE;
 		Iterator<String> Iterator=emotionSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
@@ -129,7 +130,7 @@ public class RatioMapImp implements RatioMap{
 
 	@Override
 	public double findTotalNegativeCount(Map<String, EmotionSample> emotionSampleMap) {
-		double output = 1;
+		double output = StableData.INT_ONE;
 		Iterator<String> Iterator = emotionSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
@@ -155,11 +156,11 @@ public class RatioMapImp implements RatioMap{
 
 	@Override
 	public double findTotalKeyCount(Map<String, EmotionSample> emotionSampleMap) {
-		double output = 1;
+		double output = StableData.INT_ONE;
 		Iterator<String> Iterator=emotionSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
-			EmotionSample emotionSample=emotionSampleMap.get(word);
+			EmotionSample emotionSample = emotionSampleMap.get(word);
 			output += emotionSample.getNegativeCount()+emotionSample.getPositiveCount()+emotionSample.getMedCount();
 		}
 		return output;
@@ -197,8 +198,8 @@ public class RatioMapImp implements RatioMap{
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
-			if(prediction.containsKey(word)) {
-				emotionSample.setPrediction(prediction.get(word).toString());
+			if(prediction.containsKey(emotionSample.getTrending())) {
+				emotionSample.setPrediction(prediction.get(emotionSample.getTrending()).toString());
 			}  
 			emotionSampleMap.put(word, emotionSample);
 		}	
