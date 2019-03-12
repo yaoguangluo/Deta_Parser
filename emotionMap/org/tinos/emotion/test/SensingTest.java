@@ -79,8 +79,8 @@ public class SensingTest{
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
-			if((null != emotionSample.getMotivation() || null != emotionSample.getTrending() || null != emotionSample.getPrediction())
-					|| ( 0 != emotionSample.getPositiveCount()||0 != emotionSample.getNegativeCount())) {
+			if((null != emotionSample.getMotivation()|| null != emotionSample.getTrending()||null != emotionSample.getPrediction() )
+					&&(0 != emotionSample.getPositiveCount()||0 != emotionSample.getNegativeCount())) {
 				System.out.print(word+":");
 				System.out.print("动机：" + emotionSample.getMotivation());
 				System.out.print("倾向：" + emotionSample.getTrending());
