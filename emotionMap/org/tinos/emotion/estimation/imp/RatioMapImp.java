@@ -17,7 +17,7 @@ public class RatioMapImp implements RatioMap{
 			Map<String, Object> positive, Map<String, Object> negative) {
 		 Map<String, EmotionSample> output = new HashMap<>();
 		 for (int i = wordFrequencyMap.size() - StableData.INT_ONE; i >= 0; i--) {
-				if(wordFrequencyMap.get(i).getWord().length() > 1) {
+				if(wordFrequencyMap.get(i).getWord().length() > StableData.INT_ONE) {
 					EmotionSample emotionSample=new EmotionSample();
 					if(positive.containsKey(wordFrequencyMap.get(i).getWord())) {
 						emotionSample.setPositiveCount(wordFrequencyMap.get(i).getFrequency());

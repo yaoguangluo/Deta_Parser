@@ -271,11 +271,14 @@ public class SensingTest{
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
-			if(null != emotionSample.getMotivation() || null != emotionSample.getTrending() || null != emotionSample.getPrediction()) {
+			if(null != emotionSample.getMotivation() || null != emotionSample.getTrending() || null != emotionSample.getPrediction()
+					|| 0 != emotionSample.getPositiveCount()||0 != emotionSample.getNegativeCount()) {
 				System.out.print(word+":");
 				System.out.print("动机：" + emotionSample.getMotivation());
 				System.out.print("倾向：" + emotionSample.getTrending());
 				System.out.println("预测：" + emotionSample.getPrediction());
+				System.out.print("正面：" + emotionSample.getPositiveCount());
+				System.out.print("负面：" + emotionSample.getNegativeCount());
 				System.out.print("情感：" + emotionSample.getEmotionRatio());
 				System.out.print("动机：" + emotionSample.getMotivationRatio());
 				System.out.print("关联：" + emotionSample.getCorrelationRatio());
