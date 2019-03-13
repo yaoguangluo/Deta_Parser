@@ -87,6 +87,7 @@ public interface StableData {
 	public static final String WORDS_SOURSE_LINK_MOTIVATION = "motivation.lyg";
 	public static final String WORDS_SOURSE_LINK_TRENDING = "trend.lyg";
 	public static final String WORDS_SOURSE_LINK_PREDICTION = "prediction.lyg";
+	public static final String WORDS_SOURSE_LINK_DISTINCTION = "distinction.lyg";
 	
 	public static final String WORDS_SOURSE_LINK_EN_TO_CN = "ec.lyg";
 	public static final String WORDS_SOURSE_LINK_CN_TO_EN = "ce.lyg";

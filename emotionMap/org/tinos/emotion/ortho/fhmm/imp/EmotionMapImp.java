@@ -16,6 +16,7 @@ public class EmotionMapImp implements EmotionMap{
 	private Map<String, Object> motivationMap;
 	private Map<String, Object> trendingMap;
 	private Map<String, Object> predictionMap;
+	private Map<String, Object> distinctionMap;
 	
 	public Map<String, Object> getPredictionMap() {
 		return predictionMap;
@@ -57,6 +58,14 @@ public class EmotionMapImp implements EmotionMap{
 		this.trendingMap = trendingMap;
 	}
 
+	public Map<String, Object> getDistinctionMap() {
+		return distinctionMap;
+	}
+
+	public void setDistinctionMap(Map<String, Object> distinctionMap) {
+		this.distinctionMap = distinctionMap;
+	}
+	
 	public void initPositiveMap() throws IOException{
 		positiveMap = new HashMap<>();
 		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_POSITIVE);
@@ -120,6 +129,20 @@ public class EmotionMapImp implements EmotionMap{
 			String[] value= cInputString.split(StableData.NLP_SYMBO_SLASH);
 			if(!predictionMap.containsKey(value[StableData.INT_ZERO])) {
 				predictionMap.put(value[StableData.INT_ZERO], value[StableData.INT_ONE]);
+			}
+		}
+		cReader.close();
+	}
+
+	public void initDistinctionMap() throws IOException {
+		distinctionMap = new HashMap<>();
+		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_DISTINCTION);
+		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
+		String cInputString;
+		while ((cInputString = cReader.readLine()) != null) {
+			String[] value= cInputString.split(StableData.NLP_SYMBO_SLASH);
+			if(!distinctionMap.containsKey(value[StableData.INT_ZERO])) {
+				distinctionMap.put(value[StableData.INT_ZERO], value[StableData.INT_ONE]);
 			}
 		}
 		cReader.close();

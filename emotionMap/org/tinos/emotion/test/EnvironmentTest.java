@@ -14,7 +14,7 @@ import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
 import org.tinos.view.obj.WordFrequency;
 
-public class SensingTest{
+public class EnvironmentTest{
 	public static void main(String[] argv) throws IOException {
 		//init
 		EmotionMap emotionMap = new EmotionMapImp(); 
@@ -23,6 +23,7 @@ public class SensingTest{
 		emotionMap.initPositiveMap();
 		emotionMap.initTrendingMap();
 		emotionMap.initPredictionMap();
+		emotionMap.initDistinctionMap();
 		
 		//get sentence
 		String text = "这10年改变我的一些思维方法\r\n" + 
@@ -43,80 +44,79 @@ public class SensingTest{
 		//parser sentence
 		Analyzer analyzer = new CogsBinaryForestAnalyzerImp();
 		analyzer.init();
-//		Map<String, String> cnToEn = analyzer.getFullCnToEn();
 		Map<String, Object> positive = emotionMap.getPositiveMap();
 		Map<String, Object> negative = emotionMap.getNegativeMap();
 		Map<String, Object> motivation = emotionMap.getMotivationMap();
 		Map<String, Object> trending = emotionMap.getTrendingMap();
 		Map<String, Object> prediction = emotionMap.getPredictionMap();
+		Map<String, Object> distinction = emotionMap.getDistinctionMap();
 		//map
 		List<String> sets = analyzer.parserString(text);
+	
 		Map<Integer, WordFrequency> wordFrequencyMap = analyzer.getWordFrequencyByReturnSortMap(sets);
 
 		RatioMap rationMap = new RatioMapImp();
 		Map<String, EmotionSample> emotionSampleMap = rationMap.getEmotionSampleMap(wordFrequencyMap, positive, negative);
 		double positiveCount = rationMap.findTotalPositiveCount(emotionSampleMap);
 		double negativeCount = rationMap.findTotalNegativeCount(emotionSampleMap);
-		
 		rationMap.getMotivation(emotionSampleMap, motivation);
 		rationMap.getTrending(emotionSampleMap, trending);
-		rationMap.getPrediction(emotionSampleMap,prediction);
-		rationMap.getEmotionRatio(emotionSampleMap, positiveCount, negativeCount );
-		rationMap.getMotivationRatio(emotionSampleMap, positiveCount + negativeCount);
-		rationMap.getCorrelationRatio(emotionSampleMap, positiveCount + negativeCount);
-		double emotionRatio = Math.abs(positiveCount/negativeCount - negativeCount/positiveCount);
-		rationMap.getContinusRatio(emotionSampleMap, emotionRatio);
-		rationMap.getTrendsRatio(emotionSampleMap);
-		rationMap.getPredictionRatio(emotionSampleMap);
-		rationMap.getGuessRatio(emotionSampleMap);
-		rationMap.getSensingRatio(emotionSampleMap);
+		rationMap.getPrediction(emotionSampleMap, prediction);
+		rationMap.getDistinction(emotionSampleMap, distinction);
 		
-		//output
-		System.out.println("正面：" + positiveCount);
-		System.out.println("负面：" + negativeCount);
+		//reduce
+		System.out.println("正面数：" +positiveCount);
+		System.out.println("负面数：" +negativeCount);
+		if(positiveCount==0) {
+			positiveCount=1;
+		}
+		if(negativeCount==0) {
+			negativeCount=1;
+		}
+		double emotionRatio = Math.abs(positiveCount/negativeCount-negativeCount/positiveCount);
 		System.out.println("情感比率：" + emotionRatio);
 		
-		Iterator<String> Iterator=emotionSampleMap.keySet().iterator();
+		System.out.println("环    境：");
+		Iterator<String> Iterator = emotionSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
-			if((null != emotionSample.getMotivation()|| null != emotionSample.getTrending()||null != emotionSample.getPrediction() )) {
-//					&&(0 != emotionSample.getPositiveCount()||0 != emotionSample.getNegativeCount())) {
-//				if(cnToEn.containsKey(word)) {
-//					System.out.print(cnToEn.get(word) + ":");
-//				}else {
-//					System.out.print(word + ":");
-//				}
-//				if(cnToEn.containsKey(""+emotionSample.getMotivation())) {
-//					System.out.print("动机：" + cnToEn.get(emotionSample.getMotivation()));
-//				}else {
-//					System.out.print("动机：" + emotionSample.getMotivation());
-//				}
-//				if(cnToEn.containsKey(""+emotionSample.getTrending())) {
-//					System.out.print("倾向：" + cnToEn.get(emotionSample.getTrending()));
-//				}else {
-//					System.out.print("倾向：" + emotionSample.getTrending());
-//				}
-//				if(cnToEn.containsKey(""+emotionSample.getPrediction())) {
-//					System.out.println("预测：" + cnToEn.get(emotionSample.getPrediction()));
-//				}else {
-//					System.out.println("预测：" + emotionSample.getPrediction());
-//				}
-				System.out.print(word + ":");
-				System.out.print("动机：" + emotionSample.getMotivation());
-				System.out.print("倾向：" + emotionSample.getTrending());
-				System.out.println("预测：" + emotionSample.getPrediction());
-				System.out.print("正面：" + emotionSample.getPositiveCount());
-				System.out.print("负面：" + emotionSample.getNegativeCount());
-				System.out.print("情感：" + (int)(emotionSample.getEmotionRatio()*10000));
-				System.out.print("动机：" + (int)(emotionSample.getMotivationRatio()*100000));
-				System.out.print("关联：" + (int)(emotionSample.getCorrelationRatio()*10000));
-				System.out.print("韧性：" + (int)(emotionSample.getContinusRatio()*10));
-				System.out.print("趋势：" + (int)(emotionSample.getTrendsRatio()*100000));
-				System.out.print("预测：" + (int)(emotionSample.getPredictionRatio()*1000000));
-				System.out.print("猜测：" + (int)(emotionSample.getGuessRatio()*1000000));
-				System.out.println("冥想：" + (int)(emotionSample.getSensingRatio()*100000));
-			}	 
+			if(null != emotionSample.getDistinction()) {
+				System.out.print(emotionSample.getDistinction()+" ");
+			}
 		}
+		System.out.println("");
+		System.out.println("动    机：");
+		Iterator = emotionSampleMap.keySet().iterator();
+		while(Iterator.hasNext()) {
+			String word = Iterator.next();
+			EmotionSample emotionSample = emotionSampleMap.get(word);
+			if(null != emotionSample.getMotivation()) {
+				System.out.print(emotionSample.getMotivation()+" ");
+			}
+		}
+		System.out.println("");
+		System.out.println("倾    向：" );
+		Iterator = emotionSampleMap.keySet().iterator();
+		while(Iterator.hasNext()) {
+			String word = Iterator.next();
+			EmotionSample emotionSample = emotionSampleMap.get(word);
+			if(null != emotionSample.getTrending()) {
+				System.out.print(emotionSample.getTrending()+" ");
+			}
+		}
+		
+		//reduce
+		System.out.println("");
+		System.out.println("决    策：");
+		Iterator = emotionSampleMap.keySet().iterator();
+		while(Iterator.hasNext()) {
+			String word = Iterator.next();
+			EmotionSample emotionSample = emotionSampleMap.get(word);
+			if(null != emotionSample.getPrediction()) {
+				System.out.print(emotionSample.getPrediction()+" ");
+			}
+		}
+		
 	}
 }

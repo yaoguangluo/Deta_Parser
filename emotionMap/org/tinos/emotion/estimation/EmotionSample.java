@@ -88,7 +88,12 @@ public class EmotionSample{
 	public void setMedCount(double medCount) {
 		this.medCount = medCount;
 	}
-
+	public String getDistinction() {
+		return distinction;
+	}
+	public void setDistinction(String distinction) {
+		this.distinction = distinction;
+	}
 	double positiveCount;
 	double medCount;
 	double negativeCount;
@@ -103,4 +108,5 @@ public class EmotionSample{
 	String motivation;
 	String trending;
 	String prediction;
+	String distinction;
 }

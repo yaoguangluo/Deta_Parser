@@ -16,7 +16,7 @@ public class RatioMapImp implements RatioMap{
 	public Map<String, EmotionSample> getEmotionSampleMap(Map<Integer, WordFrequency> wordFrequencyMap,
 			Map<String, Object> positive, Map<String, Object> negative) {
 		 Map<String, EmotionSample> output = new HashMap<>();
-		 for (int i = wordFrequencyMap.size() - StableData.INT_ONE; i >= 0; i--) {
+		 for (int i = wordFrequencyMap.size() - StableData.INT_ONE; i >= StableData.INT_ZERO; i--) {
 				if(wordFrequencyMap.get(i).getWord().length() > StableData.INT_ONE) {
 					EmotionSample emotionSample=new EmotionSample();
 					if(positive.containsKey(wordFrequencyMap.get(i).getWord())) {
@@ -203,6 +203,19 @@ public class RatioMapImp implements RatioMap{
 			} else if(prediction.containsKey(emotionSample.getMotivation())) {
 				emotionSample.setPrediction(prediction.get(emotionSample.getMotivation()).toString());
 			} 
+			emotionSampleMap.put(word, emotionSample);
+		}	
+	}
+
+	@Override
+	public void getDistinction(Map<String, EmotionSample> emotionSampleMap, Map<String, Object> distinction) {
+		Iterator<String> Iterator = emotionSampleMap.keySet().iterator();
+		while(Iterator.hasNext()) {
+			String word = Iterator.next();
+			EmotionSample emotionSample = emotionSampleMap.get(word);
+			if(distinction.containsKey(word)) {
+				emotionSample.setDistinction(distinction.get(word).toString());
+			}  
 			emotionSampleMap.put(word, emotionSample);
 		}	
 	}
