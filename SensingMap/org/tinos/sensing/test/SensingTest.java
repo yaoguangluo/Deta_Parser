@@ -12,6 +12,15 @@ import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
 import org.tinos.emotion.estimation.imp.RatioMapImp;
 import org.tinos.view.obj.WordFrequency;
 public class SensingTest{
+	public List<String> getSets() {
+		return sets;
+	}
+
+	public void setSets(List<String> sets) {
+		this.sets = sets;
+	}
+
+	private List<String> sets;
 	public String[][] getMatrix() throws IOException {
 		//init
 		EmotionMap emotionMap = new EmotionMapImp(); 
@@ -45,7 +54,7 @@ public class SensingTest{
 		Map<String, Object> trending = emotionMap.getTrendingMap();
 		Map<String, Object> prediction = emotionMap.getPredictionMap();
 		//map
-		List<String> sets = analyzer.parserString(text);
+		sets = analyzer.parserString(text);
 		Map<Integer, WordFrequency> wordFrequencyMap = analyzer.getWordFrequencyByReturnSortMap(sets);
 
 		RatioMap rationMap = new RatioMapImp();
