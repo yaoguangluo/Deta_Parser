@@ -1,6 +1,7 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
-## 版本号：10.2.7 开始第二个主题基础研究：人类语言神经网络系统设计和应用。 （ANN结合ICA做意识矩阵训练）
+## 版本号：10.2.7 开始第二个主题基础研究：人类语言神经网络系统设计和应用。 （准备 做 ICA 分析）
+### ![实例](http://progressed.io/bar/100) 基于 ANN matrix 进行nomarlization 然后做 未优化的 DNN 简单 训练版本 map reduce 测试。 
 ### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313
 ### ![实例](http://progressed.io/bar/100) 基于环境，场合，动机，目的，倾向和预判评估进行自然语言第6感意识分析。 
 https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EnvironmentTest.java
