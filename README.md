@@ -1,13 +1,15 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
-## 版本号：10.2.7 开始第二个主题基础研究：人类语言神经网络系统设计和应用。 （ANN结合ICA做意识矩阵训练）
-### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313
-### ![实例](http://progressed.io/bar/100) 基于环境，场合，动机，目的，倾向和预判评估进行自然语言第6感意识分析。 
+## 版本号：10.2.8 开始第三个主题基础研究：图灵机与读心术系统设计和应用。 （准备 做 ICA DNN 分析）
+##### ![实例](http://progressed.io/bar/100) 基于 HMM matrix 进行nomarlization 然后做 未优化的 ANN 简单 训练版本 map reduce 测试。
+https://github.com/yaoguangluo/Nero_Parser/tree/master/SensingMap/org/tinos/sensing/test
+##### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313
+##### ![实例](http://progressed.io/bar/100) 基于环境，场合，动机，目的，倾向和预判评估进行自然语言第6感意识分析。 
 https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EnvironmentTest.java
-### ![实例](http://progressed.io/bar/100)	Emotion Ratio Matrix for ANN ICA 6.th sensing test
+##### ![实例](http://progressed.io/bar/100)	Emotion Ratio Matrix for ANN ICA 6.th sensing test
 https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/SensingTest.java
-### ![实例](http://progressed.io/bar/100) 正在做功能：语言心理学读心术。
-### ![实例](http://progressed.io/bar/92) 正在做功能：动机判断的情态语料库。已经附带可运行实例地址如下。
+##### ![实例](http://progressed.io/bar/100) 正在做功能：语言心理学读心术。
+##### ![实例](http://progressed.io/bar/92) 正在做功能：动机判断的情态语料库。已经附带可运行实例地址如下。
 https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EmotionTest.java
 
 ###### 1 ： The first unrevised version has been completed: 12 professional level corpora of Chinese, Chinese pinyin, French, German, Korean, Japanese, Spanish, Russian, indonesia , Arabic, Vietnam and Thailand languages.
