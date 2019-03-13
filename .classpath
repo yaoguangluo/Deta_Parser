@@ -8,5 +8,7 @@
 	<classpathentry kind="src" path="SensingMap"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
+	<classpathentry kind="lib" path="/Data_Processor/DP"/>
+	<classpathentry kind="src" path="/Data_Processor"/>
 	<classpathentry kind="output" path="bin/default"/>
 </classpath>
