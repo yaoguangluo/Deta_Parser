@@ -1,6 +1,8 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
-## 版本号：10.2.2 开始第二个主题基础研究：人类语言神经网络系统设计和应用。
+## 版本号：10.2.6 开始第二个主题基础研究：人类语言神经网络系统设计和应用。 （ANN结合ICA做意识矩阵训练）
+### ![实例](http://progressed.io/bar/100) 基于环境，场合，动机，目的，倾向和预判评估进行自然语言第6感意识分析。 
+https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EnvironmentTest.java
 ### ![实例](http://progressed.io/bar/100)	Emotion Ratio Matrix for ANN ICA
 https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/SensingTest.java
 ### ![实例](http://progressed.io/bar/100) 正在做功能：语言心理学读心术。
