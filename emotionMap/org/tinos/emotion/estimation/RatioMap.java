@@ -4,8 +4,10 @@ import java.util.Map;
 import org.tinos.view.obj.WordFrequency;
 
 public interface RatioMap {
-	Map<String, EmotionSample> getEmotionSampleMap(Map<Integer, WordFrequency> wordFrequencyMap, Map<String, Object> positive, Map<String, Object> negative);
-	void getEmotionRatio(Map<String, EmotionSample> emotionSampleMap, double positiveCount, double negativeCount);
+	Map<String, EmotionSample> getEmotionSampleMap(Map<Integer, WordFrequency> wordFrequencyMap
+			, Map<String, Object> positive, Map<String, Object> negative);
+	void getEmotionRatio(Map<String, EmotionSample> emotionSampleMap, double positiveCount
+			, double negativeCount, double medCount);
 	void getMotivationRatio(Map<String, EmotionSample> emotionSampleMap, double sumOfEmotion);
 	void getCorrelationRatio(Map<String, EmotionSample> emotionSampleMap, double sumOfEmotion);
 	void getContinusRatio(Map<String, EmotionSample> emotionSampleMap, double emotionRatio);

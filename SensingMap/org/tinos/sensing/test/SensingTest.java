@@ -57,13 +57,15 @@ public class SensingTest{
 		Map<String, EmotionSample> emotionSampleMap = rationMap.getEmotionSampleMap(wordFrequencyMap, positive, negative);
 		double positiveCount = rationMap.findTotalPositiveCount(emotionSampleMap);
 		double negativeCount = rationMap.findTotalNegativeCount(emotionSampleMap);
+		double totalCount = rationMap.findTotalKeyCount(emotionSampleMap);
+		double medCount = totalCount - (positiveCount + negativeCount);
 		
 		rationMap.getMotivation(emotionSampleMap, motivation);
 		rationMap.getTrending(emotionSampleMap, trending);
 		rationMap.getPrediction(emotionSampleMap,prediction);
-		rationMap.getEmotionRatio(emotionSampleMap, positiveCount, negativeCount );
-		rationMap.getMotivationRatio(emotionSampleMap, positiveCount + negativeCount);
-		rationMap.getCorrelationRatio(emotionSampleMap, positiveCount + negativeCount);
+		rationMap.getEmotionRatio(emotionSampleMap, positiveCount, negativeCount, medCount);
+		rationMap.getMotivationRatio(emotionSampleMap, totalCount);
+		rationMap.getCorrelationRatio(emotionSampleMap,totalCount);
 		double emotionRatio = Math.abs(positiveCount/negativeCount - negativeCount/positiveCount);
 		rationMap.getContinusRatio(emotionSampleMap, emotionRatio);
 		rationMap.getTrendsRatio(emotionSampleMap);
@@ -73,6 +75,7 @@ public class SensingTest{
 		
 		//output
 		System.out.println("正面：" + positiveCount);
+		System.out.println("中面：" + medCount);
 		System.out.println("负面：" + negativeCount);
 		System.out.println("情感比率：" + emotionRatio);
 		
@@ -107,14 +110,15 @@ public class SensingTest{
 				System.out.print("倾向：" + emotionSample.getTrending());
 				System.out.println("预测：" + emotionSample.getPrediction());
 				System.out.print("正面：" + emotionSample.getPositiveCount());
+				System.out.print("中面：" + emotionSample.getMedCount());
 				System.out.print("负面：" + emotionSample.getNegativeCount());
 				System.out.print("情感：" + (int)(emotionSample.getEmotionRatio()*10000));
 				System.out.print("动机：" + (int)(emotionSample.getMotivationRatio()*100000));
 				System.out.print("关联：" + (int)(emotionSample.getCorrelationRatio()*10000));
 				System.out.print("韧性：" + (int)(emotionSample.getContinusRatio()*10));
 				System.out.print("趋势：" + (int)(emotionSample.getTrendsRatio()*100000));
-				System.out.print("预测：" + (int)(emotionSample.getPredictionRatio()*1000000));
-				System.out.print("猜测：" + (int)(emotionSample.getGuessRatio()*1000000));
+				System.out.print("预测：" + (int)(emotionSample.getPredictionRatio()*10000*1000));
+				System.out.print("猜测：" + (int)(emotionSample.getGuessRatio()*100000*100000));
 				System.out.println("冥想：" + (int)(emotionSample.getSensingRatio()*100000));
 			}	 
 		}

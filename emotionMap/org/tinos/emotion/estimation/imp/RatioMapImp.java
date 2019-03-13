@@ -49,7 +49,8 @@ public class RatioMapImp implements RatioMap{
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
-			emotionSample.setCorrelationRatio((emotionSample.getPositiveCount()+emotionSample.getNegativeCount())/sumOfEmotion);
+			emotionSample.setCorrelationRatio((emotionSample.getPositiveCount()
+					+ emotionSample.getNegativeCount() + emotionSample.getMedCount())/sumOfEmotion);
 			emotionSampleMap.put(word, emotionSample);
 		}
 	}
@@ -60,7 +61,8 @@ public class RatioMapImp implements RatioMap{
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
-			emotionSample.setContinusRatio((emotionSample.getPositiveCount()+emotionSample.getNegativeCount()) * emotionRatio);
+			emotionSample.setContinusRatio((emotionSample.getPositiveCount()
+					+ emotionSample.getNegativeCount() + emotionSample.getMedCount()) * emotionRatio);
 			emotionSampleMap.put(word, emotionSample);
 		}
 	}
@@ -71,7 +73,8 @@ public class RatioMapImp implements RatioMap{
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
-			emotionSample.setTrendsRatio(emotionSample.getEmotionRatio() * emotionSample.getContinusRatio() * emotionSample.getCorrelationRatio());
+			emotionSample.setTrendsRatio(emotionSample.getEmotionRatio() * emotionSample.getContinusRatio() 
+					* emotionSample.getCorrelationRatio());
 			emotionSampleMap.put(word, emotionSample);
 		}
 		
@@ -121,7 +124,7 @@ public class RatioMapImp implements RatioMap{
 		Iterator<String> Iterator=emotionSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
-			EmotionSample emotionSample=emotionSampleMap.get(word);
+			EmotionSample emotionSample = emotionSampleMap.get(word);
 			output += emotionSample.getPositiveCount();
 		}
 		return output;
@@ -141,14 +144,15 @@ public class RatioMapImp implements RatioMap{
 
 	@Override
 	public void getEmotionRatio(Map<String, EmotionSample> emotionSampleMap, double positiveCount,
-			double negativeCount) {
+			double negativeCount, double medCount) {
 		Iterator<String> Iterator = emotionSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
 			double negRate = emotionSample.getNegativeCount()/negativeCount;
 			double posRate = emotionSample.getPositiveCount()/positiveCount;
-			emotionSample.setEmotionRatio(negRate + posRate);
+			double medRate = emotionSample.getMedCount()/medCount;
+			emotionSample.setEmotionRatio(negRate + posRate + medRate);
 			emotionSampleMap.put(word, emotionSample);
 		}
 	}
@@ -156,11 +160,12 @@ public class RatioMapImp implements RatioMap{
 	@Override
 	public double findTotalKeyCount(Map<String, EmotionSample> emotionSampleMap) {
 		double output = StableData.INT_ONE;
-		Iterator<String> Iterator=emotionSampleMap.keySet().iterator();
+		Iterator<String> Iterator = emotionSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
-			output += emotionSample.getNegativeCount()+emotionSample.getPositiveCount()+emotionSample.getMedCount();
+			output += emotionSample.getNegativeCount() + emotionSample.getPositiveCount()
+			+ emotionSample.getMedCount();
 		}
 		return output;
 	}

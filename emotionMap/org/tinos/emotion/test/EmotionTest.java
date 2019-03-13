@@ -65,11 +65,11 @@ public class EmotionTest{
 		if(negativeCount == 0) {
 			negativeCount = 1;
 		}
-		double emotionRatio = Math.abs(positiveCount/negativeCount-negativeCount/positiveCount);
-		System.out.println("情感比率：" + emotionRatio);
+		double adjRatio = Math.abs(positiveCount/negativeCount-negativeCount/positiveCount);
+		System.out.println("渲染比率：" + adjRatio);
 		double phychologicRatio = (positiveCount + negativeCount)/totalCount;
 		System.out.println("情绪比率：" + phychologicRatio);
-		double infectionRatio = emotionRatio*phychologicRatio;
-		System.out.println("感染比率：" + infectionRatio);
+		double infectionRatio = adjRatio*phychologicRatio;
+		System.out.println("感染比率：" + infectionRatio);	
 	}
 }
