@@ -4,8 +4,8 @@
 ### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313
 ### ![实例](http://progressed.io/bar/100) 基于环境，场合，动机，目的，倾向和预判评估进行自然语言第6感意识分析。 
 https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EnvironmentTest.java
-### ![实例](http://progressed.io/bar/100)	Emotion Ratio Matrix for ANN ICA
-https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/SensingTest.java
+### ![实例](http://progressed.io/bar/100)	Emotion Ratio Matrix for ANN ICA 6.th sensing test
+https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/SensingTest.java
 ### ![实例](http://progressed.io/bar/100) 正在做功能：语言心理学读心术。
 ### ![实例](http://progressed.io/bar/92) 正在做功能：动机判断的情态语料库。已经附带可运行实例地址如下。
 https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EmotionTest.java
