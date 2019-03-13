@@ -1,4 +1,4 @@
-package org.tinos.emotion.test;
+package org.tinos.sensing.test;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
@@ -10,8 +10,10 @@ import org.tinos.emotion.ortho.fhmm.EmotionMap;
 import org.tinos.emotion.ortho.fhmm.imp.EmotionMapImp;
 import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
+import org.tinos.sensing.ortho.fhmm.SensingMap;
+import org.tinos.sensing.ortho.fhmm.imp.SensingMapImp;
 import org.tinos.view.obj.WordFrequency;
-public class EnvironmentTest{
+public class LenovoTest{
 	public static void main(String[] argv) throws IOException {
 		//init
 		EmotionMap emotionMap = new EmotionMapImp(); 
@@ -23,7 +25,7 @@ public class EnvironmentTest{
 		emotionMap.initDistinctionMap();
 		//get sentence
 		String text = "这10年改变我的一些思维方法\r\n" + 
-				"1 你越担心什么 就越会来什么。\r\n" + 
+				"1 你越担心什么就越会来什么。\r\n" + 
 				"2 一切都是你自己的错，找自己的原因。\r\n" + 
 				"3 就差那么一点了。即使失败的仍很彻底。\r\n" + 
 				"4 看法是一种概率论。\r\n" + 
@@ -40,12 +42,15 @@ public class EnvironmentTest{
 		//parser sentence
 		Analyzer analyzer = new CogsBinaryForestAnalyzerImp();
 		analyzer.init();
+		SensingMap sensingMap = new SensingMapImp();
+		sensingMap.initLenovoMap(analyzer);	
 		Map<String, Object> positive = emotionMap.getPositiveMap();
 		Map<String, Object> negative = emotionMap.getNegativeMap();
 		Map<String, Object> motivation = emotionMap.getMotivationMap();
 		Map<String, Object> trending = emotionMap.getTrendingMap();
 		Map<String, Object> prediction = emotionMap.getPredictionMap();
 		Map<String, Object> distinction = emotionMap.getDistinctionMap();
+		Map<String, Object> lenovo = sensingMap.getLenovoMap();
 		//map
 		List<String> sets = analyzer.parserString(text);
 		Map<Integer, WordFrequency> wordFrequencyMap = analyzer.getWordFrequencyByReturnSortMap(sets);
@@ -62,39 +67,56 @@ public class EnvironmentTest{
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
 			if(null != emotionSample.getDistinction()) {
-				System.out.print(emotionSample.getDistinction()+" ");
+				if(lenovo.containsKey(emotionSample.getDistinction())) {
+					System.out.print(lenovo.get(emotionSample.getDistinction()).toString()+" ");
+				}else {
+					System.out.print(emotionSample.getDistinction()+" ");
+				}
 			}
 		}
 		System.out.println("");
-		System.out.println("动    机：");
+		System.out.println("动机联想：");
 		Iterator = emotionSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
 			if(null != emotionSample.getMotivation()) {
-				System.out.print(emotionSample.getMotivation()+" ");
+				if(lenovo.containsKey(emotionSample.getMotivation())) {
+					System.out.print(lenovo.get(emotionSample.getMotivation()).toString()+" ");
+				}else {
+					System.out.print(emotionSample.getMotivation()+" ");
+				}
 			}
 		}
 		System.out.println("");
-		System.out.println("倾    向：" );
+		System.out.println("倾向探索：" );
 		Iterator = emotionSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
 			if(null != emotionSample.getTrending()) {
-				System.out.print(emotionSample.getTrending()+" ");
+				if(lenovo.containsKey(emotionSample.getTrending())) {
+					System.out.print(lenovo.get(emotionSample.getTrending()).toString()+" ");
+				}else {
+					System.out.print(emotionSample.getTrending()+" ");
+				}
 			}
 		}
+
 		//reduce
 		System.out.println("");
-		System.out.println("决    策：");
+		System.out.println("决策挖掘：");
 		Iterator = emotionSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
 			if(null != emotionSample.getPrediction()) {
-				System.out.print(emotionSample.getPrediction()+" ");
+				if(lenovo.containsKey(emotionSample.getPrediction())) {
+					System.out.print(lenovo.get(emotionSample.getPrediction()).toString()+" ");
+				}else {
+					System.out.print(emotionSample.getPrediction()+" ");
+				}
 			}
-		}	
+		}
 	}
 }

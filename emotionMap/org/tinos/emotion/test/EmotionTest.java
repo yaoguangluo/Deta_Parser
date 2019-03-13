@@ -1,7 +1,6 @@
 package org.tinos.emotion.test;
 
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +22,6 @@ public class EmotionTest{
 		emotionMap.initPositiveMap();
 		emotionMap.initTrendingMap();
 		emotionMap.initPredictionMap();
-		
 		//get sentence
 		String text = "这10年改变我的一些思维方法\r\n" + 
 				"1 你越担心什么 就越会来什么。\r\n" + 
@@ -50,59 +48,29 @@ public class EmotionTest{
 		Map<String, Object> prediction = emotionMap.getPredictionMap();
 		//map
 		List<String> sets = analyzer.parserString(text);
-	
 		Map<Integer, WordFrequency> wordFrequencyMap = analyzer.getWordFrequencyByReturnSortMap(sets);
-
 		RatioMap rationMap = new RatioMapImp();
 		Map<String, EmotionSample> emotionSampleMap = rationMap.getEmotionSampleMap(wordFrequencyMap, positive, negative);
 		double positiveCount = rationMap.findTotalPositiveCount(emotionSampleMap);
 		double negativeCount = rationMap.findTotalNegativeCount(emotionSampleMap);
+		double totalCount = rationMap.findTotalKeyCount(emotionSampleMap);
 		rationMap.getMotivation(emotionSampleMap, motivation);
 		rationMap.getTrending(emotionSampleMap, trending);
 		rationMap.getPrediction(emotionSampleMap,prediction);
-		
 		//reduce
 		System.out.println("正面数：" +positiveCount);
 		System.out.println("负面数：" +negativeCount);
-		if(positiveCount==0) {
-			positiveCount=1;
+		if(positiveCount == 0) {
+			positiveCount = 1;
 		}
-		if(negativeCount==0) {
-			negativeCount=1;
+		if(negativeCount == 0) {
+			negativeCount = 1;
 		}
 		double emotionRatio = Math.abs(positiveCount/negativeCount-negativeCount/positiveCount);
 		System.out.println("情感比率：" + emotionRatio);
-		
-		System.out.println("动    机：");
-		Iterator<String> Iterator = emotionSampleMap.keySet().iterator();
-		while(Iterator.hasNext()) {
-			String word = Iterator.next();
-			EmotionSample emotionSample = emotionSampleMap.get(word);
-			if(null != emotionSample.getMotivation()) {
-				System.out.print(emotionSample.getMotivation()+" ");
-			}
-		}
-		System.out.println("");
-		System.out.println("倾    向：" );
-		Iterator = emotionSampleMap.keySet().iterator();
-		while(Iterator.hasNext()) {
-			String word = Iterator.next();
-			EmotionSample emotionSample = emotionSampleMap.get(word);
-			if(null != emotionSample.getTrending()) {
-				System.out.print(emotionSample.getTrending()+" ");
-			}
-		}
-		
-		//reduce
-		System.out.println("");
-		System.out.println("决    策：");
-		Iterator = emotionSampleMap.keySet().iterator();
-		while(Iterator.hasNext()) {
-			String word = Iterator.next();
-			EmotionSample emotionSample = emotionSampleMap.get(word);
-			if(null != emotionSample.getPrediction()) {
-				System.out.print(emotionSample.getPrediction()+" ");
-			}
-		}
+		double phychologicRatio = (positiveCount + negativeCount)/totalCount;
+		System.out.println("情绪比率：" + phychologicRatio);
+		double infectionRatio = emotionRatio*phychologicRatio;
+		System.out.println("感染比率：" + infectionRatio);
 	}
 }

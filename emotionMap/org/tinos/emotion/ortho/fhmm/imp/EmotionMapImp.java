@@ -147,6 +147,4 @@ public class EmotionMapImp implements EmotionMap{
 		}
 		cReader.close();
 	}
-
-
 }

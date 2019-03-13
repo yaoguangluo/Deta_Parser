@@ -1,17 +1,18 @@
-package org.tinos.emotion.test;
+package org.tinos.sensing.test;
 
 import java.io.IOException;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import org.tinos.emotion.estimation.EmotionSample;
 import org.tinos.emotion.estimation.RatioMap;
-import org.tinos.emotion.estimation.imp.RatioMapImp;
 import org.tinos.emotion.ortho.fhmm.EmotionMap;
 import org.tinos.emotion.ortho.fhmm.imp.EmotionMapImp;
 import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
+import org.tinos.emotion.estimation.imp.RatioMapImp;
 import org.tinos.view.obj.WordFrequency;
 
 public class SensingTest{

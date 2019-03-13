@@ -1,7 +1,6 @@
 package org.tinos.emotion.estimation;
 
 import java.util.Map;
-
 import org.tinos.view.obj.WordFrequency;
 
 public interface RatioMap {
