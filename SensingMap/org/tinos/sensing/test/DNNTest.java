@@ -10,7 +10,7 @@ public class DNNTest{
 
 		for(int i=0;i<dnn.length;i++) {
 			double dnn_lwa = Double.parseDouble(dnn[i][3]);
-			if(dnn_lwa>400) {
+			if(dnn_lwa>100) {
 				System.out.print(ann[i][0] + ":");
 				System.out.print(ann[i][1] + ":");
 				System.out.print(ann[i][2] + ":");

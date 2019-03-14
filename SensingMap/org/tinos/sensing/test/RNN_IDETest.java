@@ -10,7 +10,7 @@ public class RNN_IDETest{
 		RNN_IDETest rNN_IDETest = new RNN_IDETest();
 		rNN_IDETest.getIDEMatrix();	
 	}
-	
+
 	public String[][] getIDEMatrix() throws IOException, InstantiationException, IllegalAccessException{
 		SensingTest sensingTest = new SensingTest();
 		String[][] sensingMatrix = sensingTest.getMatrix();
@@ -22,6 +22,7 @@ public class RNN_IDETest{
 		}
 		String[][] ideMatrix = new String [sensingMatrix.length][4];
 		List<String> sets = sensingTest.getSets();
+		Map<String, String> pos = sensingTest.getPosCnToCn();
 		Iterator<String> setsIterator = sets.iterator();
 		double count = 1;
 		//map position
@@ -41,6 +42,7 @@ public class RNN_IDETest{
 			String word = mapIterator.next();
 			List<Double> list = map.get(word);
 			double dovFactor = 1;
+			double popFactor = 0;
 			double eopFactor = 1;
 			double dovCount = 1;
 			for(int i = 0; i < list.size(); i++) {
@@ -50,13 +52,17 @@ public class RNN_IDETest{
 				}
 				eopFactor += (eopFactor + list.get(i)) / 2;
 			}
-//			iopMap.put(word, dovFactor/dovCount);
-//			dopMap.put(word, dovFactor);
-//			eopMap.put(word, eopFactor);
-			ideMatrix[ideMatrixCount][0]=word;
-			ideMatrix[ideMatrixCount][1]="" + dovFactor/dovCount;
-			ideMatrix[ideMatrixCount][2]="" + dovFactor;
-			ideMatrix[ideMatrixCount][3]="" + eopFactor;
+			
+			if(pos.containsKey(word)) {
+				popFactor += pos.get(word).contains("动词")? 16: 0;
+				popFactor += pos.get(word).contains("名词")? 4: 0;
+				popFactor += pos.get(word).contains("形词")? 2: 0;	
+			}
+
+			ideMatrix[ideMatrixCount][0] = word;
+			ideMatrix[ideMatrixCount][1] = "" + popFactor;
+			ideMatrix[ideMatrixCount][2] = "" + dovFactor/dovCount;
+			ideMatrix[ideMatrixCount][3] = "" + eopFactor;
 			System.out.print(" " + ideMatrix[ideMatrixCount][0]);
 			System.out.print(" " + ideMatrix[ideMatrixCount][1]);
 			System.out.print(" " + ideMatrix[ideMatrixCount][2]);

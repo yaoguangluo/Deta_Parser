@@ -20,7 +20,13 @@ public class SensingTest{
 		this.sets = sets;
 	}
 
+	public Map<String, String> getPosCnToCn() {
+		// TODO Auto-generated method stub
+		return this.pos;
+	}
+
 	private List<String> sets;
+	private Map<String, String> pos;
 	public String[][] getMatrix() throws IOException {
 		//init
 		EmotionMap emotionMap = new EmotionMapImp(); 
@@ -47,6 +53,7 @@ public class SensingTest{
 		//parser sentence
 		Analyzer analyzer = new CogsBinaryForestAnalyzerImp();
 		analyzer.init();
+		pos = analyzer.getPosCnToCn();
 		//Map<String, String> cnToEn = analyzer.getFullCnToEn();
 		Map<String, Object> positive = emotionMap.getPositiveMap();
 		Map<String, Object> negative = emotionMap.getNegativeMap();
