@@ -1,6 +1,6 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
-## 版本号：10.3.6 开始第三个主题基础研究：图灵机与读心术系统设计和应用。 （准备做 ICA 分析）
+## 版本号：10.3.6 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （准备做 ICA 分析）
 
 ##### ![实例](http://progressed.io/bar/100) 一种基于 ANN{Summing, Emotion, Motivation, Environment} * RNN{Covex, Euclid, POS} = DNN{LWA，Entropy} 罗氏读心术已经更新并进行了图灵算子优化。 20190314
 ![实例](https://github.com/yaoguangluo/Nero_Parser/blob/master/deta_mind_reading.png)
