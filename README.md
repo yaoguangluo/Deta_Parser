@@ -1,8 +1,8 @@
 # Fast-Chinese-NeroParser(快速神经网络分词包)        
 
-## 版本号：10.2.9 开始第三个主题基础研究：图灵机与读心术系统设计和应用。 （准备做 ICA 分析）
+## 版本号：10.3.6 开始第三个主题基础研究：图灵机与读心术系统设计和应用。 （准备做 ICA 分析）
 
-##### ![实例](http://progressed.io/bar/100) hmm->ann + covex->rnn => lwa DNN 算法已经更新。 20190314
+##### ![实例](http://progressed.io/bar/100) hmm->ann + covex->rnn => lwa DNN 算法已经更新并进行了图灵算子优化。 20190314
 https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/DNNTest.java
 ##### ![实例](http://progressed.io/bar/100) 基于 HMM matrix 进行nomarlization 然后做 未优化的 ANN 简单 训练版本 map reduce 测试。
 https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/ANNTest.java
