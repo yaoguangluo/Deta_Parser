@@ -2,6 +2,7 @@
 
 ## 版本号：10.3.6 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （准备做 ICA 分析）
 
+##### ![实例](http://progressed.io/bar/100) 情感集图灵算子进行认知化。下一步进行带训练集意识加工处理为ICA做预处理。 20190315
 ##### ![实例](http://progressed.io/bar/100) 一种基于 ANN{Summing, Emotion, Motivation, Environment} * RNN{Covex, Euclid, POS} = DNN{LWA，Entropy} 罗氏读心术已经更新并进行了图灵算子优化。 20190314
 ![实例](https://github.com/yaoguangluo/Nero_Parser/blob/master/deta_mind_reading.png)
 https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/DNNTest.java
@@ -170,7 +171,7 @@ LetWang（神州泰岳）在扩充词库量的方法上提出了很多新颖的�
 ![实例](https://github.com/yaoguangluo/Deta_Medcine/blob/master/1.png)
 
 
-###### 有疑问联系313699483@qq.com 罗瑶光
+###### 有疑问联系313699483@qq.com 作者：罗瑶光
 ###### 电话 15116110525
 ###### 谢谢！
-###### 2019/3/10
+###### 2019/3/15
