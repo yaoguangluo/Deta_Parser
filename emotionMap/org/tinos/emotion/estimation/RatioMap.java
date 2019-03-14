@@ -23,4 +23,5 @@ public interface RatioMap {
 	void getTrending(Map<String, EmotionSample> emotionSampleMap, Map<String, Object> trending);
 	void getPrediction(Map<String, EmotionSample> emotionSampleMap, Map<String, Object> prediction);
 	void getDistinction(Map<String, EmotionSample> emotionSampleMap, Map<String, Object> distinction);
+	Map<String, EmotionSample> getEnvironmentSampleMap(Map<Integer, WordFrequency> wordFrequencyMap);
 }

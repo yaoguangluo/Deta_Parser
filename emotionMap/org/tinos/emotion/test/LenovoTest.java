@@ -1,29 +1,12 @@
-package org.tinos.sensing.test;
+package org.tinos.emotion.test;
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
+import org.tinos.emotion.engine.LenovoInit;
 import org.tinos.emotion.estimation.EmotionSample;
-import org.tinos.emotion.estimation.RatioMap;
-import org.tinos.emotion.estimation.imp.RatioMapImp;
-import org.tinos.emotion.ortho.fhmm.EmotionMap;
-import org.tinos.emotion.ortho.fhmm.imp.EmotionMapImp;
-import org.tinos.engine.analysis.Analyzer;
-import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
-import org.tinos.sensing.ortho.fhmm.SensingMap;
-import org.tinos.sensing.ortho.fhmm.imp.SensingMapImp;
-import org.tinos.view.obj.WordFrequency;
 public class LenovoTest{
 	public static void main(String[] argv) throws IOException {
 		//init
-		EmotionMap emotionMap = new EmotionMapImp(); 
-		emotionMap.initMotivationMap();
-		emotionMap.initNegativeMap();
-		emotionMap.initPositiveMap();
-		emotionMap.initTrendingMap();
-		emotionMap.initPredictionMap();
-		emotionMap.initDistinctionMap();
-		//get sentence
 		String text = "关于成瘾性的戒除方式，上瘾在医学上普遍定义为一种具有精神依赖并长期导致健康危害性的行为。\r\n" + 
 				"关于成瘾的溯源有很多因素，其中最重要的是依赖。因为长期的依赖导致自身某种缺陷逐渐丧失而\r\n" + 
 				"对成瘾物体产生不可替代性。通过这个推论，可以初步来定义戒断瘾欲，最有效的方式是替代和引导。\r\n" + 
@@ -38,33 +21,17 @@ public class LenovoTest{
 				"一些成瘾的受体，普遍有某种倾向: 奢靡，闭塞，强迫，空虚 等等。这里不是贬义，只是因为长期的环境\r\n" + 
 				"因素不是那么美好导致了一些思维误差。所以引导是非常重要的。改变人的不是能力，而是选择和环境。\r\n" + 
 				"如果环境不是很完美，那么选择一个健康的生活方式，是非常重要的。";
-		//parser sentence
-		Analyzer analyzer = new CogsBinaryForestAnalyzerImp();
-		analyzer.init();
-		SensingMap sensingMap = new SensingMapImp();
-		sensingMap.initLenovoMap(analyzer);	
-		Map<String, Object> positive = emotionMap.getPositiveMap();
-		Map<String, Object> negative = emotionMap.getNegativeMap();
-		Map<String, Object> motivation = emotionMap.getMotivationMap();
-		Map<String, Object> trending = emotionMap.getTrendingMap();
-		Map<String, Object> prediction = emotionMap.getPredictionMap();
-		Map<String, Object> distinction = emotionMap.getDistinctionMap();
-		Map<String, Object> lenovo = sensingMap.getLenovoMap();
-		//map
-		List<String> sets = analyzer.parserString(text);
-		Map<Integer, WordFrequency> wordFrequencyMap = analyzer.getWordFrequencyByReturnSortMap(sets);
-		RatioMap rationMap = new RatioMapImp();
-		Map<String, EmotionSample> emotionSampleMap = rationMap.getEmotionSampleMap(wordFrequencyMap, positive, negative);
-		rationMap.getMotivation(emotionSampleMap, motivation);
-		rationMap.getTrending(emotionSampleMap, trending);
-		rationMap.getPrediction(emotionSampleMap, prediction);
-		rationMap.getDistinction(emotionSampleMap, distinction);
+
+		LenovoInit lenovoInit = new LenovoInit();
+		lenovoInit.init(text);
+		Map<String, EmotionSample> environmentSampleMap = lenovoInit.getEnvironmentInit().getEmotionSampleMap();
+		Map<String, Object> lenovo = lenovoInit.getSensingMap().getLenovoMap();
 		//reduce
 		System.out.println("环    境：");
-		Iterator<String> Iterator = emotionSampleMap.keySet().iterator();
+		Iterator<String> Iterator = environmentSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
-			EmotionSample emotionSample = emotionSampleMap.get(word);
+			EmotionSample emotionSample = environmentSampleMap.get(word);
 			if(null != emotionSample.getDistinction()) {
 				if(lenovo.containsKey(emotionSample.getDistinction())) {
 					System.out.print(lenovo.get(emotionSample.getDistinction()).toString()+" ");
@@ -75,10 +42,10 @@ public class LenovoTest{
 		}
 		System.out.println("");
 		System.out.println("动机联想：");
-		Iterator = emotionSampleMap.keySet().iterator();
+		Iterator = environmentSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
-			EmotionSample emotionSample = emotionSampleMap.get(word);
+			EmotionSample emotionSample = environmentSampleMap.get(word);
 			if(null != emotionSample.getMotivation()) {
 				if(lenovo.containsKey(emotionSample.getMotivation())) {
 					System.out.print(lenovo.get(emotionSample.getMotivation()).toString()+" ");
@@ -89,10 +56,10 @@ public class LenovoTest{
 		}
 		System.out.println("");
 		System.out.println("倾向探索：" );
-		Iterator = emotionSampleMap.keySet().iterator();
+		Iterator = environmentSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
-			EmotionSample emotionSample = emotionSampleMap.get(word);
+			EmotionSample emotionSample = environmentSampleMap.get(word);
 			if(null != emotionSample.getTrending()) {
 				if(lenovo.containsKey(emotionSample.getTrending())) {
 					System.out.print(lenovo.get(emotionSample.getTrending()).toString()+" ");
@@ -105,10 +72,10 @@ public class LenovoTest{
 		//reduce
 		System.out.println("");
 		System.out.println("决策挖掘：");
-		Iterator = emotionSampleMap.keySet().iterator();
+		Iterator = environmentSampleMap.keySet().iterator();
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
-			EmotionSample emotionSample = emotionSampleMap.get(word);
+			EmotionSample emotionSample = environmentSampleMap.get(word);
 			if(null != emotionSample.getPrediction()) {
 				if(lenovo.containsKey(emotionSample.getPrediction())) {
 					System.out.print(lenovo.get(emotionSample.getPrediction()).toString()+" ");

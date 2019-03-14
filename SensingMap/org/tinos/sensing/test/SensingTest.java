@@ -131,6 +131,5 @@ public class SensingTest{
 	public static void main(String[] argv) throws IOException {
 		SensingTest sensingTest = new SensingTest();
 		sensingTest.getMatrix();
-
 	}
 }

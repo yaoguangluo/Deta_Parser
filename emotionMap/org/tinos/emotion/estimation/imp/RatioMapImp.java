@@ -14,20 +14,25 @@ public class RatioMapImp implements RatioMap{
 	@Override
 	public Map<String, EmotionSample> getEmotionSampleMap(Map<Integer, WordFrequency> wordFrequencyMap,
 			Map<String, Object> positive, Map<String, Object> negative) {
-		 Map<String, EmotionSample> output = new HashMap<>();
-		 for (int i = wordFrequencyMap.size() - StableData.INT_ONE; i >= StableData.INT_ZERO; i--) {
-				if(wordFrequencyMap.get(i).getWord().length() > StableData.INT_ONE) {
-					EmotionSample emotionSample=new EmotionSample();
-					if(positive.containsKey(wordFrequencyMap.get(i).getWord())) {
-						emotionSample.setPositiveCount(wordFrequencyMap.get(i).getFrequency());
-					}else if(negative.containsKey(wordFrequencyMap.get(i).getWord())) {
-						emotionSample.setNegativeCount(wordFrequencyMap.get(i).getFrequency());
-					}else {
-						emotionSample.setMedCount(wordFrequencyMap.get(i).getFrequency());
-					}
-					output.put(wordFrequencyMap.get(i).getWord(), emotionSample);
+		Map<String, EmotionSample> output = new HashMap<>();
+		for(int i = wordFrequencyMap.size() - StableData.INT_ONE; i >= StableData.INT_ZERO; i--) {
+			if(wordFrequencyMap.get(i).getWord().length() > StableData.INT_ONE) {
+				EmotionSample emotionSample;
+				if(output.containsKey(wordFrequencyMap.get(i).getWord())) {
+					emotionSample = output.get(wordFrequencyMap.get(i).getWord());
+				}else {
+					emotionSample = new EmotionSample();
 				}
-		 }
+				if(positive.containsKey(wordFrequencyMap.get(i).getWord())) {
+					emotionSample.setPositiveCount(wordFrequencyMap.get(i).getFrequency());
+				}else if(negative.containsKey(wordFrequencyMap.get(i).getWord())) {
+					emotionSample.setNegativeCount(wordFrequencyMap.get(i).getFrequency());
+				}else {
+					emotionSample.setMedCount(wordFrequencyMap.get(i).getFrequency());
+				}
+				output.put(wordFrequencyMap.get(i).getWord(), emotionSample);
+			}
+		}
 		return output;
 	}
 
@@ -40,7 +45,7 @@ public class RatioMapImp implements RatioMap{
 			emotionSample.setMotivationRatio(emotionSample.getEmotionRatio()/sumOfEmotion);
 			emotionSampleMap.put(word, emotionSample);
 		}
-		
+
 	}
 
 	@Override
@@ -77,7 +82,7 @@ public class RatioMapImp implements RatioMap{
 					* emotionSample.getCorrelationRatio());
 			emotionSampleMap.put(word, emotionSample);
 		}
-		
+
 	}
 
 	@Override
@@ -89,7 +94,7 @@ public class RatioMapImp implements RatioMap{
 			emotionSample.setPredictionRatio(emotionSample.getMotivationRatio()*emotionSample.getCorrelationRatio());
 			emotionSampleMap.put(word, emotionSample);
 		}
-		
+
 	}
 
 	@Override
@@ -222,5 +227,19 @@ public class RatioMapImp implements RatioMap{
 			}  
 			emotionSampleMap.put(word, emotionSample);
 		}	
+	}
+
+	@Override
+	public Map<String, EmotionSample> getEnvironmentSampleMap(Map<Integer, WordFrequency> wordFrequencyMap) {
+		Map<String, EmotionSample> output = new HashMap<>();
+		for (int i = wordFrequencyMap.size() - StableData.INT_ONE; i >= StableData.INT_ZERO; i--) {
+			if(wordFrequencyMap.get(i).getWord().length() > StableData.INT_ONE) {
+				EmotionSample emotionSample = new EmotionSample();
+				if(!output.containsKey(wordFrequencyMap.get(i).getWord())) {
+					output.put(wordFrequencyMap.get(i).getWord(), emotionSample);
+				}
+			}
+		}
+		return output;
 	}
 }

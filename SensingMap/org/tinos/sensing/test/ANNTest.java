@@ -10,7 +10,6 @@ public class ANNTest{
 			for(int i = 7; i < AnnMatrix[0].length; i++) {
 				sum += Double.valueOf(AnnMatrix[j][i]);
 			}
-			//sum=(int)Math.log(sum);
 			if(sum >= 0.6) {
 				System.out.println(AnnMatrix[j][0]+AnnMatrix[j][1] + AnnMatrix[j][2]+AnnMatrix[j][3]+"ANN:" + sum);
 			}

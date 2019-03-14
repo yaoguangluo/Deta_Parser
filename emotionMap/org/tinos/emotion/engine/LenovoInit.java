@@ -1,11 +1,32 @@
-package org.tinos.emotion.test;
-
+package org.tinos.emotion.engine;
 import java.io.IOException;
-import org.tinos.emotion.engine.EmotionInit;
+import java.util.Map;
 
-public class EmotionTest{
+import org.tinos.emotion.estimation.EmotionSample;
+import org.tinos.sensing.ortho.fhmm.SensingMap;
+import org.tinos.sensing.ortho.fhmm.imp.SensingMapImp;
+public class LenovoInit{
+	public SensingMap getSensingMap() {
+		return sensingMap;
+	}
+
+	public void setSensingMap(SensingMap sensingMap) {
+		this.sensingMap = sensingMap;
+	}
+
+	public EnvironmentInit getEnvironmentInit() {
+		return environmentInit;
+	}
+
+	public void setEnvironmentInit(EnvironmentInit environmentInit) {
+		this.environmentInit = environmentInit;
+	}
+
+	private SensingMap sensingMap;
+	private EnvironmentInit environmentInit;
+
+	@SuppressWarnings("unused")
 	public static void main(String[] argv) throws IOException {
-		
 		String text = "关于成瘾性的戒除方式，上瘾在医学上普遍定义为一种具有精神依赖并长期导致健康危害性的行为。\r\n" + 
 				"关于成瘾的溯源有很多因素，其中最重要的是依赖。因为长期的依赖导致自身某种缺陷逐渐丧失而\r\n" + 
 				"对成瘾物体产生不可替代性。通过这个推论，可以初步来定义戒断瘾欲，最有效的方式是替代和引导。\r\n" + 
@@ -20,26 +41,17 @@ public class EmotionTest{
 				"一些成瘾的受体，普遍有某种倾向: 奢靡，闭塞，强迫，空虚 等等。这里不是贬义，只是因为长期的环境\r\n" + 
 				"因素不是那么美好导致了一些思维误差。所以引导是非常重要的。改变人的不是能力，而是选择和环境。\r\n" + 
 				"如果环境不是很完美，那么选择一个健康的生活方式，是非常重要的。";
-		
-		EmotionInit emotionInit = new EmotionInit();
-		emotionInit.init(text);
-		//reduce
-		double positiveCount = emotionInit.getPositiveCount();
-		double negativeCount = emotionInit.getNegativeCount();
-		double totalCount = emotionInit.getTotalCount();
-		System.out.println("正面数：" + positiveCount);
-		System.out.println("负面数：" + negativeCount);
-		if(positiveCount == 0) {
-			positiveCount = 1;
-		}
-		if(negativeCount == 0) {
-			negativeCount = 1;
-		}
-		double adjRatio = Math.abs(positiveCount/negativeCount-negativeCount/positiveCount);
-		System.out.println("渲染比率：" + adjRatio);
-		double phychologicRatio = (positiveCount + negativeCount)/totalCount;
-		System.out.println("情绪比率：" + phychologicRatio);
-		double infectionRatio = adjRatio*phychologicRatio;
-		System.out.println("感染比率：" + infectionRatio);	
+
+		LenovoInit lenovoInit = new LenovoInit();
+		lenovoInit.init(text);
+		Map<String, EmotionSample> environmentSampleMap = lenovoInit.getEnvironmentInit().getEmotionSampleMap();
+		Map<String, Object> lenovo = lenovoInit.getSensingMap().getLenovoMap();
+	}
+
+	public void init(String text) throws IOException {
+		environmentInit = new EnvironmentInit();
+		environmentInit.init(text);
+		sensingMap = new SensingMapImp();
+		sensingMap.initLenovoMap(environmentInit.getAnalyzer());	
 	}
 }
