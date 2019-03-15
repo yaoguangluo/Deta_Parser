@@ -2,19 +2,19 @@
 
 ## 版本号：10.3.6 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （准备做 ICA 分析）
 
-##### ![实例](http://progressed.io/bar/100) 情感集图灵算子进行认知化。下一步进行带训练集意识加工处理为ICA做预处理。 20190315
-##### ![实例](http://progressed.io/bar/100) 一种基于 ANN{Summing, Emotion, Motivation, Environment} * RNN{Covex, Euclid, POS} = DNN{LWA，Entropy} 罗氏读心术已经更新并进行了图灵算子优化。 20190314
+##### ![实例](http://progressed.io/bar/100) 情感集图灵算子进行认知化。下一步进行带训练集意识加工处理为ICA做预处理。 20190315功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100) 一种基于 ANN{Summing, Emotion, Motivation, Environment} * RNN{Covex, Euclid, POS} = DNN{LWA，Entropy} 罗氏读心术已经更新并进行了图灵算子优化。 20190314 功能作者： 罗瑶光
 ![实例](https://github.com/yaoguangluo/Nero_Parser/blob/master/deta_mind_reading.png)
 https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/DNNTest.java
-##### ![实例](http://progressed.io/bar/100) 基于 HMM matrix 进行nomarlization 然后做 未优化的 ANN 简单 训练版本 map reduce 测试。
+##### ![实例](http://progressed.io/bar/100) 基于 HMM matrix 进行nomarlization 然后做 未优化的 ANN 简单 训练版本 map reduce 测试。功能作者： 罗瑶光
 https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/ANNTest.java
-##### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313
-##### ![实例](http://progressed.io/bar/100) 基于环境，场合，动机，目的，倾向和预判评估进行自然语言第6感意识分析。 
+##### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100) 基于环境，场合，动机，目的，倾向和预判评估进行自然语言第6感意识分析。 功能作者： 罗瑶光
 https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EnvironmentTest.java
-##### ![实例](http://progressed.io/bar/100)	Emotion Ratio Matrix for ANN ICA 6.th sensing test
+##### ![实例](http://progressed.io/bar/100)	Emotion Ratio Matrix for ANN ICA 6.th sensing test功能作者： 罗瑶光
 https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/SensingTest.java
-##### ![实例](http://progressed.io/bar/100) 正在做功能：语言心理学读心术。
-##### ![实例](http://progressed.io/bar/92) 正在做功能：动机判断的情态语料库。已经附带可运行实例地址如下。
+##### ![实例](http://progressed.io/bar/100) 正在做功能：语言心理学读心术。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/92) 正在做功能：动机判断的情态语料库。已经附带可运行实例地址如下。功能作者： 罗瑶光
 https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EmotionTest.java
 
 ###### 1 ： The first unrevised version has been completed: 12 professional level corpora of Chinese, Chinese pinyin, French, German, Korean, Japanese, Spanish, Russian, indonesia , Arabic, Vietnam and Thailand languages.
@@ -47,27 +47,27 @@ https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emot
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 한국의 언어 자재 고는 이미 완벽하다。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 日本语のデータベースはすでに第1版が完成しました。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Le corpus français est terminé  A1, A2, A3, A4, B1, B2。 
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 首次采用《VPC架构》海量线程注册保证调用函数速度。 
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  支持海量并发运算，后端接口调用运算，纯全虚接口同步运算。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  经过SONAR 最高级认证（感知最高认证，语义最高认证，语法最高认证，行为最高认证，逻辑最高认证）。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  扩展词语非常简单：基于 《格式化线性语料库》。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  查询词语非常方便：基于 《离散森林网络加权字典递归索引》。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  搜索词语非常迅捷：基于 《2分法搜索 欧基里德距离 进行 位运算散列存储 字符集数据森林》。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  匹配词语非常精准：基于 《决策树深度 NLP 正向隐马可夫匹配》。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  病句分析非常完善：基于 《双向马可夫词性 POS 打分修正策略》。
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： 首次采用《VPC架构》海量线程注册保证调用函数速度。 功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  支持海量并发运算，后端接口调用运算，纯全虚接口同步运算。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  经过SONAR 最高级认证（感知最高认证，语义最高认证，语法最高认证，行为最高认证，逻辑最高认证）。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  扩展词语非常简单：基于 《格式化线性语料库》。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  查询词语非常方便：基于 《离散森林网络加权字典递归索引》。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  搜索词语非常迅捷：基于 《2分法搜索 欧基里德距离 进行 位运算散列存储 字符集数据森林》。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  匹配词语非常精准：基于 《决策树深度 NLP 正向隐马可夫匹配》。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  病句分析非常完善：基于 《双向马可夫词性 POS 打分修正策略》。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  词频统计接近光速：基于《线性科学最强的快排第6代的基础上作者进行以作者名字命名的小高峰过滤法修正算法，导致快排6的速度再翻2倍》。 
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度：每秒高达1300万中文简体字准确分词。 因为通过国际SONAR最高认证，牺牲了程序执行时间十分之三的速度效率（自行修改去掉sonar认知模式可达1700万字分词每秒，性能比应该是世界第二，世界第一赠给高斯林先生，因为我用的是java，没办法）。 测试环境（win7， 64位， 16g ram，intel i5-7500）
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒1700万 ~ 2700万中英文混合常规格式分词。（每毫秒分20,000字+）
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度每秒高达900万词语的中文词性索引。（Part Of Speech, POS），
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  机制为分词和词性分析可拆分使用。采用一次实例，多并发执行思想。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  词库：多达23700+的中文语料库精确简体中文词汇，有效的辨别新词。
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度：每秒高达1300万中文简体字准确分词。 因为通过国际SONAR最高认证，牺牲了程序执行时间十分之三的速度效率（自行修改去掉sonar认知模式可达1700万字分词每秒，性能比应该是世界第二，世界第一赠给高斯林先生，因为我用的是java，没办法）。 测试环境（win7， 64位， 16g ram，intel i5-7500）功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒1700万 ~ 2700万中英文混合常规格式分词。（每毫秒分20,000字+）功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度每秒高达900万词语的中文词性索引。（Part Of Speech, POS），功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  机制为分词和词性分析可拆分使用。采用一次实例，多并发执行思想。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  词库：多达23700+的中文语料库精确简体中文词汇，有效的辨别新词。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  大小：55Kb。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  多核模式：可以自己写 parallelStream() 函数去实现，jdk8以上已经支持, CogsBinaryForestAnalyzer 支持海量多核多线程并发安全 。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  安全：VPC架构采用纯虚函数做反向映射跳过IOC，效率增加，线程安全高度严格保障。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  部分中文短句翻译英语。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒1700万 ~ 2700万中英文混合常规格式分词。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  病句中乱码分析。
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  VPC进化到VPCS, 静态分流加速每秒又多增100万分词。
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  多核模式：可以自己写 parallelStream() 函数去实现，jdk8以上已经支持, CogsBinaryForestAnalyzer 支持海量多核多线程并发安全 。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  安全：VPC架构采用纯虚函数做反向映射跳过IOC，效率增加，线程安全高度严格保障。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  部分中文短句翻译英语。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒1700万 ~ 2700万中英文混合常规格式分词。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  病句中乱码分析。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  VPC进化到VPCS, 静态分流加速每秒又多增100万分词。功能作者： 罗瑶光
 
 ######  未完善功能：英语复句翻译。![实例](http://progressed.io/bar/20?title=completed)
 ######  未完善功能：混合分词的时候空格问题对第一个英文单词的区分校准。
