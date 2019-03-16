@@ -52,7 +52,7 @@ public class RNN_IDETest{
 				}
 				eopFactor += (eopFactor + list.get(i)) / 2;
 			}
-			
+			//pos normalization
 			if(pos.containsKey(word)) {
 				popFactor += pos.get(word).contains("动词")? 16: 0;
 				popFactor += pos.get(word).contains("名词")? 4: 0;

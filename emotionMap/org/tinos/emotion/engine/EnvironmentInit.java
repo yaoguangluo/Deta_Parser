@@ -191,4 +191,25 @@ public class EnvironmentInit{
 		rationMap.getPrediction(emotionSampleMap, prediction);
 		rationMap.getDistinction(emotionSampleMap, distinction);
 	}
+	
+	public void initFromEmotion(Map<Integer, WordFrequency> getWordFrequencyMap) throws IOException {
+		emotionMap = new EmotionMapImp(); 
+		emotionMap.initMotivationMap();
+		emotionMap.initTrendingMap();
+		emotionMap.initPredictionMap();
+		emotionMap.initDistinctionMap();
+		//parser sentence
+		motivation = emotionMap.getMotivationMap();
+		trending = emotionMap.getTrendingMap();
+		prediction = emotionMap.getPredictionMap();
+		distinction = emotionMap.getDistinctionMap();
+		//map
+		rationMap = new RatioMapImp();
+		emotionSampleMap = rationMap.getEnvironmentSampleMap(getWordFrequencyMap);
+		rationMap.getMotivation(emotionSampleMap, motivation);
+		rationMap.getTrending(emotionSampleMap, trending);
+		rationMap.getPrediction(emotionSampleMap, prediction);
+		rationMap.getDistinction(emotionSampleMap, distinction);
+	}
+	
 }
