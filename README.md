@@ -2,6 +2,8 @@
 
 ## 版本号：10.3.6 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （准备做 ICA 分析行为训练集合）
 
+
+##### ![实例](http://progressed.io/bar/100) 一种用于行为评估的罗氏多文本量子观测角度自适应行为ICA增量训练内核已经初步定义，之后开始做ICA + CNN内核计算.
 ##### ![实例](http://progressed.io/bar/100) 情感集图灵算子进行认知化。下一步进行带训练集意识加工处理为ICA做预处理。 20190315功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 一种基于 ANN{Summing, Emotion, Motivation, Environment} * RNN{Covex, Euclid, POS} = DNN{LWA，Entropy} 罗氏读心术已经更新并进行了图灵算子优化。 20190314 功能作者： 罗瑶光
 ![实例](https://github.com/yaoguangluo/Nero_Parser/blob/master/deta_mind_reading.png)
