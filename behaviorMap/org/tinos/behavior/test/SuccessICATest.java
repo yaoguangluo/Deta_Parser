@@ -128,7 +128,11 @@ public class SuccessICATest{
 		double[] kernel1 = new InitBehaviorICAKernel().getBehaviorICAKernel(text1);
 		double[] kernel2 = new InitBehaviorICAKernel().getBehaviorICAKernel(text2);
 		double[] kernel3 = new InitBehaviorICAKernel().getBehaviorICAKernel(text3);
-		//Turing
+		//do ICA normalization
+		//do ROBUST ICA 
+		//do map
+		//do reduce sets
+		//sets Turing
 		
 		
 		
