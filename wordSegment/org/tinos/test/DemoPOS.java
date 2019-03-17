@@ -6,7 +6,7 @@ import java.util.Map;
 import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
 import static java.lang.System.*;
-@SuppressWarnings("unused")
+
 public class DemoPOS {
 	public static void main(String[] args) throws IOException {
 		Analyzer analyzer = new CogsBinaryForestAnalyzerImp();
