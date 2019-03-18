@@ -86,7 +86,8 @@ public class POSControllerImp implements POSController {
 			, int countInputStringLength, List<String> outputList, String[] strings, int[] nestCountInputStringLength) {
 		String charPositionAtFixWord = StableData.EMPTY_STRING + fixWord[StableData.INT_ONE].charAt(backPosition);
 		if (wordsForest.containsKey(charPositionAtFixWord) && (wordsForest.get(charPositionAtFixWord).contains(StableData.NLP_ZHU_CI) 
-				|| wordsForest.get(charPositionAtFixWord).contains(StableData.NLP_SHENG_LUE_CI))) {
+				|| wordsForest.get(charPositionAtFixWord).contains(StableData.NLP_SHENG_LUE_CI)
+					|| wordsForest.get(charPositionAtFixWord).contains(StableData.NLP_FU_CI))) {
 			nestCountInputStringLength[StableData.INT_ZERO] = parserFirstCharOfThree(countInputStringLength, outputList
 					, strings, fixWord, wordsForest);
 			return StableData.INT_RIGHT;
