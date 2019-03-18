@@ -2,6 +2,9 @@
 
 ## 版本号：10.5.2 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （准备做 ICA 分析行为训练集合）
 
+
+##### ![实例](http://progressed.io/bar/100) 基于ICA做马可夫行为集合，通过误差容错率进行词性校准，找出副词特殊用法陷阱，并进行了修正。
+https://github.com/yaoguangluo/Deta_Parser/blob/master/wordSegment/org/tinos/engine/pos/imp/POSControllerImp.java 20190318 功能作者 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) ICA 内核训练集生成算法优化。20190317 
 ##### ![实例](http://progressed.io/bar/100) 一种用于行为评估的罗氏多文本量子观测角度自适应行为ICA增量训练内核已经初步定义，之后开始做ICA + CNN内核计算.20190316
 ##### ![实例](http://progressed.io/bar/100) 情感集图灵算子进行认知化。下一步进行带训练集意识加工处理为ICA做预处理。 20190315功能作者： 罗瑶光
