@@ -48,73 +48,9 @@ public class AnalyzerImp implements Analyzer {
 	}
 
 	public List<String> parserMixedString(String mixedString) {
-			mixedString += "  ";
-			int inputStringLength = mixedString.length();
-			List<String> outputList = new LinkedList<>();
-			int forestDepth = StableData.INT_ZERO;
-			int countInputStringLength;
-			StringBuilder[] fixWords = new StringBuilder[StableData.INT_TWO];
-			fixWords[StableData.INT_ZERO] = new StringBuilder();
-			fixWords[StableData.INT_ONE] = new StringBuilder();
-			StringBuilder stringBuilder = new StringBuilder();
-			int find = StableData.INT_ZERO;
-			Here:
-				for (int charPosition = StableData.INT_ZERO; charPosition < inputStringLength; charPosition
-						+= (countInputStringLength == StableData.INT_ZERO ? StableData.INT_ONE : countInputStringLength)) {
-					if(mixedString.charAt(charPosition) < StableData.INT_ONE_TWO_EIGHT && charPosition < mixedString.length()
-							- StableData.INT_ONE){
-						if(find == StableData.INT_ZERO) {
-							fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
-						}
-						fixWords[StableData.INT_ZERO].append(mixedString.charAt(charPosition));
-						countInputStringLength = StableData.INT_ONE;
-						find = StableData.INT_ONE;
-						continue Here;
-					}
-					if(find == StableData.INT_ONE) {
-						find = StableData.INT_ZERO;
-						Iterator<String> it=fHMMList.englishStringToWordsList(fixWords[StableData.INT_ZERO].toString()).iterator();
-						while(it.hasNext()) {
-							String temp=it.next();
-							outputList.add(temp);	
-						}
-						fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
-					}			
-					stringBuilder.delete(StableData.INT_ZERO, stringBuilder.length());
-					stringBuilder = neroController.getBinaryForestRecurWordOneTime(stringBuilder.append(mixedString
-							.charAt(charPosition)), mixedString, charPosition, inputStringLength, forestRoots, forestDepth
-							, charPosition + StableData.INT_ONE);
-					String countWordNode = stringBuilder.toString();
-					int compare = countInputStringLength = countWordNode.length();
-					if (compare == StableData.INT_TWO) {
-						countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength
-								, outputList, stringBuilder, wordsForest, fixWords, posController);
-						continue Here;
-					}
-					if (compare == StableData.INT_THREE) {
-						addFixWords(charPosition, mixedString, fixWords);
-						countInputStringLength = nlpController.doPOSAndEMMCheckOfThree(countInputStringLength, outputList
-								, wordsForest, stringBuilder, fixWords, posController);
-						continue Here;
-					}
-					if (compare == StableData.INT_ONE) {
-						outputList.add(countWordNode);
-						fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
-						fixWords[StableData.INT_ZERO].append(countWordNode);
-						continue Here;
-					}
-					if (compare == StableData.INT_FOUR) {
-						addFixWords(charPosition, mixedString, fixWords);
-						countInputStringLength = nlpController.doSlangCheck(countInputStringLength, outputList, stringBuilder
-								, wordsForest, fixWords, posController);
-					}
-				}
-			return outputList;
-	}
-	
-	public List<String> parserString(String inputString) {
+		mixedString += "  ";
+		int inputStringLength = mixedString.length();
 		List<String> outputList = new LinkedList<>();
-		int inputStringLength = inputString.length();
 		int forestDepth = StableData.INT_ZERO;
 		int countInputStringLength;
 		StringBuilder[] fixWords = new StringBuilder[StableData.INT_TWO];
@@ -125,52 +61,116 @@ public class AnalyzerImp implements Analyzer {
 		Here:
 			for (int charPosition = StableData.INT_ZERO; charPosition < inputStringLength; charPosition
 					+= (countInputStringLength == StableData.INT_ZERO ? StableData.INT_ONE : countInputStringLength)) {
-				if(inputString.charAt(charPosition) < StableData.INT_ONE_TWO_EIGHT){
-					if(fixWords[StableData.INT_ZERO].length() > StableData.INT_ZERO) {
-						if(fixWords[StableData.INT_ZERO].charAt(fixWords[StableData.INT_ZERO].length() - StableData.INT_ONE)
-								< StableData.INT_ONE_TWO_EIGHT) {
-							fixWords[StableData.INT_ZERO].append(inputString.charAt(charPosition));
-							countInputStringLength = StableData.INT_ONE;
-							find = StableData.INT_ONE;
-							continue Here;
-						}
+				if(mixedString.charAt(charPosition) < StableData.INT_ONE_TWO_EIGHT && charPosition < inputStringLength
+						- StableData.INT_ONE){
+					if(find == StableData.INT_ZERO) {
 						fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
 					}
-					find=StableData.INT_ONE;
-					fixWords[StableData.INT_ZERO].append(inputString.charAt(charPosition));
+					fixWords[StableData.INT_ZERO].append(mixedString.charAt(charPosition));
 					countInputStringLength = StableData.INT_ONE;
+					find = StableData.INT_ONE;
 					continue Here;
 				}
 				if(find == StableData.INT_ONE) {
 					find = StableData.INT_ZERO;
-					outputList.add(fixWords[StableData.INT_ZERO].toString());
-				}
+					Iterator<String> it=fHMMList.englishStringToWordsList(fixWords[StableData.INT_ZERO].toString()).iterator();
+					while(it.hasNext()) {
+						String temp=it.next();
+						outputList.add(temp);	
+					}
+					fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
+				}			
 				stringBuilder.delete(StableData.INT_ZERO, stringBuilder.length());
-				stringBuilder = neroController.getBinaryForestRecurWordOneTime(stringBuilder.append(inputString
-						.charAt(charPosition)), inputString, charPosition, inputStringLength, forestRoots, forestDepth
+				stringBuilder = neroController.getBinaryForestRecurWordOneTime(stringBuilder.append(mixedString
+						.charAt(charPosition)), mixedString, charPosition, inputStringLength, forestRoots, forestDepth
 						, charPosition + StableData.INT_ONE);
 				String countWordNode = stringBuilder.toString();
 				int compare = countInputStringLength = countWordNode.length();
-				if (compare == StableData.INT_TWO) {
-					countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength
-							, outputList, stringBuilder, wordsForest, fixWords, posController);
-					continue Here;
-				}
-				if (compare == StableData.INT_THREE) {
-					addFixWords(charPosition, inputString, fixWords);
-					countInputStringLength = nlpController.doPOSAndEMMCheckOfThree(countInputStringLength, outputList
-							, wordsForest, stringBuilder, fixWords, posController);
-					continue Here;
-				}
 				if (compare == StableData.INT_ONE) {
 					outputList.add(countWordNode);
 					fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
 					fixWords[StableData.INT_ZERO].append(countWordNode);
 					continue Here;
 				}
+				if (compare == StableData.INT_TWO) {
+					countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength
+							, outputList, stringBuilder, wordsForest, fixWords, posController);
+					continue Here;
+				}
+				if (compare == StableData.INT_THREE) {
+					addFixWords(charPosition, mixedString, fixWords);
+					countInputStringLength = nlpController.doPOSAndEMMCheckOfThree(countInputStringLength, outputList
+							, wordsForest, stringBuilder, fixWords, posController);
+					continue Here;
+				}
 				if (compare == StableData.INT_FOUR) {
-					addFixWords(charPosition, inputString, fixWords);
+					addFixWords(charPosition, mixedString, fixWords);
 					countInputStringLength = nlpController.doSlangCheck(countInputStringLength, outputList, stringBuilder
+							, wordsForest, fixWords, posController);
+				}
+			}
+		return outputList;
+	}
+
+	public List<String> parserString(String inputString) {
+		List<String> outputList= new LinkedList<>();
+		int inputStringLength= inputString.length();
+		int forestDepth= StableData.INT_ZERO;
+		int countInputStringLength;
+		StringBuilder[] fixWords= new StringBuilder[StableData.INT_TWO];
+		fixWords[StableData.INT_ZERO]= new StringBuilder();
+		fixWords[StableData.INT_ONE]= new StringBuilder();
+		StringBuilder stringBuilder= new StringBuilder();
+		int find= StableData.INT_ZERO;
+		Here:
+			for (int charPosition= StableData.INT_ZERO; charPosition< inputStringLength; charPosition
+					+= (countInputStringLength!= StableData.INT_ZERO? countInputStringLength: StableData.INT_ONE)) {
+				if(inputString.charAt(charPosition)< StableData.INT_ONE_TWO_EIGHT){
+					if(fixWords[StableData.INT_ZERO].length()> StableData.INT_ZERO) {
+						if(fixWords[StableData.INT_ZERO].charAt(fixWords[StableData.INT_ZERO].length()- StableData.INT_ONE)
+								< StableData.INT_ONE_TWO_EIGHT) {
+							fixWords[StableData.INT_ZERO].append(inputString.charAt(charPosition));
+							countInputStringLength= StableData.INT_ONE;
+							find= StableData.INT_ONE;
+							continue Here;
+						}
+						fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
+					}
+					find=StableData.INT_ONE;
+					fixWords[StableData.INT_ZERO].append(inputString.charAt(charPosition));
+					countInputStringLength= StableData.INT_ONE;
+					continue Here;
+				}
+				if(find== StableData.INT_ONE) {
+					find= StableData.INT_ZERO;
+					outputList.add(fixWords[StableData.INT_ZERO].toString());
+				}
+				stringBuilder.delete(StableData.INT_ZERO, stringBuilder.length());
+				stringBuilder= neroController.getBinaryForestRecurWordOneTime(stringBuilder.append(inputString
+						.charAt(charPosition)), inputString, charPosition, inputStringLength, forestRoots, forestDepth
+						, charPosition+ StableData.INT_ONE);
+				String countWordNode= stringBuilder.toString();
+				int compare= countInputStringLength= countWordNode.length();
+				if (compare== StableData.INT_ONE) {
+					outputList.add(countWordNode);
+					fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
+					fixWords[StableData.INT_ZERO].append(countWordNode);
+					continue Here;
+				}
+				if (compare== StableData.INT_TWO) {
+					countInputStringLength= nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength
+							, outputList, stringBuilder, wordsForest, fixWords, posController);
+					continue Here;
+				}
+				if (compare== StableData.INT_THREE) {
+					addFixWords(charPosition, inputString, fixWords);
+					countInputStringLength= nlpController.doPOSAndEMMCheckOfThree(countInputStringLength, outputList
+							, wordsForest, stringBuilder, fixWords, posController);
+					continue Here;
+				}
+				if (compare== StableData.INT_FOUR) {
+					addFixWords(charPosition, inputString, fixWords);
+					countInputStringLength= nlpController.doSlangCheck(countInputStringLength, outputList, stringBuilder
 							, wordsForest, fixWords, posController);
 				}
 			}
@@ -265,7 +265,7 @@ public class AnalyzerImp implements Analyzer {
 
 	public Map<String, WordFrequency> getWordFrequencyMap(List<String> sets) throws IOException {
 		Map<String, WordFrequency> map = new ConcurrentHashMap<>();
-		Iterator <String> iterator =sets.iterator();
+		Iterator <String> iterator = sets.iterator();
 		Here:
 			while(iterator.hasNext()){
 				String setOfi = iterator.next();

@@ -6,7 +6,7 @@ import org.tinos.engine.nero.NEROController;
 public class NEROControllerImp implements NEROController {
 	@SuppressWarnings({StableData.RAW_TYPES, StableData.UNCHECKED})
 	public StringBuilder getBinaryForestRecurWord(StringBuilder outputWordNode, String inputString, int charPosition
-			, int inputStringLength, Map<Integer, Map> forestRoots, int forestDepth,int charPositionNext ) {
+			, int inputStringLength, Map<Integer, Map> forestRoots, int forestDepth, int charPositionNext ) {
 		if (forestDepth == StableData.INT_THREE) {
 			return outputWordNode;
 		}

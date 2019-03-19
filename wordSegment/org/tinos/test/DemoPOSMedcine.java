@@ -21,9 +21,9 @@ public class DemoPOSMedcine {
         List<String> sets = new ArrayList<>();
         String[] ss = new String[1];
         String[] ss1 = new String[1];
-       // ss1[0] = "制方 ： 红花 煎汁 和童便服。治 胞衣 不下。产后 血晕。同 当归、 生地 、 牛膝 、 白芍 、 益母 、 川芎 、 延胡索 。治产后 恶血 不尽";
-        ss[0] = "、 益母 、结婚益母";
-        ss1[0] = "、 益母 、结婚益母"; 
+        ss[0] = "制方 ： 红花 煎汁 和童便服。治 胞衣 不下。产后 血晕。同 当归、 生地 、 牛膝 、 白芍 、 益母 、 川芎 、 延胡索 。治产后 恶血 不尽";
+        ss1[0] = "、 益母 、结婚益母";
+        //ss1[0] = "、 益母 、结婚益母"; 
 
         for (int i = 0; i < ss.length; i++) {
             System.out.println("超级变态复杂病句-->" + ss[i]);

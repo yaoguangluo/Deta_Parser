@@ -8,6 +8,26 @@ import org.tinos.view.obj.WordFrequency;
 import org.tinos.view.stable.StableData;
 
 public class POSControllerImp implements POSController {
+	public int chuLiBaDongCiOfTwo(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength,
+			String[] strings, StringBuilder[] prefixWord) {
+		if (wordsForest.containsKey(prefixWord[StableData.INT_ZERO].toString())) {
+			if (wordsForest.get(prefixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_DAI_CI)) {
+				countInputStringLength = parserFirstCharOfTwo(countInputStringLength, outputList, strings, prefixWord
+						, wordsForest);
+				return countInputStringLength;
+			}
+			countInputStringLength -= StableData.INT_TWO;
+			if (wordsForest.containsKey(strings[StableData.INT_ONE])) {
+				outputList.add(strings[StableData.INT_ONE]);
+				prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+				prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
+				countInputStringLength += StableData.INT_TWO;
+			}
+			return countInputStringLength;
+		}
+		return countInputStringLength;
+	}
+	
 	public int chuLiMingCiOfTwo(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
 			, String[] strings, StringBuilder[] fixWord) {
 		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())) {
@@ -46,10 +66,10 @@ public class POSControllerImp implements POSController {
 		}
 		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString()) 
 				&& (wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_MING_CI) 
+						|| wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_DONG_CI)
+						|| wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_FU_CI)
 						|| wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_DAI_CI) 
-						|| wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_WEI_CI) 
-						|| wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_DONG_CI) 
-						|| wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_FU_CI))) {
+						|| wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_WEI_CI))) {
 			countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord, wordsForest);
 			return countInputStringLength;
 		}
@@ -165,9 +185,9 @@ public class POSControllerImp implements POSController {
 			return countInputStringLength;
 		}
 		if (outputList.size() > StableData.INT_ZERO && wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())) {
-			if (wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_LIAN_CI)
-					|| wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_QING_TAI_CI)
-					|| wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_WEI_CI)) {
+			if (wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_QING_TAI_CI)
+					|| wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_WEI_CI)
+					|| wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_LIAN_CI)) {
 				countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord
 						, wordsForest);
 				return countInputStringLength;

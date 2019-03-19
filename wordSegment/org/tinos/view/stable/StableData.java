@@ -9,6 +9,7 @@ public interface StableData {
 	public static final String NLP_DAI_CI = "代词";
 	public static final String NLP_LIAN_CI = "连词";
 	public static final String NLP_DONG_CI = "动词";
+	public static final String NLP_BA_DONG_CI = "把动词";
 	public static final String NLP_MING_CI = "名词";
 	public static final String NLP_JIE_CI = "介词";
 	public static final String NLP_WEI_CI = "谓词";

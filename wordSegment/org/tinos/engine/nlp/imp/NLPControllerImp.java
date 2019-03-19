@@ -33,6 +33,11 @@ public class NLPControllerImp implements NLPController {
 						, strings, prefixWord);
 				return countInputStringLength;
 			}
+			if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_BA_DONG_CI)) {
+				countInputStringLength = posUtils.chuLiBaDongCiOfTwo(wordsForest, outputList, countInputStringLength
+						, strings, prefixWord);
+				return countInputStringLength;
+			}
 		}
 		if (wordsForest.containsKey(strings[StableData.INT_ONE])) {
 			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
@@ -72,8 +77,8 @@ public class NLPControllerImp implements NLPController {
 					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);
 			return countInputLength;
 		}
-		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_LIANG_CI)) {
-			countInputLength = posUtils.chuLiLiangCiOfThree(wordsForest, outputList, countInputLength
+		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_LIAN_CI)) {
+			countInputLength = posUtils.chuLiLianCiOfThree(wordsForest, outputList, countInputLength
 					, strings, prefixWord);
 			return countInputLength;
 		}
@@ -82,13 +87,13 @@ public class NLPControllerImp implements NLPController {
 					, strings, prefixWord);
 			return countInputLength;
 		}
-		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_LIAN_CI)) {
-			countInputLength = posUtils.chuLiLianCiOfThree(wordsForest, outputList, countInputLength
+		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_ZHU_CI)) {
+			countInputLength = posUtils.chuLiZhuCiOfThree(wordsForest, outputList, countInputLength
 					, strings, prefixWord);
 			return countInputLength;
 		}
-		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_ZHU_CI)) {
-			countInputLength = posUtils.chuLiZhuCiOfThree(wordsForest, outputList, countInputLength
+		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_LIANG_CI)) {
+			countInputLength = posUtils.chuLiLiangCiOfThree(wordsForest, outputList, countInputLength
 					, strings, prefixWord);
 			return countInputLength;
 		}
@@ -104,6 +109,20 @@ public class NLPControllerImp implements NLPController {
 		return countInputLength;
 	} 
 
+	public int doSlangCheck(int countInputStringLength, List<String> output, StringBuilder stringBuilder,
+			Map<String, String> wordsForest, StringBuilder[] prefixWord, POSController posUtils) {
+		String inputString = stringBuilder.toString();
+		if (wordsForest.containsKey(inputString)) {
+			output.add(inputString);
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(inputString);
+			return countInputStringLength;
+		}
+		countInputStringLength = doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
+				, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils);
+		return countInputStringLength;
+	}
+
 	public int doSlangCheckForMap(int countInputStringLength, List<String> output, StringBuilder stringBuilder
 			, Map<String, String> wordsForest, StringBuilder[] prefixWord, POSController posUtils) {
 		String inputString = stringBuilder.toString();
@@ -112,11 +131,10 @@ public class NLPControllerImp implements NLPController {
 			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 			prefixWord[StableData.INT_ZERO].append(inputString);
 			return countInputStringLength;
-		} else {
-			countInputStringLength = doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
-					, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils);
-			return countInputStringLength;
 		}
+		countInputStringLength = doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
+				, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils);
+		return countInputStringLength;
 	}
 
 	public int doSlangPartAndPOSCheckForTwoCharForMap(int countInputStringLength, Map<String, WordFrequency> outputList
@@ -176,6 +194,11 @@ public class NLPControllerImp implements NLPController {
 					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);
 			return countInputLength;
 		}
+		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_ZHU_CI)) {
+			countInputLength = posUtils.chuLiZhuCiOfThreeForMap(wordsForest, outputList, countInputLength
+					, strings, prefixWord);
+			return countInputLength;
+		}
 		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_LIANG_CI)) {
 			countInputLength = posUtils.chuLiLiangCiOfThreeForMap(wordsForest, outputList, countInputLength
 					, strings, prefixWord);
@@ -188,11 +211,6 @@ public class NLPControllerImp implements NLPController {
 		}
 		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_LIAN_CI)) {
 			countInputLength = posUtils.chuLiLianCiOfThreeForMap(wordsForest, outputList, countInputLength
-					, strings, prefixWord);
-			return countInputLength;
-		}
-		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_ZHU_CI)) {
-			countInputLength = posUtils.chuLiZhuCiOfThreeForMap(wordsForest, outputList, countInputLength
 					, strings, prefixWord);
 			return countInputLength;
 		}
@@ -212,25 +230,9 @@ public class NLPControllerImp implements NLPController {
 		if (wordsForest.containsKey(inputString)) {
 			WordForestUtil.wordsForestContainsKey(output, inputString, prefixWord);
 			return countInputStringLength;
-		} else {
-			countInputStringLength = doPOSAndEMMCheckOfThreeForMap(--countInputStringLength, output, wordsForest
-					, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils);
-			return countInputStringLength;
 		}
-	}
-
-	public int doSlangCheck(int countInputStringLength, List<String> output, StringBuilder stringBuilder,
-			Map<String, String> wordsForest, StringBuilder[] prefixWord, POSController posUtils) {
-		String inputString = stringBuilder.toString();
-		if (wordsForest.containsKey(inputString)) {
-			output.add(inputString);
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(inputString);
-			return countInputStringLength;
-		} else {
-			countInputStringLength = doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
-					, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils);
-			return countInputStringLength;
-		}
+		countInputStringLength = doPOSAndEMMCheckOfThreeForMap(--countInputStringLength, output, wordsForest
+				, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils);
+		return countInputStringLength;
 	}
 }
