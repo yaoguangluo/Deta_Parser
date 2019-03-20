@@ -1,8 +1,9 @@
 package org.tinos.engine.liner.imp;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+//import java.util.concurrent.ConcurrentHashMap;
 
 import org.tinos.engine.liner.Quick6DLuoYaoguangSort;
 import org.tinos.view.obj.WordFrequency;
@@ -64,7 +65,7 @@ public class Quick6DLuoYaoguangSortMapImp implements Quick6DLuoYaoguangSort {
 
 	@SuppressWarnings(StableData.RAW_TYPES)
 	public Map<Integer, WordFrequency> frequencyWordMapToMap(Map<String, WordFrequency> map) {
-		Map<Integer, WordFrequency> listMap = new ConcurrentHashMap<>();
+		Map<Integer, WordFrequency> listMap = new HashMap<>();
 		Iterator iterator = map.keySet().iterator();
 		int c = 0;
 		while (iterator.hasNext()) {

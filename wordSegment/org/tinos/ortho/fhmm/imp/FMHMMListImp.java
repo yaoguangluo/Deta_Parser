@@ -12,7 +12,7 @@ import org.tinos.view.stable.StableData;
 import org.tinos.engine.euclid.imp.EuclidControllerImp;
 public class FMHMMListImp implements FMHMMList {
 	private Map<String, String> words;
-	private Map<String, FMHMMNode> linkedHashMap;
+	private Map<Long, FMHMMNode> linkedHashMap;
 	@SuppressWarnings(StableData.RAW_TYPES)
 	private Map<Integer, Map> linkedHashMapRoot;
 	@SuppressWarnings(StableData.RAW_TYPES)
@@ -41,11 +41,11 @@ public class FMHMMListImp implements FMHMMList {
 		linkedHashMapRoot = new EuclidControllerImp().mCogsEuclid(linkedHashMap);
 	}
 
-	public Map<String, FMHMMNode> loopLoadForest(String cInputString) {
+	public Map<Long, FMHMMNode> loopLoadForest(String cInputString) {
 		Here:
 			for (int i = StableData.INT_ZERO; i < cInputString.length(); i++) {
-				if (linkedHashMap.containsKey(StableData.EMPTY_STRING + cInputString.charAt(i))) {
-					FMHMMNode fHHMMNode = linkedHashMap.get(StableData.EMPTY_STRING + cInputString.charAt(i));
+				if (linkedHashMap.containsKey(Long.valueOf(cInputString.charAt(i)))) {
+					FMHMMNode fHHMMNode = linkedHashMap.get(Long.valueOf(cInputString.charAt(i)));
 					linkedHashMap = doNeroPostCognitive(fHHMMNode, cInputString, i);
 					continue Here;
 				} else {
@@ -56,13 +56,13 @@ public class FMHMMListImp implements FMHMMList {
 						next.put(StableData.EMPTY_STRING + cInputString.charAt(i + StableData.INT_ONE), StableData.INT_ONE);
 						fHHMMNode.setNext(next);
 					}
-					linkedHashMap.put(StableData.EMPTY_STRING + cInputString.charAt(i), fHHMMNode);
+					linkedHashMap.put(Long.valueOf(cInputString.charAt(i)), fHHMMNode);
 				}
 			}
 	return linkedHashMap;
 	}
 
-	public Map<String, FMHMMNode> doNeroPostCognitive(FMHMMNode fFHMMNode, String cInputString, int i) {
+	public Map<Long, FMHMMNode> doNeroPostCognitive(FMHMMNode fFHMMNode, String cInputString, int i) {
 		if (fFHMMNode.getNext() != null) {
 			if (i + StableData.INT_ONE < cInputString.length()) {
 				linkedHashMap = doCheckAndRunNeroPostFix(fFHMMNode, cInputString, i);
@@ -74,17 +74,17 @@ public class FMHMMListImp implements FMHMMList {
 						StableData.INT_ONE);
 			}
 			fFHMMNode.setNext(concurrentHashMap);
-			linkedHashMap.put(StableData.EMPTY_STRING + cInputString.charAt(i), fFHMMNode);
+			linkedHashMap.put(Long.valueOf(cInputString.charAt(i)), fFHMMNode);
 		}
 		return linkedHashMap;
 	}
 
-	public Map<String, FMHMMNode> doCheckAndRunNeroPostFix(FMHMMNode fFHMMNode, String cInputString, int i) {
+	public Map<Long, FMHMMNode> doCheckAndRunNeroPostFix(FMHMMNode fFHMMNode, String cInputString, int i) {
 		if (!fFHMMNode.getNext().containsKey(StableData.EMPTY_STRING + cInputString.charAt(i + StableData.INT_ONE))) {
 			Map<String, Integer> map = fFHMMNode.getNext();
 			map.put(StableData.EMPTY_STRING + cInputString.charAt(i + StableData.INT_ONE), StableData.INT_ONE);
 			fFHMMNode.setNext(map);
-			linkedHashMap.put(StableData.EMPTY_STRING + cInputString.charAt(i), fFHMMNode);
+			linkedHashMap.put(Long.valueOf(cInputString.charAt(i)), fFHMMNode);
 		}
 		return linkedHashMap;
 	}
@@ -93,7 +93,7 @@ public class FMHMMListImp implements FMHMMList {
 		return this.words;
 	}
 
-	public Map<String, FMHMMNode> getMap() {
+	public Map<Long, FMHMMNode> getMap() {
 		return this.linkedHashMap;
 	}
 
@@ -157,127 +157,111 @@ public class FMHMMListImp implements FMHMMList {
 
 	@Override
 	public void indexFullCnToJp() throws IOException {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void indexFullCnToRs() throws IOException {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void indexFullCnToAb() throws IOException {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void indexFullCnToFn() throws IOException {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void indexFullCnToGm() throws IOException {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void indexFullCnToKo() throws IOException {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void indexFullCnToSp() throws IOException {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void indexFullCnToPy() throws IOException {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public Map<String, String> getFullCnToJp() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Map<String, String> getFullCnToRs() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Map<String, String> getFullCnToAb() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Map<String, String> getFullCnToFn() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Map<String, String> getFullCnToGm() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Map<String, String> getFullCnToKo() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Map<String, String> getFullCnToSp() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Map<String, String> getFullCnToPy() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void indexFullNegative() throws IOException {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void indexFullPositive() throws IOException {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public Map<String, String> getFullNegative() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Map<String, String> getFullPositive() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Map<String, FMHMMNode>[] getMaps() {
-		// TODO Auto-generated method stub
+	public Map<Long, FMHMMNode>[] getMaps() {
+		return null;
+	}
+
+	@Override
+	public Map<Long, Map<String, String>> getWordsForests() {
 		return null;
 	}
 }

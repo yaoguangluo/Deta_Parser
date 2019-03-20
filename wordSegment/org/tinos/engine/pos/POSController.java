@@ -24,8 +24,7 @@ public interface POSController {
 	int parserFirstCharOfThree(int countInputStringLength, List<String> outputList, String[] strings, StringBuilder[] fixWord
 			, Map<String, String> wordsForest);
 
-	int parserFirstCharOfTwo(int countInputStringLength, List<String> outputList, String[] strings, StringBuilder[] fixWord
-			, Map<String, String> wordsForest);
+	int parserFirstCharOfTwo(int countInputStringLength, List<String> outputList, String[] strings, StringBuilder[] fixWord);
 
 	int loopCheckBackFix(StringBuilder[] fixWord, int backPosition, Map<String, String> wordsForest
 			, int countInputStringLength, List<String> outputList, String[] strings, int[] nestCountInputStringLength);

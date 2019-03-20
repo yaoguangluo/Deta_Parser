@@ -12,8 +12,7 @@ public class POSControllerImp implements POSController {
 			String[] strings, StringBuilder[] prefixWord) {
 		if (wordsForest.containsKey(prefixWord[StableData.INT_ZERO].toString())) {
 			if (wordsForest.get(prefixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_DAI_CI)) {
-				countInputStringLength = parserFirstCharOfTwo(countInputStringLength, outputList, strings, prefixWord
-						, wordsForest);
+				countInputStringLength = parserFirstCharOfTwo(countInputStringLength, outputList, strings, prefixWord);
 				return countInputStringLength;
 			}
 			countInputStringLength -= StableData.INT_TWO;
@@ -32,8 +31,7 @@ public class POSControllerImp implements POSController {
 			, String[] strings, StringBuilder[] fixWord) {
 		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())) {
 			if (wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_LIANG_CI)) {
-				countInputStringLength = parserFirstCharOfTwo(countInputStringLength, outputList, strings, fixWord
-						, wordsForest);
+				countInputStringLength = parserFirstCharOfTwo(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
 			}
 			countInputStringLength -= StableData.INT_TWO;
@@ -49,7 +47,7 @@ public class POSControllerImp implements POSController {
 	}
 
 	public int parserFirstCharOfTwo(int countInputStringLength, List<String> outputList, String[] strings
-			, StringBuilder[] fixWord, Map<String, String> wordsForest) {
+			, StringBuilder[] fixWord) {
 		countInputStringLength -= StableData.INT_TWO;
 		outputList.add(strings[StableData.INT_ZERO]);
 		fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());

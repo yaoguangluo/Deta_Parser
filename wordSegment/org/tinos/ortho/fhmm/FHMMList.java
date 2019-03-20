@@ -22,8 +22,8 @@ public interface FHMMList {
 	void indexFullCnToPy() throws IOException;
 	void indexFullNegative() throws IOException;
 	void indexFullPositive() throws IOException;
-	Map<String, FMHMMNode> getMap();
-	Map<String, FMHMMNode>[] getMaps();
+	Map<Long, FMHMMNode> getMap();
+	Map<Long, FMHMMNode>[] getMaps();
 	Map<String, String> getPosEnToCn(); 
 	Map<String, String> getPosEnToEn(); 
 	Map<String, String> getPosCnToCn(); 
@@ -41,5 +41,6 @@ public interface FHMMList {
 	Map<String, String> getFullCnToPy();
 	Map<String, String> getFullNegative();
 	Map<String, String> getFullPositive();
-	List<String> englishStringToWordsList(String string); 
+	List<String> englishStringToWordsList(String string);
+	Map<Long, Map<String, String>> getWordsForests(); 
 }

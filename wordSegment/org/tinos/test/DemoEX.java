@@ -9,6 +9,14 @@ import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.analysis.imp.CogsBinaryForestAnalyzerImp;
 import org.tinos.view.obj.WordFrequency;
 public class DemoEX {
+	int a=0;
+	int b=0;
+	int c=0;
+	int d=0;
+	int e=0;
+	int f=0;
+	int g=0;
+	
 	@SuppressWarnings("unused")
 	public static void main(String[] args) throws IOException {
 		Analyzer analyzer = new CogsBinaryForestAnalyzerImp();
@@ -30,10 +38,13 @@ public class DemoEX {
 //				  + "尚nic8d主一样其"
 //				  + "实都不和尚未成佛的心"
 //				  + "态hdu72和尚未成佛";//341字
+		DemoEX demoEX=new DemoEX();
 		t.begin();
 		for (int i = 0; i < 1000000; i++) { //重复100万次数 相当于处理 6000多万字
-			sets= analyzer.parserString(ss);
+				sets= analyzer.parserString(ss);
 		}
+		//sets= analyzer.parserQuickString(ss);
+		//sets= analyzer.parserString(ss);
 		t.end();
 		//sets= analyzer.parserMixedString(ss);
 		//	seta = analyzer.parserStringByReturnFrequencyMap(ss);

@@ -5,12 +5,12 @@ import org.tinos.view.stable.StableData;
 import org.tinos.engine.nero.NEROControllerOneTime;
 public class NEROControllerOneTimeImp implements NEROControllerOneTime {
 	public StringBuilder getBinaryForestRecurWordOneTime(StringBuilder outputWordNode, String inputString
-			, int charPosition, int inputStringLength, Map<String, FMHMMNode> forestRoots, int forestDepth
+			, int charPosition, int inputStringLength, Map<Long, FMHMMNode> forestRoots, int forestDepth
 			, int charPositionNext) {
 		if (forestDepth == StableData.INT_THREE){
 			return outputWordNode;
 		}
-		FMHMMNode fFHMMNode = forestRoots.get(String.valueOf(inputString.charAt(charPosition)));
+		FMHMMNode fFHMMNode = forestRoots.get(Long.valueOf(inputString.charAt(charPosition)));
 		if (null == fFHMMNode) {
 			return outputWordNode;
 		}
@@ -27,7 +27,7 @@ public class NEROControllerOneTimeImp implements NEROControllerOneTime {
 	}
 	//prepare for the big map collection in the future.
 	public StringBuilder getBinaryForestsRecurWordOneTime(StringBuilder outputWordNode, String inputString
-			, int charPosition, int inputStringLength, Map<String, FMHMMNode>[] forestsRoots, int forestDepth
+			, int charPosition, int inputStringLength, Map<Long, FMHMMNode>[] forestsRoots, int forestDepth
 			,int charPositionNext) {
 		if (forestDepth == StableData.INT_THREE){
 			return outputWordNode;
@@ -48,12 +48,25 @@ public class NEROControllerOneTimeImp implements NEROControllerOneTime {
 		return outputWordNode;
 	}
 
-	private FMHMMNode getFMHMMNode(Map<String, FMHMMNode>[] forestsRoots, String inputString, int charPosition) {
-		for(Map<String, FMHMMNode> forestsRoot: forestsRoots) {
-			if(forestsRoot.containsKey(String.valueOf(inputString.charAt(charPosition)))){
-				return forestsRoot.get(String.valueOf(inputString.charAt(charPosition)));
+	private FMHMMNode getFMHMMNode(Map<Long, FMHMMNode>[] forestsRoots, String inputString, int charPosition) {
+		for(Map<Long, FMHMMNode> forestsRoot: forestsRoots) {
+			if(forestsRoot.containsKey(Long.valueOf(inputString.charAt(charPosition)))){
+				return forestsRoot.get(Long.valueOf(inputString.charAt(charPosition)));
 			}
 		}
 		return null;
+	}
+	
+	public StringBuilder getQuickForestRecurWord(StringBuilder outputWordNode, String inputString, int charPosition
+			, int inputStringLength, Map<String, String> posCntoCn, int forestDepth, int charPositionNext ) {
+		if (forestDepth == StableData.INT_THREE||charPositionNext >= inputStringLength) {
+			return outputWordNode;
+		}
+		char positionOfi = inputString.charAt(charPositionNext);
+		if (posCntoCn.containsKey(String.valueOf(outputWordNode.toString() + positionOfi))) {
+			outputWordNode = getQuickForestRecurWord(outputWordNode.append(positionOfi), inputString
+					, charPositionNext, inputStringLength, posCntoCn, ++forestDepth, ++charPositionNext);
+		}
+		return outputWordNode;
 	}
 }

@@ -20,8 +20,8 @@ public class NEROControllerImp implements NEROController {
 		if (!trees.containsKey(range)) {
 			return outputWordNode;
 		}
-		Map<String, FMHMMNode> maps = trees.get(range);
-		FMHMMNode fFHMMNode = maps.get(String.valueOf(charAtPosition));
+		Map<Long, FMHMMNode> maps = trees.get(range);
+		FMHMMNode fFHMMNode = maps.get(Long.valueOf(charAtPosition));
 		if (fFHMMNode == null) {
 			return outputWordNode;
 		}

@@ -26,8 +26,9 @@ public class AnalyzerImp implements Analyzer {
 	protected NLPController nlpController;
 	protected POSController posController;
 	protected Quick6DLuoYaoguangSort quick6DLuoYaoguangSort;	
-	protected Map<String, FMHMMNode> forestRoots;
-	protected Map<String, FMHMMNode> []forestsRoots;
+	protected Map<Long, FMHMMNode> forestRoots;
+	protected Map<Long, Map<String, String>> wordsForests;
+	protected Map<Long, FMHMMNode> []forestsRoots;
 	protected Map<String, String> wordsForest;
 	public void init() throws IOException {
 		this.fHMMList = new FMHMMListOneTimeImp();
@@ -45,6 +46,7 @@ public class AnalyzerImp implements Analyzer {
 		forestRoots = fHMMList.getMap();
 		forestsRoots = fHMMList.getMaps();
 		wordsForest = fHMMList.getPosCnToCn();
+		wordsForests = fHMMList.getWordsForests();
 	}
 
 	public List<String> parserMixedString(String mixedString) {
@@ -176,11 +178,11 @@ public class AnalyzerImp implements Analyzer {
 			}
 		return outputList;
 	}
-
+	
 	public Map<String, WordFrequency> parserStringByReturnFrequencyMap(String inputString) {
 		Map<String, String> wordsForest = fHMMList.getPosCnToCn();
 		Map<String, WordFrequency> outputList = new ConcurrentHashMap<>();
-		Map<String, FMHMMNode> forestRoots = fHMMList.getMap();//.getRoot();
+		Map<Long, FMHMMNode> forestRoots = fHMMList.getMap();
 		int inputStringLength = inputString.length();
 		int forestDepth = StableData.INT_ZERO;
 		int countInputStringLength;
@@ -339,12 +341,11 @@ public class AnalyzerImp implements Analyzer {
 		return fHMMList.getFullCnToEn();
 	}
 
-	@Override
 	public Map<String, WordFrequency> parserMixStringByReturnFrequencyMap(String mixedString) {
 		mixedString += StableData.SPACE_STRING;
 		Map<String, String> wordsForest = fHMMList.getPosCnToCn();
 		Map<String, WordFrequency> outputList = new ConcurrentHashMap<>();
-		Map<String, FMHMMNode> forestRoots = fHMMList.getMap();//.getRoot();
+		Map<Long, FMHMMNode> forestRoots = fHMMList.getMap();//.getRoot();
 		int inputStringLength = mixedString.length();
 		int forestDepth = StableData.INT_ZERO;
 		int countInputStringLength;

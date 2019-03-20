@@ -3,14 +3,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+//import java.util.concurrent.HashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.tinos.ortho.fhmm.FHMMList;
 import org.tinos.view.obj.FMHMMNode;
+import org.tinos.view.obj.FMHMMPOS;
 import org.tinos.view.stable.StableData;
 //I will build a collection class for managing this maps. at the next version.
 @SuppressWarnings("unchecked")
@@ -42,35 +44,38 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	private List<String> listRs;
 	private List<String> listAb;
 	private List<String> listPy;
-	public Map<String, FMHMMNode> linkedHashMap;
-	public Map<String, FMHMMNode> getMap() {
+	public Map<Long, FMHMMPOS> POSHashMap;
+	
+	public Map<Long, FMHMMNode> linkedHashMap;
+	
+	public Map<Long, FMHMMNode> getMap() {
 		return this.linkedHashMap;
 	}
 	
-	public Map<String, FMHMMNode>[] getMaps() {
+	public Map<Long, FMHMMNode>[] getMaps() {
 		int segment = this.linkedHashMap.size();
 		int perRatio = segment/ StableData.INT_SIX;
-		Map<String, FMHMMNode>[] maps = new ConcurrentHashMap[StableData.INT_SIX];
-		Iterator<String> iterator = this.linkedHashMap.keySet().iterator();
-		maps[0] = new ConcurrentHashMap<>();
+		Map<Long, FMHMMNode>[] maps = new HashMap[StableData.INT_SIX];
+		Iterator<Long> iterator = this.linkedHashMap.keySet().iterator();
+		maps[0] = new HashMap<>();
 		int index = 0;
 		int count = 1;
 		while(iterator.hasNext()) {
 			if(count++ % perRatio == 0) {
 				if(index < 5) {
 					index++;
-					maps[index] = new ConcurrentHashMap<>();
+					maps[index] = new HashMap<>();
 				}
 			}
-			String key = iterator.next();
+			Long key = iterator.next();
 			maps[index].put(key, this.linkedHashMap.get(key));
 		}
 		return maps;
 	}
 	
 	public void index() throws IOException {
-		posCnToCn = new ConcurrentHashMap<>();
-		linkedHashMap = new ConcurrentHashMap<>();
+		posCnToCn = new HashMap<>();
+		linkedHashMap = new HashMap<>();
 		listCn = new CopyOnWriteArrayList<>();
 		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_CN_TO_CN);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
@@ -92,7 +97,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	public void indexFullEnToCn() throws IOException {	
 		Iterator<String> listcc = listCn.iterator();
 		Iterator<String> listee = listEn.iterator();
-		fullEnToCn = new ConcurrentHashMap<>();
+		fullEnToCn = new HashMap<>();
 		while(listcc.hasNext()&&listee.hasNext()) {
 			fullEnToCn.put(listee.next().split("/")[0].toLowerCase(), listcc.next().split("/")[0]);
 		}
@@ -101,7 +106,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	public void indexFullCnToEn() throws IOException {	
 		Iterator<String> listcc = listCn.iterator();
 		Iterator<String> listee = listEn.iterator();
-		fullCnToEn = new ConcurrentHashMap<>();
+		fullCnToEn = new HashMap<>();
 		while(listcc.hasNext()&&listee.hasNext()) {
 			fullCnToEn.put(listcc.next().split("/")[0], listee.next().split("/")[0].toLowerCase());
 		}
@@ -110,7 +115,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	public void indexFullCnToFn() throws IOException {	
 		Iterator<String> listcc = listCn.iterator();
 		Iterator<String> listfn = listFn.iterator();
-		fullCnToFn = new ConcurrentHashMap<>();
+		fullCnToFn = new HashMap<>();
 		while(listcc.hasNext()&&listfn.hasNext()) {
 			fullCnToFn.put(listcc.next().split("/")[0], listfn.next().split("/")[0].toLowerCase());
 		}
@@ -119,7 +124,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	public void indexFullCnToKo() throws IOException {	
 		Iterator<String> listcc = listCn.iterator();
 		Iterator<String> listko = listKo.iterator();
-		fullCnToKo = new ConcurrentHashMap<>();
+		fullCnToKo = new HashMap<>();
 		while(listcc.hasNext()&&listko.hasNext()) {
 			fullCnToKo.put(listcc.next().split("/")[0], listko.next().split("/")[0].toLowerCase());
 		}
@@ -128,7 +133,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	public void indexFullCnToJp() throws IOException {	
 		Iterator<String> listcc = listCn.iterator();
 		Iterator<String> listjp = listJp.iterator();
-		fullCnToJp = new ConcurrentHashMap<>();
+		fullCnToJp = new HashMap<>();
 		while(listcc.hasNext()&&listjp.hasNext()) {
 			fullCnToJp.put(listcc.next().split("/")[0], listjp.next().split("/")[0].toLowerCase());
 		}
@@ -137,7 +142,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	public void indexFullCnToGm() throws IOException {	
 		Iterator<String> listcc = listCn.iterator();
 		Iterator<String> listgm = listEn.iterator();
-		fullCnToGm = new ConcurrentHashMap<>();
+		fullCnToGm = new HashMap<>();
 		while(listcc.hasNext()&&listgm.hasNext()) {
 			fullCnToGm.put(listcc.next().split("/")[0], listgm.next().split("/")[0].toLowerCase());
 		}
@@ -146,7 +151,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	public void indexFullCnToSp() throws IOException {	
 		Iterator<String> listcc = listCn.iterator();
 		Iterator<String> listsp = listSp.iterator();
-		fullCnToSp = new ConcurrentHashMap<>();
+		fullCnToSp = new HashMap<>();
 		while(listcc.hasNext()&&listsp.hasNext()) {
 			fullCnToSp.put(listcc.next().split("/")[0], listsp.next().split("/")[0].toLowerCase());
 		}
@@ -155,7 +160,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	public void indexFullCnToRs() throws IOException {	
 		Iterator<String> listcc = listCn.iterator();
 		Iterator<String> listrs = listRs.iterator();
-		fullCnToRs = new ConcurrentHashMap<>();
+		fullCnToRs = new HashMap<>();
 		while(listcc.hasNext()&&listrs.hasNext()) {
 			fullCnToRs.put(listcc.next().split("/")[0], listrs.next().split("/")[0].toLowerCase());
 		}
@@ -164,7 +169,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	public void indexFullCnToAb() throws IOException {	
 		Iterator<String> listcc = listCn.iterator();
 		Iterator<String> listab = listAb.iterator();
-		fullCnToAb = new ConcurrentHashMap<>();
+		fullCnToAb = new HashMap<>();
 		while(listcc.hasNext()&&listab.hasNext()) {
 			fullCnToAb.put(listcc.next().split("/")[0], listab.next().split("/")[0].toLowerCase());
 		}
@@ -173,7 +178,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	public void indexFullCnToPy() throws IOException {	
 		Iterator<String> listcc = listCn.iterator();
 		Iterator<String> listpy = listPy.iterator();
-		fullCnToPy = new ConcurrentHashMap<>();
+		fullCnToPy = new HashMap<>();
 		while(listcc.hasNext()&&listpy.hasNext()) {
 			fullCnToPy.put(listcc.next().split("/")[0], listpy.next().split("/")[0].toLowerCase());
 		}
@@ -188,7 +193,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	}
 
 	public void indexPosEnToCn() throws IOException {
-		posEnToCn = new ConcurrentHashMap<>();
+		posEnToCn = new HashMap<>();
 		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_EN_TO_CN);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
 		String cInputString;
@@ -294,7 +299,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 
 
 	public void indexPosEnToEn() throws IOException {
-		posEnToEn = new ConcurrentHashMap<>();
+		posEnToEn = new HashMap<>();
 		listEn = new CopyOnWriteArrayList<>();
 		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_EN_TO_EN);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
@@ -313,7 +318,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	}
 
 	public void indexEnToCn() throws IOException {
-		enToCn = new ConcurrentHashMap<>();
+		enToCn = new HashMap<>();
 		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_EN_TO_CN);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
 		String cInputString;
@@ -330,7 +335,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	}
 
 	public void indexCnToEn() throws IOException {
-		cnToEn = new ConcurrentHashMap<>();
+		cnToEn = new HashMap<>();
 		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_CN_TO_EN);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
 		String cInputString;
@@ -346,49 +351,49 @@ public class FMHMMListOneTimeImp implements FHMMList {
 		cReader.close();
 	}
 
-	public Map<String, FMHMMNode> loopLoadForest(String cInputString) {
+	public Map<Long, FMHMMNode> loopLoadForest(String cInputString) {
 		Here:
 			for (int i = StableData.INT_ZERO; i < cInputString.length(); i++) {
-				if (linkedHashMap.containsKey(StableData.EMPTY_STRING + cInputString.charAt(i))) {
-					FMHMMNode fHHMMNode = linkedHashMap.get(StableData.EMPTY_STRING + cInputString.charAt(i));
+				if (linkedHashMap.containsKey(Long.valueOf(cInputString.charAt(i)))) {
+					FMHMMNode fHHMMNode = linkedHashMap.get(Long.valueOf(cInputString.charAt(i)));
 					linkedHashMap = doNeroPostCognitive(fHHMMNode, cInputString, i);
 					continue Here;
 				} 
 				FMHMMNode fHHMMNode = new FMHMMNode();
 				fHHMMNode.setVb(StableData.EMPTY_STRING + cInputString.charAt(i));
 				if (i + StableData.INT_ONE < cInputString.length()) {
-					Map<String, Integer> next = new ConcurrentHashMap<>();
+					Map<String, Integer> next = new HashMap<>();
 					next.put(StableData.EMPTY_STRING + cInputString.charAt(i + StableData.INT_ONE), StableData.INT_ONE);
 					fHHMMNode.setNext(next);
 				}
-				linkedHashMap.put(StableData.EMPTY_STRING + cInputString.charAt(i), fHHMMNode);
+				linkedHashMap.put(Long.valueOf(cInputString.charAt(i)), fHHMMNode);
 			}
 	return linkedHashMap;
 	}
 
-	public Map<String, FMHMMNode> doNeroPostCognitive(FMHMMNode fFHMMNode, String cInputString, int i) {
+	public Map<Long, FMHMMNode> doNeroPostCognitive(FMHMMNode fFHMMNode, String cInputString, int i) {
 		if (fFHMMNode.getNext() != null) {
 			if (i + StableData.INT_ONE < cInputString.length()) {
 				linkedHashMap = doCheckAndRunNeroPostFix(fFHMMNode, cInputString, i);
 			}
 			return linkedHashMap;
 		}
-		ConcurrentHashMap<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
+		HashMap<String, Integer> HashMap = new HashMap<>();
 		if (i + StableData.INT_ONE < cInputString.length()) {
-			concurrentHashMap.put(StableData.EMPTY_STRING + cInputString.charAt(i + StableData.INT_ONE)
+			HashMap.put(StableData.EMPTY_STRING + cInputString.charAt(i + StableData.INT_ONE)
 			,StableData.INT_ONE);
 		}
-		fFHMMNode.setNext(concurrentHashMap);
-		linkedHashMap.put(StableData.EMPTY_STRING + cInputString.charAt(i), fFHMMNode);
+		fFHMMNode.setNext(HashMap);
+		linkedHashMap.put(Long.valueOf(cInputString.charAt(i)), fFHMMNode);
 		return linkedHashMap;
 	}
 
-	public Map<String, FMHMMNode> doCheckAndRunNeroPostFix(FMHMMNode fFHMMNode, String cInputString, int i) {
+	public Map<Long, FMHMMNode> doCheckAndRunNeroPostFix(FMHMMNode fFHMMNode, String cInputString, int i) {
 		if (!fFHMMNode.getNext().containsKey(StableData.EMPTY_STRING + cInputString.charAt(i + StableData.INT_ONE))) {
 			Map<String, Integer> map = fFHMMNode.getNext();
 			map.put(StableData.EMPTY_STRING + cInputString.charAt(i + StableData.INT_ONE), StableData.INT_ONE);
 			fFHMMNode.setNext(map);
-			linkedHashMap.put(StableData.EMPTY_STRING + cInputString.charAt(i), fFHMMNode);
+			linkedHashMap.put(Long.valueOf(cInputString.charAt(i)), fFHMMNode);
 		}
 		return linkedHashMap;
 	}
@@ -463,7 +468,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	}
 
 	public void indexFullNegative() throws IOException {
-		fullNegative = new ConcurrentHashMap<>();
+		fullNegative = new HashMap<>();
 		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_NEGATIVE);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
 		String cInputString;
@@ -476,7 +481,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	}
 	
 	public void indexFullPositive() throws IOException {
-		fullPositive = new ConcurrentHashMap<>();
+		fullPositive = new HashMap<>();
 		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_POSITIVE);
 		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
 		String cInputString;
@@ -495,5 +500,23 @@ public class FMHMMListOneTimeImp implements FHMMList {
 
 	public Map<String, String> getFullPositive() {
 		return this.fullPositive;
+	}
+
+	@Override
+	public Map<Long, Map<String, String>> getWordsForests() {
+		Map<Long, Map<String, String>> output = new HashMap<Long, Map<String, String>>();
+		Iterator<String> WordTree = posCnToCn.keySet().iterator();
+		while(WordTree.hasNext()) {
+			String treeName = WordTree.next();
+			 Map<String, String> treeLeafs;
+			if(output.containsKey(Long.valueOf(treeName.charAt(0)))){
+				treeLeafs = output.get(Long.valueOf(treeName.charAt(0)));
+			}else {
+				treeLeafs = new HashMap<>();
+			}
+			 treeLeafs.put(treeName, posCnToCn.get(treeName)); 
+			 output.put(Long.valueOf(treeName.charAt(0)), treeLeafs);
+		}
+		return output;	
 	}
 }
