@@ -1,7 +1,7 @@
 # 🔥20,000/ms word segment for text mining of NLP, POS, AI and Deep learning/每秒中文混合分词1300~2700万词汇的高精准确率快速神经网络分词包. 训练词意分析, 词感分析, 词境分析, 词灵分析并自由扩充词库
 
-## 版本号：10.5.5 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （准备做 ICA 分析行为训练集合）
-
+## 版本号：10.5.5 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （ICA 内核矩阵运算生成算法进行训练集采样处理优化）。
+##### ![实例](http://progressed.io/bar/100) 第一次语料库森林进行序列化优化已完成（分词速度提高1.5%），导致ICA内核生成速度翻倍。20190320 功能作者 罗瑶光。
 ##### ![实例](http://progressed.io/bar/100) 基于贝叶斯统计RNN函数集，通过频率排序进行函数校准，并进行动词的特殊用法修正。20190319 功能作者 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 基于ICA做马可夫行为集合，通过误差容错率进行词性校准，找出副词特殊用法陷阱，并进行了修正。
 https://github.com/yaoguangluo/Deta_Parser/blob/master/wordSegment/org/tinos/engine/pos/imp/POSControllerImp.java 20190318 功能作者 罗瑶光
