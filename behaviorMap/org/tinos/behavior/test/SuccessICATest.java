@@ -2,8 +2,7 @@ package org.tinos.behavior.test;
 
 import java.io.IOException;
 import org.tinos.behavior.ICA.InitBehaviorICAKernel;
-
-import matrixProcessor.CnnMeansure;
+import matrixProcessor.CnnMeasure;
 
 public class SuccessICATest{
 	@SuppressWarnings("unused")
@@ -131,7 +130,7 @@ public class SuccessICATest{
 		kernel[0] = new InitBehaviorICAKernel().getBehaviorICAKernel(text1);
 		kernel[1] = new InitBehaviorICAKernel().getBehaviorICAKernel(text2);
 		kernel[2] = new InitBehaviorICAKernel().getBehaviorICAKernel(text3);
-		double[][] kernelCNN = new  CnnMeansure().getCnnMeansure(kernel);
+		double[][] kernelCNN = new  CnnMeasure().getCnnMeansure(kernel);
 		//do ICA normalization
 		//do ROBUST ICA 
 		//do map
