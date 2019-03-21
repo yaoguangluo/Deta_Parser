@@ -13,7 +13,7 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/wordSegment/org/tinos/eng
 ##### ![实例](http://progressed.io/bar/100) 情感集图灵算子进行认知化。下一步进行带训练集意识加工处理为ICA做预处理。 20190315功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 一种基于 ANN{Summing, Emotion, Motivation, Environment} * RNN{Covex, Euclid, POS} = DNN{LWA，Entropy} 罗氏读心术已经更新并进行了图灵算子优化。 20190314 功能作者： 罗瑶光
 ![实例](https://github.com/yaoguangluo/Nero_Parser/blob/master/deta_mind_reading.png)
-https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/DNNTest.java
+https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sensing/test/DNNTest.java
 ##### ![实例](http://progressed.io/bar/100) 基于 HMM matrix 进行nomarlization 然后做 未优化的 ANN 简单 训练版本 map reduce 测试。功能作者： 罗瑶光
 https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/ANNTest.java
 ##### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313功能作者： 罗瑶光
