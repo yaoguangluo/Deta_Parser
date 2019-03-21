@@ -2,6 +2,8 @@
 
 ## 版本号：10.5.6 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （ICA 内核矩阵运算生成算法进行训练集采样处理优化）。
 ##### ![实例](http://progressed.io/bar/20) 接受教育能力行为训练工程已经启动。 20190321 功能作者 罗瑶光。 目标预计每秒分析700万字文章。
+##### ![实例](http://progressed.io/bar/100) 一种简洁快速的文章文学周期性价比率研究。20190322 功能作者 罗瑶光。
+https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/LiterarinessLevelTest.java
 ##### ![实例](http://progressed.io/bar/100) 第一次语料库森林进行序列化优化已完成（分词速度提高1.5%），导致ICA内核生成速度翻倍。20190320 功能作者 罗瑶光。
 ##### ![实例](http://progressed.io/bar/100) 基于贝叶斯统计RNN函数集，通过频率排序进行函数校准，并进行动词的特殊用法修正。20190319 功能作者 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 基于ICA做马可夫行为集合，通过误差容错率进行词性校准，找出副词特殊用法陷阱，并进行了修正。
