@@ -15,15 +15,15 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/wordSegment/org/tinos/eng
 ![实例](https://github.com/yaoguangluo/Nero_Parser/blob/master/deta_mind_reading.png)
 https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sensing/test/DNNTest.java
 ##### ![实例](http://progressed.io/bar/100) 基于 HMM matrix 进行nomarlization 然后做 未优化的 ANN 简单 训练版本 map reduce 测试。功能作者： 罗瑶光
-https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/ANNTest.java
+https://github.com/yaoguangluo/Deta_Parser/blob/master/SensingMap/org/tinos/sensing/test/ANNTest.java
 ##### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 基于环境，场合，动机，目的，倾向和预判评估进行自然语言第6感意识分析。 功能作者： 罗瑶光
-https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EnvironmentTest.java
+https://github.com/yaoguangluo/Deta_Parser/blob/master/emotionMap/org/tinos/emotion/test/EnvironmentTest.java
 ##### ![实例](http://progressed.io/bar/100)	Emotion Ratio Matrix for ANN ICA 6.th sensing test功能作者： 罗瑶光
-https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/SensingTest.java
+https://github.com/yaoguangluo/Deta_Parser/blob/master/SensingMap/org/tinos/sensing/test/SensingTest.java
 ##### ![实例](http://progressed.io/bar/100) 正在做功能：语言心理学读心术。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/92) 正在做功能：动机判断的情态语料库。已经附带可运行实例地址如下。功能作者： 罗瑶光
-https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EmotionTest.java
+https://github.com/yaoguangluo/Deta_Parser/blob/master/emotionMap/org/tinos/emotion/test/EmotionTest.java
 
 ###### 1 ： The first unrevised version has been completed: 12 professional level corpora of Chinese, Chinese pinyin, French, German, Korean, Japanese, Spanish, Russian, indonesia , Arabic, Vietnam and Thailand languages.
 ###### 2 ： 第1版未修正版:中国、フランス、ドイツ、韩国、日本、スペイン、ロシア、アラビア语8种类の専门レベルの言语データベースが完成した。
@@ -93,7 +93,7 @@ https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emot
 
 ## 分词使用如下：
 ###### 大家可以自由添加词汇，添加在 org/tinos/fhmm/imp/words.lyg文件里。语料库集合地址如下：
-https://github.com/yaoguangluo/Nero_Parser/tree/master/wordSegment/org/tinos/ortho/fhmm/imp
+https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/ortho/fhmm/imp
 ###### 可以看下org/tinos/test里面的例子。
 
 ######   //1 实例化
