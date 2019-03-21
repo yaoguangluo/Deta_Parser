@@ -7,6 +7,7 @@ import java.util.Map;
 import org.tinos.emotion.engine.EmotionInit;
 import org.tinos.emotion.engine.EnvironmentInit;
 import org.tinos.emotion.estimation.EmotionSample;
+import org.tinos.view.stable.StableData;
 
 public class InitBehaviorICAKernel{
 	private double[] kernel;
@@ -18,17 +19,17 @@ public class InitBehaviorICAKernel{
 		double positiveCountEnvironment = emotionInitEnvironment.getPositiveCount();
 		double negativeCountEnvironment = emotionInitEnvironment.getNegativeCount();
 		double totalCountEnvironment = emotionInitEnvironment.getTotalCount();
-		if(positiveCountEnvironment == 0) {
-			positiveCountEnvironment = 1;
+		if(positiveCountEnvironment == StableData.INT_ZERO) {
+			positiveCountEnvironment = StableData.INT_ONE;
 		}
-		if(negativeCountEnvironment == 0) {
-			negativeCountEnvironment = 1;
+		if(negativeCountEnvironment == StableData.INT_ZERO) {
+			negativeCountEnvironment = StableData.INT_ONE;
 		}
 		return positiveCountEnvironment/totalCountEnvironment;
 	}
 	
 	public double[] getBehaviorICAKernel(String text) throws IOException {
-		kernel = new double[7];	
+		kernel = new double[StableData.INT_SEVEN];	
 		EmotionInit emotionInit = new EmotionInit();
 		emotionInit.init(text);
 		//reduce
@@ -37,11 +38,11 @@ public class InitBehaviorICAKernel{
 		double totalCount = emotionInit.getTotalCount();
 		System.out.println("正面情感：" + positiveCount);
 		System.out.println("负面情感：" + negativeCount);
-		if(positiveCount == 0) {
-			positiveCount = 1;
+		if(positiveCount == StableData.INT_ZERO) {
+			positiveCount = StableData.INT_ONE;
 		}
-		if(negativeCount == 0) {
-			negativeCount = 1;
+		if(negativeCount == StableData.INT_ZERO) {
+			negativeCount = StableData.INT_ONE;
 		}
 		double adjRatio = Math.abs(positiveCount/negativeCount-negativeCount/positiveCount);
 		System.out.println("渲染比率：" + adjRatio);
@@ -49,9 +50,9 @@ public class InitBehaviorICAKernel{
 		System.out.println("情绪比率：" + phychologicRatio);
 		double infectionRatio = adjRatio*phychologicRatio;
 		System.out.println("感染比率：" + infectionRatio);		
-		kernel[0] = adjRatio;
-		kernel[1] = phychologicRatio;
-		kernel[2] = infectionRatio;
+		kernel[StableData.INT_ZERO] = adjRatio;
+		kernel[StableData.INT_ONE] = phychologicRatio;
+		kernel[StableData.INT_TWO] = infectionRatio;
 		//
 		EnvironmentInit environmentInit = new EnvironmentInit();
 		environmentInit.initFromEmotion(emotionInit.getWordFrequencyMap());
@@ -64,12 +65,12 @@ public class InitBehaviorICAKernel{
 			String word = Iterator.next();
 			EmotionSample emotionSample = environmentSampleMap.get(word);
 			if(null != emotionSample.getDistinction()) {
-				environmentText += emotionSample.getDistinction() + " ";
+				environmentText += emotionSample.getDistinction() + StableData.SPACE_STRING;
 			}
 		}
 		System.out.println(environmentText);
 		kernel[3] = getTrustRate(environmentText);
-		System.out.println(kernel[3]);
+		System.out.println(kernel[StableData.INT_THREE]);
 
 		System.out.println("");
 		System.out.println("信任比率：");
@@ -79,12 +80,12 @@ public class InitBehaviorICAKernel{
 			String word = Iterator.next();
 			EmotionSample emotionSample = environmentSampleMap.get(word);
 			if(null != emotionSample.getMotivation()) {
-				motivationText += emotionSample.getMotivation() + " ";
+				motivationText += emotionSample.getMotivation() + StableData.SPACE_STRING;
 			}
 		}
 		System.out.println(motivationText);
 		kernel[4] = getTrustRate(motivationText);
-		System.out.println(kernel[4]);
+		System.out.println(kernel[StableData.INT_FOUR]);
 		
 		System.out.println("");
 		System.out.println("执行比率：" );
@@ -94,12 +95,12 @@ public class InitBehaviorICAKernel{
 			String word = Iterator.next();
 			EmotionSample emotionSample = environmentSampleMap.get(word);
 			if(null != emotionSample.getTrending()) {
-				trendingText += emotionSample.getTrending() + " ";
+				trendingText += emotionSample.getTrending() + StableData.SPACE_STRING;
 			}
 		}
 		System.out.println(trendingText);
 		kernel[5] = getTrustRate(trendingText);
-		System.out.println(kernel[5]);
+		System.out.println(kernel[StableData.INT_FIVE]);
 		
 		//reduce
 		System.out.println("");
@@ -110,12 +111,12 @@ public class InitBehaviorICAKernel{
 			String word = Iterator.next();
 			EmotionSample emotionSample = environmentSampleMap.get(word);
 			if(null != emotionSample.getPrediction()) {
-				predictionText += emotionSample.getPrediction() + " ";
+				predictionText += emotionSample.getPrediction() + StableData.SPACE_STRING;
 			}
 		}
 		System.out.println(predictionText);
-		kernel[6] = getTrustRate(predictionText);
-		System.out.println(kernel[6]);
+		kernel[StableData.INT_SIX] = getTrustRate(predictionText);
+		System.out.println(kernel[StableData.INT_SIX]);
 		return kernel;
 	}
 }

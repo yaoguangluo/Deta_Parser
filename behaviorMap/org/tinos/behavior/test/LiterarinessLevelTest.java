@@ -1,14 +1,23 @@
 package org.tinos.behavior.test;
 
 import java.io.IOException;
-import org.tinos.behavior.ICA.InitBehaviorICAKernel;
-import matrixProcessor.CnnMeasure;
 
-public class SuccessICATest{
-	public double[][] kernelCNN;
-	public void getKernelCNN(double[][] kernel) {
-		kernelCNN = new  CnnMeasure().getCnnMeansure(kernel);
+import org.tinos.behavior.ICA.InitBehaviorICAKernel;
+
+public class LiterarinessLevelTest{
+	double[] literarinessLevel;
+	double literarinessDuration;
+	public void getEducationLevel(double[][] measurement) {
+		literarinessLevel = new double[measurement.length];
+		for(int i = 0; i < measurement.length; i++) {
+			literarinessLevel[i]=(measurement[i][0]*measurement[i][3])/measurement[i][1];
+			literarinessDuration+=literarinessLevel[i];
+			System.out.println("literarinessLevel:" +literarinessLevel[i]);
+		}
+		literarinessDuration/=literarinessLevel.length;
+		System.out.println("literarinessDuration:" + literarinessDuration);
 	}
+
 	public static void main(String[] argv) throws IOException {
 		String text1 = "关于成瘾性的戒除方式，上瘾在医学上普遍定义为一种具有精神依赖并长期导致健康危害性的行为。\r\n" + 
 				"关于成瘾的溯源有很多因素，其中最重要的是依赖。因为长期的依赖导致自身某种缺陷逐渐丧失而\r\n" + 
@@ -24,7 +33,7 @@ public class SuccessICATest{
 				"一些成瘾的受体，普遍有某种倾向: 奢靡，闭塞，强迫，空虚 等等。这里不是贬义，只是因为长期的环境\r\n" + 
 				"因素不是那么美好导致了一些思维误差。所以引导是非常重要的。改变人的不是能力，而是选择和环境。\r\n" + 
 				"如果环境不是很完美，那么选择一个健康的生活方式，是非常重要的。";
-		
+
 		String text2 = "我们在这个三维世界能听到许多答案， 却无法解释它， 最后物理学用T来表示。带着这个疑问，我开始寻求答案来解释。语文和数学对时间的描述基于我罗瑶光的归纳为是事物发展过程中的某一点基于经典数学的观测参照。我开始"
 				+ "深思，既然是参照，那么必定是有参照物和观测物2种模式。 我又深思，既然是2种模式改变，必定引起时间的不准确性，那么我定义为时间不是经典物理学中的概念。 而是量子物理的一个分支。 我又深思，如果时间因为参照物和观测物的不同"
 				+ "，那么这个时间肯定是有变化规律的，这个规律肯定是一个抽象函数，我定义为T（x）怎么求解时函数？ 我深思了10年。或许我罗瑶光是世界第一个定义时函数的人， 我可能成为不了第一"
@@ -97,8 +106,8 @@ public class SuccessICATest{
 				+ "态怎么模拟出来。我得到了一个推论结果，当物体超高速运动的时候，物体具有巨大的动能，这种能量能够和时间能进行公式转化，也可以转化"
 				+ "成力学，强大的力可以扭曲时空，达到瞬间转移。若果推论成立，物体在时空中带强力强能急速飞行，物体四周的时空会产生巨大引力扭曲环层，"
 				+ "罗氏猜想这个环层时空扭曲力能牵引物体，我定义为局部时空扭曲引力，这是瞬间转移的关键。";
-		
-		
+
+
 		String text3 = "最新的知识工程结构中，传统的专家系统占据着主导的地位，可是世界的需求体系处在一个多变的运行环境，所以数据持久化理论是一个为之奋斗的目标。"
 				+ "人工智能软件也一样，逃避不了自然的更新所带来的种种弊端。人工智能何去何从，自然会规划它，正如达尔文的生物进化论一样，新的智能体系标准都是被需求自然选择出来，这就是我要表达的中心思想。\r\n" + 
 				"过去50年里，一些经典的软件逃不过需求的抉择，最终枯黄暗淡，当然一些企业将产品拼命的重写升级，因为核心开发者的年龄老化，新的改造者无法掌握原始开发思想和理论，最后产品的品质遭受巨大的冲击，"
@@ -133,18 +142,7 @@ public class SuccessICATest{
 		kernel[0] = new InitBehaviorICAKernel().getBehaviorICAKernel(text1);
 		kernel[1] = new InitBehaviorICAKernel().getBehaviorICAKernel(text2);
 		kernel[2] = new InitBehaviorICAKernel().getBehaviorICAKernel(text3);
-		SuccessICATest successICATest=new SuccessICATest();
-		successICATest.getKernelCNN(kernel);
-		for(int i=0;i<successICATest.kernelCNN.length;i++) {
-			for(int j=0;j<successICATest.kernelCNN[0].length;j++) {
-				System.out.print(successICATest.kernelCNN[i][j] + " ");
-			}
-			System.out.println();
-		}
-		//do ICA normalization
-		//do ROBUST ICA 
-		//do map
-		//do reduce sets
-		//sets Turing
+		LiterarinessLevelTest educationLevelTest = new LiterarinessLevelTest();
+		educationLevelTest.getEducationLevel(kernel);
 	}
 }
