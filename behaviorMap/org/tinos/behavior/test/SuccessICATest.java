@@ -3,6 +3,8 @@ package org.tinos.behavior.test;
 import java.io.IOException;
 import org.tinos.behavior.ICA.InitBehaviorICAKernel;
 
+import matrixProcessor.CnnMeansure;
+
 public class SuccessICATest{
 	@SuppressWarnings("unused")
 	public static void main(String[] argv) throws IOException {
@@ -125,16 +127,15 @@ public class SuccessICATest{
 				+ "一致的，虽然API设计风格不一样，但是效果都很笃厚。\r\n" + 
 				"生物需要有达尔文思想，人工智能同样也存在，这是需求持久化的基础。这也是我研发UNICORN AI平台的基本条件。";
 		//ICA kernel
-		double[] kernel1 = new InitBehaviorICAKernel().getBehaviorICAKernel(text1);
-		double[] kernel2 = new InitBehaviorICAKernel().getBehaviorICAKernel(text2);
-		double[] kernel3 = new InitBehaviorICAKernel().getBehaviorICAKernel(text3);
+		double[][] kernel = new double[3][];
+		kernel[0] = new InitBehaviorICAKernel().getBehaviorICAKernel(text1);
+		kernel[1] = new InitBehaviorICAKernel().getBehaviorICAKernel(text2);
+		kernel[2] = new InitBehaviorICAKernel().getBehaviorICAKernel(text3);
+		double[][] kernelCNN = new  CnnMeansure().getCnnMeansure(kernel);
 		//do ICA normalization
 		//do ROBUST ICA 
 		//do map
 		//do reduce sets
 		//sets Turing
-		
-		
-		
 	}
 }
