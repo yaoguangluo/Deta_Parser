@@ -11,7 +11,6 @@ public interface RatioMap {
 	void getMotivationRatio(Map<String, EmotionSample> emotionSampleMap, double sumOfEmotion);
 	void getCorrelationRatio(Map<String, EmotionSample> emotionSampleMap, double sumOfEmotion);
 	void getContinusRatio(Map<String, EmotionSample> emotionSampleMap, double emotionRatio);
-	
 	void getTrendsRatio( Map<String, EmotionSample> emotionSampleMap);
 	void getPredictionRatio(Map<String, EmotionSample> emotionSampleMap);
 	void getGuessRatio(Map<String, EmotionSample> emotionSampleMap);

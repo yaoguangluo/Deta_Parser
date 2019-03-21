@@ -18,8 +18,6 @@ public class InitBehaviorICAKernel{
 		double positiveCountEnvironment = emotionInitEnvironment.getPositiveCount();
 		double negativeCountEnvironment = emotionInitEnvironment.getNegativeCount();
 		double totalCountEnvironment = emotionInitEnvironment.getTotalCount();
-//		System.out.println("正面数：" + positiveCountEnvironment);
-//		System.out.println("负面数：" + negativeCountEnvironment);
 		if(positiveCountEnvironment == 0) {
 			positiveCountEnvironment = 1;
 		}
