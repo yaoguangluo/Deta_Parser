@@ -20,7 +20,7 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sens
 ##### ![实例](http://progressed.io/bar/100) 基于环境，场合，动机，目的，倾向和预判评估进行自然语言第6感意识分析。 功能作者： 罗瑶光
 https://github.com/yaoguangluo/Deta_Parser/blob/master/emotionMap/org/tinos/emotion/test/EnvironmentTest.java
 ##### ![实例](http://progressed.io/bar/100)	Emotion Ratio Matrix for ANN ICA 6.th sensing test功能作者： 罗瑶光
-https://github.com/yaoguangluo/Deta_Parser/blob/master/SensingMap/org/tinos/sensing/test/SensingTest.java
+https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sensing/test/SensingTest.java
 ##### ![实例](http://progressed.io/bar/100) 正在做功能：语言心理学读心术。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/92) 正在做功能：动机判断的情态语料库。已经附带可运行实例地址如下。功能作者： 罗瑶光
 https://github.com/yaoguangluo/Deta_Parser/blob/master/emotionMap/org/tinos/emotion/test/EmotionTest.java
