@@ -19,6 +19,8 @@ public interface StableData {
 	public static final String NLP_ZI_DONG = "动";
 	public static final String NLP_ZI_MING = "名";
 	public static final String NLP_ZI_DAI = "代";
+	public static final String NLP_ZI_XING = "形";
+	public static final String NLP_ZI_WEI = "谓";
 	public static final String NLP_ZI_JIE = "介";
 	public static final String NLP_ZI_FU = "副";
 	public static final String NLP_ZI_复 = "复";

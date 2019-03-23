@@ -1,22 +1,18 @@
 package org.tinos.behavior.test;
-
-
 import java.io.IOException;
-
-import org.tinos.behavior.ICA.InitBehaviorICAKernel;
-
-public class LiterarinessLevelTest{
-	double[] literarinessLevel;
-	double literarinessDuration;
+import org.tinos.behavior.ICA.EducationRatio;
+public class EducationLevelTest{
+	double[] EducationLevel;
+	double EducationDuration;
 	public void getEducationLevel(double[][] measurement) {
-		literarinessLevel = new double[measurement.length];
+		EducationLevel = new double[measurement.length];
 		for(int i = 0; i < measurement.length; i++) {
-			literarinessLevel[i]=(measurement[i][0]*measurement[i][3])/measurement[i][1];
-			literarinessDuration+=literarinessLevel[i];
-			System.out.println("literarinessLevel:" +literarinessLevel[i]);
+			EducationLevel[i] = (measurement[i][3] + measurement[i][4])/(measurement[i][1] + measurement[i][2] + measurement[i][3] + measurement[i][4]+ measurement[i][5]);
+			EducationDuration += EducationLevel[i];
+			System.out.println("EducationLevel:" +EducationLevel[i]);
 		}
-		literarinessDuration/=literarinessLevel.length;
-		System.out.println("literarinessDuration:" + literarinessDuration);
+		EducationDuration/=EducationLevel.length;
+		System.out.println("EducationDuration:" + EducationDuration);
 	}
 
 	public static void main(String[] argv) throws IOException {
@@ -140,11 +136,17 @@ public class LiterarinessLevelTest{
 				"生物需要有达尔文思想，人工智能同样也存在，这是需求持久化的基础。这也是我研发UNICORN AI平台的基本条件。";
 		
 		//ICA kernel
-		double[][] kernel = new double[4][];
-		kernel[0] = new InitBehaviorICAKernel().getBehaviorICAKernel(text1);
-		kernel[1] = new InitBehaviorICAKernel().getBehaviorICAKernel(text2);
-		kernel[2] = new InitBehaviorICAKernel().getBehaviorICAKernel(text3);
-		LiterarinessLevelTest educationLevelTest = new LiterarinessLevelTest();
-		educationLevelTest.getEducationLevel(kernel);
+		double[][] kernel = new double[3][];
+		kernel[0] = new EducationRatio().getEducationKernel(text1);
+		kernel[1] = new EducationRatio().getEducationKernel(text2);
+		kernel[2] = new EducationRatio().getEducationKernel(text3);
+		
+		//ANN kernel
+		double[][] kernelRatio = new double[3][];
+		kernelRatio[0] = new EducationRatio().getEducationRatioKernel(kernel[0]);
+		kernelRatio[1] = new EducationRatio().getEducationRatioKernel(kernel[1]);
+		kernelRatio[2] = new EducationRatio().getEducationRatioKernel(kernel[2]);
+		EducationLevelTest educationLevelTest = new EducationLevelTest();
+		educationLevelTest.getEducationLevel(kernelRatio);
 	}
 }
