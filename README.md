@@ -2,6 +2,8 @@
 
 ## 版本号：10.5.6 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （ICA 内核矩阵运算生成算法进行训练集采样处理优化）。
 ##### ![实例](http://progressed.io/bar/20) 接受教育能力行为训练工程已经启动。 20190321 功能作者 罗瑶光。 目标预计每秒分析700万字文章。
+##### ![实例](http://progressed.io/bar/100) 一种简洁快速的文章文学周期性价比率研究。20190322 功能作者 罗瑶光。
+https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/LiterarinessLevelTest.java
 ##### ![实例](http://progressed.io/bar/100) 第一次语料库森林进行序列化优化已完成（分词速度提高1.5%），导致ICA内核生成速度翻倍。20190320 功能作者 罗瑶光。
 ##### ![实例](http://progressed.io/bar/100) 基于贝叶斯统计RNN函数集，通过频率排序进行函数校准，并进行动词的特殊用法修正。20190319 功能作者 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 基于ICA做马可夫行为集合，通过误差容错率进行词性校准，找出副词特殊用法陷阱，并进行了修正。
@@ -11,17 +13,17 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/wordSegment/org/tinos/eng
 ##### ![实例](http://progressed.io/bar/100) 情感集图灵算子进行认知化。下一步进行带训练集意识加工处理为ICA做预处理。 20190315功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 一种基于 ANN{Summing, Emotion, Motivation, Environment} * RNN{Covex, Euclid, POS} = DNN{LWA，Entropy} 罗氏读心术已经更新并进行了图灵算子优化。 20190314 功能作者： 罗瑶光
 ![实例](https://github.com/yaoguangluo/Nero_Parser/blob/master/deta_mind_reading.png)
-https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/DNNTest.java
+https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sensing/test/DNNTest.java
 ##### ![实例](http://progressed.io/bar/100) 基于 HMM matrix 进行nomarlization 然后做 未优化的 ANN 简单 训练版本 map reduce 测试。功能作者： 罗瑶光
-https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/ANNTest.java
+https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sensing/test/ANNTest.java
 ##### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 基于环境，场合，动机，目的，倾向和预判评估进行自然语言第6感意识分析。 功能作者： 罗瑶光
-https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EnvironmentTest.java
+https://github.com/yaoguangluo/Deta_Parser/blob/master/emotionMap/org/tinos/emotion/test/EnvironmentTest.java
 ##### ![实例](http://progressed.io/bar/100)	Emotion Ratio Matrix for ANN ICA 6.th sensing test功能作者： 罗瑶光
-https://github.com/yaoguangluo/Nero_Parser/blob/master/SensingMap/org/tinos/sensing/test/SensingTest.java
+https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sensing/test/SensingTest.java
 ##### ![实例](http://progressed.io/bar/100) 正在做功能：语言心理学读心术。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/92) 正在做功能：动机判断的情态语料库。已经附带可运行实例地址如下。功能作者： 罗瑶光
-https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emotion/test/EmotionTest.java
+https://github.com/yaoguangluo/Deta_Parser/blob/master/emotionMap/org/tinos/emotion/test/EmotionTest.java
 
 ###### 1 ： The first unrevised version has been completed: 12 professional level corpora of Chinese, Chinese pinyin, French, German, Korean, Japanese, Spanish, Russian, indonesia , Arabic, Vietnam and Thailand languages.
 ###### 2 ： 第1版未修正版:中国、フランス、ドイツ、韩国、日本、スペイン、ロシア、アラビア语8种类の専门レベルの言语データベースが完成した。
@@ -76,11 +78,11 @@ https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emot
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  VPC进化到VPCS, 静态分流加速每秒又多增100万分词。功能作者： 罗瑶光
 
 ######  未完善功能：英语复句翻译。![实例](http://progressed.io/bar/20?title=completed)
-######  未完善功能：混合分词的时候空格问题对第一个英文单词的区分校准。
-######  未完善功能：多国语言词汇转换系统。
 ######  未完善功能：英语特殊句型翻译。
-######  未完善功能：分词情感识别。
 ######  未完善功能：分词矫正识别。
+######  未完善功能：多语意识。
+######  未完善功能：支持训练。
+######  未完善功能：带变异性特征进化。
 ######  未完善功能：新词搜索互联网更新词库功能。
 ######  未完善功能：功能接口计划。
 ######  未完善功能：线程分词的内存实时检测。
@@ -91,7 +93,7 @@ https://github.com/yaoguangluo/Nero_Parser/blob/master/emotionMap/org/tinos/emot
 
 ## 分词使用如下：
 ###### 大家可以自由添加词汇，添加在 org/tinos/fhmm/imp/words.lyg文件里。语料库集合地址如下：
-https://github.com/yaoguangluo/Nero_Parser/tree/master/wordSegment/org/tinos/ortho/fhmm/imp
+https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/ortho/fhmm/imp
 ###### 可以看下org/tinos/test里面的例子。
 
 ######   //1 实例化
