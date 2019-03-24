@@ -140,7 +140,7 @@ public class LiterarinessLevelTest{
 				"生物需要有达尔文思想，人工智能同样也存在，这是需求持久化的基础。这也是我研发UNICORN AI平台的基本条件。";
 		
 		//ICA kernel
-		double[][] kernel = new double[4][];
+		double[][] kernel = new double[3][];
 		kernel[0] = new InitBehaviorICAKernel().getBehaviorICAKernel(text1);
 		kernel[1] = new InitBehaviorICAKernel().getBehaviorICAKernel(text2);
 		kernel[2] = new InitBehaviorICAKernel().getBehaviorICAKernel(text3);

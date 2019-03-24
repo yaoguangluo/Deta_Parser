@@ -7,7 +7,8 @@ public class EducationLevelTest{
 	public void getEducationLevel(double[][] measurement) {
 		EducationLevel = new double[measurement.length];
 		for(int i = 0; i < measurement.length; i++) {
-			EducationLevel[i] = (measurement[i][3] + measurement[i][4])/(measurement[i][1] + measurement[i][2] + measurement[i][3] + measurement[i][4]+ measurement[i][5]);
+			EducationLevel[i] = (measurement[i][3] + measurement[i][4])/(measurement[i][1] + measurement[i][2] 
+					+ measurement[i][3] + measurement[i][4]+ measurement[i][5]);
 			EducationDuration += EducationLevel[i];
 			System.out.println("EducationLevel:" +EducationLevel[i]);
 		}
