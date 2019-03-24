@@ -2,7 +2,6 @@
 
 ## 版本号：10.5.8 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （ICA 内核矩阵运算生成算法进行训练集采样处理优化）。
 ## 主题一： 词意
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：12国语言翻译词汇录入系统。 Mr.Yaoguang.Luo 20190310
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： คลังข้อความภาษาไทยขนาดใหญ่สำหรับการปรับรุ่นเสร็จสมบูรณ์。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Cơ sở dữ liệu tiếng việt chuẩn hoàn thành, không tối ưu hóa phiên bản。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Rumah corpus indonesia selesai. Versi tak dioptimalkan。
@@ -45,7 +44,8 @@ https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/tes
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒1700万 ~ 2700万中英文混合常规格式分词。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  病句中乱码分析。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  VPC进化到VPCS, 静态分流加速每秒又多增100万分词。功能作者： 罗瑶光
-
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：12国语言翻译词汇录入系统。 Mr.Yaoguang.Luo 20190310 功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100) 第一次语料库森林进行序列化优化已完成（分词速度提高1.5%），导致ICA内核生成速度翻倍。20190320 功能作者 罗瑶光。
 ## 主题二： 词感
 ##### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313 功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) ICA 内核训练集生成算法优化。20190317 功能作者： 罗瑶光
@@ -81,7 +81,6 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sens
 ##### ![实例](http://progressed.io/bar/40) 接受教育能力行为训练工程已经启动。 20190321 功能作者 罗瑶光。 目标预计每秒分析700万字文章。
 https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/EducationLevelTest.java
 ##### ![实例](http://progressed.io/bar/20) 资本运作，消费评估，购买力分析的商业体系已经启动。 20190324 功能作者 罗瑶光。
-##### ![实例](http://progressed.io/bar/100) 第一次语料库森林进行序列化优化已完成（分词速度提高1.5%），导致ICA内核生成速度翻倍。20190320 功能作者 罗瑶光。
 ##### ![实例](http://progressed.io/bar/100) 一种简洁快速的文章文学周期性价比率研究。20190322 功能作者 罗瑶光。
 https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/LiterarinessLevelTest.java
 
