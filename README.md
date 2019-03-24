@@ -47,8 +47,8 @@ https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/tes
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  VPC进化到VPCS, 静态分流加速每秒又多增100万分词。功能作者： 罗瑶光
 
 ## 主题二： 词感
-##### ![实例](http://progressed.io/bar/100) ICA 内核训练集生成算法优化。20190317 功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313 功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100) ICA 内核训练集生成算法优化。20190317 功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 基于贝叶斯统计RNN函数集，通过频率排序进行函数校准，并进行动词的特殊用法修正。20190319 功能作者 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 一种罗氏教育评估图灵机1.0如下：基于ANN的训练形谓词比的核心率进行贝叶斯结果分析。20190323 功能作者 罗瑶光。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  病句分析非常完善：基于 《双向马可夫词性 POS 打分修正策略》。功能作者： 罗瑶光
@@ -94,8 +94,8 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/beh
 
 ## 功能：
 ##### ![实例](http://progressed.io/bar/5)正在做功能： Unit test case。
-##### ![实例](http://progressed.io/bar/92)正在做功能：倾向判断的情态语料库。
-##### ![实例](http://progressed.io/bar/92)正在做功能：动机判断的情态语料库。
+##### ![实例](http://progressed.io/bar/92)正在做功能：商业应用布局。
+##### ![实例](http://progressed.io/bar/92)正在做功能：
 ##### ![实例](http://progressed.io/bar/66)正在做功能：正在做趋势推导，判断打分预测。
 
 
@@ -106,7 +106,7 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/beh
 ######  未完善功能：支持训练。
 ######  未完善功能：带变异性特征进化。
 ######  未完善功能：新词搜索互联网更新词库功能。
-######  未完善功能：功能接口计划。
+######  未完善功能：商业对象接口计划。
 ######  未完善功能：线程分词的内存实时检测。
 ######  未完善功能：等等。
 
