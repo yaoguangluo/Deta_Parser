@@ -32,9 +32,9 @@
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  搜索词语非常迅捷：基于 《2分法搜索 欧基里德距离 进行 位运算散列存储 字符集数据森林》。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  匹配词语非常精准：基于 《决策树深度 NLP 正向隐马可夫匹配》。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  词频统计接近光速：基于《线性科学最强的快排第6代的基础上作者进行以作者名字命名的小高峰过滤法修正算法，导致快排6的速度再翻2倍》。 
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度：每秒高达1300万中文简体字准确分词。 因为通过国际SONAR最高认证，牺牲了程序执行时间十分之三的速度效率（自行修改去掉sonar认知模式可达1700万字分词每秒，性能比应该是世界第二，世界第一赠给高斯林先生，因为我用的是java，没办法）。 测试环境（win7， 64位， 16g ram，intel i5-7500）功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度：每秒高达1300万中文简体字准确分词。 因为通过国际SONAR最高认证，牺牲了程序执行时间十分之三的速度效率（自行修改去掉sonar认知模式可达1700万字分词每秒，性能比应该是世界第二，世界第一赠给高斯林先生，因为我用的是java，没办法）。 测试环境（win7， 64位， 16g ram，intel i5-7500） 20181208 功能作者： 罗瑶光
 https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/test
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒1700万 ~ 2700万中英文混合常规格式分词。（每毫秒分20,000字+）功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒1700万 ~ 2700万中英文混合常规格式分词。（每毫秒分20,000字+）20181211 功能作者：罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度每秒高达900万词语的中文词性索引。（Part Of Speech, POS），功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  机制为分词和词性分析可拆分使用。采用一次实例，多并发执行思想。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  词库：多达23700+的中文语料库精确简体中文词汇，有效的辨别新词。功能作者： 罗瑶光
@@ -47,8 +47,10 @@ https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/tes
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  VPC进化到VPCS, 静态分流加速每秒又多增100万分词。功能作者： 罗瑶光
 
 ## 主题二： 词感
-##### ![实例](http://progressed.io/bar/100) 一种罗氏教育评估图灵机1.0如下：基于ANN的训练形谓词比的核心率进行贝叶斯结果分析。20190323 功能作者 罗瑶光。
+##### ![实例](http://progressed.io/bar/100) ICA 内核训练集生成算法优化。20190317 功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313 功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 基于贝叶斯统计RNN函数集，通过频率排序进行函数校准，并进行动词的特殊用法修正。20190319 功能作者 罗瑶光
+##### ![实例](http://progressed.io/bar/100) 一种罗氏教育评估图灵机1.0如下：基于ANN的训练形谓词比的核心率进行贝叶斯结果分析。20190323 功能作者 罗瑶光。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  病句分析非常完善：基于 《双向马可夫词性 POS 打分修正策略》。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：情感语料库第一版本未修正版本。 Mr.Yaoguang.Luo
 注意1：该正面，褒义，负面，贬义，中性情感语料库有一定比重的表达作者的主观判断，比如思维误差，肯定环境，否定环境，哲学精神论等，如果引起不适，请慎重使用和借鉴修改。如果该情感库对第三方导致任何工程问题，作者不做任何解释和负法律责任。
@@ -56,7 +58,8 @@ https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/tes
 注意3: 多语意识场合，该情态库不做任何情形分类评估标准，也不做引导性评估。
 ##### ![实例](http://progressed.io/bar/100) 基于 HMM matrix 进行nomarlization 然后做 未优化的 ANN 简单 训练版本 map reduce 测试。功能作者： 罗瑶光
 https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sensing/test/ANNTest.java
-##### ![实例](http://progressed.io/bar/100) 德塔意识图灵机项目已经启动。 20190313功能作者： 罗瑶光
+
+
 
 ## 主题三： 词境
 ##### ![实例](http://progressed.io/bar/100) 基于环境，场合，动机，目的，倾向和预判评估进行自然语言第6感意识分析。 功能作者： 罗瑶光
@@ -72,16 +75,17 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/wordSegment/org/tinos/eng
 ##### ![实例](http://progressed.io/bar/100) 情感集图灵算子进行认知化。下一步进行带训练集意识加工处理为ICA做预处理。 20190315功能作者： 罗瑶光
 
 ## 主题四： 词灵
-##### ![实例](http://progressed.io/bar/20) 资本运作，消费评估，购买力分析的商业体系已经启动。 20190324 功能作者 罗瑶光。
-##### ![实例](http://progressed.io/bar/40) 接受教育能力行为训练工程已经启动。 20190321 功能作者 罗瑶光。 目标预计每秒分析700万字文章。
-https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/EducationLevelTest.java
-##### ![实例](http://progressed.io/bar/100) 一种简洁快速的文章文学周期性价比率研究。20190322 功能作者 罗瑶光。
-https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/LiterarinessLevelTest.java
-##### ![实例](http://progressed.io/bar/100) 第一次语料库森林进行序列化优化已完成（分词速度提高1.5%），导致ICA内核生成速度翻倍。20190320 功能作者 罗瑶光。
-##### ![实例](http://progressed.io/bar/100) ICA 内核训练集生成算法优化。20190317 
 ##### ![实例](http://progressed.io/bar/100) 一种基于 ANN{Summing, Emotion, Motivation, Environment} * RNN{Covex, Euclid, POS} = DNN{LWA，Entropy} 罗氏读心术已经更新并进行了图灵算子优化。 20190314 功能作者： 罗瑶光
 ![实例](https://github.com/yaoguangluo/Nero_Parser/blob/master/deta_mind_reading.png)
 https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sensing/test/DNNTest.java
+##### ![实例](http://progressed.io/bar/40) 接受教育能力行为训练工程已经启动。 20190321 功能作者 罗瑶光。 目标预计每秒分析700万字文章。
+https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/EducationLevelTest.java
+##### ![实例](http://progressed.io/bar/20) 资本运作，消费评估，购买力分析的商业体系已经启动。 20190324 功能作者 罗瑶光。
+##### ![实例](http://progressed.io/bar/100) 第一次语料库森林进行序列化优化已完成（分词速度提高1.5%），导致ICA内核生成速度翻倍。20190320 功能作者 罗瑶光。
+##### ![实例](http://progressed.io/bar/100) 一种简洁快速的文章文学周期性价比率研究。20190322 功能作者 罗瑶光。
+https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/LiterarinessLevelTest.java
+
+
 
 
 
