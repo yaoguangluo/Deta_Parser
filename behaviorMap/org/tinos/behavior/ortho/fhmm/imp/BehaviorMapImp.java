@@ -26,7 +26,7 @@ public class BehaviorMapImp implements BehaviorMap{
 	}
 
 	@Override
-	public Map<String, String> initCoorpoerationMap() throws IOException {
+	public Map<String, String> initCoorporationMap() throws IOException {
 		return null;
 	}
 
