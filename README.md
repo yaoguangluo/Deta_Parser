@@ -80,6 +80,7 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/beh
 ##### ![实例](http://progressed.io/bar/100) 一种简洁快速的文章文学周期性价比率研究。20190322 功能作者 罗瑶光。
 https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/LiterarinessLevelTest.java
 ##### ![实例](http://progressed.io/bar/20) 资本运作，消费评估，购买力分析的商业体系已经启动。 20190324 功能作者 罗瑶光。
+商业开发将在官方网站展示：http://tinos.qicp.vip/
 
 
 
