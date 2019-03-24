@@ -1,7 +1,9 @@
 # 🔥20,000/ms word segment for text mining of NLP, POS, AI and Deep learning/每秒中文混合分词1300~2700万词汇的高精准确率快速神经网络分词包. 训练词意分析, 词感分析, 词境分析, 词灵分析并自由扩充词库
 
-## 版本号：10.5.6 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （ICA 内核矩阵运算生成算法进行训练集采样处理优化）。
-##### ![实例](http://progressed.io/bar/20) 接受教育能力行为训练工程已经启动。 20190321 功能作者 罗瑶光。 目标预计每秒分析700万字文章。
+## 版本号：10.5.7 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （ICA 内核矩阵运算生成算法进行训练集采样处理优化）。
+##### ![实例](http://progressed.io/bar/40) 接受教育能力行为训练工程已经启动。 20190321 功能作者 罗瑶光。 目标预计每秒分析700万字文章。
+##### ![实例](http://progressed.io/bar/100) 一种罗氏教育评估图灵机1.0如下：基于ANN的训练形谓词比的核心率进行贝叶斯结果分析。20190323 功能作者 罗瑶光。
+https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/EducationLevelTest.java
 ##### ![实例](http://progressed.io/bar/100) 一种简洁快速的文章文学周期性价比率研究。20190322 功能作者 罗瑶光。
 https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/LiterarinessLevelTest.java
 ##### ![实例](http://progressed.io/bar/100) 第一次语料库森林进行序列化优化已完成（分词速度提高1.5%），导致ICA内核生成速度翻倍。20190320 功能作者 罗瑶光。
@@ -65,6 +67,7 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/emotionMap/org/tinos/emot
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  病句分析非常完善：基于 《双向马可夫词性 POS 打分修正策略》。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  词频统计接近光速：基于《线性科学最强的快排第6代的基础上作者进行以作者名字命名的小高峰过滤法修正算法，导致快排6的速度再翻2倍》。 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度：每秒高达1300万中文简体字准确分词。 因为通过国际SONAR最高认证，牺牲了程序执行时间十分之三的速度效率（自行修改去掉sonar认知模式可达1700万字分词每秒，性能比应该是世界第二，世界第一赠给高斯林先生，因为我用的是java，没办法）。 测试环境（win7， 64位， 16g ram，intel i5-7500）功能作者： 罗瑶光
+https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/test
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒1700万 ~ 2700万中英文混合常规格式分词。（每毫秒分20,000字+）功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度每秒高达900万词语的中文词性索引。（Part Of Speech, POS），功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  机制为分词和词性分析可拆分使用。采用一次实例，多并发执行思想。功能作者： 罗瑶光
