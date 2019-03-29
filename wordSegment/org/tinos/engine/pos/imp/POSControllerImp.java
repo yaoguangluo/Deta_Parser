@@ -542,7 +542,8 @@ public class POSControllerImp implements POSController {
 	public int chuLiMingCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength,
 			String[] strings, StringBuilder[] fixWord) {
 		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())) {
-			if (wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_XING_WEI_CI)) {
+			if (wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_XING_WEI_CI)
+					||wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_MING_CI)) {
 				countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord
 						, wordsForest);
 				return countInputStringLength;
