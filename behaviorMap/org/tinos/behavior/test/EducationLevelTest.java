@@ -1,14 +1,17 @@
 package org.tinos.behavior.test;
 import java.io.IOException;
 import org.tinos.behavior.ICA.EducationRatio;
+import org.tinos.view.stable.StableData;
 public class EducationLevelTest{
 	double[] EducationLevel;
 	double EducationDuration;
 	public void getEducationLevel(double[][] measurement) {
 		EducationLevel = new double[measurement.length];
-		for(int i = 0; i < measurement.length; i++) {
-			EducationLevel[i] = (measurement[i][3] + measurement[i][4])/(measurement[i][1] + measurement[i][2] 
-					+ measurement[i][3] + measurement[i][4]+ measurement[i][5]);
+		for(int i = StableData.INT_ZERO; i < measurement.length; i++) {
+			EducationLevel[i] = (measurement[i][StableData.INT_THREE] + measurement[i][StableData.INT_FOUR])
+					/(measurement[i][StableData.INT_ONE] + measurement[i][StableData.INT_TWO] 
+					+ measurement[i][StableData.INT_THREE] + measurement[i][StableData.INT_FOUR]
+							+ measurement[i][StableData.INT_FIVE]);
 			EducationDuration += EducationLevel[i];
 			System.out.println("EducationLevel:" +EducationLevel[i]);
 		}

@@ -1,17 +1,17 @@
 package org.tinos.behavior.test;
-
-
 import java.io.IOException;
 
 import org.tinos.behavior.ICA.InitBehaviorICAKernel;
+import org.tinos.view.stable.StableData;
 
 public class LiterarinessLevelTest{
 	double[] literarinessLevel;
 	double literarinessDuration;
 	public void getEducationLevel(double[][] measurement) {
 		literarinessLevel = new double[measurement.length];
-		for(int i = 0; i < measurement.length; i++) {
-			literarinessLevel[i]=(measurement[i][0]*measurement[i][3])/measurement[i][1];
+		for(int i = StableData.INT_ZERO; i < measurement.length; i++) {
+			literarinessLevel[i]=(measurement[i][StableData.INT_ZERO]*measurement[i][StableData.INT_THREE])
+					/measurement[i][StableData.INT_ONE];
 			literarinessDuration+=literarinessLevel[i];
 			System.out.println("literarinessLevel:" +literarinessLevel[i]);
 		}

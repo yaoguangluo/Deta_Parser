@@ -1,6 +1,7 @@
 package org.tinos.behavior.ICA;
 
 import java.io.IOException;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -18,46 +19,46 @@ public class EducationRatio{
 		Map<String, String> pos = analyzer.getPosCnToCn();
 		List<String> sets = analyzer.parserString(text);
 		Map<Integer, WordFrequency> map = analyzer.getWordFrequencyByReturnSortMap(sets);
-		double[] output = new double[7];
-		output[0] = sets.size();
+		double[] output = new double[StableData.INT_SEVEN];
+		output[StableData.INT_ZERO] = sets.size();
 		Iterator<Integer> iterator = map.keySet().iterator();
 		Here:
-		while(iterator.hasNext()) {
-			WordFrequency wordFrequency = map.get(iterator.next());
-			if(!pos.containsKey(wordFrequency.getWord())) {
-				continue Here;
-			}
-			if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_MING)){
-				output[1]+=1;
-				continue Here;
-			}
-			if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_DONG)){
-				output[2]+=1;
-				continue Here;
-			}
-			if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_WEI)){
-				output[4]+=1;
-				continue Here;
-			}
-			if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_XING)){
-				output[3]+=1;
-				continue Here;
-			}
-			if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_FU)){
-				output[5]+=1;
-				continue Here;
-			}
-			if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_JIE)){
-				output[6]+=1;
-			}
-		}	
+			while(iterator.hasNext()) {
+				WordFrequency wordFrequency = map.get(iterator.next());
+				if(!pos.containsKey(wordFrequency.getWord())) {
+					continue Here;
+				}
+				if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_MING)){
+					output[StableData.INT_ONE]+=StableData.INT_ONE;
+					continue Here;
+				}
+				if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_DONG)){
+					output[StableData.INT_TWO]+=StableData.INT_ONE;
+					continue Here;
+				}
+				if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_WEI)){
+					output[StableData.INT_FOUR]+=StableData.INT_ONE;
+					continue Here;
+				}
+				if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_XING)){
+					output[StableData.INT_THREE]+=StableData.INT_ONE;
+					continue Here;
+				}
+				if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_FU)){
+					output[StableData.INT_FIVE]+=StableData.INT_ONE;
+					continue Here;
+				}
+				if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_JIE)){
+					output[6]+=1;
+				}
+			}	
 		return output;
 	}
-	
+
 	public double[] getEducationRatioKernel(double[] input) {
 		double[] output=new double[input.length];
-		for(int i=0;i<input.length;i++) {
-			output[i]=input[i]/input[0];
+		for(int i=StableData.INT_ZERO;i<input.length;i++) {
+			output[i]=input[i]/input[StableData.INT_ZERO];
 		}
 		return output;
 	}

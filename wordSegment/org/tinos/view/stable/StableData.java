@@ -59,6 +59,10 @@ public interface StableData {
 	public static final int INT_TEN = 10;
 	public static final int INT_EIGHT = 8;
 	public static final int INT_NINE = 9;
+	public static final int INT_ELEVEN = 11;
+	public static final int INT_TWELVE = 12;
+	public static final int INT_THIRTEEN = 13;
+	public static final int INT_FOURTEEN = 14;
 	public static final int INT_NINTY = 90;
 	public static final int INT_NINTY_SEVEN = 97;
 	public static final int INT_ONE_TWO_EIGHT = 128;
@@ -94,4 +98,5 @@ public interface StableData {
 	
 	public static final String WORDS_SOURSE_LINK_EN_TO_CN = "ec.lyg";
 	public static final String WORDS_SOURSE_LINK_CN_TO_EN = "ce.lyg";
+
 }

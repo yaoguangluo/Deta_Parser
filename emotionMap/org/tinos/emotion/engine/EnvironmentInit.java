@@ -147,7 +147,6 @@ public class EnvironmentInit{
 	private double totalCount;
 	@SuppressWarnings("unused")
 	public static void main(String[] argv) throws IOException {
-		//init
 		String text = "关于成瘾性的戒除方式，上瘾在医学上普遍定义为一种具有精神依赖并长期导致健康危害性的行为。\r\n" + 
 				"关于成瘾的溯源有很多因素，其中最重要的是依赖。因为长期的依赖导致自身某种缺陷逐渐丧失而\r\n" + 
 				"对成瘾物体产生不可替代性。通过这个推论，可以初步来定义戒断瘾欲，最有效的方式是替代和引导。\r\n" + 
@@ -174,14 +173,12 @@ public class EnvironmentInit{
 		emotionMap.initTrendingMap();
 		emotionMap.initPredictionMap();
 		emotionMap.initDistinctionMap();
-		//parser sentence
 		analyzer = new CogsBinaryForestAnalyzerImp();
 		analyzer.init();
 		motivation = emotionMap.getMotivationMap();
 		trending = emotionMap.getTrendingMap();
 		prediction = emotionMap.getPredictionMap();
 		distinction = emotionMap.getDistinctionMap();
-		//map
 		sets = analyzer.parserString(text);
 		wordFrequencyMap = analyzer.getWordFrequencyByReturnSortMap(sets);
 		rationMap = new RatioMapImp();
@@ -199,12 +196,10 @@ public class EnvironmentInit{
 		emotionMap.initPredictionMap();
 		emotionMap.initDistinctionMap();
 		analyzer = analyzerInput;
-		//parser sentence
 		motivation = emotionMap.getMotivationMap();
 		trending = emotionMap.getTrendingMap();
 		prediction = emotionMap.getPredictionMap();
 		distinction = emotionMap.getDistinctionMap();
-		//map
 		sets = analyzerInput.parserString(text);
 		wordFrequencyMap = analyzerInput.getWordFrequencyByReturnSortMap(sets);
 		rationMap = new RatioMapImp();
@@ -237,12 +232,10 @@ public class EnvironmentInit{
 	
 	public void initFromEmotionExcludeEmotion(Map<Integer, WordFrequency> getWordFrequencyMap, EmotionMap emotionMapInput) throws IOException {
 		emotionMap = emotionMapInput;
-		//parser sentence
 		motivation = emotionMap.getMotivationMap();
 		trending = emotionMap.getTrendingMap();
 		prediction = emotionMap.getPredictionMap();
 		distinction = emotionMap.getDistinctionMap();
-		//map
 		rationMap = new RatioMapImp();
 		emotionSampleMap = rationMap.getEnvironmentSampleMap(getWordFrequencyMap);
 		rationMap.getMotivation(emotionSampleMap, motivation);

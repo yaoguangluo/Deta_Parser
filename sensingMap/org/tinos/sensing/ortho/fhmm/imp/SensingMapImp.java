@@ -1,15 +1,10 @@
 package org.tinos.sensing.ortho.fhmm.imp;
-
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
 import org.tinos.engine.analysis.Analyzer;
 import org.tinos.sensing.ortho.fhmm.SensingMap;
-
-
 public class SensingMapImp implements SensingMap{
 	private Map<String, Object> lenovoMap;
 	
@@ -20,8 +15,7 @@ public class SensingMapImp implements SensingMap{
 
 	@Override
 	public void setLenovoMap(Map<String, Object> lenovoMap) {
-		
-		
+		 this.lenovoMap = lenovoMap;
 	}
 
 	@Override

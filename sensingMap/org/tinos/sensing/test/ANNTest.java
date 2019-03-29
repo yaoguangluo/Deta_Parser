@@ -14,7 +14,7 @@ public class ANNTest{
 				sum += Double.valueOf(AnnMatrix[j][i]);
 			}
 			if(sum >= 0.6) {
-				System.out.println(AnnMatrix[j][0]+AnnMatrix[j][1] + AnnMatrix[j][2]+AnnMatrix[j][3]+"ANN:" + sum);
+				System.out.println(AnnMatrix[j][0]+AnnMatrix[j][1] + AnnMatrix[j][2] + AnnMatrix[j][3] + "ANN:" + sum);
 			}
 		}
 	}
@@ -24,12 +24,6 @@ public class ANNTest{
 		//SUM OF ANN MAP CULUMN KERNEL
 		String[][] preAnnMatrix = sensingTest.getMatrix();
 		String[][] AnnMatrix = new DETA_ANN_HMM().summingProcessor(preAnnMatrix);	
-//		for(int j = 0; j < AnnMatrix.length; j++) {
-//			for(int i = 0; i < AnnMatrix[0].length; i++) {
-//				//System.out.print(" " + AnnMatrix[j][i]);
-//			}
-//			//System.out.println("");
-//		}
 		return AnnMatrix;
 	}
 
@@ -38,12 +32,6 @@ public class ANNTest{
 		//SUM OF ANN MAP CULUMN KERNEL
 		String[][] preAnnMatrix = sensingTest.getMatrix(string, analyzer);
 		String[][] AnnMatrix = new DETA_ANN_HMM().summingProcessor(preAnnMatrix);	
-//		for(int j = 0; j < AnnMatrix.length; j++) {
-//			for(int i = 0; i < AnnMatrix[0].length; i++) {
-//				//System.out.print(" " + AnnMatrix[j][i]);
-//			}
-//			//System.out.println("");
-//		}
 		return AnnMatrix;
 	}
 }

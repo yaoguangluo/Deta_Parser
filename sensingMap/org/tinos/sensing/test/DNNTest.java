@@ -37,7 +37,8 @@ public class DNNTest{
 		String[][] dNNMatrix = new DETA_DNN().summingProcessor(ann, rNN_IDETest.getIDEMatrix());	
 		return dNNMatrix;
 	}
-	public String[][] getDNNMatrix(String[][] ann, Analyzer analyzer, String string) throws IOException, InstantiationException, IllegalAccessException{
+	public String[][] getDNNMatrix(String[][] ann, Analyzer analyzer, String string) throws IOException, InstantiationException
+	, IllegalAccessException{
 		RNN_IDETest rNN_IDETest = new RNN_IDETest();
 		String[][] dNNMatrix = new DETA_DNN().summingProcessor(ann, rNN_IDETest.getIDEMatrixExcludeAnalyzer(analyzer, string));	
 		return dNNMatrix;
