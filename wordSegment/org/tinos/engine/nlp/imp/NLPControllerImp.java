@@ -77,6 +77,12 @@ public class NLPControllerImp implements NLPController {
 					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);
 			return countInputLength;
 		}
+		if (wordsForest.containsKey(inputString)) {
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(inputString);
+			outputList.add(inputString);
+			return countInputLength;
+		}
 		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_LIAN_CI)) {
 			countInputLength = posUtils.chuLiLianCiOfThree(wordsForest, outputList, countInputLength
 					, strings, prefixWord);
@@ -95,12 +101,6 @@ public class NLPControllerImp implements NLPController {
 		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_LIANG_CI)) {
 			countInputLength = posUtils.chuLiLiangCiOfThree(wordsForest, outputList, countInputLength
 					, strings, prefixWord);
-			return countInputLength;
-		}
-		if (wordsForest.containsKey(inputString)) {
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(inputString);
-			outputList.add(inputString);
 			return countInputLength;
 		}
 		StringBuilder stringsBuilder = new StringBuilder();

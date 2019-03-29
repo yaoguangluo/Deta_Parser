@@ -73,6 +73,7 @@ public interface StableData {
 	public static final String RAW_TYPES = "rawtypes";
 	public static final String EMPTY_STRING = "";
 	public static final String SPACE_STRING = " ";
+	public static final String SPACE_STRING_DISTINCTION = "  ";
 	public static final String UNCHECKED = "unchecked";
 	public static final String GBK_STRING = "GBK";
 	public static final String UTF8_STRING = "UTF8";
@@ -98,5 +99,4 @@ public interface StableData {
 	
 	public static final String WORDS_SOURSE_LINK_EN_TO_CN = "ec.lyg";
 	public static final String WORDS_SOURSE_LINK_CN_TO_EN = "ce.lyg";
-
 }

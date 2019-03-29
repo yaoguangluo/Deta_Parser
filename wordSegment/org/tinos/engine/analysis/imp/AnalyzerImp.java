@@ -50,7 +50,7 @@ public class AnalyzerImp implements Analyzer {
 	}
 
 	public List<String> parserMixedString(String mixedString) {
-		mixedString += "  ";
+		mixedString += StableData.SPACE_STRING_DISTINCTION;
 		int inputStringLength = mixedString.length();
 		List<String> outputList = new LinkedList<>();
 		int forestDepth = StableData.INT_ZERO;
@@ -75,7 +75,7 @@ public class AnalyzerImp implements Analyzer {
 				}
 				if(find == StableData.INT_ONE) {
 					find = StableData.INT_ZERO;
-					Iterator<String> it=fHMMList.englishStringToWordsList(fixWords[StableData.INT_ZERO].toString()).iterator();
+					Iterator<String> it = fHMMList.englishStringToWordsList(fixWords[StableData.INT_ZERO].toString()).iterator();
 					while(it.hasNext()) {
 						String temp=it.next();
 						outputList.add(temp);	
@@ -178,7 +178,7 @@ public class AnalyzerImp implements Analyzer {
 			}
 		return outputList;
 	}
-	
+
 	public Map<String, WordFrequency> parserStringByReturnFrequencyMap(String inputString) {
 		Map<String, String> wordsForest = fHMMList.getPosCnToCn();
 		Map<String, WordFrequency> outputList = new ConcurrentHashMap<>();
@@ -220,6 +220,12 @@ public class AnalyzerImp implements Analyzer {
 						, charPosition + StableData.INT_ONE);
 				String countWordNode = stringBuilder.toString();
 				int compare = countInputStringLength = countWordNode.length();
+				if (compare == StableData.INT_ONE) {
+					WordFrequencyUtil.WordFrequencyCompareCheck(outputList, fixWords, countWordNode);
+					fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
+					fixWords[StableData.INT_ZERO].append(countWordNode);
+					continue Here;
+				}
 				if (compare == StableData.INT_TWO) {
 					countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoCharForMap(countInputStringLength
 							, outputList, stringBuilder, wordsForest, fixWords, posController);
@@ -229,12 +235,6 @@ public class AnalyzerImp implements Analyzer {
 					addFixWords(charPosition, inputString, fixWords);
 					countInputStringLength = nlpController.doPOSAndEMMCheckOfThreeForMap(countInputStringLength, outputList
 							, wordsForest, stringBuilder, fixWords, posController);
-					continue Here;
-				}
-				if (compare == StableData.INT_ONE) {
-					WordFrequencyUtil.WordFrequencyCompareCheck(outputList, fixWords, countWordNode);
-					fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
-					fixWords[StableData.INT_ZERO].append(countWordNode);
 					continue Here;
 				}
 				if (compare == StableData.INT_FOUR) {
