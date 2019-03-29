@@ -11,7 +11,8 @@ public class POSControllerImp implements POSController {
 	public int chuLiBaDongCiOfTwo(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength,
 			String[] strings, StringBuilder[] prefixWord) {
 		if (wordsForest.containsKey(prefixWord[StableData.INT_ZERO].toString())) {
-			if (wordsForest.get(prefixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_DAI_CI)) {
+			if (wordsForest.get(prefixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_DAI_CI)
+					||wordsForest.get(prefixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_FU_CI)) {
 				countInputStringLength = parserFirstCharOfTwo(countInputStringLength, outputList, strings, prefixWord);
 				return countInputStringLength;
 			}
@@ -535,6 +536,27 @@ public class POSControllerImp implements POSController {
 			countInputStringLength += StableData.INT_TWO;
 			return countInputStringLength;
 		}
+		return countInputStringLength;
+	}
+
+	public int chuLiMingCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength,
+			String[] strings, StringBuilder[] fixWord) {
+		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())) {
+			if (wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_XING_WEI_CI)) {
+				countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord
+						, wordsForest);
+				return countInputStringLength;
+			} 
+		}
+		if (wordsForest.containsKey(strings[StableData.INT_ONE])) {
+			outputList.add(strings[StableData.INT_ONE]);
+			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
+			countInputStringLength = StableData.INT_TWO;
+			return countInputStringLength;
+		}
+		countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord
+				, wordsForest);
 		return countInputStringLength;
 	}
 }

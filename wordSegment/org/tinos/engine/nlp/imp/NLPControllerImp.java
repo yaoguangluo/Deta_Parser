@@ -103,6 +103,11 @@ public class NLPControllerImp implements NLPController {
 					, strings, prefixWord);
 			return countInputLength;
 		}
+		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_MING_CI)) {
+			countInputLength = posUtils.chuLiMingCiOfThree(wordsForest, outputList, countInputLength
+					, strings, prefixWord);
+			return countInputLength;
+		}
 		StringBuilder stringsBuilder = new StringBuilder();
 		countInputLength = doSlangPartAndPOSCheckForTwoChar(--countInputLength, outputList
 				, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);

@@ -49,5 +49,8 @@ public interface POSController {
 
 	int chuLiBaDongCiOfTwo(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength,
 			String[] strings, StringBuilder[] prefixWord);
+
+	int chuLiMingCiOfThree(Map<String, String> wordsForest, List<String> outputList
+			, int countInputStringLength, String[] strings, StringBuilder[] prefixWord);
 }
 

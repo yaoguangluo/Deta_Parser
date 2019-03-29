@@ -13,6 +13,7 @@ public interface StableData {
 	public static final String NLP_MING_CI = "名词";
 	public static final String NLP_JIE_CI = "介词";
 	public static final String NLP_WEI_CI = "谓词";
+	public static final String NLP_XING_WEI_CI = "形谓词";
 	public static final String NLP_SHENG_LUE_CI = "省略词";
 	public static final String NLP_XIAN_DING_CI = "限定词";
 	public static final String NLP_FU_SHU = "复数";
