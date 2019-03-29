@@ -83,45 +83,45 @@ public class SensingTest{
 		rationMap.getGuessRatio(emotionSampleMap);
 		rationMap.getSensingRatio(emotionSampleMap);
 		//output
-		System.out.println("正面：" + positiveCount);
-		System.out.println("中面：" + medCount);
-		System.out.println("负面：" + negativeCount);
-		System.out.println("情感比率：" + emotionRatio);
+		//System.out.println("正面：" + positiveCount);
+		//System.out.println("中面：" + medCount);
+		//System.out.println("负面：" + negativeCount);
+		//System.out.println("情感比率：" + emotionRatio);
 		String[][] DNNMatrix = new String[emotionSampleMap.size()][15];
 		Iterator<String> Iterator = emotionSampleMap.keySet().iterator();
 		int count = 0;
 		while(Iterator.hasNext()) {
 			String word = Iterator.next();
 			EmotionSample emotionSample = emotionSampleMap.get(word);
-			System.out.print(word + ":");
+			//System.out.print(word + ":");
 			DNNMatrix[count][0]=word;
-			System.out.print("动机：" + emotionSample.getMotivation());
+			//System.out.print("动机：" + emotionSample.getMotivation());
 			DNNMatrix[count][1]=emotionSample.getMotivation();
-			System.out.print("倾向：" + emotionSample.getTrending());
+			//System.out.print("倾向：" + emotionSample.getTrending());
 			DNNMatrix[count][2]=emotionSample.getTrending();
-			System.out.println("预测：" + emotionSample.getPrediction());
+			//System.out.println("预测：" + emotionSample.getPrediction());
 			DNNMatrix[count][3]= emotionSample.getPrediction();
-			System.out.print("正面：" + emotionSample.getPositiveCount());
+			//System.out.print("正面：" + emotionSample.getPositiveCount());
 			DNNMatrix[count][4]= "" + emotionSample.getPositiveCount();
-			System.out.print("中面：" + emotionSample.getMedCount());
+			//System.out.print("中面：" + emotionSample.getMedCount());
 			DNNMatrix[count][5]= "" + emotionSample.getMedCount();
-			System.out.print("负面：" + emotionSample.getNegativeCount());
+			//System.out.print("负面：" + emotionSample.getNegativeCount());
 			DNNMatrix[count][6]="" + emotionSample.getNegativeCount();
-			System.out.print("情感：" + (int)(emotionSample.getEmotionRatio()*10000));
+			//System.out.print("情感：" + (int)(emotionSample.getEmotionRatio()*10000));
 			DNNMatrix[count][7]="" + (int)(emotionSample.getEmotionRatio()*10000);
-			System.out.print("动机：" + (int)(emotionSample.getMotivationRatio()*100000));
+			//System.out.print("动机：" + (int)(emotionSample.getMotivationRatio()*100000));
 			DNNMatrix[count][8]="" + (int)(emotionSample.getMotivationRatio()*100000);
-			System.out.print("关联：" + (int)(emotionSample.getCorrelationRatio()*10000));
+			//System.out.print("关联：" + (int)(emotionSample.getCorrelationRatio()*10000));
 			DNNMatrix[count][9]="" + (int)(emotionSample.getCorrelationRatio()*10000);
-			System.out.print("韧性：" + (int)(emotionSample.getContinusRatio()*10));
+			//System.out.print("韧性：" + (int)(emotionSample.getContinusRatio()*10));
 			DNNMatrix[count][10]="" + (int)(emotionSample.getContinusRatio()*10);
-			System.out.print("趋势：" + (int)(emotionSample.getTrendsRatio()*100000));
+			//System.out.print("趋势：" + (int)(emotionSample.getTrendsRatio()*100000));
 			DNNMatrix[count][11]="" + (int)(emotionSample.getTrendsRatio()*100000);
-			System.out.print("预测：" + (int)(emotionSample.getPredictionRatio()*10000*1000));
+			//System.out.print("预测：" + (int)(emotionSample.getPredictionRatio()*10000*1000));
 			DNNMatrix[count][12]="" + (int)(emotionSample.getPredictionRatio()*10000*1000);
-			System.out.print("猜测：" + (int)(emotionSample.getGuessRatio()*100000*100000));
+			//System.out.print("猜测：" + (int)(emotionSample.getGuessRatio()*100000*100000));
 			DNNMatrix[count][13]="" + (int)(emotionSample.getGuessRatio()*100000*100000);
-			System.out.println("冥想：" + (int)(emotionSample.getSensingRatio()*100000));	
+			//System.out.println("冥想：" + (int)(emotionSample.getSensingRatio()*100000));	
 			DNNMatrix[count][14]="" + (int)(emotionSample.getSensingRatio()*100000);
 			count++;
 		}
@@ -132,4 +132,88 @@ public class SensingTest{
 		SensingTest sensingTest = new SensingTest();
 		sensingTest.getMatrix();
 	}
+
+	public String[][] getMatrix(String text, Analyzer analyzer) throws IOException {
+		//init
+		EmotionMap emotionMap = new EmotionMapImp(); 
+		emotionMap.initMotivationMap();
+		emotionMap.initNegativeMap();
+		emotionMap.initPositiveMap();
+		emotionMap.initTrendingMap();
+		emotionMap.initPredictionMap();
+		pos = analyzer.getPosCnToCn();
+		//Map<String, String> cnToEn = analyzer.getFullCnToEn();
+		Map<String, Object> positive = emotionMap.getPositiveMap();
+		Map<String, Object> negative = emotionMap.getNegativeMap();
+		Map<String, Object> motivation = emotionMap.getMotivationMap();
+		Map<String, Object> trending = emotionMap.getTrendingMap();
+		Map<String, Object> prediction = emotionMap.getPredictionMap();
+		//map
+		sets = analyzer.parserString(text);
+		Map<Integer, WordFrequency> wordFrequencyMap = analyzer.getWordFrequencyByReturnSortMap(sets);
+		RatioMap rationMap = new RatioMapImp();
+		Map<String, EmotionSample> emotionSampleMap = rationMap.getEmotionSampleMap(wordFrequencyMap, positive, negative);
+		double positiveCount = rationMap.findTotalPositiveCount(emotionSampleMap);
+		double negativeCount = rationMap.findTotalNegativeCount(emotionSampleMap);
+		double totalCount = rationMap.findTotalKeyCount(emotionSampleMap);
+		double medCount = totalCount - (positiveCount + negativeCount);
+		rationMap.getMotivation(emotionSampleMap, motivation);
+		rationMap.getTrending(emotionSampleMap, trending);
+		rationMap.getPrediction(emotionSampleMap,prediction);
+		rationMap.getEmotionRatio(emotionSampleMap, positiveCount, negativeCount, medCount);
+		rationMap.getMotivationRatio(emotionSampleMap, totalCount);
+		rationMap.getCorrelationRatio(emotionSampleMap,totalCount);
+		double emotionRatio = Math.abs(positiveCount/negativeCount - negativeCount/positiveCount);
+		rationMap.getContinusRatio(emotionSampleMap, emotionRatio);
+		rationMap.getTrendsRatio(emotionSampleMap);
+		rationMap.getPredictionRatio(emotionSampleMap);
+		rationMap.getGuessRatio(emotionSampleMap);
+		rationMap.getSensingRatio(emotionSampleMap);
+		//output
+//		System.out.println("正面：" + positiveCount);
+//		System.out.println("中面：" + medCount);
+//		System.out.println("负面：" + negativeCount);
+//		System.out.println("情感比率：" + emotionRatio);
+		String[][] DNNMatrix = new String[emotionSampleMap.size()][15];
+		Iterator<String> Iterator = emotionSampleMap.keySet().iterator();
+		int count = 0;
+		while(Iterator.hasNext()) {
+			String word = Iterator.next();
+			EmotionSample emotionSample = emotionSampleMap.get(word);
+		//	System.out.print(word + ":");
+			DNNMatrix[count][0]=word;
+		//	System.out.print("动机：" + emotionSample.getMotivation());
+			DNNMatrix[count][1]=emotionSample.getMotivation();
+		//	System.out.print("倾向：" + emotionSample.getTrending());
+			DNNMatrix[count][2]=emotionSample.getTrending();
+		//	System.out.println("预测：" + emotionSample.getPrediction());
+			DNNMatrix[count][3]= emotionSample.getPrediction();
+		//	System.out.print("正面：" + emotionSample.getPositiveCount());
+			DNNMatrix[count][4]= "" + emotionSample.getPositiveCount();
+		//	System.out.print("中面：" + emotionSample.getMedCount());
+			DNNMatrix[count][5]= "" + emotionSample.getMedCount();
+		//	System.out.print("负面：" + emotionSample.getNegativeCount());
+			DNNMatrix[count][6]="" + emotionSample.getNegativeCount();
+		//	System.out.print("情感：" + (int)(emotionSample.getEmotionRatio()*10000));
+			DNNMatrix[count][7]="" + (int)(emotionSample.getEmotionRatio()*10000);
+		//	System.out.print("动机：" + (int)(emotionSample.getMotivationRatio()*100000));
+			DNNMatrix[count][8]="" + (int)(emotionSample.getMotivationRatio()*100000);
+		//	System.out.print("关联：" + (int)(emotionSample.getCorrelationRatio()*10000));
+			DNNMatrix[count][9]="" + (int)(emotionSample.getCorrelationRatio()*10000);
+		//	System.out.print("韧性：" + (int)(emotionSample.getContinusRatio()*10));
+			DNNMatrix[count][10]="" + (int)(emotionSample.getContinusRatio()*10);
+		//	System.out.print("趋势：" + (int)(emotionSample.getTrendsRatio()*100000));
+			DNNMatrix[count][11]="" + (int)(emotionSample.getTrendsRatio()*100000);
+		//	System.out.print("预测：" + (int)(emotionSample.getPredictionRatio()*10000*1000));
+			DNNMatrix[count][12]="" + (int)(emotionSample.getPredictionRatio()*10000*1000);
+		//	System.out.print("猜测：" + (int)(emotionSample.getGuessRatio()*100000*100000));
+			DNNMatrix[count][13]="" + (int)(emotionSample.getGuessRatio()*100000*100000);
+		//	System.out.println("冥想：" + (int)(emotionSample.getSensingRatio()*100000));	
+			DNNMatrix[count][14]="" + (int)(emotionSample.getSensingRatio()*100000);
+			count++;
+		}
+		return DNNMatrix;
+	}
+
+
 }

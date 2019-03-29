@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import org.tinos.emotion.estimation.EmotionSample;
+import org.tinos.engine.analysis.Analyzer;
 import org.tinos.sensing.ortho.fhmm.SensingMap;
 import org.tinos.sensing.ortho.fhmm.imp.SensingMapImp;
 public class LenovoInit{
@@ -51,6 +52,13 @@ public class LenovoInit{
 	public void init(String text) throws IOException {
 		environmentInit = new EnvironmentInit();
 		environmentInit.init(text);
+		sensingMap = new SensingMapImp();
+		sensingMap.initLenovoMap(environmentInit.getAnalyzer());	
+	}
+	
+	public void initExcludeAnalyzer(String text, Analyzer analyzer) throws IOException {
+		environmentInit = new EnvironmentInit();
+		environmentInit.initExcludeAnalyzer(text, analyzer);
 		sensingMap = new SensingMapImp();
 		sensingMap.initLenovoMap(environmentInit.getAnalyzer());	
 	}

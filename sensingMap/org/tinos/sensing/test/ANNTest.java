@@ -1,5 +1,8 @@
 package org.tinos.sensing.test;
 import java.io.IOException;
+
+import org.tinos.engine.analysis.Analyzer;
+
 import NLPProcessor.DETA_ANN_HMM;
 public class ANNTest{
 	public static void main(String[] argv) throws IOException, InstantiationException, IllegalAccessException {
@@ -21,12 +24,26 @@ public class ANNTest{
 		//SUM OF ANN MAP CULUMN KERNEL
 		String[][] preAnnMatrix = sensingTest.getMatrix();
 		String[][] AnnMatrix = new DETA_ANN_HMM().summingProcessor(preAnnMatrix);	
-		for(int j = 0; j < AnnMatrix.length; j++) {
-			for(int i = 0; i < AnnMatrix[0].length; i++) {
-				System.out.print(" " + AnnMatrix[j][i]);
-			}
-			System.out.println("");
-		}
+//		for(int j = 0; j < AnnMatrix.length; j++) {
+//			for(int i = 0; i < AnnMatrix[0].length; i++) {
+//				//System.out.print(" " + AnnMatrix[j][i]);
+//			}
+//			//System.out.println("");
+//		}
+		return AnnMatrix;
+	}
+
+	public String[][] getANNMatrix(String string, Analyzer analyzer) throws IOException, InstantiationException, IllegalAccessException {
+		SensingTest sensingTest = new SensingTest();
+		//SUM OF ANN MAP CULUMN KERNEL
+		String[][] preAnnMatrix = sensingTest.getMatrix(string, analyzer);
+		String[][] AnnMatrix = new DETA_ANN_HMM().summingProcessor(preAnnMatrix);	
+//		for(int j = 0; j < AnnMatrix.length; j++) {
+//			for(int i = 0; i < AnnMatrix[0].length; i++) {
+//				//System.out.print(" " + AnnMatrix[j][i]);
+//			}
+//			//System.out.println("");
+//		}
 		return AnnMatrix;
 	}
 }

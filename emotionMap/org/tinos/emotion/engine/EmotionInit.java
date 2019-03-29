@@ -179,4 +179,21 @@ public class EmotionInit{
 		negativeCount = rationMap.findTotalNegativeCount(emotionSampleMap);
 		totalCount = rationMap.findTotalKeyCount(emotionSampleMap);
 	}
+
+	public void initExcludeAnalyzer(String text, Analyzer analyzerInput, EmotionMap emotionMapInput) throws IOException {
+		emotionMap = emotionMapInput;
+		//parser sentence
+		analyzer = analyzerInput;
+		positive = emotionMap.getPositiveMap();
+		negative = emotionMap.getNegativeMap();
+		//map
+		sets = analyzer.parserString(text);
+		wordFrequencyMap = analyzer.getWordFrequencyByReturnSortMap(sets);
+		rationMap = new RatioMapImp();
+		emotionSampleMap = rationMap.getEmotionSampleMap(wordFrequencyMap, positive, negative);
+		positiveCount = rationMap.findTotalPositiveCount(emotionSampleMap);
+		negativeCount = rationMap.findTotalNegativeCount(emotionSampleMap);
+		totalCount = rationMap.findTotalKeyCount(emotionSampleMap);
+		
+	}
 }

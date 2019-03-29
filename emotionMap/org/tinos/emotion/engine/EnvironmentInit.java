@@ -192,12 +192,51 @@ public class EnvironmentInit{
 		rationMap.getDistinction(emotionSampleMap, distinction);
 	}
 	
+	public void initExcludeAnalyzer(String text, Analyzer analyzerInput) throws IOException {
+		emotionMap = new EmotionMapImp(); 
+		emotionMap.initMotivationMap();
+		emotionMap.initTrendingMap();
+		emotionMap.initPredictionMap();
+		emotionMap.initDistinctionMap();
+		analyzer = analyzerInput;
+		//parser sentence
+		motivation = emotionMap.getMotivationMap();
+		trending = emotionMap.getTrendingMap();
+		prediction = emotionMap.getPredictionMap();
+		distinction = emotionMap.getDistinctionMap();
+		//map
+		sets = analyzerInput.parserString(text);
+		wordFrequencyMap = analyzerInput.getWordFrequencyByReturnSortMap(sets);
+		rationMap = new RatioMapImp();
+		emotionSampleMap = rationMap.getEnvironmentSampleMap(wordFrequencyMap);
+		rationMap.getMotivation(emotionSampleMap, motivation);
+		rationMap.getTrending(emotionSampleMap, trending);
+		rationMap.getPrediction(emotionSampleMap, prediction);
+		rationMap.getDistinction(emotionSampleMap, distinction);
+	}
+	
 	public void initFromEmotion(Map<Integer, WordFrequency> getWordFrequencyMap) throws IOException {
 		emotionMap = new EmotionMapImp(); 
 		emotionMap.initMotivationMap();
 		emotionMap.initTrendingMap();
 		emotionMap.initPredictionMap();
 		emotionMap.initDistinctionMap();
+		//parser sentence
+		motivation = emotionMap.getMotivationMap();
+		trending = emotionMap.getTrendingMap();
+		prediction = emotionMap.getPredictionMap();
+		distinction = emotionMap.getDistinctionMap();
+		//map
+		rationMap = new RatioMapImp();
+		emotionSampleMap = rationMap.getEnvironmentSampleMap(getWordFrequencyMap);
+		rationMap.getMotivation(emotionSampleMap, motivation);
+		rationMap.getTrending(emotionSampleMap, trending);
+		rationMap.getPrediction(emotionSampleMap, prediction);
+		rationMap.getDistinction(emotionSampleMap, distinction);
+	}
+	
+	public void initFromEmotionExcludeEmotion(Map<Integer, WordFrequency> getWordFrequencyMap, EmotionMap emotionMapInput) throws IOException {
+		emotionMap = emotionMapInput;
 		//parser sentence
 		motivation = emotionMap.getMotivationMap();
 		trending = emotionMap.getTrendingMap();

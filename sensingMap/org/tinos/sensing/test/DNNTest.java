@@ -1,5 +1,8 @@
 package org.tinos.sensing.test;
 import java.io.IOException;
+
+import org.tinos.engine.analysis.Analyzer;
+
 import NLPProcessor.DETA_DNN;
 public class DNNTest{
 	public static void main(String[] argv) throws IOException, InstantiationException, IllegalAccessException {
@@ -28,10 +31,15 @@ public class DNNTest{
 		String[][] dNNMatrix = new DETA_DNN().summingProcessor(aNNTest.getANNMatrix(), rNN_IDETest.getIDEMatrix());	
 		return dNNMatrix;
 	}
-
+	
 	public String[][] getDNNMatrix(String[][] ann) throws IOException, InstantiationException, IllegalAccessException{
 		RNN_IDETest rNN_IDETest = new RNN_IDETest();
 		String[][] dNNMatrix = new DETA_DNN().summingProcessor(ann, rNN_IDETest.getIDEMatrix());	
+		return dNNMatrix;
+	}
+	public String[][] getDNNMatrix(String[][] ann, Analyzer analyzer, String string) throws IOException, InstantiationException, IllegalAccessException{
+		RNN_IDETest rNN_IDETest = new RNN_IDETest();
+		String[][] dNNMatrix = new DETA_DNN().summingProcessor(ann, rNN_IDETest.getIDEMatrixExcludeAnalyzer(analyzer, string));	
 		return dNNMatrix;
 	}
 }
