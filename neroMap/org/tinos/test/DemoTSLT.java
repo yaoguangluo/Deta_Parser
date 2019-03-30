@@ -24,11 +24,11 @@ public class DemoTSLT {
 		Map<String, String> fce = analyzer.getFullCnToEn();
 		Map<String, String> fec = analyzer.getFullEnToCn();
 		System.out.println("输入");
-		 //String v = "如流枫之回雪，若浣花洗月";
-		 //String v = "数据一直在更新中";
-		//String v = "中国正在崛起的道路上奔跑";
-		String v = "我一直在奔跑，我需要一双翅膀！";
-		//String v = "他也一直在奔跑，他同样需要一双翅膀！";
+		 String v = "如流枫之回雪，若浣花洗月";
+////		 //String v = "数据一直在更新中";
+//		String v = "中国正在崛起的道路上奔跑";
+//		String v = "我一直在奔跑，我需要一双翅膀！";
+//		String v = "他也一直在奔跑，他同样需要一双翅膀！";
 		System.out.println(v);
 		Translator ts = new TranslatorImp();
 		ts.init(analyzer); 
