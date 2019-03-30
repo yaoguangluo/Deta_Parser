@@ -21,11 +21,11 @@ public class FMHMMListImp implements FMHMMList {
 	}
 
 	public void index() throws IOException {
-		words = new ConcurrentHashMap<>();
-		linkedHashMap = new ConcurrentHashMap<>();
-		linkedHashMapRoot = new ConcurrentHashMap<>();
-		InputStream in = getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_CN_TO_CN);
-		BufferedReader cReader = new BufferedReader(new InputStreamReader(in, StableData.UTF8_STRING));
+		words= new ConcurrentHashMap<>();
+		linkedHashMap= new ConcurrentHashMap<>();
+		linkedHashMapRoot= new ConcurrentHashMap<>();
+		InputStream inputStream= getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_CN_TO_CN);
+		BufferedReader cReader= new BufferedReader(new InputStreamReader(inputStream, StableData.UTF8_STRING));
 		String cInputString;
 		Here:
 			while ((cInputString = cReader.readLine()) != null) {

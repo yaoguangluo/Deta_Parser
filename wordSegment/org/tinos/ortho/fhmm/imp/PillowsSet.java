@@ -5,6 +5,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
+
+import org.tinos.view.stable.StableData;
+
 import timeProcessor.TimeCheck;
 public class PillowsSet{
 	public long index;
@@ -14,36 +17,37 @@ public class PillowsSet{
 	public PillowsSet largeOrder;
 	public PillowsSet preSmallOrder;
 	public PillowsSet preLargeOrder;
-	public void arrangePillow(long index, Object object, int pillows, int depth, int currentDepth) throws CloneNotSupportedException {
-		if(null == this.object) {
-			this.index = index;
-			this.object = object;
+	public void arrangePillow(long index, Object object, int pillows, int depth, int currentDepth) 
+			throws CloneNotSupportedException {
+		if(null== this.object) {
+			this.index= index;
+			this.object= object;
 			return;
 		}
-		if(index < this.index) {
-			if(null == smallOrder) {
-				smallOrder = new PillowsSet();
-				smallOrder.preLargeOrder = this;
+		if(index< this.index) {
+			if(null== smallOrder) {
+				smallOrder= new PillowsSet();
+				smallOrder.preLargeOrder= this;
 			}
-			smallOrder.arrangePillow(index, object, pillows, depth, currentDepth + 1);
+			smallOrder.arrangePillow(index, object, pillows, depth, currentDepth + StableData.INT_ONE);
 		}
-		if(index > this.index) {
-			if(null == largeOrder) {
-				largeOrder = new PillowsSet();
-				largeOrder.preSmallOrder = this;
+		if(index> this.index) {
+			if(null== largeOrder) {
+				largeOrder= new PillowsSet();
+				largeOrder.preSmallOrder= this;
 			}
-			largeOrder.arrangePillow(index, object, pillows, depth, currentDepth + 1);
+			largeOrder.arrangePillow(index, object, pillows, depth, currentDepth + StableData.INT_ONE);
 		}
 	}
 
 	public Object getPillow(long index) {
-		if(index == this.index) {
+		if(index== this.index) {
 			return object;
 		}
-		if(index < this.index) {
+		if(index< this.index) {
 			return smallOrder.getPillow(index);
 		}
-		if(index > this.index ) {
+		if(index> this.index ) {
 			return largeOrder.getPillow(index);
 		}
 		return null;
@@ -54,23 +58,23 @@ public class PillowsSet{
 	}
 
 	public void show() {
-		entry = true;
-		if(smallOrder!=null && !smallOrder.entry) {
+		entry= true;
+		if(smallOrder!= null&& !smallOrder.entry) {
 			smallOrder.show();
 		}
 
-		if(largeOrder!=null && !largeOrder.entry) {
+		if(largeOrder!= null&& !largeOrder.entry) {
 			largeOrder.show();
 		}
 	}
 
 	public static void main(String[] argv) throws CloneNotSupportedException {
-		int pillows = 0;
-		int depth = pillows >> 1;
-		int currentDepth = 0;
-		PillowsSet pillowsMap = new PillowsSet();	
+		int pillows= StableData.INT_ZERO;
+		int depth= pillows >> StableData.INT_ONE;
+		int currentDepth = StableData.INT_ZERO;
+		PillowsSet pillowsMap= new PillowsSet();	
 
-		for(int i=0;i<5000;i++) {
+		for(int i=StableData.INT_ZERO; i<5000; i++) {
 			pillowsMap.arrangePillow(i, i, pillows++, depth, currentDepth);
 		}
 		pillowsMap.fixEntry();

@@ -35,24 +35,25 @@ public class Quick6DLuoYaoguangSortImp implements Quick6DLuoYaoguangSort {
 	}
 
 	public int partition(List<WordFrequency> list, int leftPosition, int rightPosition) {
-		int rightPositionNew = rightPosition;
-		int leftPositionNew = leftPosition;
-		WordFrequency wordFrequencyX = list.get(leftPosition);
-		WordFrequency wordFrequencyY = list.get(rightPosition);
-		//小高峰修正
-		if (wordFrequencyX.getFrequency() <= wordFrequencyY.getFrequency()) {
-			wordFrequencyY = wordFrequencyX;
+		int rightPositionNew= rightPosition;
+		int leftPositionNew= leftPosition;
+		WordFrequency wordFrequencyX= list.get(leftPosition);
+		WordFrequency wordFrequencyY= list.get(rightPosition);
+		//小高峰修正边缘均衡开始
+		if (wordFrequencyX.getFrequency()<= wordFrequencyY.getFrequency()) {
+			wordFrequencyY= wordFrequencyX;
 		}
-		while (leftPositionNew < rightPositionNew) {
-			while ((list.get(leftPositionNew).getFrequency() <= wordFrequencyY.getFrequency())
-					&& (leftPositionNew < rightPositionNew)) {
+		//小高峰修正边缘均衡结束
+		while (leftPositionNew< rightPositionNew) {
+			while ((list.get(leftPositionNew).getFrequency()<= wordFrequencyY.getFrequency())
+					&& (leftPositionNew< rightPositionNew)){
 				leftPositionNew++;
 			} 
-			while (list.get(rightPositionNew).getFrequency() > wordFrequencyY.getFrequency()) {
+			while (list.get(rightPositionNew).getFrequency()> wordFrequencyY.getFrequency()) {
 				rightPositionNew--;
 			}  
-			if (leftPositionNew < rightPositionNew) {
-				WordFrequency wordFrequency = list.get(rightPositionNew);
+			if (leftPositionNew< rightPositionNew){
+				WordFrequency wordFrequency= list.get(rightPositionNew);
 				list.set(rightPositionNew, list.get(leftPositionNew));
 				list.set(leftPositionNew, wordFrequency);
 			}
@@ -64,8 +65,8 @@ public class Quick6DLuoYaoguangSortImp implements Quick6DLuoYaoguangSort {
 
 	@SuppressWarnings(StableData.RAW_TYPES)
 	public List<WordFrequency> frequencyWordMapToList(Map<String, WordFrequency> map) {
-		List<WordFrequency> list = new ArrayList<>();
-		Iterator iterator = map.keySet().iterator();
+		List<WordFrequency> list= new ArrayList<>();
+		Iterator iterator= map.keySet().iterator();
 		while (iterator.hasNext()) {
 			list.add(map.get(iterator.next()));
 		}
@@ -79,7 +80,7 @@ public class Quick6DLuoYaoguangSortImp implements Quick6DLuoYaoguangSort {
 
 	@Override
 	public int partition(Map<Integer, WordFrequency> map, int leftPosition, int rightPosition) {
-		return 0;
+		return StableData.INT_ZERO;
 	}
 
 	@Override

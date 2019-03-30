@@ -7,18 +7,18 @@ public class NEROControllerOneTimeImp implements NEROControllerOneTime {
 	public StringBuilder getBinaryForestRecurWordOneTime(StringBuilder outputWordNode, String inputString
 			, int charPosition, int inputStringLength, Map<Long, FMHMMNode> forestRoots, int forestDepth
 			, int charPositionNext) {
-		if (forestDepth == StableData.INT_THREE){
+		if (forestDepth== StableData.INT_THREE){
 			return outputWordNode;
 		}
-		FMHMMNode fFHMMNode = forestRoots.get(Long.valueOf(inputString.charAt(charPosition)));
-		if (null == fFHMMNode) {
+		FMHMMNode fFHMMNode= forestRoots.get(Long.valueOf(inputString.charAt(charPosition)));
+		if (null== fFHMMNode) {
 			return outputWordNode;
 		}
-		Map<String, Integer> outputList = fFHMMNode.getNext();
-		if (null == outputList || charPositionNext >= inputStringLength) {
+		Map<String, Integer> outputList= fFHMMNode.getNext();
+		if (null== outputList || charPositionNext>= inputStringLength) {
 			return outputWordNode;
 		}
-		char positionOfi = inputString.charAt(charPositionNext);
+		char positionOfi= inputString.charAt(charPositionNext);
 		if (outputList.containsKey(String.valueOf(positionOfi))) {
 			outputWordNode = getBinaryForestRecurWordOneTime(outputWordNode.append(positionOfi), inputString, charPositionNext
 					, inputStringLength, forestRoots, ++forestDepth, ++charPositionNext);
@@ -32,17 +32,17 @@ public class NEROControllerOneTimeImp implements NEROControllerOneTime {
 		if (forestDepth == StableData.INT_THREE){
 			return outputWordNode;
 		}	
-		FMHMMNode fFHMMNode = getFMHMMNode(forestsRoots,inputString,charPosition);
-		if (fFHMMNode == null) {
+		FMHMMNode fFHMMNode= getFMHMMNode(forestsRoots,inputString,charPosition);
+		if (fFHMMNode== null) {
 			return outputWordNode;
 		}
-		Map<String, Integer> outputList = fFHMMNode.getNext();
-		if (outputList == null || charPositionNext >= inputStringLength) {
+		Map<String, Integer> outputList= fFHMMNode.getNext();
+		if (outputList== null || charPositionNext>= inputStringLength) {
 			return outputWordNode;
 		}
-		char positionOfi = inputString.charAt(charPositionNext);
+		char positionOfi= inputString.charAt(charPositionNext);
 		if (outputList.containsKey(String.valueOf(positionOfi))) {
-			outputWordNode = getBinaryForestsRecurWordOneTime(outputWordNode.append(positionOfi), inputString, charPositionNext
+			outputWordNode= getBinaryForestsRecurWordOneTime(outputWordNode.append(positionOfi), inputString, charPositionNext
 					, inputStringLength, forestsRoots, ++forestDepth, ++charPositionNext);
 		}
 		return outputWordNode;
@@ -56,15 +56,15 @@ public class NEROControllerOneTimeImp implements NEROControllerOneTime {
 		}
 		return null;
 	}
-	
+
 	public StringBuilder getQuickForestRecurWord(StringBuilder outputWordNode, String inputString, int charPosition
 			, int inputStringLength, Map<String, String> posCntoCn, int forestDepth, int charPositionNext ) {
-		if (forestDepth == StableData.INT_THREE||charPositionNext >= inputStringLength) {
+		if (forestDepth== StableData.INT_THREE|| charPositionNext>= inputStringLength) {
 			return outputWordNode;
 		}
-		char positionOfi = inputString.charAt(charPositionNext);
-		if (posCntoCn.containsKey(String.valueOf(outputWordNode.toString() + positionOfi))) {
-			outputWordNode = getQuickForestRecurWord(outputWordNode.append(positionOfi), inputString
+		char positionOfi= inputString.charAt(charPositionNext);
+		if (posCntoCn.containsKey(String.valueOf(outputWordNode.toString()+ positionOfi))) {
+			outputWordNode= getQuickForestRecurWord(outputWordNode.append(positionOfi), inputString
 					, charPositionNext, inputStringLength, posCntoCn, ++forestDepth, ++charPositionNext);
 		}
 		return outputWordNode;

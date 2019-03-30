@@ -20,13 +20,13 @@ public class SensingMapImp implements SensingMap{
 
 	@Override
 	public void initLenovoMap(Analyzer analyzer) throws IOException {
-		lenovoMap = new HashMap<>();
-		Map<String, String> CnToEnMap = analyzer.getFullCnToEn();
-		Map<String, String> EnToCnMap = analyzer.getEnToCn();
-		Iterator<String> iterator = CnToEnMap.keySet().iterator();
+		lenovoMap= new HashMap<>();
+		Map<String, String> CnToEnMap= analyzer.getFullCnToEn();
+		Map<String, String> EnToCnMap= analyzer.getEnToCn();
+		Iterator<String> iterator= CnToEnMap.keySet().iterator();
 		Here:
 		while(iterator.hasNext()) {
-			String word = iterator.next();
+			String word= iterator.next();
 			if(!CnToEnMap.containsKey(word)) {
 				continue Here;
 			}

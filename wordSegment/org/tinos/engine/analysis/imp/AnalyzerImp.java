@@ -26,12 +26,12 @@ public class AnalyzerImp implements Analyzer {
 	protected NLPController nlpController;
 	protected POSController posController;
 	protected Quick6DLuoYaoguangSort quick6DLuoYaoguangSort;	
-	protected Map<Long, FMHMMNode> forestRoots;
-	protected Map<Long, Map<String, String>> wordsForests;
-	protected Map<Long, FMHMMNode> []forestsRoots;
-	protected Map<String, String> wordsForest;
+	protected Map<Long,FMHMMNode> forestRoots;
+	protected Map<Long,Map<String , String>> wordsForests;
+	protected Map<Long,FMHMMNode> []forestsRoots;
+	protected Map<String,String> wordsForest;
 	public void init() throws IOException {
-		this.fHMMList = new FMHMMListOneTimeImp();
+		this.fHMMList=new FMHMMListOneTimeImp();
 		fHMMList.index();
 		fHMMList.indexPosEnToCn();
 		fHMMList.indexPosEnToEn();
@@ -39,14 +39,14 @@ public class AnalyzerImp implements Analyzer {
 		fHMMList.indexCnToEn();
 		fHMMList.indexFullEnToCn();
 		fHMMList.indexFullCnToEn();
-		neroController = new NEROControllerOneTimeImp();
-		nlpController = new NLPControllerImp();
-		posController = new POSControllerImp();
+		neroController= new NEROControllerOneTimeImp();
+		nlpController= new NLPControllerImp();
+		posController= new POSControllerImp();
 		quick6DLuoYaoguangSort = new Quick6DLuoYaoguangSortMapImp();
-		forestRoots = fHMMList.getMap();
-		forestsRoots = fHMMList.getMaps();
-		wordsForest = fHMMList.getPosCnToCn();
-		wordsForests = fHMMList.getWordsForests();
+		forestRoots=fHMMList.getMap();
+		forestsRoots=fHMMList.getMaps();
+		wordsForest=fHMMList.getPosCnToCn();
+		wordsForests=fHMMList.getWordsForests();
 	}
 
 	public List<String> parserMixedString(String mixedString) {
@@ -61,9 +61,9 @@ public class AnalyzerImp implements Analyzer {
 		StringBuilder stringBuilder = new StringBuilder();
 		int find = StableData.INT_ZERO;
 		Here:
-			for (int charPosition = StableData.INT_ZERO; charPosition < inputStringLength; charPosition
-					+= (countInputStringLength == StableData.INT_ZERO ? StableData.INT_ONE : countInputStringLength)) {
-				if(mixedString.charAt(charPosition) < StableData.INT_ONE_TWO_EIGHT && charPosition < inputStringLength
+			for (int charPosition = StableData.INT_ZERO;charPosition<inputStringLength;charPosition
+					+=(countInputStringLength==StableData.INT_ZERO?StableData.INT_ONE:countInputStringLength)) {
+				if(mixedString.charAt(charPosition) < StableData.INT_ONE_TWO_EIGHT && charPosition < inputStringLength 
 						- StableData.INT_ONE){
 					if(find == StableData.INT_ZERO) {
 						fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
@@ -73,11 +73,11 @@ public class AnalyzerImp implements Analyzer {
 					find = StableData.INT_ONE;
 					continue Here;
 				}
-				if(find == StableData.INT_ONE) {
+				if(StableData.INT_ONE == find) {
 					find = StableData.INT_ZERO;
 					Iterator<String> it = fHMMList.englishStringToWordsList(fixWords[StableData.INT_ZERO].toString()).iterator();
 					while(it.hasNext()) {
-						String temp=it.next();
+						String temp = it.next();
 						outputList.add(temp);	
 					}
 					fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
@@ -88,24 +88,24 @@ public class AnalyzerImp implements Analyzer {
 						, charPosition + StableData.INT_ONE);
 				String countWordNode = stringBuilder.toString();
 				int compare = countInputStringLength = countWordNode.length();
-				if (compare == StableData.INT_ONE) {
+				if (StableData.INT_ONE == compare) {
 					outputList.add(countWordNode);
 					fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
 					fixWords[StableData.INT_ZERO].append(countWordNode);
 					continue Here;
 				}
-				if (compare == StableData.INT_TWO) {
+				if (StableData.INT_TWO == compare) {
 					countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength
 							, outputList, stringBuilder, wordsForest, fixWords, posController);
 					continue Here;
 				}
-				if (compare == StableData.INT_THREE) {
+				if (StableData.INT_THREE == compare) {
 					addFixWords(charPosition, mixedString, fixWords);
 					countInputStringLength = nlpController.doPOSAndEMMCheckOfThree(countInputStringLength, outputList
 							, wordsForest, stringBuilder, fixWords, posController);
 					continue Here;
 				}
-				if (compare == StableData.INT_FOUR) {
+				if (StableData.INT_FOUR == compare) {
 					addFixWords(charPosition, mixedString, fixWords);
 					countInputStringLength = nlpController.doSlangCheck(countInputStringLength, outputList, stringBuilder
 							, wordsForest, fixWords, posController);
@@ -127,7 +127,7 @@ public class AnalyzerImp implements Analyzer {
 		Here:
 			for (int charPosition= StableData.INT_ZERO; charPosition< inputStringLength; charPosition
 					+= (countInputStringLength!= StableData.INT_ZERO? countInputStringLength: StableData.INT_ONE)) {
-				if(inputString.charAt(charPosition)< StableData.INT_ONE_TWO_EIGHT){
+				if(StableData.INT_ONE_TWO_EIGHT> inputString.charAt(charPosition)){
 					if(fixWords[StableData.INT_ZERO].length()> StableData.INT_ZERO) {
 						if(fixWords[StableData.INT_ZERO].charAt(fixWords[StableData.INT_ZERO].length()- StableData.INT_ONE)
 								< StableData.INT_ONE_TWO_EIGHT) {
@@ -138,7 +138,7 @@ public class AnalyzerImp implements Analyzer {
 						}
 						fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
 					}
-					find=StableData.INT_ONE;
+					find= StableData.INT_ONE;
 					fixWords[StableData.INT_ZERO].append(inputString.charAt(charPosition));
 					countInputStringLength= StableData.INT_ONE;
 					continue Here;
