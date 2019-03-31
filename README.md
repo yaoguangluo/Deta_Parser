@@ -31,9 +31,9 @@
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  搜索词语非常迅捷：基于 《2分法搜索 欧基里德距离 进行 位运算散列存储 字符集数据森林》。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  匹配词语非常精准：基于 《决策树深度 NLP 正向隐马可夫匹配》。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  词频统计接近光速：基于《线性科学最强的快排第6代的基础上作者进行以作者名字命名的小高峰过滤法修正算法，导致快排6的速度再翻2倍》。 
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度：每秒高达1500万(20190331)中文简体字准确分词。 因为通过国际SONAR最高认证，牺牲了程序执行时间十分之三的速度效率（自行修改去掉sonar认知模式可达2200万字分词每秒，性能比应该是世界第二，世界第一赠给高斯林先生，因为我用的是java，没办法）。 测试环境（win7， 64位， 16g ram，intel i5-7500） 20181208 功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度：每秒高达1400万(20190331)中文简体字准确分词。 因为通过国际SONAR最高认证，牺牲了程序执行时间十分之三的速度效率（自行修改去掉sonar认知模式可达2000万字分词每秒，性能比应该是世界第二，世界第一赠给高斯林先生，因为我用的是java，没办法）。 测试环境（win7， 64位， 16g ram，intel i5-7500） 20181208 功能作者： 罗瑶光
 https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/test
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒2200万 ~ 2700万中英文混合常规格式分词。（每毫秒分20,000字+）20181211 功能作者：罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒2100万 ~ 2700万中英文混合常规格式分词。（每毫秒分20,000字+）20181211 功能作者：罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度每秒高达900万词语的中文词性索引。（Part Of Speech, POS），功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  机制为分词和词性分析可拆分使用。采用一次实例，多并发执行思想。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  词库：多达23700+的中文语料库精确简体中文词汇，有效的辨别新词。功能作者： 罗瑶光
