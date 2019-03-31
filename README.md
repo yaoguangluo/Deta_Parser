@@ -1,4 +1,4 @@
-# 🔥27,000/ms word segment for text mining of NLP, POS, AI and Deep learning/每秒中文混合分词1500~2700万词汇的高精准确率快速神经网络分词包. 训练词意分析, 词感分析, 词境分析, 词灵分析并自由扩充词库 免费的官方互动展示页地址: http://tinos.qicp.vip/data.html 
+# 🔥27,000/ms word segment for text mining of NLP, POS, AI and Deep learning/每秒中文混合分词1400~2700万词汇的高精准确率快速神经网络分词包. 训练词意分析, 词感分析, 词境分析, 词灵分析并自由扩充词库 免费的官方互动展示页地址: http://tinos.qicp.vip/data.html 
 
 ## 版本号：10.6.1 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （Deta 中译英图灵项目已经启动.）。
 ## 主题一： 词意
