@@ -88,7 +88,7 @@ public class NLPControllerImp implements NLPController{
 			outputList.add(inputString);
 			return countInputLength;
 		}
-		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_LIAN_CI)){
+		if (lianCiMap.containsKey(strings[StableData.INT_ZERO])){
 			countInputLength = posUtils.chuLiLianCiOfThree(wordsForest, outputList, countInputLength
 					, strings, prefixWord, mingCiMap, dongCiMap, fuCiMap,  daiCiMap,  weiCiMap, zhuCiMap, shengLueCiMap);
 			return countInputLength;
@@ -98,17 +98,17 @@ public class NLPControllerImp implements NLPController{
 					, strings, prefixWord, qingTaiCiMap,  weiCiMap, lianCiMap);
 			return countInputLength;
 		}
-		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_ZHU_CI)){
+		if (zhuCiMap.containsKey(strings[StableData.INT_ZERO])){
 			countInputLength = posUtils.chuLiZhuCiOfThree(wordsForest, outputList, countInputLength
 					, strings, prefixWord, dongCiMap, fuCiMap);
 			return countInputLength;
 		}
-		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_LIANG_CI)){
+		if (liangCiMap.containsKey(strings[StableData.INT_ZERO])){
 			countInputLength = posUtils.chuLiLiangCiOfThree(wordsForest, outputList, countInputLength
 					, strings, prefixWord, mingCiMap, daiCiMap);
 			return countInputLength;
 		}
-		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_MING_CI)){
+		if (mingCiMap.containsKey(strings[StableData.INT_ZERO])){
 			countInputLength= posUtils.chuLiMingCiOfThree(wordsForest, outputList, countInputLength
 					, strings, prefixWord, xingWeiCiMap, mingCiMap);
 			return countInputLength;
