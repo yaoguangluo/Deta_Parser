@@ -6,11 +6,11 @@ import org.tinos.engine.nlp.NLPController;
 import org.tinos.engine.pos.POSController;
 import org.tinos.view.obj.WordFrequency;
 import org.tinos.view.stable.StableData;
+import org.tinos.view.stable.StableMaps;
 public class NLPControllerImp implements NLPController{
 	public int doSlangPartAndPOSCheckForTwoChar(int countInputStringLength, List<String> outputList
 			, StringBuilder stringBuilder, Map<String, String> wordsForest, StringBuilder[] prefixWord
-			, POSController posUtils, Map<String, String> liangCiMap, Map<String, String> daiCiMap, Map<String, String> fuCiMap
-			, Map<String, String> mingCiMap, Map<String, String> baDongCiMap){
+			, POSController posUtils){
 		String countWordNode = stringBuilder.toString();
 		if (!wordsForest.containsKey(countWordNode)){
 			outputList.add(String.valueOf(countWordNode.charAt(StableData.INT_ZERO)));
@@ -29,14 +29,14 @@ public class NLPControllerImp implements NLPController{
 		strings[StableData.INT_ONE]= String.valueOf(countWordNode.charAt(StableData.INT_ZERO))
 				+ String.valueOf(countWordNode.charAt(StableData.INT_ONE));
 		if (wordsForest.containsKey(strings[StableData.INT_ZERO])){
-			if (mingCiMap.containsKey(strings[StableData.INT_ZERO])){
+			if (StableMaps.mingCi.containsKey(strings[StableData.INT_ZERO])){
 				countInputStringLength= posUtils.chuLiMingCiOfTwo(wordsForest, outputList, countInputStringLength
-						, strings, prefixWord, liangCiMap);
+						, strings, prefixWord);
 				return countInputStringLength;
 			}
-			if (baDongCiMap.containsKey(strings[StableData.INT_ZERO])){
+			if (StableMaps.baDongCi.containsKey(strings[StableData.INT_ZERO])){
 				countInputStringLength = posUtils.chuLiBaDongCiOfTwo(wordsForest, outputList, countInputStringLength
-						, strings, prefixWord, daiCiMap, fuCiMap);
+						, strings, prefixWord);
 				return countInputStringLength;
 			}
 		}
@@ -51,11 +51,7 @@ public class NLPControllerImp implements NLPController{
 
 	public int doPOSAndEMMCheckOfThree(int countInputLength, List<String> outputList
 			, Map<String, String> wordsForest, StringBuilder stringBuilder, StringBuilder[] prefixWord
-			, POSController posUtils, Map<String, String> xingWeiCiMap, Map<String, String> mingCiMap
-			, Map<String, String> daiCiMap, Map<String, String> dongCiMap, Map<String, String> fuCiMap
-			, Map<String, String> qingTaiCiMap, Map<String, String> weiCiMap, Map<String, String> lianCiMap
-			, Map<String, String> zhuCiMap, Map<String, String> shengLueCiMap, Map<String, String> liangCiMap
-			, Map<String, String> baDongCiMap){
+			, POSController posUtils){
 		String inputString= stringBuilder.toString();
 		String[] strings= new String[StableData.INT_FOUR];
 		strings[StableData.INT_ZERO]= String.valueOf(inputString.charAt(StableData.INT_ZERO));
@@ -73,15 +69,13 @@ public class NLPControllerImp implements NLPController{
 			} 
 			StringBuilder stringsBuilder= new StringBuilder();
 			countInputLength= doSlangPartAndPOSCheckForTwoChar(--countInputLength, outputList
-					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils
-					, liangCiMap, daiCiMap, fuCiMap, mingCiMap, baDongCiMap);
+					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);
 			return countInputLength;
 		}
 		if (!wordsForest.containsKey(strings[StableData.INT_ZERO])){
 			StringBuilder stringsBuilder= new StringBuilder();
 			countInputLength= doSlangPartAndPOSCheckForTwoChar(--countInputLength, outputList
-					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils
-					, liangCiMap, daiCiMap, fuCiMap, mingCiMap, baDongCiMap);
+					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);
 			return countInputLength;
 		}
 		if (wordsForest.containsKey(inputString)){
@@ -90,44 +84,34 @@ public class NLPControllerImp implements NLPController{
 			outputList.add(inputString);
 			return countInputLength;
 		}
-		if (lianCiMap.containsKey(strings[StableData.INT_ZERO])){
-			countInputLength = posUtils.chuLiLianCiOfThree(wordsForest, outputList, countInputLength
-					, strings, prefixWord, mingCiMap, dongCiMap, fuCiMap,  daiCiMap,  weiCiMap, zhuCiMap, shengLueCiMap);
+		if (StableMaps.lianCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength = posUtils.chuLiLianCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
 			return countInputLength;
 		}
 		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_JIE_CI)){
-			countInputLength = posUtils.chuLiJieCiOfThree(wordsForest, outputList, countInputLength
-					, strings, prefixWord, qingTaiCiMap,  weiCiMap, lianCiMap);
+			countInputLength = posUtils.chuLiJieCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
 			return countInputLength;
 		}
-		if (zhuCiMap.containsKey(strings[StableData.INT_ZERO])){
-			countInputLength = posUtils.chuLiZhuCiOfThree(wordsForest, outputList, countInputLength
-					, strings, prefixWord, dongCiMap, fuCiMap);
+		if (StableMaps.zhuCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength = posUtils.chuLiZhuCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
 			return countInputLength;
 		}
-		if (liangCiMap.containsKey(strings[StableData.INT_ZERO])){
-			countInputLength = posUtils.chuLiLiangCiOfThree(wordsForest, outputList, countInputLength
-					, strings, prefixWord, mingCiMap, daiCiMap);
+		if (StableMaps.liangCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength = posUtils.chuLiLiangCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
 			return countInputLength;
 		}
-		if (mingCiMap.containsKey(strings[StableData.INT_ZERO])){
-			countInputLength= posUtils.chuLiMingCiOfThree(wordsForest, outputList, countInputLength
-					, strings, prefixWord, xingWeiCiMap, mingCiMap);
+		if (StableMaps.mingCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength= posUtils.chuLiMingCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
 			return countInputLength;
 		}
 		StringBuilder stringsBuilder= new StringBuilder();
 		countInputLength= doSlangPartAndPOSCheckForTwoChar(--countInputLength, outputList
-				, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils
-				, liangCiMap, daiCiMap, fuCiMap, mingCiMap, baDongCiMap);
+				, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);
 		return countInputLength;
 	} 
 
 	public int doSlangCheck(int countInputStringLength, List<String> output, StringBuilder stringBuilder,
-			Map<String, String> wordsForest, StringBuilder[] prefixWord, POSController posUtils
-			, Map<String, String> xingWeiCiMap, Map<String, String> mingCiMap, Map<String, String> daiCiMap
-			, Map<String, String> dongCiMap, Map<String, String> fuCiMap, Map<String, String> qingTaiCiMap
-			, Map<String, String> weiCiMap, Map<String, String> lianCiMap, Map<String, String> zhuCiMap
-			, Map<String, String> shengLueCiMap, Map<String, String> liangCiMap, Map<String, String> baDongCiMap){
+			Map<String, String> wordsForest, StringBuilder[] prefixWord, POSController posUtils){
 		String inputString = stringBuilder.toString();
 		if (wordsForest.containsKey(inputString)){
 			output.add(inputString);
@@ -136,16 +120,12 @@ public class NLPControllerImp implements NLPController{
 			return countInputStringLength;
 		}//will make pre 3 or post 3 check. now finished pre 3 .20190330
 		countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
-				, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils, xingWeiCiMap, mingCiMap
-				, daiCiMap, dongCiMap, fuCiMap, qingTaiCiMap, weiCiMap, lianCiMap, zhuCiMap, shengLueCiMap, liangCiMap, baDongCiMap);
+				, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils);
 		return countInputStringLength;
 	}
 
 	public int doSlangCheckForMap(int countInputStringLength, List<String> output, StringBuilder stringBuilder
-			, Map<String, String> wordsForest, StringBuilder[] prefixWord, POSController posUtils, Map<String, String> xingWeiCiMap
-			, Map<String, String> mingCiMap, Map<String, String> daiCiMap, Map<String, String> dongCiMap, Map<String, String> fuCiMap
-			, Map<String, String> qingTaiCiMap, Map<String, String> weiCiMap, Map<String, String> lianCiMap, Map<String, String> zhuCiMap
-			, Map<String, String> shengLueCiMap, Map<String, String> liangCiMap, Map<String, String> baDongCiMap){
+			, Map<String, String> wordsForest, StringBuilder[] prefixWord, POSController posUtils){
 		String inputString= stringBuilder.toString();
 		if (wordsForest.containsKey(inputString)){
 			output.add(inputString);
@@ -154,15 +134,13 @@ public class NLPControllerImp implements NLPController{
 			return countInputStringLength;
 		}
 		countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
-				, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils
-				,  xingWeiCiMap, mingCiMap, daiCiMap, dongCiMap, fuCiMap, qingTaiCiMap, weiCiMap, lianCiMap
-				, zhuCiMap, shengLueCiMap, liangCiMap, baDongCiMap);
+				, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils);
 		return countInputStringLength;
 	}
 
 	public int doSlangPartAndPOSCheckForTwoCharForMap(int countInputStringLength, Map<String, WordFrequency> outputList
 			, StringBuilder stringBuilder, Map<String, String> wordsForest, StringBuilder[] prefixWord
-			, POSController posUtils, Map<String, String> liangCiMap, Map<String, String> mingCiMap){
+			, POSController posUtils){
 		String countWordNode= stringBuilder.toString();
 		if (!wordsForest.containsKey(countWordNode)){
 			WordForestUtil.wordsForestNotContainsKey(outputList, countWordNode, prefixWord);
@@ -179,7 +157,7 @@ public class NLPControllerImp implements NLPController{
 		if (wordsForest.containsKey(strings[StableData.INT_ZERO])){
 			if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_MING_CI)){
 				countInputStringLength= posUtils.chuLiMingCiOfTwoForMap(wordsForest, outputList, countInputStringLength
-						, strings, prefixWord, liangCiMap);
+						, strings, prefixWord);
 				return countInputStringLength;
 			}
 		}
@@ -192,10 +170,7 @@ public class NLPControllerImp implements NLPController{
 
 	public int doPOSAndEMMCheckOfThreeForMap(int countInputLength, Map<String, WordFrequency> outputList
 			, Map<String, String> wordsForest, StringBuilder stringBuilder, StringBuilder[] prefixWord
-			, POSController posUtils, Map<String, String> mingCiMap, Map<String, String> daiCiMap
-			, Map<String, String> weiCiMap, Map<String, String> dongCiMap, Map<String, String> fuCiMap, Map<String, String> zhuCiMap
-			, Map<String, String> shengLueCiMap, Map<String, String> lianCiMap, Map<String, String> qingTaiCiMap
-			, Map<String, String> liangCiMap){
+			, POSController posUtils){
 		String inputString= stringBuilder.toString();
 		String[] strings= new String[StableData.INT_FOUR];
 		strings[StableData.INT_ZERO]= String.valueOf(inputString.charAt(StableData.INT_ZERO));
@@ -211,34 +186,33 @@ public class NLPControllerImp implements NLPController{
 			} 
 			StringBuilder stringsBuilder= new StringBuilder();
 			countInputLength= doSlangPartAndPOSCheckForTwoCharForMap(--countInputLength, outputList
-					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils, liangCiMap, mingCiMap);
+					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);
 			return countInputLength;
 		}
 		if (!wordsForest.containsKey(strings[StableData.INT_ZERO])){
 			StringBuilder stringsBuilder= new StringBuilder();
 			countInputLength= doSlangPartAndPOSCheckForTwoCharForMap(--countInputLength, outputList
-					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils, liangCiMap, mingCiMap);
+					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);
 			return countInputLength;
 		}
-		if (zhuCiMap.containsKey(strings[StableData.INT_ZERO])){
+		if (StableMaps.zhuCi.containsKey(strings[StableData.INT_ZERO])){
 			countInputLength= posUtils.chuLiZhuCiOfThreeForMap(wordsForest, outputList, countInputLength
-					, strings, prefixWord, dongCiMap, fuCiMap);
+					, strings, prefixWord);
 			return countInputLength;
 		}
-		if (liangCiMap.containsKey(strings[StableData.INT_ZERO])){
+		if (StableMaps.liangCi.containsKey(strings[StableData.INT_ZERO])){
 			countInputLength= posUtils.chuLiLiangCiOfThreeForMap(wordsForest, outputList, countInputLength
-					, strings, prefixWord, mingCiMap, daiCiMap);
+					, strings, prefixWord);
 			return countInputLength;
 		}
-		if (zhuCiMap.containsKey(strings[StableData.INT_ZERO])){
+		if (StableMaps.zhuCi.containsKey(strings[StableData.INT_ZERO])){
 			countInputLength= posUtils.chuLiJieCiOfThreeForMap(wordsForest, outputList, countInputLength
-					, strings, prefixWord, lianCiMap, qingTaiCiMap,  weiCiMap);
+					, strings, prefixWord);
 			return countInputLength;
 		}
-		if (lianCiMap.containsKey(strings[StableData.INT_ZERO])){
+		if (StableMaps.lianCi.containsKey(strings[StableData.INT_ZERO])){
 			countInputLength= posUtils.chuLiLianCiOfThreeForMap(wordsForest, outputList, countInputLength
-					, strings, prefixWord, mingCiMap, daiCiMap, weiCiMap, dongCiMap, fuCiMap, zhuCiMap
-					, shengLueCiMap);
+					, strings, prefixWord);
 			return countInputLength;
 		}
 		if (wordsForest.containsKey(inputString)){
@@ -247,23 +221,19 @@ public class NLPControllerImp implements NLPController{
 		}
 		StringBuilder stringsBuilder= new StringBuilder();
 		countInputLength= doSlangPartAndPOSCheckForTwoCharForMap(--countInputLength, outputList
-				, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils, liangCiMap, mingCiMap);
+				, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);
 		return countInputLength;
 	} 
 
 	public int doSlangCheckForMap(int countInputStringLength, Map<String, WordFrequency> output, StringBuilder stringBuilder
-			, Map<String, String> wordsForest, StringBuilder[] prefixWord, POSController posUtils, Map<String, String> mingCiMap
-			, Map<String, String> daiCiMap, Map<String, String> weiCiMap, Map<String, String> dongCiMap, Map<String, String> fuCiMap
-			, Map<String, String> zhuCiMap, Map<String, String> shengLueCiMap, Map<String, String> lianCiMap
-			, Map<String, String> qingTaiCiMap, Map<String, String> liangCiMap){
+			, Map<String, String> wordsForest, StringBuilder[] prefixWord, POSController posUtils){
 		String inputString= stringBuilder.toString();
 		if (wordsForest.containsKey(inputString)){
 			WordForestUtil.wordsForestContainsKey(output, inputString, prefixWord);
 			return countInputStringLength;
 		}
 		countInputStringLength= doPOSAndEMMCheckOfThreeForMap(--countInputStringLength, output, wordsForest
-				, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils, mingCiMap, daiCiMap
-				, weiCiMap, dongCiMap, fuCiMap, zhuCiMap,  shengLueCiMap, lianCiMap, qingTaiCiMap, liangCiMap);
+				, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils);
 		return countInputStringLength;
 	}
 }
