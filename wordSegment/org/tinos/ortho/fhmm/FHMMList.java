@@ -43,4 +43,19 @@ public interface FHMMList {
 	Map<String, String> getFullPositive();
 	List<String> englishStringToWordsList(String string);
 	Map<Long, Map<String, String>> getWordsForests(); 
+	Map<String, String> getPosFuCi();
+	Map<String, String> getPosDongCi();
+	Map<String, String> getPosLiangCi();
+	Map<String, String> getPosLianCi();
+	Map<String, String> getPosBaDongCi();
+	Map<String, String> getPosXianDingCi();
+	Map<String, String> getPosMingCi();
+	Map<String, String> getPosDaiCi();
+	Map<String, String> getPosJieCi();
+	Map<String, String> getPosXingRongCi();
+	Map<String, String> getPosZhuCi();
+	Map<String, String> getPosWeiCi();
+	Map<String, String> getPosShengLueCi();
+	Map<String, String> getPosQingTaiCi();
+	Map<String, String> getPosXingWeiCi();
 }

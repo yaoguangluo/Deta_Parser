@@ -44,6 +44,133 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	private List<String> listRs;
 	private List<String> listAb;
 	private List<String> listPy;
+	public Map<String, String> getPosFuCi() {
+		return posFuCi;
+	}
+
+	public void setPosFuCi(Map<String, String> posFuCi) {
+		this.posFuCi = posFuCi;
+	}
+
+	public Map<String, String> getPosDongCi() {
+		return posDongCi;
+	}
+
+	public void setPosDongCi(Map<String, String> posDongCi) {
+		this.posDongCi = posDongCi;
+	}
+
+	public Map<String, String> getPosLiangCi() {
+		return posLiangCi;
+	}
+
+	public void setPosLiangCi(Map<String, String> posLiangCi) {
+		this.posLiangCi = posLiangCi;
+	}
+
+	public Map<String, String> getPosLianCi() {
+		return posLianCi;
+	}
+
+	public void setPosLianCi(Map<String, String> posLianCi) {
+		this.posLianCi = posLianCi;
+	}
+
+	public Map<String, String> getPosBaDongCi() {
+		return posBaDongCi;
+	}
+
+	public void setPosBaDongCi(Map<String, String> posBaDongCi) {
+		this.posBaDongCi = posBaDongCi;
+	}
+
+	public Map<String, String> getPosXianDingCi() {
+		return posXianDingCi;
+	}
+
+	public void setPosXianDingCi(Map<String, String> posXianDingCi) {
+		this.posXianDingCi = posXianDingCi;
+	}
+
+	public Map<String, String> getPosMingCi() {
+		return posMingCi;
+	}
+
+	public void setPosMingCi(Map<String, String> posMingCi) {
+		this.posMingCi = posMingCi;
+	}
+
+	public Map<String, String> getPosDaiCi() {
+		return posDaiCi;
+	}
+
+	public void setPosDaiCi(Map<String, String> posDaiCi) {
+		this.posDaiCi = posDaiCi;
+	}
+
+	public Map<String, String> getPosJieCi() {
+		return posJieCi;
+	}
+
+	public void setPosJieCi(Map<String, String> posJieCi) {
+		this.posJieCi = posJieCi;
+	}
+
+	public Map<String, String> getPosXingRongCi() {
+		return posXingRongCi;
+	}
+
+	public void setPosXingRongCi(Map<String, String> posXingRongCi) {
+		this.posXingRongCi = posXingRongCi;
+	}
+
+	public Map<String, String> getPosZhuCi() {
+		return posZhuCi;
+	}
+
+	public void setPosZhuCi(Map<String, String> posZhuCi) {
+		this.posZhuCi = posZhuCi;
+	}
+
+	public Map<String, String> getPosWeiCi() {
+		return posWeiCi;
+	}
+
+	public void setPosWeiCi(Map<String, String> posWeiCi) {
+		this.posWeiCi = posWeiCi;
+	}
+
+	public Map<String, String> getPosShengLueCi() {
+		return posShengLueCi;
+	}
+
+	public void setPosShengLueCi(Map<String, String> posShengLueCi) {
+		this.posShengLueCi = posShengLueCi;
+	}
+
+	public Map<String, String> getPosQingTaiCi() {
+		return posQingTaiCi;
+	}
+
+	public void setPosQingTaiCi(Map<String, String> posQingTaiCi) {
+		this.posQingTaiCi = posQingTaiCi;
+	}
+
+	private Map<String, String> posFuCi;
+	private Map<String, String> posDongCi;
+	private Map<String, String> posLiangCi;
+	private Map<String, String> posLianCi;
+	private Map<String, String> posBaDongCi;
+	private Map<String, String> posXianDingCi;
+	private Map<String, String> posMingCi;
+	private Map<String, String> posDaiCi;
+	private Map<String, String> posJieCi;
+	private Map<String, String> posXingRongCi;
+	private Map<String, String> posZhuCi;
+	private Map<String, String> posWeiCi;
+	private Map<String, String> posShengLueCi;
+	private Map<String, String> posQingTaiCi;
+	private Map<String, String> posXingWeiCi;
 	public Map<Long, FMHMMPOS> POSHashMap;
 	
 	public Map<Long, FMHMMNode> linkedHashMap;
@@ -72,9 +199,24 @@ public class FMHMMListOneTimeImp implements FHMMList {
 		}
 		return maps;
 	}
-	
+
 	public void index() throws IOException {
 		posCnToCn= new HashMap<>();
+	    posFuCi= new HashMap<>();
+		posDongCi= new HashMap<>();
+	    posLiangCi= new HashMap<>();
+		posLianCi= new HashMap<>();
+		posBaDongCi= new HashMap<>();
+		posXianDingCi= new HashMap<>();
+		posMingCi= new HashMap<>();
+		posDaiCi= new HashMap<>();
+		posJieCi= new HashMap<>();
+	    posXingRongCi= new HashMap<>();
+		posZhuCi= new HashMap<>();
+		posWeiCi= new HashMap<>();
+		posShengLueCi= new HashMap<>();
+		posQingTaiCi= new HashMap<>();
+		posXingWeiCi= new HashMap<>();
 		linkedHashMap= new HashMap<>();
 		listCn= new CopyOnWriteArrayList<>();
 		InputStream inputStream= getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_CN_TO_CN);
@@ -86,6 +228,81 @@ public class FMHMMListOneTimeImp implements FHMMList {
 				if(!(!cInputString.replace(StableData.SPACE_STRING, StableData.EMPTY_STRING).equals(StableData.EMPTY_STRING)
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH).length > StableData.INT_ONE )) {
 					continue Here;
+				}
+				if(!posFuCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_FU_CI)) {
+					posFuCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(!posDongCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_DONG_CI)) {
+					posDongCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posLiangCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_LIANG_CI)) {
+					posLiangCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posLianCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_LIAN_CI)) {
+					posLianCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posBaDongCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_BA_DONG_CI)) {
+					posBaDongCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posXianDingCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_XIAN_DING_CI)) {
+					posXianDingCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posMingCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_MING_CI)) {
+					posMingCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posDaiCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_DAI_CI)) {
+					posDaiCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posJieCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_JIE_CI)) {
+					posJieCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posXingRongCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_XING_RONG_CI)) {
+					posXingRongCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posZhuCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_ZHU_CI)) {
+					posZhuCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posWeiCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_WEI_CI)) {
+					posWeiCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posShengLueCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_SHENG_LUE_CI)) {
+					posShengLueCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posQingTaiCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_QING_TAI_CI)) {
+					posQingTaiCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(posXingWeiCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_XING_WEI_CI)) {
+					posXingWeiCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 				}
 				posCnToCn.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
 						.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
@@ -528,5 +745,9 @@ public class FMHMMListOneTimeImp implements FHMMList {
 			 output.put(Long.valueOf(treeName.charAt(StableData.INT_ZERO)), treeLeafs);
 		}
 		return output;	
+	}
+
+	public Map<String, String> getPosXingWeiCi() {
+		return this.posXingWeiCi;
 	}
 }
