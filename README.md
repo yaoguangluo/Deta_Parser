@@ -1,6 +1,6 @@
-# 🔥20,000/ms word segment for text mining of NLP, POS, AI and Deep learning/每秒中文混合分词1300~2700万词汇的高精准确率快速神经网络分词包. 训练词意分析, 词感分析, 词境分析, 词灵分析并自由扩充词库 免费的官方互动展示页地址: http://tinos.qicp.vip/data.html
+# 🔥20,000/ms word segment for text mining of NLP, POS, AI and Deep learning/每秒中文混合分词1300~2700万词汇的高精准确率快速神经网络分词包. 训练词意分析, 词感分析, 词境分析, 词灵分析并自由扩充词库 免费的官方互动展示页地址: http://tinos.qicp.vip/data.html 
 
-## 版本号：10.5.8 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （ICA 内核矩阵运算生成算法进行训练集采样处理优化）。
+## 版本号：10.6.0 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （Deta 中译英图灵项目已经启动.）。
 ## 主题一： 词意
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： คลังข้อความภาษาไทยขนาดใหญ่สำหรับการปรับรุ่นเสร็จสมบูรณ์。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Cơ sở dữ liệu tiếng việt chuẩn hoàn thành, không tối ưu hóa phiên bản。
@@ -87,6 +87,8 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/beh
 https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/LiterarinessLevelTest.java
 ##### ![实例](http://progressed.io/bar/20) 资本运作，消费评估，购买力分析的商业体系已经启动。 20190324 功能作者 罗瑶光。
 商业开发将在官方网站展示：http://tinos.qicp.vip/
+##### ![实例](http://progressed.io/bar/1) Deta 中译英图灵项目已经启动.
+https://github.com/yaoguangluo/Deta_Parser/blob/master/neroMap/org/tinos/test/DemoTSLT.java
 
 
 
@@ -98,20 +100,28 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/beh
 ## 功能：
 ##### ![实例](http://progressed.io/bar/5)正在做功能： Unit test case。
 ##### ![实例](http://progressed.io/bar/92)正在做功能：商业应用布局。
-##### ![实例](http://progressed.io/bar/92)正在做功能：
-##### ![实例](http://progressed.io/bar/66)正在做功能：正在做趋势推导，判断打分预测。
-
-
-######  未完善功能：英语复句翻译。![实例](http://progressed.io/bar/20?title=completed)
-######  未完善功能：英语特殊句型翻译。
-######  未完善功能：分词矫正识别。
-######  未完善功能：多语意识。
-######  未完善功能：支持训练。
-######  未完善功能：带变异性特征进化。
-######  未完善功能：新词搜索互联网更新词库功能。
-######  未完善功能：商业对象接口计划。
-######  未完善功能：线程分词的内存实时检测。
-######  未完善功能：等等。
+######  商品功能：英语复句翻译。![实例](http://progressed.io/bar/20?title=completed)
+######  商品功能：英语特殊句型翻译。
+######  商品功能：分词矫正识别。
+######  商品功能：多语意识。
+######  商品功能：信贷分析。
+######  商品功能：风险分析。
+######  商品功能：心理辅导。
+######  商品功能：教育辅导。
+######  商品功能：动机分析。
+######  商品功能：股市数据分析.
+######  商品功能：新闻,领导,总结广告用语分析。
+######  商品功能：智力训练。
+######  商品功能：刑事犯罪语录侦察。
+######  商品功能：读心术。
+######  商品功能：防骗术。
+######  商品功能：行为图灵。
+######  商品功能：支持训练。
+######  商品功能：带变异性特征进化。
+######  商品功能：新词搜索互联网更新词库功能。
+######  商品功能：商业对象接口计划。
+######  商品功能：线程分词的内存实时检测。
+######  商品功能：等等。
 
 ## 使用方法：
 ###### 1 支持 java JDK 8 以上，字符集UTF-8 就够了，不需要任何插件和资源包。
