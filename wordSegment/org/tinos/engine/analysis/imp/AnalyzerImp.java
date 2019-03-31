@@ -125,22 +125,22 @@ public class AnalyzerImp implements Analyzer {
 					continue Here;
 				}
 				if (StableData.INT_TWO == compare) {
-					countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength
-							, outputList, stringBuilder, wordsForest, fixWords, posController, liangCi, daiCi, fuCi);
+					countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength, outputList
+							, stringBuilder, wordsForest, fixWords, posController, liangCi, daiCi, fuCi, mingCi, baDongCi);
 					continue Here;
 				}
 				if (StableData.INT_THREE == compare) {
 					addFixWords(charPosition, mixedString, fixWords);
 					countInputStringLength = nlpController.doPOSAndEMMCheckOfThree(countInputStringLength, outputList
 							, wordsForest, stringBuilder, fixWords, posController, xingWeiCi,  mingCi, daiCi, dongCi
-							, fuCi, qingTaiCi, weiCi, lianCi, zhuCi, shengLueCi, liangCi);
+							, fuCi, qingTaiCi, weiCi, lianCi, zhuCi, shengLueCi, liangCi, baDongCi);
 					continue Here;
 				}
 				if (StableData.INT_FOUR == compare) {
 					addFixWords(charPosition, mixedString, fixWords);
 					countInputStringLength = nlpController.doSlangCheck(countInputStringLength, outputList, stringBuilder
 							, wordsForest, fixWords, posController, xingWeiCi, mingCi, daiCi, dongCi, fuCi
-							, qingTaiCi, weiCi, lianCi, zhuCi, shengLueCi, liangCi);
+							, qingTaiCi, weiCi, lianCi, zhuCi, shengLueCi, liangCi, baDongCi);
 				}
 			}
 		return outputList;
@@ -192,22 +192,22 @@ public class AnalyzerImp implements Analyzer {
 					continue Here;
 				}
 				if (compare== StableData.INT_TWO) {
-					countInputStringLength= nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength
-							, outputList, stringBuilder, wordsForest, fixWords, posController, liangCi, daiCi, fuCi);
+					countInputStringLength= nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength, outputList
+							, stringBuilder, wordsForest, fixWords, posController, liangCi, daiCi, fuCi, mingCi, baDongCi);
 					continue Here;
 				}
 				if (compare== StableData.INT_THREE) {
 					addFixWords(charPosition, inputString, fixWords);
 					countInputStringLength= nlpController.doPOSAndEMMCheckOfThree(countInputStringLength, outputList
 							, wordsForest, stringBuilder, fixWords, posController, xingWeiCi,  mingCi, daiCi, dongCi
-							, fuCi, qingTaiCi, weiCi, lianCi, zhuCi, shengLueCi, liangCi);
+							, fuCi, qingTaiCi, weiCi, lianCi, zhuCi, shengLueCi, liangCi, baDongCi);
 					continue Here;
 				}
 				if (compare== StableData.INT_FOUR) {
 					addFixWords(charPosition, inputString, fixWords);
 					countInputStringLength= nlpController.doSlangCheck(countInputStringLength, outputList, stringBuilder
 							, wordsForest, fixWords, posController, xingWeiCi, mingCi, daiCi, dongCi, fuCi
-							, qingTaiCi, weiCi, lianCi, zhuCi, shengLueCi, liangCi);
+							, qingTaiCi, weiCi, lianCi, zhuCi, shengLueCi, liangCi, baDongCi);
 				}
 			}
 		return outputList;
@@ -262,7 +262,7 @@ public class AnalyzerImp implements Analyzer {
 				}
 				if (compare == StableData.INT_TWO) {
 					countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoCharForMap(countInputStringLength
-							, outputList, stringBuilder, wordsForest, fixWords, posController, liangCi);
+							, outputList, stringBuilder, wordsForest, fixWords, posController, liangCi, mingCi);
 					continue Here;
 				}
 				if (compare == StableData.INT_THREE) {
@@ -430,7 +430,7 @@ public class AnalyzerImp implements Analyzer {
 				int compare = countInputStringLength = countWordNode.length();
 				if (compare == StableData.INT_TWO) {
 					countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoCharForMap(countInputStringLength
-							, outputList, stringBuilder, wordsForest, fixWords, posController, liangCi);
+							, outputList, stringBuilder, wordsForest, fixWords, posController, liangCi, mingCi);
 					continue Here;
 				}
 				if (compare == StableData.INT_THREE) {
