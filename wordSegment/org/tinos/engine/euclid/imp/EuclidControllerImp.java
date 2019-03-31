@@ -15,8 +15,8 @@ public class EuclidControllerImp implements EuclidController {
 			while (iter.hasNext()) {
 				Long keyValue= iter.next();
 				Integer charOfKeyValueToInteger= Integer.valueOf(StableData.EMPTY_STRING + keyValue);
-				int range = (charOfKeyValueToInteger.intValue()>> StableData.INT_SIX);
-				int rangeHigh = range >> StableData.INT_FOUR;
+				int range= (charOfKeyValueToInteger.intValue()>> StableData.INT_SIX);
+				int rangeHigh= range >> StableData.INT_FOUR;
 				if (!HashMapRoot.containsKey(rangeHigh)) {
 					HashMap<Long, FMHMMNode> innerHashMap = new HashMap<>();
 					innerHashMap.put(keyValue, HashMap.get(keyValue));

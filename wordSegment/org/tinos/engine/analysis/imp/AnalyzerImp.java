@@ -27,7 +27,7 @@ public class AnalyzerImp implements Analyzer {
 	protected POSController posController;
 	protected Quick6DLuoYaoguangSort quick6DLuoYaoguangSort;	
 	protected Map<Long,FMHMMNode> forestRoots;
-	protected Map<Long,Map<String , String>> wordsForests;
+	protected Map<Long,Map<String, String>> wordsForests;
 	protected Map<Long,FMHMMNode> []forestsRoots;
 	protected Map<String,String> wordsForest;
 	public void init() throws IOException {
@@ -316,7 +316,7 @@ public class AnalyzerImp implements Analyzer {
 		String[] words = englishString.replaceAll(StableData.NLP_SPASE_REP, StableData.SPACE_STRING)
 				.split(StableData.SPACE_STRING);
 		if(StableData.INT_ZERO == words.length ) {
-			return new String[] {" "};
+			return new String[] {StableData.SPACE_STRING};
 		}
 		return words;
 	}
