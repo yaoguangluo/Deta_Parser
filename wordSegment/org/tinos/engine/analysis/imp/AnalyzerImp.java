@@ -226,14 +226,14 @@ public class AnalyzerImp implements Analyzer {
 		StringBuilder stringBuilder = new StringBuilder();
 		int find = StableData.INT_ZERO;
 		Here:
-			for (int charPosition = StableData.INT_ZERO; charPosition < inputStringLength; charPosition
-					+= (countInputStringLength == StableData.INT_ZERO ? StableData.INT_ONE : countInputStringLength)) {
-				if(inputString.charAt(charPosition) < StableData.INT_ONE_TWO_EIGHT){
-					if(fixWords[StableData.INT_ZERO].length() > StableData.INT_ZERO) {
-						if(fixWords[StableData.INT_ZERO].charAt(fixWords[StableData.INT_ZERO].length() - StableData.INT_ONE)
+			for (int charPosition= StableData.INT_ZERO; charPosition< inputStringLength; charPosition
+					+= (countInputStringLength== StableData.INT_ZERO? StableData.INT_ONE: countInputStringLength)) {
+				if(inputString.charAt(charPosition)< StableData.INT_ONE_TWO_EIGHT){
+					if(fixWords[StableData.INT_ZERO].length()> StableData.INT_ZERO) {
+						if(fixWords[StableData.INT_ZERO].charAt(fixWords[StableData.INT_ZERO].length()- StableData.INT_ONE)
 								< StableData.INT_ONE_TWO_EIGHT) {
 							fixWords[StableData.INT_ZERO].append(inputString.charAt(charPosition));
-							countInputStringLength = StableData.INT_ONE;
+							countInputStringLength= StableData.INT_ONE;
 							find = StableData.INT_ONE;
 							continue Here;
 						}
