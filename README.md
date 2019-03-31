@@ -1,6 +1,6 @@
-# 🔥20,000/ms word segment for text mining of NLP, POS, AI and Deep learning/每秒中文混合分词1300~2700万词汇的高精准确率快速神经网络分词包. 训练词意分析, 词感分析, 词境分析, 词灵分析并自由扩充词库 免费的官方互动展示页地址: http://tinos.qicp.vip/data.html 
+# 🔥20,000/ms word segment for text mining of NLP, POS, AI and Deep learning/每秒中文混合分词1400~2700万词汇的高精准确率快速神经网络分词包. 训练词意分析, 词感分析, 词境分析, 词灵分析并自由扩充词库 免费的官方互动展示页地址: http://tinos.qicp.vip/data.html 
 
-## 版本号：10.6.0 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （Deta 中译英图灵项目已经启动.）。
+## 版本号：10.6.1 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （Deta 中译英图灵项目已经启动.）。
 ## 主题一： 词意
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： คลังข้อความภาษาไทยขนาดใหญ่สำหรับการปรับรุ่นเสร็จสมบูรณ์。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能： Cơ sở dữ liệu tiếng việt chuẩn hoàn thành, không tối ưu hóa phiên bản。
@@ -31,7 +31,7 @@
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  搜索词语非常迅捷：基于 《2分法搜索 欧基里德距离 进行 位运算散列存储 字符集数据森林》。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  匹配词语非常精准：基于 《决策树深度 NLP 正向隐马可夫匹配》。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  词频统计接近光速：基于《线性科学最强的快排第6代的基础上作者进行以作者名字命名的小高峰过滤法修正算法，导致快排6的速度再翻2倍》。 
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度：每秒高达1300万中文简体字准确分词。 因为通过国际SONAR最高认证，牺牲了程序执行时间十分之三的速度效率（自行修改去掉sonar认知模式可达1700万字分词每秒，性能比应该是世界第二，世界第一赠给高斯林先生，因为我用的是java，没办法）。 测试环境（win7， 64位， 16g ram，intel i5-7500） 20181208 功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度：每秒高达1400万(20190331)中文简体字准确分词。 因为通过国际SONAR最高认证，牺牲了程序执行时间十分之三的速度效率（自行修改去掉sonar认知模式可达1700万字分词每秒，性能比应该是世界第二，世界第一赠给高斯林先生，因为我用的是java，没办法）。 测试环境（win7， 64位， 16g ram，intel i5-7500） 20181208 功能作者： 罗瑶光
 https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/test
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒1700万 ~ 2700万中英文混合常规格式分词。（每毫秒分20,000字+）20181211 功能作者：罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度每秒高达900万词语的中文词性索引。（Part Of Speech, POS），功能作者： 罗瑶光
