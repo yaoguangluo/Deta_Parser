@@ -28,17 +28,15 @@ public class NLPControllerImp implements NLPController{
 		strings[StableData.INT_ZERO]= String.valueOf(countWordNode.charAt(StableData.INT_ZERO));
 		strings[StableData.INT_ONE]= String.valueOf(countWordNode.charAt(StableData.INT_ZERO))
 				+ String.valueOf(countWordNode.charAt(StableData.INT_ONE));
-		if (wordsForest.containsKey(strings[StableData.INT_ZERO])){
-			if (StableMaps.mingCi.containsKey(strings[StableData.INT_ZERO])){
-				countInputStringLength= posUtils.chuLiMingCiOfTwo(wordsForest, outputList, countInputStringLength
-						, strings, prefixWord);
-				return countInputStringLength;
-			}
-			if (StableMaps.baDongCi.containsKey(strings[StableData.INT_ZERO])){
-				countInputStringLength = posUtils.chuLiBaDongCiOfTwo(wordsForest, outputList, countInputStringLength
-						, strings, prefixWord);
-				return countInputStringLength;
-			}
+		if (StableMaps.mingCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputStringLength= posUtils.chuLiMingCiOfTwo(wordsForest, outputList, countInputStringLength
+					, strings, prefixWord);
+			return countInputStringLength;
+		}
+		if (StableMaps.baDongCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputStringLength = posUtils.chuLiBaDongCiOfTwo(wordsForest, outputList, countInputStringLength
+					, strings, prefixWord);
+			return countInputStringLength;
 		}
 		if (wordsForest.containsKey(strings[StableData.INT_ONE])){
 			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
@@ -88,7 +86,7 @@ public class NLPControllerImp implements NLPController{
 			countInputLength = posUtils.chuLiLianCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
 			return countInputLength;
 		}
-		if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_JIE_CI)){
+		if (StableMaps.jieCi.containsKey(strings[StableData.INT_ZERO])){
 			countInputLength = posUtils.chuLiJieCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
 			return countInputLength;
 		}

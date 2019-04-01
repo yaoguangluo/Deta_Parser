@@ -31,7 +31,7 @@ public class NEROControllerOneTimeImp implements NEROControllerOneTime {
 			,int charPositionNext) {
 		if (StableData.INT_THREE== forestDepth){
 			return outputWordNode;
-		}	
+		}
 		FMHMMNode fFHMMNode= getFMHMMNode(forestsRoots,inputString,charPosition);
 		if (null== fFHMMNode) {
 			return outputWordNode;
