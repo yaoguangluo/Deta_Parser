@@ -102,8 +102,8 @@ public class POSControllerImp implements POSController{
 		String charPositionAtFixWord = StableData.EMPTY_STRING + fixWord[StableData.INT_ONE].charAt(backPosition);
 		if (wordsForest.containsKey(charPositionAtFixWord) && (StableMaps.zhuCi.containsKey(charPositionAtFixWord) 
 				|| StableMaps.shengLueCi.containsKey(charPositionAtFixWord)|| StableMaps.fuCi.containsKey(charPositionAtFixWord))){
-			if(!wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_SHENG_LUE_CI)
-					&& wordsForest.get(charPositionAtFixWord).contains(StableData.NLP_FU_CI)){
+			if(!wordsForest.get(fixWord[StableData.INT_ZERO].toString()).contains(StableData.NLP_CI_SHENG_LUE)
+					&& wordsForest.get(charPositionAtFixWord).contains(StableData.NLP_CI_FU)){
 				return StableData.INT_ERROR;
 			}
 			nestCountInputStringLength[StableData.INT_ZERO] = parserFirstCharOfThree(countInputStringLength, outputList
@@ -171,7 +171,7 @@ public class POSControllerImp implements POSController{
 	public int chuLiJieCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
 			, String[] strings, StringBuilder[] fixWord){
 		if (outputList.size() == StableData.INT_ZERO && (wordsForest.get(strings[StableData.INT_TWO])
-				.contains(StableData.NLP_WEI_CI))){
+				.contains(StableData.NLP_CI_WEI))){
 			outputList.add(strings[StableData.INT_ZERO]);
 			outputList.add(strings[StableData.INT_TWO]);
 			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
@@ -421,7 +421,7 @@ public class POSControllerImp implements POSController{
 			, int countInputStringLength, Map<String, WordFrequency> outputList, String[] strings, int[] nestCountInputStringLength){
 		String charPositionAtFixWord= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].charAt(backPosition);
 		if (wordsForest.containsKey(charPositionAtFixWord)&& (StableMaps.zhuCi.containsKey(charPositionAtFixWord) 
-				|| wordsForest.get(charPositionAtFixWord).contains(StableData.NLP_SHENG_LUE_CI))){
+				|| wordsForest.get(charPositionAtFixWord).contains(StableData.NLP_CI_SHENG_LUE))){
 			nestCountInputStringLength[StableData.INT_ZERO]= parserFirstCharOfThreeForMap(countInputStringLength, outputList
 					, strings, fixWord, wordsForest);
 			return StableData.INT_RIGHT;

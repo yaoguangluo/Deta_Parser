@@ -161,7 +161,7 @@ public class TranslatorImp implements Translator{
 						if(i - StableData.INT_ONE > StableData.INT_ZERO && verbals.get(i - StableData.INT_ONE)
 								.getEnglish().contains(StableData.NLP_ENGLISH_OF)) {
 							Verbal temp = verbals.get(i);
-							temp.setPartOfSpeech(StableData.NLP_DONG_MING_CI);
+							temp.setPartOfSpeech(StableData.NLP_CI_DONG_MING);
 							String english = temp.getEnglish().replace(StableData.SPACE_STRING, StableData.EMPTY_STRING);
 							if(english.charAt(english.length() - StableData.INT_ONE) == StableData.NLP_CHAR_E) {
 								english = StableData.NLP_ENGLISH_THE + StableData.SPACE_STRING 
@@ -184,7 +184,7 @@ public class TranslatorImp implements Translator{
 										}
 									}
 									Verbal temp = verbals.get(i);
-									temp.setPartOfSpeech(StableData.NLP_DONG_MING_CI);
+									temp.setPartOfSpeech(StableData.NLP_CI_DONG_MING);
 									String english = temp.getEnglish().replace(StableData.SPACE_STRING, StableData.EMPTY_STRING);
 									if(english.charAt(english.length()-StableData.INT_ONE) == StableData.NLP_CHAR_E) {
 										english = StableData.NLP_ENGLISH_THE + StableData.SPACE_STRING 
@@ -200,7 +200,7 @@ public class TranslatorImp implements Translator{
 								if(!verbals.get(i + StableData.INT_TWO).getPartOfSpeech().contains(StableData.NLP_ZI_MING)){
 									if(verbals.get(i + StableData.INT_THREE).getPartOfSpeech().contains(StableData.NLP_ZI_MING)){
 										Verbal temp = verbals.get(i + StableData.INT_TWO);
-										temp.setPartOfSpeech(StableData.NLP_DONG_MING_CI);
+										temp.setPartOfSpeech(StableData.NLP_CI_DONG_MING);
 										String english = temp.getEnglish().replace(StableData.SPACE_STRING, StableData.EMPTY_STRING);
 										if(english.charAt(english.length() - StableData.INT_ONE) == StableData.NLP_CHAR_E) {
 											english = StableData.NLP_ENGLISH_OF + StableData.SPACE_STRING +
@@ -218,7 +218,7 @@ public class TranslatorImp implements Translator{
 						}else if(i - StableData.INT_ONE >= StableData.INT_ZERO && verbals.get(i - StableData.INT_ONE)
 								.getPartOfSpeech().contains(StableData.NLP_ZI_JIE)){
 							Verbal temp = verbals.get(i);
-							temp.setPartOfSpeech(StableData.NLP_DONG_MING_CI);
+							temp.setPartOfSpeech(StableData.NLP_CI_DONG_MING);
 							String english = temp.getEnglish().replace(StableData.SPACE_STRING, StableData.EMPTY_STRING);
 							if(english.charAt(english.length() - StableData.INT_ONE) == StableData.NLP_CHAR_E) {
 								english = StableData.NLP_ENGLISH_THE + StableData.SPACE_STRING + english.substring(StableData.INT_ZERO
@@ -230,7 +230,7 @@ public class TranslatorImp implements Translator{
 						}else if(i - StableData.INT_ONE >= StableData.INT_ZERO && verbals.get(i - StableData.INT_ONE).getPartOfSpeech()
 								.contains(StableData.NLP_ZI_FU)){
 							Verbal temp = verbals.get(i);
-							temp.setPartOfSpeech(StableData.NLP_DONG_MING_CI);
+							temp.setPartOfSpeech(StableData.NLP_CI_DONG_MING);
 							String english = temp.getEnglish().replace(StableData.SPACE_STRING, StableData.EMPTY_STRING);
 							if(english.charAt(english.length() - StableData.INT_ONE) == StableData.NLP_CHAR_E) {
 								english = english.substring(StableData.INT_ZERO, english.length() - StableData.INT_ONE) 
@@ -254,7 +254,7 @@ public class TranslatorImp implements Translator{
 						}
 						temp.setEnglish(english);
 					}
-				}else if(verbals.get(i).getPartOfSpeech().contains(StableData.NLP_FU_CI)){
+				}else if(verbals.get(i).getPartOfSpeech().contains(StableData.NLP_CI_FU)){
 					if(i - StableData.INT_ONE >= StableData.INT_ZERO && (verbals.get(i-StableData.INT_ONE)
 							.getPartOfSpeech().contains(StableData.NLP_ZI_DAI)
 							||verbals.get(i - StableData.INT_ONE).getPartOfSpeech().contains(StableData.NLP_ZI_MING))){

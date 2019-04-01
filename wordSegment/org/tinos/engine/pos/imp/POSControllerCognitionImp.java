@@ -26,7 +26,6 @@ public class POSControllerCognitionImp implements POSController{
 			countInputStringLength += StableData.INT_TWO;
 		}
 		return countInputStringLength;
-
 	}
 
 	public int chuLiMingCiOfTwo(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
@@ -171,7 +170,7 @@ public class POSControllerCognitionImp implements POSController{
 	public int chuLiJieCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
 			, String[] strings, StringBuilder[] fixWord){
 		if (outputList.size()== StableData.INT_ZERO && (wordsForest.get(strings[StableData.INT_TWO])
-				.contains(StableData.NLP_WEI_CI))){
+				.contains(StableData.NLP_CI_WEI))){
 			outputList.add(strings[StableData.INT_ZERO]);
 			outputList.add(strings[StableData.INT_TWO]);
 			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
@@ -427,7 +426,7 @@ public class POSControllerCognitionImp implements POSController{
 			, int countInputStringLength, Map<String, WordFrequency> outputList, String[] strings, int[] nestCountInputStringLength){
 		String charPositionAtFixWord= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].charAt(backPosition);
 		if (wordsForest.containsKey(charPositionAtFixWord)&& (StableMaps.zhuCi.containsKey(charPositionAtFixWord) 
-				|| wordsForest.get(charPositionAtFixWord).contains(StableData.NLP_SHENG_LUE_CI))){
+				|| wordsForest.get(charPositionAtFixWord).contains(StableData.NLP_CI_SHENG_LUE))){
 			nestCountInputStringLength[StableData.INT_ZERO]= parserFirstCharOfThreeForMap(countInputStringLength, outputList
 					, strings, fixWord, wordsForest);
 			return StableData.INT_RIGHT;

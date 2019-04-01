@@ -153,7 +153,7 @@ public class NLPControllerImp implements NLPController{
 		strings[StableData.INT_ONE]= String.valueOf(countWordNode.charAt(StableData.INT_ZERO))
 				+ String.valueOf(countWordNode.charAt(StableData.INT_ONE));
 		if (wordsForest.containsKey(strings[StableData.INT_ZERO])){
-			if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_MING_CI)){
+			if (wordsForest.get(strings[StableData.INT_ZERO]).contains(StableData.NLP_CI_MING)){
 				countInputStringLength= posUtils.chuLiMingCiOfTwoForMap(wordsForest, outputList, countInputStringLength
 						, strings, prefixWord);
 				return countInputStringLength;
