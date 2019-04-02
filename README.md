@@ -1,4 +1,6 @@
 # 🔥26,000/ms word segment for text mining of NLP, POS, AI and Deep learning/每秒中文混合分词1500~2700万词汇的高精准确率快速神经网络分词包. 训练词意分析, 词感分析, 词境分析, 词灵分析并自由扩充词库 免费的官方互动展示页地址: http://tinos.qicp.vip/data.html 
+###### 项目使用说明书 10.6.1版本地址:
+https://github.com/yaoguangluo/AOPM_VPCS_Theroy/blob/master/%E6%B5%8F%E9%98%B3%E5%BE%B7%E5%A1%94%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%20%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%81%B5%E5%B7%A5%E7%A8%8BAPI%E8%AF%B4%E6%98%8E%E4%B9%A6_10_6_1.doc
 
 ## 版本号：10.6.1 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （Deta 中译英图灵项目已经启动.）。
 ## 主题一： 词意
