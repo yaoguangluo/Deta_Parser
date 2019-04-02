@@ -573,4 +573,11 @@ public class POSControllerCognitionImp implements POSController{
 				, wordsForest);
 		return countInputStringLength;
 	}
+
+	@Override
+	public int chuLiShiTaiCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
+			String[] strings, StringBuilder[] prefixWord) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

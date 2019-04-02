@@ -51,6 +51,12 @@ public class NLPControllerImp implements NLPController{
 			, Map<String, String> wordsForest, StringBuilder stringBuilder, StringBuilder[] prefixWord
 			, POSController posUtils){
 		String inputString= stringBuilder.toString();
+		if (wordsForest.containsKey(inputString)){
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(inputString);
+			outputList.add(inputString);
+			return countInputLength;
+		}
 		String[] strings= new String[StableData.INT_FOUR];
 		strings[StableData.INT_ZERO]= String.valueOf(inputString.charAt(StableData.INT_ZERO));
 		strings[StableData.INT_ONE]= String.valueOf(inputString.charAt(StableData.INT_ZERO)) 
@@ -76,12 +82,6 @@ public class NLPControllerImp implements NLPController{
 					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);
 			return countInputLength;
 		}
-		if (wordsForest.containsKey(inputString)){
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(inputString);
-			outputList.add(inputString);
-			return countInputLength;
-		}
 		if (StableMaps.lianCi.containsKey(strings[StableData.INT_ZERO])){
 			countInputLength = posUtils.chuLiLianCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
 			return countInputLength;
@@ -102,6 +102,10 @@ public class NLPControllerImp implements NLPController{
 			countInputLength= posUtils.chuLiMingCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
 			return countInputLength;
 		}
+		if (StableMaps.shiTaiCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength= posUtils.chuLiShiTaiCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
+			return countInputLength;
+		}
 		StringBuilder stringsBuilder= new StringBuilder();
 		countInputLength= doSlangPartAndPOSCheckForTwoChar(--countInputLength, outputList
 				, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);
@@ -117,6 +121,16 @@ public class NLPControllerImp implements NLPController{
 			prefixWord[StableData.INT_ZERO].append(inputString);
 			return countInputStringLength;
 		}//will make pre 3 or post 3 check. now finished pre 3 .20190330
+		String preRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO)+ inputString.charAt(StableData.INT_ONE);
+		if(StableMaps.mingCi.containsKey(preRegister)) {
+			String postRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_TWO)+ inputString.charAt(StableData.INT_THREE);
+			if(StableMaps.mingCi.containsKey(postRegister)) {
+				output.add(preRegister);
+				prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+				prefixWord[StableData.INT_ZERO].append(preRegister);
+				return countInputStringLength-StableData.INT_TWO;
+			}
+		}
 		countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
 				, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils);
 		return countInputStringLength;
@@ -170,6 +184,10 @@ public class NLPControllerImp implements NLPController{
 			, Map<String, String> wordsForest, StringBuilder stringBuilder, StringBuilder[] prefixWord
 			, POSController posUtils){
 		String inputString= stringBuilder.toString();
+		if (wordsForest.containsKey(inputString)){
+			WordForestUtil.wordsForestContainsKey(outputList, inputString, prefixWord);
+			return countInputLength;
+		}
 		String[] strings= new String[StableData.INT_FOUR];
 		strings[StableData.INT_ZERO]= String.valueOf(inputString.charAt(StableData.INT_ZERO));
 		strings[StableData.INT_ONE]= String.valueOf(inputString.charAt(StableData.INT_ZERO)) 
@@ -213,10 +231,6 @@ public class NLPControllerImp implements NLPController{
 					, strings, prefixWord);
 			return countInputLength;
 		}
-		if (wordsForest.containsKey(inputString)){
-			WordForestUtil.wordsForestContainsKey(outputList, inputString, prefixWord);
-			return countInputLength;
-		}
 		StringBuilder stringsBuilder= new StringBuilder();
 		countInputLength= doSlangPartAndPOSCheckForTwoCharForMap(--countInputLength, outputList
 				, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils);
@@ -229,6 +243,12 @@ public class NLPControllerImp implements NLPController{
 		if (wordsForest.containsKey(inputString)){
 			WordForestUtil.wordsForestContainsKey(output, inputString, prefixWord);
 			return countInputStringLength;
+		}
+		if(StableMaps.mingCi.containsKey(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO)+inputString.charAt(StableData.INT_ONE))) {
+			if(StableMaps.mingCi.containsKey(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_TWO)+inputString.charAt(StableData.INT_THREE))) {
+				WordForestUtil.wordsForestContainsKey(output, StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO)+inputString.charAt(StableData.INT_ONE), prefixWord);
+				return countInputStringLength;
+			}
 		}
 		countInputStringLength= doPOSAndEMMCheckOfThreeForMap(--countInputStringLength, output, wordsForest
 				, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils);

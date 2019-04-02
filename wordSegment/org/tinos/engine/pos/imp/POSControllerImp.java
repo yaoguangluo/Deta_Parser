@@ -167,11 +167,19 @@ public class POSControllerImp implements POSController{
 			return countInputStringLength;
 		}
 		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())){
+			String firstChar= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ZERO);
+			String secondChar= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ONE);
+			//Without FuCi
 			if (StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
 				countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord
 						, wordsForest);
 				return countInputStringLength;
-			} else{
+			} else if(!StableMaps.fuCi.containsKey(firstChar)&&!StableMaps.fuCi.containsKey(secondChar)
+					&&!StableMaps.fuCi.containsKey(firstChar+ secondChar)) {
+				countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord
+						, wordsForest);
+				return countInputStringLength;
+			}else {
 				countInputStringLength -= StableData.INT_THREE;
 				if (wordsForest.containsKey(strings[StableData.INT_ONE])){
 					outputList.add(strings[StableData.INT_ONE]);
@@ -550,6 +558,10 @@ public class POSControllerImp implements POSController{
 			String[] strings, StringBuilder[] fixWord){
 		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())){
 			if (StableMaps.xingWeiCi.containsKey(fixWord[StableData.INT_ZERO].toString())|| StableMaps.mingCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
+				if(StableMaps.dongCi.containsKey(strings[StableData.INT_TWO])){
+					countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord, wordsForest);
+					return countInputStringLength;
+				}
 				if(StableMaps.mingCi.containsKey(strings[StableData.INT_ONE])){
 					countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord, wordsForest);
 					return countInputStringLength;
@@ -568,5 +580,14 @@ public class POSControllerImp implements POSController{
 		countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord
 				, wordsForest);
 		return countInputStringLength;
+	}
+
+	public int chuLiShiTaiCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
+			String[] strings, StringBuilder[] prefixWord) {
+		if (StableMaps.dongCi.containsKey(strings[StableData.INT_TWO].toString())) {
+			countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord, wordsForest);
+			return countInputLength;
+		}
+		return countInputLength;
 	}
 }

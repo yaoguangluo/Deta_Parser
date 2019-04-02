@@ -15,8 +15,10 @@ public class DemoPOSforSpecial {
 		List<String> sets = new ArrayList<>();
 		String[] ss = new String[1];
 		String[] ss1 = new String[1];
-		ss[0] = " 道路路面积水这样";
-		ss1[0] = "路面 积水 这样";
+		ss[0] = " 问题的确定问题的确定不下来解放大道路面积水满了解放大道路面  ";
+		ss1[0] = "问题 的 确定 问题 的确 定 不 下来 解放 大道 路面 积 水 满 了 解放 大道 路 面 ";
+//		ss[0] = " 解放大道路面积水满了解放大道路面积 解放大道路面积水 ";
+//		ss1[0]= "解放 大道 路 面 积水 满 了 解放 大道 路 面积 ";
 		for (int i = 0; i < ss.length; i++) {
 			System.out.println("超级变态复杂病句-->" + ss[i]);
 			sets = analyzer.parserString(ss[i].replace(" ", ""));//词性分析
