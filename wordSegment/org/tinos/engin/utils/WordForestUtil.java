@@ -3,8 +3,8 @@ import java.util.Map;
 import org.tinos.view.obj.WordFrequency;
 import org.tinos.view.stable.StableData;
 public class WordForestUtil {
-	public static void wordsForestNotContainsKey(Map<String, WordFrequency> outputList,String countWordNode
-			,StringBuilder[] prefixWord) {
+	public static void wordsForestNotContainsKey(Map<String, WordFrequency> outputList
+			,String countWordNode,StringBuilder[] prefixWord) {
 		if (outputList.containsKey(String.valueOf(countWordNode.charAt(StableData.INT_ZERO)))) {
 			WordFrequency wordFrequency = outputList.get(String.valueOf(countWordNode.charAt(StableData.INT_ZERO)));
 			wordFrequency.setFrequency(wordFrequency.getFrequency() + StableData.INT_ONE);

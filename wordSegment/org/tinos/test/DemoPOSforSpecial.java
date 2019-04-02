@@ -15,8 +15,8 @@ public class DemoPOSforSpecial {
 		List<String> sets = new ArrayList<>();
 		String[] ss = new String[1];
 		String[] ss1 = new String[1];
-//		ss[0] = "独立自主和平等互利的原则";
-//		ss1[0] = "独立 自主 和 平等 互利 的 原则";
+		ss[0] = " 道路路面积水这样";
+		ss1[0] = "路面 积水 这样";
 		for (int i = 0; i < ss.length; i++) {
 			System.out.println("超级变态复杂病句-->" + ss[i]);
 			sets = analyzer.parserString(ss[i].replace(" ", ""));//词性分析

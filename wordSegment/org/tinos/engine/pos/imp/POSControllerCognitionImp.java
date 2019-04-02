@@ -126,6 +126,23 @@ public class POSControllerCognitionImp implements POSController{
 		}
 	}
 
+	public int parserFirstTwoCharOfThree(int countInputStringLength, List<String> outputList, String[] strings
+			, StringBuilder[] fixWord, Map<String, String> wordsForest){
+		countInputStringLength-= StableData.INT_THREE;
+		outputList.add(strings[StableData.INT_ONE]);
+		fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
+		countInputStringLength+= StableData.INT_TWO;
+		if (!wordsForest.containsKey(strings[StableData.INT_THREE])){
+			return countInputStringLength;
+		}
+		outputList.add(strings[StableData.INT_THREE]);
+		fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_THREE]);
+		countInputStringLength++;
+		return countInputStringLength;
+	}
+	
 	public int parserFirstCharOfThree(int countInputStringLength, List<String> outputList, String[] strings
 			, StringBuilder[] fixWord, Map<String, String> wordsForest){
 		countInputStringLength-= StableData.INT_THREE;
@@ -538,6 +555,10 @@ public class POSControllerCognitionImp implements POSController{
 			String[] strings, StringBuilder[] fixWord){
 		if (StableMaps.xingWeiCi.containsKey(fixWord[StableData.INT_ZERO].toString())
 				|| StableMaps.mingCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
+			if(StableMaps.mingCi.containsKey(strings[StableData.INT_ONE])){
+				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord, wordsForest);
+				return countInputStringLength;
+			}
 			countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord, wordsForest);
 			return countInputStringLength;
 		} 
