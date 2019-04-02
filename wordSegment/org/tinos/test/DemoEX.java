@@ -26,7 +26,7 @@ public class DemoEX {
 		Map<String, WordFrequency> seta = new ConcurrentHashMap<>();
 		TimeCheck t = new TimeCheck();
 		String ss = "科学的发展是一种传承，每一个获得诺贝尔奖的科学家，都是通过长时间对问题的优化中不断总结和分化" +
-				"，最终得到科学的成果痴呆鉴别";//60字
+				"，最终得到科学的成果";//60字
 //		String ss = "i m new sour i come to this change word but i dont know how to given and take";//60字
 //		String ss = "科学，是方法论和逻辑观的具体称谓，是一hgjj345345种劳动传承，和尚未解开谜团的盒子一样，需要打"
 //				  + "开。我们r不需fdfgsdsf要猜测，只要234324保持一颗严谨的心gfdgbdfgfd态。可以用榔头，也"
