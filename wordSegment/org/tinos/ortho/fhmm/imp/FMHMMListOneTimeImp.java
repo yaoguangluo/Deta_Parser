@@ -166,6 +166,11 @@ public class FMHMMListOneTimeImp implements FHMMList {
 					StableMaps.shiTaiCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
 							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 				}
+				if(!StableMaps.dingMingCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
+						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_CI_DING_MING)) {
+					StableMaps.dingMingCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
 				posCnToCn.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
 						.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 				linkedHashMap = loopLoadForest(cInputString);
