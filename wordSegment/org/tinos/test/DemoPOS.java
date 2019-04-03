@@ -13,8 +13,8 @@ public class DemoPOS {
 		analyzer.init();
 		Map<String, String> nlp = analyzer.getPosCnToCn();
 		List<String> sets = new ArrayList<>();
-		String[] ss = new String[30];
-		String[] ss1 = new String[30];
+		String[] ss = new String[31];
+		String[] ss1 = new String[31];
 		ss[0] = "结婚的和尚未结婚的等和尚未成家之人都和尚未"
 				+ "成佛的和尚未必一样和尚未来的和尚未和从容"
 				+ "易开始念经那和尚未进行告别不显得从容易知"
@@ -91,6 +91,9 @@ public class DemoPOS {
 				+ "教学 实践 信息 技术 应用 于 教学 中 的 哪个 方面 上级 解除 了 他 的 职务 方程 的 解 除了 零 以外 还有 …我们 一起 去 故宫 一起 恶性 交通 事故 我 不想 吃 东西 你 就 不 想 想 各 国有 企业 相继 倒闭 各国 有 各国 的 困难"
 				+ "老人家 身体 不错 老人 家中 很 干净 和服 务必 归还 技术 和 服务 他 站 起 身 他 起身 去 北京 问题 的 确定 这 的确 定 不下来 结合 成分 为 人民 工作 中国 产品 质量 原子 结合 成 分子 时 部分 居民 生活 水平 治理 解放 大道 路面 积水"
 				+ "这样 的 人 才能 经受 住 考验 他 俩 儿 谈 恋爱 是 从 头年 元月 开始 的 在 这些 企业 中 国有 企业 有 十个 结婚 的 和 尚未 结婚的";
+		
+		ss[30] = " 中国有的这些企业中国有企业方程的解除了零研究生命令本科生研究生命科学的问题的确定问题的确定不下来解放大道路面积水满了解放大道路面  ";
+		ss1[30]= " 中国 有的 这些 企业 中 国有 企业方程 的 解 除了 零 研究 生 命令 本科 生 研究 生命 科学 的 问题 的 确定 问题 的确 定 不 下来 解放 大道 路面 积 水 满 了 解放 大道 路面 ";
 		for (int i = 0; i < ss.length; i++) {
 			System.out.println("超级变态复杂病句-->" + ss[i]);
 			sets = analyzer.parserString(ss[i].replace(" ", ""));//词性分析

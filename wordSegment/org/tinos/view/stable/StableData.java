@@ -18,7 +18,7 @@ public interface StableData {
 	public static final String NLP_CI_ZHU= "助词";
 	public static final String NLP_CI_SHENG_LUE= "省略词";
 	public static final String NLP_CI_XIAN_DING= "限定词";
-	public static final CharSequence NLP_CI_DING_MING = "定名词";
+	public static final String NLP_CI_DING_MING = "定名词";
 	public static final String NLP_FU_SHU= "复数";
 	public static final String NLP_ZI_MING= "名";
 	public static final String NLP_ZI_DONG= "动";
