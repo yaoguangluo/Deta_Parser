@@ -10,7 +10,8 @@ public class DNNTest{
 		ANNTest aNNTest = new ANNTest();
 		String[][] ann = aNNTest.getANNMatrix();
 		String[][] dnn = dNNTest.getDNNMatrix(ann);
-
+//		String[][] ann = aNNTest.getANNMatrix(string, analyzer);
+//		String[][] dnn = dNNTest.getDNNMatrix(ann, analyzer, string);
 		for(int i=0;i<dnn.length;i++) {
 			double dnn_lwa = Double.parseDouble(dnn[i][3]);
 			if(dnn_lwa>100) {
