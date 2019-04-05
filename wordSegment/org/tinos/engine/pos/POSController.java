@@ -4,11 +4,13 @@ import java.util.Map;
 import org.tinos.view.obj.WordFrequency;
 
 public interface POSController {
+	void addFixWordsOfTwo(int charPosition, String inputString,StringBuilder[] fixWords);
+	
 	public int chuLiBaDongCiOfTwo(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength,
 			String[] strings, StringBuilder[] prefixWord);
 
 	public int chuLiMingCiOfTwo(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
-			, String[] strings, StringBuilder[] fixWord);
+			, String[] strings, StringBuilder[] fixWord, int charPosition, String inputString);
 
 	public int parserFirstCharOfTwo(int countInputStringLength, List<String> outputList, String[] strings
 			, StringBuilder[] fixWord);

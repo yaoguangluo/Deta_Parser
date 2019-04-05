@@ -96,19 +96,19 @@ public class AnalyzerImp implements Analyzer {
 				}
 				if (StableData.INT_TWO == compare) {
 					countInputStringLength = nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength, outputList
-							, stringBuilder, wordsForest, fixWords, posController);
+							, stringBuilder, wordsForest, fixWords, posController, charPosition, mixedString);
 					continue Here;
 				}
 				if (StableData.INT_THREE == compare) {
 					addFixWords(charPosition, mixedString, fixWords);
 					countInputStringLength = nlpController.doPOSAndEMMCheckOfThree(countInputStringLength, outputList
-							, wordsForest, stringBuilder, fixWords, posController);
+							, wordsForest, stringBuilder, fixWords, posController, charPosition, mixedString);
 					continue Here;
 				}
 				if (StableData.INT_FOUR == compare) {
 					addFixWords(charPosition, mixedString, fixWords);
 					countInputStringLength = nlpController.doSlangCheck(countInputStringLength, outputList, stringBuilder
-							, wordsForest, fixWords, posController);
+							, wordsForest, fixWords, posController, charPosition, mixedString);
 				}
 			}
 		return outputList;
@@ -160,21 +160,20 @@ public class AnalyzerImp implements Analyzer {
 					continue Here;
 				}
 				if (compare== StableData.INT_TWO) {
-					addFixWordsOfTwo(charPosition, inputString, fixWords);
 					countInputStringLength= nlpController.doSlangPartAndPOSCheckForTwoChar(countInputStringLength, outputList
-							, stringBuilder, wordsForest, fixWords, posController);
+							, stringBuilder, wordsForest, fixWords, posController, charPosition, inputString);
 					continue Here;
 				}
 				if (compare== StableData.INT_THREE) {
 					addFixWords(charPosition, inputString, fixWords);
 					countInputStringLength= nlpController.doPOSAndEMMCheckOfThree(countInputStringLength, outputList
-							, wordsForest, stringBuilder, fixWords, posController);
+							, wordsForest, stringBuilder, fixWords, posController, charPosition, inputString);
 					continue Here;
 				}
 				if (compare== StableData.INT_FOUR) {
 					addFixWords(charPosition, inputString, fixWords);
 					countInputStringLength= nlpController.doSlangCheck(countInputStringLength, outputList, stringBuilder
-							, wordsForest, fixWords, posController);
+							, wordsForest, fixWords, posController, charPosition, inputString);
 				}
 			}
 		return outputList;
@@ -246,17 +245,6 @@ public class AnalyzerImp implements Analyzer {
 			}
 		return outputList;
 	}
-
-	public void addFixWordsOfTwo(int charPosition, String inputString, StringBuilder[] fixWords) {
-		fixWords[StableData.INT_ONE].delete(StableData.INT_ZERO, fixWords[StableData.INT_ONE].length());
-		if (charPosition + StableData.INT_SEVEN < inputString.length()) {
-			fixWords[StableData.INT_ONE].append(inputString.substring(charPosition + StableData.INT_TWO
-					, charPosition + StableData.INT_SEVEN));
-			return;
-		}
-		fixWords[StableData.INT_ONE].append(inputString.substring(charPosition + StableData.INT_TWO
-				, inputString.length()));
-	}
 	
 	public void addFixWords(int charPosition, String inputString, StringBuilder[] fixWords) {
 		fixWords[StableData.INT_ONE].delete(StableData.INT_ZERO, fixWords[StableData.INT_ONE].length());
@@ -268,8 +256,6 @@ public class AnalyzerImp implements Analyzer {
 		fixWords[StableData.INT_ONE].append(inputString.substring(charPosition + StableData.INT_THREE
 				, inputString.length()));
 	}
-	
-	
 
 	public Map<String, String> getEnToCn() {
 		return fHMMList.getEnToCn();

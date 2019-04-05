@@ -29,12 +29,13 @@ public class POSControllerImp implements POSController{
 	}
 
 	public int chuLiMingCiOfTwo(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
-			, String[] strings, StringBuilder[] fixWord){
+			, String[] strings, StringBuilder[] fixWord, int charPosition, String inputString){
 		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())){
 			if (StableMaps.liangCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
 				countInputStringLength= parserFirstCharOfTwo(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
 			}
+			addFixWordsOfTwo(charPosition, inputString, fixWord);
 			if (StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.fuCi.containsKey(StableData.EMPTY_STRING
 					+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ZERO))){
 				countInputStringLength= parserFirstCharOfTwo(countInputStringLength, outputList, strings, fixWord);
@@ -50,6 +51,17 @@ public class POSControllerImp implements POSController{
 			return countInputStringLength;
 		}
 		return countInputStringLength;
+	}
+	
+	public void addFixWordsOfTwo(int charPosition, String inputString, StringBuilder[] fixWords) {
+		fixWords[StableData.INT_ONE].delete(StableData.INT_ZERO, fixWords[StableData.INT_ONE].length());
+		if (charPosition+ StableData.INT_SEVEN < inputString.length()) {
+			fixWords[StableData.INT_ONE].append(inputString.substring(charPosition + StableData.INT_TWO
+					, charPosition + StableData.INT_SEVEN));
+			return;
+		}
+		fixWords[StableData.INT_ONE].append(inputString.substring(charPosition + StableData.INT_TWO
+				, inputString.length()));
 	}
 
 	public int parserFirstCharOfTwo(int countInputStringLength, List<String> outputList, String[] strings

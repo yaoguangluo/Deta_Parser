@@ -29,7 +29,7 @@ public class POSControllerCognitionImp implements POSController{
 	}
 
 	public int chuLiMingCiOfTwo(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
-			, String[] strings, StringBuilder[] fixWord){
+			, String[] strings, StringBuilder[] fixWord, int charPosition, String inputString){
 		if (!wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())){
 			return countInputStringLength;
 		}
@@ -574,10 +574,23 @@ public class POSControllerCognitionImp implements POSController{
 		return countInputStringLength;
 	}
 
-	@Override
 	public int chuLiShiTaiCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
 			String[] strings, StringBuilder[] prefixWord) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (StableMaps.dongCi.containsKey(strings[StableData.INT_TWO].toString())) {
+			countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord, wordsForest);
+			return countInputLength;
+		}
+		return countInputLength;
+	}
+
+	public void addFixWordsOfTwo(int charPosition, String inputString, StringBuilder[] fixWords) {
+		fixWords[StableData.INT_ONE].delete(StableData.INT_ZERO, fixWords[StableData.INT_ONE].length());
+		if (charPosition+ StableData.INT_SEVEN < inputString.length()) {
+			fixWords[StableData.INT_ONE].append(inputString.substring(charPosition + StableData.INT_TWO
+					, charPosition + StableData.INT_SEVEN));
+			return;
+		}
+		fixWords[StableData.INT_ONE].append(inputString.substring(charPosition + StableData.INT_TWO
+				, inputString.length()));
 	}
 }
