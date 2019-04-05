@@ -54,11 +54,11 @@ public class POSControllerImp implements POSController{
 
 	public int parserFirstCharOfTwo(int countInputStringLength, List<String> outputList, String[] strings
 			, StringBuilder[] fixWord){
-		countInputStringLength -= StableData.INT_TWO;
 		outputList.add(strings[StableData.INT_ZERO]);
+		String postNext=StableData.EMPTY_STRING + strings[StableData.INT_ONE].charAt(StableData.INT_ONE);
+		outputList.add(postNext);
 		fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
-		countInputStringLength += StableData.INT_ONE;
+		fixWord[StableData.INT_ZERO].append(postNext);
 		return countInputStringLength;
 	}
 
