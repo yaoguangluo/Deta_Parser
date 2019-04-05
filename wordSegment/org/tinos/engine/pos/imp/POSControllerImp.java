@@ -32,7 +32,12 @@ public class POSControllerImp implements POSController{
 			, String[] strings, StringBuilder[] fixWord){
 		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())){
 			if (StableMaps.liangCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
-				countInputStringLength = parserFirstCharOfTwo(countInputStringLength, outputList, strings, fixWord);
+				countInputStringLength= parserFirstCharOfTwo(countInputStringLength, outputList, strings, fixWord);
+				return countInputStringLength;
+			}
+			if (StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.fuCi.containsKey(StableData.EMPTY_STRING
+					+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ZERO))){
+				countInputStringLength= parserFirstCharOfTwo(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
 			}
 			countInputStringLength -= StableData.INT_TWO;
