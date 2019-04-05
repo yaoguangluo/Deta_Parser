@@ -184,28 +184,28 @@ public class POSControllerImp implements POSController{
 			return countInputStringLength;
 		}
 		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())){
-			String firstChar= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ZERO);
-			String secondChar= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ONE);
-			//Without FuCi
 			if (StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
 				countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord
 						, wordsForest);
 				return countInputStringLength;
-			} else if(!StableMaps.fuCi.containsKey(firstChar)&&!StableMaps.fuCi.containsKey(secondChar)
-					&&!StableMaps.fuCi.containsKey(firstChar+ secondChar)) {
-				countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord
-						, wordsForest);
-				return countInputStringLength;
-			}else {
-				countInputStringLength -= StableData.INT_THREE;
-				if (wordsForest.containsKey(strings[StableData.INT_ONE])){
-					outputList.add(strings[StableData.INT_ONE]);
-					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
-					countInputStringLength += StableData.INT_TWO;
+			} else if(fixWord[StableData.INT_ONE].length()> StableData.INT_ONE) {
+				String firstChar= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ZERO);
+				String secondChar= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ONE);
+				if(!StableMaps.fuCi.containsKey(firstChar)&&!StableMaps.fuCi.containsKey(secondChar)
+						&&!StableMaps.fuCi.containsKey(firstChar+ secondChar)) {
+					countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord
+							, wordsForest);
+					return countInputStringLength;
 				}
-				return countInputStringLength;
 			}
+			countInputStringLength -= StableData.INT_THREE;
+			if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+				outputList.add(strings[StableData.INT_ONE]);
+				fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+				fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
+				countInputStringLength += StableData.INT_TWO;
+			}
+			return countInputStringLength;
 		}
 		return countInputStringLength;
 	}
@@ -590,6 +590,11 @@ public class POSControllerImp implements POSController{
 				}
 			}
 			if(StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])){
+				if(StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING
+						+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
+					countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord, wordsForest);
+					return countInputStringLength;
+				}
 				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord, wordsForest);
 				return countInputStringLength;
 			}
@@ -600,6 +605,24 @@ public class POSControllerImp implements POSController{
 			countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord, wordsForest);
 			return countInputStringLength;
 		} 
+		if(StableMaps.dongCi.containsKey(strings[StableData.INT_THREE])){
+			countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord, wordsForest);
+			return countInputStringLength;
+		}
+		if(StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])){
+			if(StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING
+					+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
+				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord, wordsForest);
+				return countInputStringLength;
+			}
+			if(StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.dingMingCi.containsKey(StableData.EMPTY_STRING
+					+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
+				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord, wordsForest);
+				return countInputStringLength;
+			}
+			countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord, wordsForest);
+			return countInputStringLength;
+		}
 		if (wordsForest.containsKey(strings[StableData.INT_ONE])){
 			outputList.add(strings[StableData.INT_ONE]);
 			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
