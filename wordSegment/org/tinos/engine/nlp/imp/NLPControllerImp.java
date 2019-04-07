@@ -38,13 +38,10 @@ public class NLPControllerImp implements NLPController{
 					, strings, prefixWord);
 			return countInputStringLength;
 		}
-		if (wordsForest.containsKey(strings[StableData.INT_ONE])){
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(countWordNode);
-			outputList.add(countWordNode);
-			return countInputStringLength;
-		}
-		return StableData.INT_ZERO;
+		prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+		prefixWord[StableData.INT_ZERO].append(countWordNode);
+		outputList.add(countWordNode);
+		return countInputStringLength;
 	}
 
 	public int doPOSAndEMMCheckOfThree(int countInputLength, List<String> outputList

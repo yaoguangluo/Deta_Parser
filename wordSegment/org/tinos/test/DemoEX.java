@@ -33,7 +33,18 @@ public class DemoEX {
 		}
 		t.end();
 		t.duration();
-		
+//		System.out.println(StableCount.a1);
+//		System.out.println(StableCount.a2);
+//		System.out.println(StableCount.a3);
+//		System.out.println(StableCount.a4);
+//		System.out.println(StableCount.a5);
+//		System.out.println(StableCount.a6);
+//		System.out.println(StableCount.a7);
+//		System.out.println(StableCount.a8);
+//		System.out.println(StableCount.a9);
+//		System.out.println(StableCount.a10);
+//		System.out.println(StableCount.a11);
+//		System.out.println(StableCount.a12);
 		for (int i = 0; i < sets.size(); i++) {
 			if (sets.get(i) != null) {
 				System.out.print(sets.get(i) + " ");
