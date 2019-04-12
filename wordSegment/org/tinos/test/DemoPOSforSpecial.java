@@ -23,7 +23,7 @@ public class DemoPOSforSpecial {
 //		ss[1]= "老人家中很干净";
 //		ss1[0] = "老 人家 身体 不错";
 //		ss1[1]= "老人 家 中 很 干净";
-		ss[0] = "沿海南方向逃跑";
+		ss[0] = "版权 归属 做 出 回应";
 		ss1[0] = " 有 用户 发现";
 		for (int i = 0; i < ss.length; i++) {
 			System.out.println("超级变态复杂病句-->" + ss[i]);
