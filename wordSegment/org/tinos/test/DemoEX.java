@@ -28,7 +28,7 @@ public class DemoEX {
 		String ss = "科学的发展是一种市场和社会需求的传承，每一位获得诺贝尔奖的科学家";//32字
 		DemoEX demoEX=new DemoEX();
 		t.begin();
-		for (int i = 0; i < 5000000; i++) { //重复500万次数 相当于处理 1.6亿字  耗费 时 9秒 
+		for (int i = 0; i < 5000000; i++) { //重复500万次数 相当于处理 1.6亿字  耗费 时 8.549秒 
 				sets= analyzer.parserString(ss);
 		}
 		t.end();
