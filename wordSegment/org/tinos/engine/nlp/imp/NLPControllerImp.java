@@ -12,12 +12,12 @@ public class NLPControllerImp implements NLPController{
 			, StringBuilder stringBuilder, Map<String, String> wordsForest, StringBuilder[] prefixWord
 			, POSController posUtils, int charPosition, String textInputString){
 		String countWordNode = stringBuilder.toString();
-		if (!wordsForest.containsKey(countWordNode)){
-			outputList.add(String.valueOf(countWordNode.charAt(StableData.INT_ZERO)));
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(countWordNode.charAt(StableData.INT_ZERO));
-			return --countInputStringLength;
-		}
+//		if (!wordsForest.containsKey(countWordNode)){
+//			outputList.add(String.valueOf(countWordNode.charAt(StableData.INT_ZERO)));
+//			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+//			prefixWord[StableData.INT_ZERO].append(countWordNode.charAt(StableData.INT_ZERO));
+//			return --countInputStringLength;
+//		}
 		if (prefixWord[StableData.INT_ZERO].length()== StableData.INT_ZERO){
 			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 			prefixWord[StableData.INT_ZERO].append(countWordNode);
@@ -26,8 +26,7 @@ public class NLPControllerImp implements NLPController{
 		}
 		String[] strings= new String[StableData.INT_TWO];
 		strings[StableData.INT_ZERO]= String.valueOf(countWordNode.charAt(StableData.INT_ZERO));
-		strings[StableData.INT_ONE]= String.valueOf(countWordNode.charAt(StableData.INT_ZERO))
-				+ String.valueOf(countWordNode.charAt(StableData.INT_ONE));
+		strings[StableData.INT_ONE]= countWordNode;
 		if (StableMaps.mingCi.containsKey(strings[StableData.INT_ZERO])){
 			countInputStringLength= posUtils.chuLiMingCiOfTwo(wordsForest, outputList, countInputStringLength
 					, strings, prefixWord, charPosition, textInputString);

@@ -35,6 +35,12 @@ public class POSControllerImp implements POSController{
 				countInputStringLength= parserFirstCharOfTwo(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
 			}
+			if (StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
+				fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+				fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
+				outputList.add(strings[StableData.INT_ONE]);
+				return countInputStringLength;
+			}
 			addFixWordsOfTwo(charPosition, inputString, fixWord);
 			if (StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.fuCi.containsKey(StableData.EMPTY_STRING
 					+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ZERO))){
