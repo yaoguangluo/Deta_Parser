@@ -145,35 +145,19 @@ public class POSControllerImp implements POSController{
 
 	public int parserFirstCharOfThree(int countInputStringLength, List<String> outputList, String[] strings
 			, StringBuilder[] fixWord, Map<String, String> wordsForest){
-		countInputStringLength -= StableData.INT_THREE;
 		outputList.add(strings[StableData.INT_ZERO]);
+		outputList.add(strings[StableData.INT_TWO]);
 		fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
-		countInputStringLength ++;
-		if (wordsForest.containsKey(strings[StableData.INT_TWO])){
-			outputList.add(strings[StableData.INT_TWO]);
-			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
-			countInputStringLength += StableData.INT_TWO;
-			return countInputStringLength;
-		}
+		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
 		return countInputStringLength;
 	}
 	
 	public int parserFirstTwoCharOfThree(int countInputStringLength, List<String> outputList, String[] strings
 			, StringBuilder[] fixWord, Map<String, String> wordsForest){
-		countInputStringLength-= StableData.INT_THREE;
 		outputList.add(strings[StableData.INT_ONE]);
-		fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
-		countInputStringLength+= StableData.INT_TWO;
-		if (!wordsForest.containsKey(strings[StableData.INT_THREE])){
-			return countInputStringLength;
-		}
 		outputList.add(strings[StableData.INT_THREE]);
 		fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_THREE]);
-		countInputStringLength++;
 		return countInputStringLength;
 	}
 
