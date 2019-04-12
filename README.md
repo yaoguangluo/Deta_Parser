@@ -45,7 +45,7 @@ https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/tes
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  多核模式：可以自己写 parallelStream() 函数去实现，jdk8以上已经支持, CogsBinaryForestAnalyzer 支持海量多核多线程并发安全 。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  安全：VPC架构采用纯虚函数做反向映射跳过IOC，效率增加，线程安全高度严格保障。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  部分中文短句翻译英语。功能作者： 罗瑶光
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒2200万 ~ 2700万中英文混合常规格式分词。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒2200万 ~ 3000万中英文混合常规格式分词。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  病句中乱码分析。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  VPC进化到VPCS, 静态分流加速每秒又多增100万分词。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：12国语言翻译词汇录入系统。 Mr.Yaoguang.Luo 20190310 功能作者： 罗瑶光
