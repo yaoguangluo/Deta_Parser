@@ -36,7 +36,8 @@ public class POSControllerImp implements POSController{
 				return countInputStringLength;
 			}
 			if (StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())
-					||StableMaps.mingCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
+					||StableMaps.mingCi.containsKey(fixWord[StableData.INT_ZERO].toString())
+					||StableMaps.liangCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
 				fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 				fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
 				outputList.add(strings[StableData.INT_ONE]);
