@@ -253,9 +253,9 @@ public class NLPControllerImp implements NLPController{
 			WordForestUtil.wordsForestContainsKey(output, inputString, prefixWord);
 			return countInputStringLength;
 		}
-		if(StableMaps.mingCi.containsKey(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO)+inputString.charAt(StableData.INT_ONE))) {
-			if(StableMaps.mingCi.containsKey(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_TWO)+inputString.charAt(StableData.INT_THREE))) {
-				WordForestUtil.wordsForestContainsKey(output, StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO)+inputString.charAt(StableData.INT_ONE), prefixWord);
+		if(StableMaps.mingCi.containsKey(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO)+ inputString.charAt(StableData.INT_ONE))) {
+			if(StableMaps.mingCi.containsKey(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_TWO)+ inputString.charAt(StableData.INT_THREE))) {
+				WordForestUtil.wordsForestContainsKey(output, StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO)+ inputString.charAt(StableData.INT_ONE), prefixWord);
 				return countInputStringLength;
 			}
 		}

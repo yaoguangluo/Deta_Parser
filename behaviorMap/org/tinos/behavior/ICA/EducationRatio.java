@@ -29,27 +29,27 @@ public class EducationRatio{
 					continue Here;
 				}
 				if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_MING)){
-					output[StableData.INT_ONE]+=StableData.INT_ONE;
+					output[StableData.INT_ONE]+= StableData.INT_ONE;
 					continue Here;
 				}
 				if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_DONG)){
-					output[StableData.INT_TWO]+=StableData.INT_ONE;
+					output[StableData.INT_TWO]+= StableData.INT_ONE;
 					continue Here;
 				}
 				if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_WEI)){
-					output[StableData.INT_FOUR]+=StableData.INT_ONE;
+					output[StableData.INT_FOUR]+= StableData.INT_ONE;
 					continue Here;
 				}
 				if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_XING)){
-					output[StableData.INT_THREE]+=StableData.INT_ONE;
+					output[StableData.INT_THREE]+= StableData.INT_ONE;
 					continue Here;
 				}
 				if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_FU)){
-					output[StableData.INT_FIVE]+=StableData.INT_ONE;
+					output[StableData.INT_FIVE]+= StableData.INT_ONE;
 					continue Here;
 				}
 				if(pos.get(wordFrequency.getWord()).contains(StableData.NLP_ZI_JIE)){
-					output[6]+=1;
+					output[StableData.INT_SIX]+= StableData.INT_ONE;
 				}
 			}	
 		return output;
