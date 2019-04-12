@@ -228,14 +228,19 @@ public class POSControllerImp implements POSController{
 						, wordsForest);
 				return countInputStringLength;
 			} else{
-				countInputStringLength -= StableData.INT_THREE;
 				if (wordsForest.containsKey(strings[StableData.INT_ONE])){
 					outputList.add(strings[StableData.INT_ONE]);
 					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
-					countInputStringLength += StableData.INT_TWO;
+					countInputStringLength = StableData.INT_TWO;
+					return countInputStringLength;
+				}else {
+					outputList.add(strings[StableData.INT_ZERO]);
+					outputList.add(strings[StableData.INT_TWO]);
+					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
+					return countInputStringLength;
 				}
-				return countInputStringLength;
 			}
 		}
 		return countInputStringLength;
