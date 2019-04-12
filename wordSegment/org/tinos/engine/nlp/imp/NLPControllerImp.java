@@ -11,7 +11,7 @@ public class NLPControllerImp implements NLPController{
 	public int doSlangPartAndPOSCheckForTwoChar(int countInputStringLength, List<String> outputList
 			, StringBuilder stringBuilder, Map<String, String> wordsForest, StringBuilder[] prefixWord
 			, POSController posUtils, int charPosition, String textInputString){
-		String countWordNode = stringBuilder.toString();
+		String countWordNode= stringBuilder.toString();
 		if (prefixWord[StableData.INT_ZERO].length()== StableData.INT_ZERO){
 			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 			prefixWord[StableData.INT_ZERO].append(countWordNode);
@@ -125,9 +125,11 @@ public class NLPControllerImp implements NLPController{
 					, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils, charPosition, textInputString);
 			return countInputStringLength;
 		}
-		if(StableMaps.mingCi.containsKey(preRegister)) {
+		if(StableMaps.mingCi.containsKey(preRegister)|| StableMaps.xingRongCi.containsKey(preRegister)
+				|| StableMaps.dongCi.containsKey(preRegister)) {
 			String postRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_TWO)+ inputString.charAt(StableData.INT_THREE);
-			if(StableMaps.mingCi.containsKey(postRegister)) {
+			if(StableMaps.mingCi.containsKey(postRegister)|| StableMaps.dongCi.containsKey(postRegister)
+					|| StableMaps.xingRongCi.containsKey(postRegister)) {
 				output.add(preRegister);
 				prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 				prefixWord[StableData.INT_ZERO].append(preRegister);
