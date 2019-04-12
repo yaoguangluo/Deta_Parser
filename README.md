@@ -1,4 +1,4 @@
-# 🔥26,000/ms word segment for text mining of NLP, POS, AI and Deep learning/每秒中文混合分词1770~2700万词汇的高精准确率快速神经网络分词包. 训练词意分析, 词感分析, 词境分析, 词灵分析并自由扩充词库 免费的官方互动展示页地址: http://tinos.qicp.vip/data.html 
+# 🔥26,000/ms word segment for text mining of NLP, POS, AI and Deep learning/每秒中文混合分词1870~2700万词汇的高精准确率快速神经网络分词包. 训练词意分析, 词感分析, 词境分析, 词灵分析并自由扩充词库 免费的官方互动展示页地址: http://tinos.qicp.vip/data.html 
 ###### 项目使用说明书 10.6.1版本地址:
 https://github.com/yaoguangluo/AOPM_VPCS_Theroy/blob/master/%E6%B5%8F%E9%98%B3%E5%BE%B7%E5%A1%94%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%20%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%81%B5%E5%B7%A5%E7%A8%8BAPI%E8%AF%B4%E6%98%8E%E4%B9%A6_10_6_1_5.doc
 
@@ -35,7 +35,7 @@ https://github.com/yaoguangluo/AOPM_VPCS_Theroy/blob/master/%E6%B5%8F%E9%98%B3%E
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  搜索词语非常迅捷：基于 《2分法搜索 欧基里德距离 进行 位运算散列存储 字符集数据森林》。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  匹配词语非常精准：基于 《决策树深度 NLP 正向隐马可夫匹配》。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  词频统计接近光速：基于《线性科学最强的快排第6代的基础上作者进行以作者名字命名的小高峰过滤法修正算法，导致快排6的速度再翻2倍》。 
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度：每秒高达1770万(20190406)中文简体字准确分词。 因为通过国际SONAR最高认证，牺牲了程序执行时间十分之三的速度效率（自行修改去掉sonar认知模式可达2220万字分词每秒，性能比应该是世界第二，世界第一赠给高斯林先生，因为我用的是java，没办法）。 测试环境（win7， 64位， 16g ram，intel i5-7500） 20181208 功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度：每秒高达1870万(201904012)中文简体字准确分词。 因为通过国际SONAR最高认证，牺牲了程序执行时间十分之三的速度效率（自行修改去掉sonar认知模式可达2320万字分词每秒，性能比应该是世界第二，世界第一赠给高斯林先生，因为我用的是java，没办法）。 测试环境（win7， 64位， 16g ram，intel i5-7500） 20181208 功能作者： 罗瑶光
 https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/test
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒2250万 ~ 2700万中英文混合常规格式分词。（每毫秒分20,000字+）20181211 功能作者：罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  速度每秒高达900万词语的中文词性索引。（Part Of Speech, POS），功能作者： 罗瑶光
@@ -45,7 +45,7 @@ https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/tes
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  多核模式：可以自己写 parallelStream() 函数去实现，jdk8以上已经支持, CogsBinaryForestAnalyzer 支持海量多核多线程并发安全 。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  安全：VPC架构采用纯虚函数做反向映射跳过IOC，效率增加，线程安全高度严格保障。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  部分中文短句翻译英语。功能作者： 罗瑶光
-##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒1750万 ~ 2700万中英文混合常规格式分词。功能作者： 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  中英混合分词。最高达到每秒1870万 ~ 2700万中英文混合常规格式分词。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  病句中乱码分析。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  VPC进化到VPCS, 静态分流加速每秒又多增100万分词。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：12国语言翻译词汇录入系统。 Mr.Yaoguang.Luo 20190310 功能作者： 罗瑶光
