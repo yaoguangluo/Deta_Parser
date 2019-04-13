@@ -13,8 +13,8 @@ public class DemoPOS {
 		analyzer.init();
 		Map<String, String> nlp = analyzer.getPosCnToCn();
 		List<String> sets = new ArrayList<>();
-		String[] ss = new String[35];
-		String[] ss1 = new String[35];
+		String[] ss = new String[37];
+		String[] ss1 = new String[37];
 		ss[0] = "结婚的和尚未结婚的等和尚未成家之人都和尚未"
 				+ "成佛的和尚未必一样和尚未来的和尚未和从容"
 				+ "易开始念经那和尚未进行告别不显得从容易知"
@@ -102,7 +102,10 @@ public class DemoPOS {
 		ss[34]= "老人家中很干净";
 		ss1[33] = "老 人家 身体 不错";
 		ss1[34]= "老人 家 中 很 干净";
-		
+		ss[35] = "版权归属做出回应";
+		ss[36] = "有用户发现";
+		ss1[35] = "版权 归属 做 出 回应";
+		ss1[36] = " 有 用户 发现";
 		for (int i = 0; i < ss.length; i++) {
 			System.out.println("超级变态复杂病句-->" + ss[i]);
 			sets = analyzer.parserString(ss[i].replace(" ", ""));//词性分析
