@@ -264,4 +264,10 @@ public class FMHMMListImp implements FMHMMList {
 	public Map<Long, Map<String, String>> getWordsForests() {
 		return null;
 	}
+
+	@Override
+	public void indexMixed() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }

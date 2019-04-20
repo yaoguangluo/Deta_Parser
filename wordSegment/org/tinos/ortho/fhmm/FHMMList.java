@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 public interface FHMMList {
 	void index() throws IOException;
+	void indexMixed() throws IOException;
 	void indexPosEnToCn() throws IOException;  
 	void indexPosEnToEn() throws IOException;  
 	void indexEnToCn() throws IOException;  

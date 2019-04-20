@@ -5,6 +5,7 @@ import java.util.Map;
 import org.tinos.view.obj.WordFrequency;
 public interface Analyzer {
 	void init() throws IOException;
+	void initMixed() throws IOException;
 	List<String> parserString(String input);
 	void addFixWords(int charPosition, String inputString,StringBuilder[] fixWords);
 	Map<String, WordFrequency> getWordFrequencyMap(List<String> sets) throws IOException;
