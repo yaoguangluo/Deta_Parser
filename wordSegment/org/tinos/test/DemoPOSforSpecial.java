@@ -15,11 +15,11 @@ public class DemoPOSforSpecial {
 		List<String> sets = new ArrayList<>();
 		String[] ss = new String[1];
 		String[] ss1 = new String[1];
-		ss[0] = "나는일을준비하고있다";
+		ss[0] = "how are you";
 		ss1[0] = "나는 일을 준비 하고 있다 ";
 		for (int i = 0; i < ss.length; i++) {
 			System.out.println("超级变态复杂病句-->" + ss[i]);
-			sets = analyzer.parserMixedString(ss[i].replace(" ", ""));//词性分析
+			sets = analyzer.parserMixedString(ss[i].replace("  ", " "));//词性分析
 			out.print("分析处理真实结果-->");
 			for (int j = 0; j < sets.size(); j++) {
 				if (!sets.get(j).replaceAll("\\s+", "").equals("")) {
