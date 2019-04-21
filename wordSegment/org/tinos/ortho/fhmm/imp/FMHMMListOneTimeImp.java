@@ -253,6 +253,8 @@ public class FMHMMListOneTimeImp implements FHMMList {
 				
 				linkedHashMap = loopLoadForest(cInputString);
 				if(null!= cInputStringKorea) {
+					posCnToCn.put(cInputStringKorea.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					linkedHashMap = loopLoadForest(cInputStringKorea);
 				}
 			}
@@ -790,14 +792,18 @@ public class FMHMMListOneTimeImp implements FHMMList {
 		Iterator<String> WordTree= posCnToCn.keySet().iterator();
 		while(WordTree.hasNext()){
 			String treeName= WordTree.next();
-			 Map<String, String> treeLeafs;
-			if(output.containsKey(Long.valueOf(treeName.charAt(StableData.INT_ZERO)))){
-				treeLeafs= output.get(Long.valueOf(treeName.charAt(StableData.INT_ZERO)));
-			}else {
-				treeLeafs= new HashMap<>();
+			if(0<treeName.length()) {
+				Map<String, String> treeLeafs;
+				if(output.containsKey(Long.valueOf(treeName.charAt(StableData.INT_ZERO)))){
+					treeLeafs= output.get(Long.valueOf(treeName.charAt(StableData.INT_ZERO)));
+					treeLeafs.put(treeName, posCnToCn.get(treeName)); 
+					output.put(Long.valueOf(treeName.charAt(StableData.INT_ZERO)), treeLeafs);
+				}else {
+					treeLeafs= new HashMap<>();
+				}
+				treeLeafs.put(treeName, posCnToCn.get(treeName)); 
+				output.put(Long.valueOf(treeName.charAt(StableData.INT_ZERO)), treeLeafs);	
 			}
-			 treeLeafs.put(treeName, posCnToCn.get(treeName)); 
-			 output.put(Long.valueOf(treeName.charAt(StableData.INT_ZERO)), treeLeafs);
 		}
 		return output;	
 	}
