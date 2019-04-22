@@ -8,7 +8,7 @@ import java.util.Map;
 import org.tinos.engine.liner.Quick6DLuoYaoguangSort;
 import org.tinos.view.obj.WordFrequency;
 import org.tinos.view.stable.StableData;
-public class Quick6DLuoYaoguangSortMapImp implements Quick6DLuoYaoguangSort {
+public class Quick6DLuoYaoguangSort3DMapImp implements Quick6DLuoYaoguangSort {
 	@Override
 	public void quick6DLuoYaoGuangSortWordFrequency(Map<Integer, WordFrequency> map, int leftPosition,
 			int rightPosition) {
@@ -37,30 +37,28 @@ public class Quick6DLuoYaoguangSortMapImp implements Quick6DLuoYaoguangSort {
 
 	@Override
 	public int partition(Map<Integer, WordFrequency> map, int leftPosition, int rightPosition) {
-		int rightPositionNew= rightPosition;
 		int leftPositionNew= leftPosition;
 		WordFrequency wordFrequencyX= map.get(leftPosition);
 		WordFrequency wordFrequencyY= map.get(rightPosition);
-		if (wordFrequencyX.getFrequency()<= wordFrequencyY.getFrequency()) {
-			wordFrequencyY= wordFrequencyX;
-		}
-		while (leftPositionNew< rightPositionNew) {
+		wordFrequencyY= wordFrequencyX.getFrequency()<= wordFrequencyY.getFrequency()
+				? wordFrequencyX: wordFrequencyY;
+		while (leftPositionNew< rightPosition) {
 			while ((map.get(leftPositionNew).getFrequency()<= wordFrequencyY.getFrequency())
-					&& (leftPositionNew< rightPositionNew)) {
+					&& (leftPositionNew< rightPosition)) {
 				leftPositionNew++;
 			} 
-			while (map.get(rightPositionNew).getFrequency()> wordFrequencyY.getFrequency()) {
-				rightPositionNew--;
+			while (map.get(rightPosition).getFrequency()> wordFrequencyY.getFrequency()) {
+				rightPosition--;
 			}  
-			if (leftPositionNew< rightPositionNew) {
-				WordFrequency wordFrequency= map.get(rightPositionNew);
-				map.put(rightPositionNew, map.get(leftPositionNew));
+			if (leftPositionNew< rightPosition) {
+				WordFrequency wordFrequency= map.get(rightPosition);
+				map.put(rightPosition, map.get(leftPositionNew));
 				map.put(leftPositionNew, wordFrequency);
 			}
 		}
-		map.put(leftPosition, map.get(rightPositionNew));
-		map.put(rightPositionNew, wordFrequencyY);
-		return rightPositionNew;
+		map.put(leftPosition, map.get(rightPosition));
+		map.put(rightPosition, wordFrequencyY);
+		return rightPosition;
 	}
 
 	@SuppressWarnings(StableData.RAW_TYPES)

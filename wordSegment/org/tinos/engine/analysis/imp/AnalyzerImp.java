@@ -19,7 +19,7 @@ import org.tinos.engine.pos.imp.POSControllerImp;
 import org.tinos.engin.utils.WordFrequencyUtil;
 import org.tinos.engine.analysis.Analyzer;
 import org.tinos.engine.liner.Quick6DLuoYaoguangSort;
-import org.tinos.engine.liner.imp.Quick6DLuoYaoguangSortMapImp;
+import org.tinos.engine.liner.imp.Quick6DLuoYaoguangSort3DMapImp;
 public class AnalyzerImp implements Analyzer {
 	protected FHMMList fHMMList;
 	protected NEROControllerOneTime neroController;
@@ -42,7 +42,7 @@ public class AnalyzerImp implements Analyzer {
 		neroController= new NEROControllerOneTimeImp();
 		nlpController= new NLPControllerImp();
 		posController= new POSControllerImp();
-		quick6DLuoYaoguangSort = new Quick6DLuoYaoguangSortMapImp();
+		quick6DLuoYaoguangSort = new Quick6DLuoYaoguangSort3DMapImp();
 		forestRoots=fHMMList.getMap();
 		forestsRoots=fHMMList.getMaps();
 		wordsForest=fHMMList.getPosCnToCn();
@@ -61,7 +61,7 @@ public class AnalyzerImp implements Analyzer {
 		neroController= new NEROControllerOneTimeImp();
 		nlpController= new NLPControllerImp();
 		posController= new POSControllerImp();
-		quick6DLuoYaoguangSort = new Quick6DLuoYaoguangSortMapImp();
+		quick6DLuoYaoguangSort = new Quick6DLuoYaoguangSort3DMapImp();
 		forestRoots=fHMMList.getMap();
 		forestsRoots=fHMMList.getMaps();
 		wordsForest=fHMMList.getPosCnToCn();
