@@ -45,6 +45,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	private List<String> listRs;
 	private List<String> listAb;
 	private List<String> listPy;
+	private List<String> listTt;
 	public Map<Long, FMHMMPOS> POSHashMap;
 	public Map<Long, FMHMMNode> linkedHashMap;
 	public Map<Long, FMHMMNode> getMap() {
@@ -78,26 +79,33 @@ public class FMHMMListOneTimeImp implements FHMMList {
 		listCn= new CopyOnWriteArrayList<>();
 		listKo= new CopyOnWriteArrayList<>();
 		listJp= new CopyOnWriteArrayList<>();
+		listTt= new CopyOnWriteArrayList<>();
 		InputStream inputStream= getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_CN_TO_CN);
 		BufferedReader cReader= new BufferedReader(new InputStreamReader(inputStream, StableData.UTF8_STRING));
 		InputStream inputStreamKorea= getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_CN_TO_KO);
 		BufferedReader cReaderKorea= new BufferedReader(new InputStreamReader(inputStreamKorea, StableData.UTF8_STRING));
 		InputStream inputStreamJapan= getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_CN_TO_JP);
 		BufferedReader cReaderJapan= new BufferedReader(new InputStreamReader(inputStreamJapan, StableData.UTF8_STRING));
-		
+		InputStream inputStreamTrandition= getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_CN_TO_TT);
+		BufferedReader cReaderTrandition= new BufferedReader(new InputStreamReader(inputStreamTrandition, StableData.UTF8_STRING));
 		String cInputString;
 		String cInputStringKorea;
 		String cInputStringJapan;
+		String cInputStringTrandition;
 		Here:
 			while ((cInputString = cReader.readLine()) != null) {
 				cInputStringKorea= cReaderKorea.readLine();
 				cInputStringJapan= cReaderJapan.readLine();
+				cInputStringTrandition= cReaderTrandition.readLine();
 				listCn.add(cInputString);
 				if(null!= cInputStringKorea) {
 					listKo.add(cInputStringKorea);
 				}
 				if(null!= cInputStringJapan) {
 					listJp.add(cInputStringJapan);
+				}
+				if(null!= cInputStringTrandition) {
+					listTt.add(cInputStringTrandition);
 				}
 				if(!(!cInputString.replace(StableData.SPACE_STRING, StableData.EMPTY_STRING).equals(StableData.EMPTY_STRING)
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH).length > StableData.INT_ONE )) {
@@ -115,6 +123,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 						StableMaps.fuCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.fuCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
 				}
 				if(!StableMaps.dongCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_CI_DONG)) {
@@ -126,6 +138,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 					}
 					if(null!= cInputStringJapan) {
 						StableMaps.dongCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.dongCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
 				}
@@ -141,6 +157,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 						StableMaps.liangCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.liangCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
 				}
 				if(!StableMaps.lianCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_CI_LIAN)) {
@@ -152,6 +172,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 					}
 					if(null!= cInputStringJapan) {
 						StableMaps.lianCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.lianCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
 				}
@@ -167,6 +191,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 						StableMaps.baDongCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.baDongCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
 				}
 				if(!StableMaps.xianDingCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_CI_XIAN_DING)) {
@@ -178,6 +206,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 					}
 					if(null!= cInputStringJapan) {
 						StableMaps.xianDingCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.xianDingCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
 				}
@@ -193,6 +225,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 						StableMaps.mingCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.mingCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
 				}
 				if(!StableMaps.daiCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_CI_DAI)) {
@@ -204,6 +240,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 					}
 					if(null!= cInputStringJapan) {
 						StableMaps.daiCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.daiCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
 				}
@@ -219,6 +259,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 						StableMaps.jieCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.jieCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
 				}
 				if(!StableMaps.xingRongCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_CI_XING_RONG)) {
@@ -230,6 +274,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 					}
 					if(null!= cInputStringJapan) {
 						StableMaps.xingRongCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.xingRongCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
 				}
@@ -245,6 +293,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 						StableMaps.zhuCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.zhuCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
 				}
 				if(!StableMaps.weiCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_CI_WEI)) {
@@ -256,6 +308,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 					}
 					if(null!= cInputStringJapan) {
 						StableMaps.weiCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.weiCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
 				}
@@ -271,6 +327,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 						StableMaps.shengLueCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.shengLueCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
 				}
 				if(!StableMaps.qingTaiCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_CI_QING_TAI)) {
@@ -282,6 +342,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 					}
 					if(null!= cInputStringJapan) {
 						StableMaps.qingTaiCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.qingTaiCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
 				}
@@ -297,6 +361,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 						StableMaps.xingWeiCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.xingWeiCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
 				}
 				if(!StableMaps.shiTaiCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_CI_SHI_TAI)) {
@@ -310,6 +378,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 						StableMaps.shiTaiCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.shiTaiCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
 				}
 				if(!StableMaps.dingMingCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_CI_DING_MING)) {
@@ -321,6 +393,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 					}
 					if(null!= cInputStringJapan) {
 						StableMaps.dingMingCi.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					}
+					if(null!= cInputStringTrandition) {
+						StableMaps.dingMingCi.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
 				}
@@ -337,6 +413,11 @@ public class FMHMMListOneTimeImp implements FHMMList {
 					posCnToCn.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
 							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					linkedHashMap = loopLoadForest(cInputStringJapan);
+				}
+				if(null!= cInputStringTrandition) {
+					posCnToCn.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+					linkedHashMap = loopLoadForest(cInputStringTrandition);
 				}
 			}
 		cReader.close();

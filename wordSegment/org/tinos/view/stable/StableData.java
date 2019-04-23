@@ -91,6 +91,7 @@ public interface StableData {
 	public static final String WORDS_SOURSE_LINK_POS_CN_TO_RS= "poscr.lyg";
 	public static final String WORDS_SOURSE_LINK_POS_CN_TO_AB= "posca.lyg";
 	public static final String WORDS_SOURSE_LINK_POS_CN_TO_PY= "pospy.lyg";
+	public static final String WORDS_SOURSE_LINK_POS_CN_TO_TT ="postt.lyg";
 	
 	public static final String WORDS_SOURSE_LINK_POS_NEGATIVE= "posNegative.lyg";
 	public static final String WORDS_SOURSE_LINK_POS_POSITIVE= "posPositive.lyg";
