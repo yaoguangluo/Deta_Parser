@@ -4,7 +4,7 @@ https://github.com/yaoguangluo/AOPM_VPCS_Theroy/blob/master/%E6%B5%8F%E9%98%B3%E
 
 ## 版本号：10.6.1 开始第三个主题基础研究：罗氏图灵机与读心术系统研发,设计和应用。 （Deta 中译英图灵项目已经启动.）。
 ## 版本号：10.6.2 开始做12国语言快速混合分词系统, 现在正在做韩语分词.2019-04-21 相同版本的韩语象形分词第一版初步完成,未优化预料库.,这个工程有力论证, Deta 类人催化分词适用于所有象形语言. 
-## 版本号：10.6.3 快速混合分词.(契形+中日韩象形 带病句快速混分) 未优化语料库版.
+## 版本号：10.6.3 快速混合分词.(契形+中(简,繁)日,韩,象形 带病句快速混分) 未优化语料库版.
 ![实例](https://github.com/yaoguangluo/Deta_Parser/blob/master/DETA%20201904221.jpg)
 ## 德塔类人机器人 Tin 先生准备开始工作了.
 ## 中文分词算法原理已经公布: https://github.com/yaoguangluo/Deta_Parser/issues/21
