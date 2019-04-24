@@ -26,12 +26,12 @@ public class AnalyzerImp implements Analyzer {
 	protected NLPController nlpController;
 	protected POSController posController;
 	protected Quick6DLuoYaoguangSort quick6DLuoYaoguangSort;	
-	protected Map<Long,FMHMMNode> forestRoots;
-	protected Map<Long,Map<String, String>> wordsForests;
-	protected Map<Long,FMHMMNode> []forestsRoots;
-	protected Map<String,String> wordsForest;
+	protected Map<Long, FMHMMNode> forestRoots;
+	protected Map<Long, Map<String, String>> wordsForests;
+	protected Map<Long, FMHMMNode> []forestsRoots;
+	protected Map<String, String> wordsForest;
 	public void init() throws IOException {
-		this.fHMMList=new FMHMMListOneTimeImp();
+		this.fHMMList= new FMHMMListOneTimeImp();
 		fHMMList.index();
 		fHMMList.indexPosEnToCn();
 		fHMMList.indexPosEnToEn();
