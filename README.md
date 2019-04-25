@@ -93,7 +93,7 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/wordSegment/org/tinos/eng
 ##### ![实例](http://progressed.io/bar/40) 接受教育能力行为训练工程已经启动。 20190321 功能作者 罗瑶光。 目标预计每秒分析700万字文章。
 https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/EducationLevelTest.java
 ##### ![实例](http://progressed.io/bar/60) 12国语言混合快分作文辅导功能.目前支持中, 英, 繁, 简, 日, 韩 作文辅导和评阅功能.
-http://tinos.qicp.vip/data.html
+http://tinos.qicp.vip/data.html (作文辅导功能)
 ##### ![实例](http://progressed.io/bar/100) 一种简洁快速的文章文学周期性价比率研究。20190322 功能作者 罗瑶光。
 https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/LiterarinessLevelTest.java
 ##### ![实例](http://progressed.io/bar/20) 资本运作，消费评估，购买力分析的商业体系已经启动。 20190324 功能作者 罗瑶光。
