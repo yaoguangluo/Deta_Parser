@@ -96,7 +96,7 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/beh
 https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/LiterarinessLevelTest.java
 ##### ![实例](http://progressed.io/bar/20) 资本运作，消费评估，购买力分析的商业体系已经启动。 20190324 功能作者 罗瑶光。
 商业开发将在官方网站展示：http://tinos.qicp.vip/
-##### ![实例](http://progressed.io/bar/1) Deta 中译英图灵项目已经启动.(中国百度在语言翻译项目 非常成功,德塔不会将研究重心花在翻译领域.中译英图灵项目主要用在多语意识分析子项目.)
+##### ![实例](http://progressed.io/bar/1) Deta 中译英图灵项目已经启动.(谷歌,有道,百度等在语言句子翻译项目 非常成功, 德塔不会将研究重心花在全文翻译领域. 中译英图灵项目主要用在多语意识分析子项目.)
 https://github.com/yaoguangluo/Deta_Parser/blob/master/neroMap/org/tinos/test/DemoTSLT.java
 
 
