@@ -89,7 +89,9 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/wordSegment/org/tinos/eng
 ##### ![实例](http://progressed.io/bar/100) 一种基于 ANN{Summing, Emotion, Motivation, Environment} * RNN{Covex, Euclid, POS} = DNN{LWA，Entropy} 罗氏读心术已经更新并进行了图灵算子优化。 20190314 功能作者： 罗瑶光
 ![实例](https://github.com/yaoguangluo/Nero_Parser/blob/master/deta_mind_reading.png)
 ###### https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sensing/test/DNNTest.java
-###### http://tinos.qicp.vip/data.html (词感功能)
+###### http://tinos.qicp.vip/data.html (德塔ANN 维度功能)
+###### http://tinos.qicp.vip/data.html (德塔RNN 向量功能)
+###### http://tinos.qicp.vip/data.html (德塔DNN 读心功能)
 ##### ![实例](http://progressed.io/bar/40) 接受教育能力行为训练工程已经启动。 20190321 功能作者 罗瑶光。 目标预计每秒分析700万字文章。
 https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/EducationLevelTest.java
 ##### ![实例](http://progressed.io/bar/60) 12国语言混合快分作文辅导功能.目前支持中, 英, 繁, 简, 日, 韩 作文辅导和评阅功能.
