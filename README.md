@@ -88,14 +88,19 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/wordSegment/org/tinos/eng
 ## 主题四： 词灵
 ##### ![实例](http://progressed.io/bar/100) 一种基于 ANN{Summing, Emotion, Motivation, Environment} * RNN{Covex, Euclid, POS} = DNN{LWA，Entropy} 罗氏读心术已经更新并进行了图灵算子优化。 20190314 功能作者： 罗瑶光
 ![实例](https://github.com/yaoguangluo/Nero_Parser/blob/master/deta_mind_reading.png)
-https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sensing/test/DNNTest.java
+###### https://github.com/yaoguangluo/Deta_Parser/blob/master/sensingMap/org/tinos/sensing/test/DNNTest.java
+###### http://tinos.qicp.vip/data.html (德塔ANN 维度功能)
+###### http://tinos.qicp.vip/data.html (德塔RNN 向量功能)
+###### http://tinos.qicp.vip/data.html (德塔DNN 读心功能)
 ##### ![实例](http://progressed.io/bar/40) 接受教育能力行为训练工程已经启动。 20190321 功能作者 罗瑶光。 目标预计每秒分析700万字文章。
 https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/EducationLevelTest.java
+##### ![实例](http://progressed.io/bar/60) 12国语言混合快分作文辅导功能.目前支持中, 英, 繁, 简, 日, 韩 作文辅导和评阅功能.
+http://tinos.qicp.vip/data.html (作文辅导功能)
 ##### ![实例](http://progressed.io/bar/100) 一种简洁快速的文章文学周期性价比率研究。20190322 功能作者 罗瑶光。
 https://github.com/yaoguangluo/Deta_Parser/blob/master/behaviorMap/org/tinos/behavior/test/LiterarinessLevelTest.java
 ##### ![实例](http://progressed.io/bar/20) 资本运作，消费评估，购买力分析的商业体系已经启动。 20190324 功能作者 罗瑶光。
 商业开发将在官方网站展示：http://tinos.qicp.vip/
-##### ![实例](http://progressed.io/bar/1) Deta 中译英图灵项目已经启动.
+##### ![实例](http://progressed.io/bar/1) Deta 中译英图灵项目已经启动.(谷歌,有道,百度等在语言句子翻译项目 非常成功, 德塔不会将研究重心花在全文翻译领域. 中译英图灵项目主要用在多语意识分析子项目.)
 https://github.com/yaoguangluo/Deta_Parser/blob/master/neroMap/org/tinos/test/DemoTSLT.java
 
 
