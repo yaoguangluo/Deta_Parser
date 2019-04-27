@@ -52,7 +52,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	public Map<Long, FMHMMNode> getMap() {
 		return this.linkedHashMap;
 	}
-	
+
 	public Map<Long, FMHMMNode>[] getMaps() {
 		int segment= this.linkedHashMap.size();
 		int perRatio= segment/ StableData.INT_SIX;
@@ -486,14 +486,19 @@ public class FMHMMListOneTimeImp implements FHMMList {
 					linkedHashMap = loopLoadForest(cInputStringKorea);
 				}
 				if(null!= cInputStringJapan) {
-					posCnToCn.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
-							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
-					linkedHashMap = loopLoadForest(cInputStringJapan);
+					if(!posCnToCn.containsKey(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])) {
+						posCnToCn.put(cInputStringJapan.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputStringJapan
+								.split(StableData.NLP_SYMBO_SLASH).length> StableData.INT_ONE?cInputStringJapan
+										.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]:"未知");
+						linkedHashMap = loopLoadForest(cInputStringJapan);
+					}
 				}
 				if(null!= cInputStringTrandition) {
-					posCnToCn.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
-							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
-					linkedHashMap = loopLoadForest(cInputStringTrandition);
+					if(!posCnToCn.containsKey(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])) {
+						posCnToCn.put(cInputStringTrandition.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+						linkedHashMap = loopLoadForest(cInputStringTrandition);
+					}
 				}
 				if(null!= cInputStringEnglish) {
 					posCnToCn.put(cInputStringEnglish.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO].toLowerCase(), cInputString
@@ -502,7 +507,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 			}
 		cReader.close();
 	}
-	
+
 	
 	public void index() throws IOException {
 		posCnToCn= new ConcurrentHashMap<>();
