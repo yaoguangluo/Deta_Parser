@@ -7,6 +7,7 @@ https://github.com/yaoguangluo/AOPM_VPCS_Theroy/blob/master/%E6%B5%8F%E9%98%B3%E
 ## 版本号：10.6.3 快速混合分词.(契形+中(简,繁)日,韩,象形 带病句快速混分) 未优化语料库版.
 ![实例](https://github.com/yaoguangluo/Deta_Parser/blob/master/DETA%20201904221.jpg)
 ## 德塔类人机器人 Tin 先生准备开始工作了.
+## 德塔类人机器人 Tin 先生已经学会如何自主分词了,再也不用作者进行一个词一个手工添加了 20190427.
 ## 中文分词算法原理已经公布: https://github.com/yaoguangluo/Deta_Parser/issues/21
 
 ## 主题一： 词意
