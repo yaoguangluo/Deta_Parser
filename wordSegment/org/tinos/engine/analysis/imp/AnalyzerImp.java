@@ -445,4 +445,21 @@ public class AnalyzerImp implements Analyzer {
 			}
 		return outputList;
 	}
+
+	public void studyNewWord(String study, String token, String posStudy) {
+		//learn new word
+		FMHMMNode fFHMMNode= forestRoots.get(Long.valueOf(study.charAt(StableData.INT_ZERO)));
+		Map<String, Integer> map;
+		if(null== fFHMMNode) {
+			fFHMMNode= new FMHMMNode();
+			map= new ConcurrentHashMap<>();
+		}else {
+			map= fFHMMNode.getNext();
+		}
+		map.put(token, StableData.INT_ONE);
+		fFHMMNode.setNext(map);
+		forestRoots.put(Long.valueOf(study.charAt(StableData.INT_ZERO)), fFHMMNode);
+		//learn new pos
+		fHMMList.studyNewPos(study+token, posStudy);
+	}
 }

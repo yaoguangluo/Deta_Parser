@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 //import java.util.concurrent.HashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.tinos.ortho.fhmm.FHMMList;
@@ -74,8 +75,8 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	}
 
 	public void indexMixed() throws IOException {
-		posCnToCn= new HashMap<>();
-		linkedHashMap= new HashMap<>();
+		posCnToCn= new ConcurrentHashMap<>();
+		linkedHashMap= new ConcurrentHashMap<>();
 		listCn= new CopyOnWriteArrayList<>();
 		listKo= new CopyOnWriteArrayList<>();
 		listJp= new CopyOnWriteArrayList<>();
@@ -504,8 +505,8 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	
 	
 	public void index() throws IOException {
-		posCnToCn= new HashMap<>();
-		linkedHashMap= new HashMap<>();
+		posCnToCn= new ConcurrentHashMap<>();
+		linkedHashMap= new ConcurrentHashMap<>();
 		listCn= new CopyOnWriteArrayList<>();
 		InputStream inputStream= getClass().getResourceAsStream(StableData.WORDS_SOURSE_LINK_POS_CN_TO_CN);
 		BufferedReader cReader= new BufferedReader(new InputStreamReader(inputStream, StableData.UTF8_STRING));
@@ -1047,5 +1048,9 @@ public class FMHMMListOneTimeImp implements FHMMList {
 			}
 		}
 		return output;	
+	}
+
+	public void studyNewPos(String string, String posStudy) {
+		posCnToCn.put(string, posStudy);
 	}
 }

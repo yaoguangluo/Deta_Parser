@@ -25,4 +25,5 @@ public interface Analyzer {
 	String[] parserEnglishString(String englishString);
 	List<String> parserMixedString(String mixedString);
 	Map<String,WordFrequency> parserMixStringByReturnFrequencyMap(String key);
+	void studyNewWord(String study, String token, String posStudy);
 }

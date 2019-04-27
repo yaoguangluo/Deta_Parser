@@ -43,5 +43,6 @@ public interface FHMMList {
 	Map<String, String> getFullNegative();
 	Map<String, String> getFullPositive();
 	List<String> englishStringToWordsList(String string);
-	Map<Long, Map<String, String>> getWordsForests(); 
+	Map<Long, Map<String, String>> getWordsForests();
+	void studyNewPos(String string, String posStudy); 
 }

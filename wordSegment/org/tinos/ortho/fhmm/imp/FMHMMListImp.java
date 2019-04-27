@@ -270,4 +270,10 @@ public class FMHMMListImp implements FMHMMList {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void studyNewPos(String string, String posStudy) {
+		// TODO Auto-generated method stub
+		
+	}
 }
