@@ -19,6 +19,7 @@ import org.tinos.view.stable.StableMaps;
 //I will build a collection class for managing this maps. at the next version.
 @SuppressWarnings("unchecked")
 public class FMHMMListOneTimeImp implements FHMMList {
+	private Map<String, String> studyPos;
 	private Map<String, String> posCnToCn;
 	private Map<String, String> posEnToEn;
 	private Map<String, String> posEnToCn;
@@ -75,6 +76,7 @@ public class FMHMMListOneTimeImp implements FHMMList {
 	}
 
 	public void indexMixed() throws IOException {
+		studyPos= new ConcurrentHashMap<>();
 		posCnToCn= new ConcurrentHashMap<>();
 		linkedHashMap= new ConcurrentHashMap<>();
 		listCn= new CopyOnWriteArrayList<>();
@@ -477,6 +479,8 @@ public class FMHMMListOneTimeImp implements FHMMList {
 								.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 					}
 				}
+				studyPos.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
+						.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 				posCnToCn.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
 						.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
 				linkedHashMap = loopLoadForest(cInputString);
@@ -1057,5 +1061,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 
 	public void studyNewPos(String string, String posStudy) {
 		posCnToCn.put(string, posStudy);
+	}
+
+	@Override
+	public Map<String, String> getStudyPos() {
+		return this.studyPos;
 	}
 }

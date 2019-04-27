@@ -462,4 +462,9 @@ public class AnalyzerImp implements Analyzer {
 		//learn new pos
 		fHMMList.studyNewPos(study+token, posStudy);
 	}
+
+	@Override
+	public Map<String, String> getStudyPos() {
+		return fHMMList.getStudyPos();
+	}
 }

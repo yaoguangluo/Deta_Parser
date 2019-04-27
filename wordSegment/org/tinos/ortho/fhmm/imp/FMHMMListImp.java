@@ -276,4 +276,9 @@ public class FMHMMListImp implements FMHMMList {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public Map<String, String> getStudyPos() {
+		return null;
+	}
 }
