@@ -96,7 +96,7 @@ public class NLPControllerImp implements NLPController{
 			countInputLength= posUtils.chuLiShiTaiCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
 			return countInputLength;
 		}
-		if (StableMaps.dongCi.containsKey(strings[StableData.INT_ZERO])){
+		if (StableMaps.dongCi.containsKey(strings[StableData.INT_ZERO])||StableMaps.fuCi.containsKey(strings[StableData.INT_ZERO])){
 			if(StableMaps.zhuCi.containsKey(prefixWord[StableData.INT_ZERO].toString())
 					|| StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])) {
 				countInputLength = posUtils.parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
