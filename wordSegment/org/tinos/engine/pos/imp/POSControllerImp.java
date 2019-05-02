@@ -469,7 +469,7 @@ public class POSControllerImp implements POSController{
 
 	public int chuLiZhuCiOfThreeForMap(Map<String, String> wordsForest, Map<String, WordFrequency>  outputList, int countInputStringLength
 			, String[] strings, StringBuilder[] fixWord){
-		if (outputList.size()== StableData.INT_ZERO){
+		if (StableData.INT_ZERO== outputList.size()){
 			didNotFindFirstCharForMap(outputList, strings, fixWord, wordsForest);
 			return countInputStringLength;
 		}
