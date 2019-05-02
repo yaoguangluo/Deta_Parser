@@ -99,7 +99,8 @@ public class NLPControllerImp implements NLPController{
 		if (StableMaps.dongCi.containsKey(strings[StableData.INT_ZERO])||StableMaps.fuCi.containsKey(strings[StableData.INT_ZERO])){
 			if(StableMaps.zhuCi.containsKey(prefixWord[StableData.INT_ZERO].toString())
 					|| StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])
-					|| StableMaps.fuCi.containsKey(strings[StableData.INT_TWO])) {
+					|| StableMaps.fuCi.containsKey(strings[StableData.INT_TWO])
+					|| StableMaps.liangCi.containsKey(strings[StableData.INT_TWO])) {
 				countInputLength = posUtils.parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
 				return countInputLength;
 			}
