@@ -128,10 +128,10 @@ public class NLPControllerImp implements NLPController{
 			return countInputStringLength;
 		}
 		if(StableMaps.mingCi.containsKey(preRegister)|| StableMaps.xingRongCi.containsKey(preRegister)
-				|| StableMaps.dongCi.containsKey(preRegister)) {
+				|| StableMaps.dongCi.containsKey(preRegister)|| StableMaps.lianCi.containsKey(preRegister)) {
 			String postRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_TWO)+ inputString.charAt(StableData.INT_THREE);
 			if(StableMaps.mingCi.containsKey(postRegister)|| StableMaps.dongCi.containsKey(postRegister)
-					|| StableMaps.xingRongCi.containsKey(postRegister)) {
+					|| StableMaps.xingRongCi.containsKey(postRegister)|| StableMaps.xingWeiCi.containsKey(postRegister)) {
 				String string= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO);
 				if(StableMaps.xingWeiCi.containsKey(prefixWord[StableData.INT_ZERO].toString())
 						&&StableMaps.shiTaiCi.containsKey(string)) {
