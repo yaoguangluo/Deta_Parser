@@ -641,10 +641,19 @@ public class POSControllerImp implements POSController{
 
 	public int chuLiShiTaiCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
 			String[] strings, StringBuilder[] prefixWord) {
-		if (StableMaps.dongCi.containsKey(strings[StableData.INT_TWO].toString())) {
+		if (StableMaps.dongCi.containsKey(strings[StableData.INT_TWO].toString())
+				||StableMaps.liangCi.containsKey(strings[StableData.INT_TWO].toString())) {
 			countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
 			return countInputLength;
 		}
+		if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+			outputList.add(strings[StableData.INT_ONE]);
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
+			countInputLength= StableData.INT_TWO;
+			return countInputLength;
+		}
+		countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
 		return countInputLength;
 	}
 }
