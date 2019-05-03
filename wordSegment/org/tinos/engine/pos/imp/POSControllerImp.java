@@ -39,9 +39,13 @@ public class POSControllerImp implements POSController{
 					||StableMaps.mingCi.containsKey(fixWord[StableData.INT_ZERO].toString())
 					||StableMaps.zhuCi.containsKey(fixWord[StableData.INT_ZERO].toString())
 					||StableMaps.liangCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
-				fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-				fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
-				outputList.add(strings[StableData.INT_ONE]);
+				if(wordsForest.containsKey(strings[StableData.INT_ONE])) {
+					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
+					outputList.add(strings[StableData.INT_ONE]);
+					return countInputStringLength;
+				}
+				countInputStringLength= parserFirstCharOfTwo(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
 			}
 			addFixWordsOfTwo(charPosition, inputString, fixWord);
@@ -226,7 +230,7 @@ public class POSControllerImp implements POSController{
 					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
 					countInputStringLength = StableData.INT_TWO;
 					return countInputStringLength;
-				}else {
+				}else if (wordsForest.containsKey(strings[StableData.INT_TWO])){
 					outputList.add(strings[StableData.INT_ZERO]);
 					outputList.add(strings[StableData.INT_TWO]);
 					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());

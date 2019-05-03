@@ -510,9 +510,26 @@ public class FMHMMListOneTimeImp implements FHMMList {
 				}
 			}
 		cReader.close();
+		//trim
+		StableMaps.baDongCi.remove("");
+		StableMaps.daiCi.remove("");
+		StableMaps.dingMingCi.remove("");
+		StableMaps.dongCi.remove("");
+		StableMaps.fuCi.remove("");
+		StableMaps.jieCi.remove("");
+		StableMaps.lianCi.remove("");
+		StableMaps.liangCi.remove("");
+		StableMaps.mingCi.remove("");
+		StableMaps.qingTaiCi.remove("");
+		StableMaps.shengLueCi.remove("");
+		StableMaps.shiTaiCi.remove("");
+		StableMaps.weiCi.remove("");
+		StableMaps.xianDingCi.remove("");
+		StableMaps.xingRongCi.remove("");
+		StableMaps.xingWeiCi.remove("");
+		StableMaps.zhuCi.remove("");
 	}
 
-	
 	public void index() throws IOException {
 		posCnToCn= new ConcurrentHashMap<>();
 		linkedHashMap= new ConcurrentHashMap<>();
