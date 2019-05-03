@@ -31,9 +31,13 @@ public class NLPControllerImp implements NLPController{
 					, strings, prefixWord);
 			return countInputStringLength;
 		}
-		prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-		prefixWord[StableData.INT_ZERO].append(countWordNode);
-		outputList.add(countWordNode);
+		if (wordsForest.containsKey(countWordNode)){
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(countWordNode);
+			outputList.add(countWordNode);
+			return countInputStringLength;
+		}
+		countInputStringLength= posUtils.parserFirstCharOfTwo(countInputStringLength, outputList, strings, prefixWord);
 		return countInputStringLength;
 	}
 
@@ -98,9 +102,9 @@ public class NLPControllerImp implements NLPController{
 		}
 		if (StableMaps.dongCi.containsKey(strings[StableData.INT_ZERO])||StableMaps.fuCi.containsKey(strings[StableData.INT_ZERO])){
 			if(StableMaps.zhuCi.containsKey(prefixWord[StableData.INT_ZERO].toString())
-					|| StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])
+					&& (StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])
 					|| StableMaps.fuCi.containsKey(strings[StableData.INT_TWO])
-					|| StableMaps.liangCi.containsKey(strings[StableData.INT_TWO])) {
+					|| StableMaps.liangCi.containsKey(strings[StableData.INT_TWO]))) {
 				countInputLength = posUtils.parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
 				return countInputLength;
 			}
