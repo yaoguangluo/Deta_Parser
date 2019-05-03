@@ -109,6 +109,10 @@ public class NLPControllerImp implements NLPController{
 				return countInputLength;
 			}
 		}
+		if (StableMaps.fuCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength= posUtils.chuLiFuCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
+			return countInputLength;
+		}
 		StringBuilder stringsBuilder= new StringBuilder();
 		countInputLength= doSlangPartAndPOSCheckForTwoChar(--countInputLength, outputList
 				, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils, charPosition, textInputString);

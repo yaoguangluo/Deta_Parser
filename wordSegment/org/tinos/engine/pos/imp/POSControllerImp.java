@@ -660,4 +660,16 @@ public class POSControllerImp implements POSController{
 		countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
 		return countInputLength;
 	}
+
+	public int chuLiFuCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
+			String[] strings, StringBuilder[] prefixWord) {
+		if (StableMaps.fuCi.containsKey(strings[StableData.INT_TWO].toString())) {
+			if (StableMaps.fuCi.containsKey(prefixWord[StableData.INT_ZERO].toString())) {
+				countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
+				return countInputLength;
+			}
+		}
+		countInputLength= parserFirstTwoCharOfThree(countInputLength, outputList, strings, prefixWord);
+		return countInputLength;
+	}
 }
