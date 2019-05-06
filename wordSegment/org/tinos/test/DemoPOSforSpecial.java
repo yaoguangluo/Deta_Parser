@@ -15,7 +15,7 @@ public class DemoPOSforSpecial {
 		List<String> sets = new ArrayList<>();
 		String[] ss = new String[1];
 		String[] ss1 = new String[1];
-		ss[0] = " 饮用水工用水坝工业用水饮用水食用水产品 ";
+		ss[0] = "教统的存在这是非常常是非常愚蠢的为主要求知不断的提高自身的知识的人不锻炼改变化亚洲";
 		ss1[0] = "나는 일을 준비 하고 있다 ";
 		for (int i = 0; i < ss.length; i++) {
 			System.out.println("超级变态复杂病句-->" + ss[i]);

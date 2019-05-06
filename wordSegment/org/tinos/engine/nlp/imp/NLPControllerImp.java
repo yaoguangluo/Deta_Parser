@@ -132,6 +132,7 @@ public class NLPControllerImp implements NLPController{
 			return countInputStringLength;
 		}//will make pre 3 or post 3 check. now finished pre 3 .20190330
 		String preRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO)+ inputString.charAt(StableData.INT_ONE);
+		String inRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ONE)+ inputString.charAt(StableData.INT_TWO);
 		if(StableMaps.dongCi.containsKey(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_THREE)
 		+ prefixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))) {
 			countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
@@ -158,9 +159,15 @@ public class NLPControllerImp implements NLPController{
 				return countInputStringLength-StableData.INT_TWO;
 			}
 		}
-		countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
-				, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils, charPosition, textInputString);
-		return countInputStringLength;
+		if(wordsForest.containsKey(preRegister)|| wordsForest.containsKey(inRegister)) {
+			countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
+					, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils, charPosition, textInputString);
+			return countInputStringLength;
+		}
+		output.add(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
+		prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+		prefixWord[StableData.INT_ZERO].append(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
+		return countInputStringLength- StableData.INT_THREE;
 	}
 
 	public int doSlangCheckForMap(int countInputStringLength, List<String> output, StringBuilder stringBuilder
