@@ -24,7 +24,7 @@ public class DemoCogs {
         //Analyzer analyzer = new ScoreAnalyzerImp();
         analyzer.init();
         sets = new CopyOnWriteArrayList<>();
-        String ss = "从容易开始念经的和尚未从容易知和尚未结婚的施主";
+        String ss = "从容易开始从容易知";
         System.out.println("");
         ExecutorService executorService = Executors.newFixedThreadPool(1);
         for (int i = 0; i < 100; i++) {
