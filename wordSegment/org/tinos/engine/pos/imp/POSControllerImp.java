@@ -60,7 +60,8 @@ public class POSControllerImp implements POSController{
 				fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
 				return countInputStringLength;
 			}
-			return countInputStringLength- StableData.INT_TWO;
+			countInputStringLength= parserFirstCharOfTwo(countInputStringLength, outputList, strings, fixWord);
+			return countInputStringLength;
 		}
 		return countInputStringLength;
 	}
