@@ -692,7 +692,13 @@ public class POSControllerImp implements POSController{
 				return countInputLength;
 			}
 		}
-		countInputLength= parserFirstTwoCharOfThree(countInputLength, outputList, strings, prefixWord);
-		return countInputLength;
+		if(wordsForest.containsKey(strings[StableData.INT_ONE])) {
+			countInputLength= parserFirstTwoCharOfThree(countInputLength, outputList, strings, prefixWord);
+			return countInputLength;
+		}
+		outputList.add(strings[StableData.INT_ZERO]);
+		prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+		prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+		return StableData.INT_ONE;
 	}
 }
