@@ -144,6 +144,12 @@ public class POSControllerImp implements POSController{
 	public void didNotFindFirstChar(List<String> outputList, String[] strings, StringBuilder[] fixWord
 			, Map<String, String> wordsForest){
 		if(!wordsForest.containsKey(strings[StableData.INT_TWO])){
+			if(wordsForest.containsKey(strings[StableData.INT_ONE])){
+				outputList.add(strings[StableData.INT_ONE]);
+				outputList.add(strings[StableData.INT_THREE]);
+				fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+				fixWord[StableData.INT_ZERO].append(strings[StableData.INT_THREE]);
+			}
 			return;
 		}
 		if (StableMaps.fuCi.containsKey(strings[StableData.INT_TWO])){
@@ -151,6 +157,13 @@ public class POSControllerImp implements POSController{
 			outputList.add(strings[StableData.INT_TWO]);
 			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
+			return;
+		}
+		if(wordsForest.containsKey(strings[StableData.INT_ONE])){
+			outputList.add(strings[StableData.INT_ONE]);
+			outputList.add(strings[StableData.INT_THREE]);
+			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_THREE]);
 		}
 	}
 
