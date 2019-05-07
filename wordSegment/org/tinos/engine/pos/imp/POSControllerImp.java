@@ -269,20 +269,23 @@ public class POSControllerImp implements POSController{
 				countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
 			} 
-			countInputStringLength -= StableData.INT_THREE;
 			if (wordsForest.containsKey(strings[StableData.INT_ONE])){
 				outputList.add(strings[StableData.INT_ONE]);
 				fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 				fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
-				countInputStringLength += StableData.INT_TWO;
+				return StableData.INT_TWO;
 			}
-			return countInputStringLength;
 		}
 		fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
-		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);	
-		outputList.add(fixWord[StableData.INT_ZERO].toString());
-		return countInputStringLength;
+		outputList.add(strings[StableData.INT_ZERO]);
+		if (wordsForest.containsKey(strings[StableData.INT_TWO])){
+			outputList.add(strings[StableData.INT_TWO]);
+			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
+			return StableData.INT_THREE;
+		}
+		return  StableData.INT_ONE;
 	}
 
 	public int chuLiMingCiOfTwoForMap(Map<String, String> wordsForest,  Map<String, WordFrequency> outputList, int countInputStringLength
@@ -617,7 +620,7 @@ public class POSControllerImp implements POSController{
 				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
 			}
-			if(StableMaps.mingCi.containsKey(strings[StableData.INT_ONE])){
+			if(StableMaps.mingCi.containsKey(strings[StableData.INT_ONE])|| StableMaps.fuCi.containsKey(strings[StableData.INT_ONE])){
 				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
 			}
