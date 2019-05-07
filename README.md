@@ -55,8 +55,8 @@ https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/tes
 ##### ![实例](http://progressed.io/bar/100) 第一次语料库森林进行序列化优化已完成（分词速度提高1.5%），导致ICA内核生成速度翻倍。20190320 功能作者 罗瑶光。
 ##### ![实例](http://progressed.io/bar/100) 逐步完善歧义,复杂,病句,变态,狂虐,句型的分词.感谢测试用例病句提供者如下:
 https://github.com/yaoguangluo/Deta_Parser/blob/master/wordSegment/org/tinos/test/DemoPOS.java
-https://blog.csdn.net/dreamzuora/article/details/88108568
-https://my.oschina.net/jcseg/blog/135746
+(https://blog.csdn.net/dreamz*************ls/88108568
+https://my.oschina.*************135746) 道德清洗中. 对曾经提供负面的歧义病句的单位表示感谢 同时表示道歉,这里 链接过滤了.
 
 
 ## 主题二： 词感
