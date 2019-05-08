@@ -200,8 +200,10 @@ public class POSControllerImp implements POSController{
 				String secondChar= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ONE);
 				if(!StableMaps.fuCi.containsKey(firstChar)&&!StableMaps.fuCi.containsKey(secondChar)
 						&&!StableMaps.fuCi.containsKey(firstChar+ secondChar)) {
-					countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-					return countInputStringLength;
+					if(wordsForest.containsKey(firstChar)&& wordsForest.containsKey(secondChar)) {
+						countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+						return countInputStringLength;
+					}
 				}
 			}
 			if (wordsForest.containsKey(strings[StableData.INT_ONE])){
