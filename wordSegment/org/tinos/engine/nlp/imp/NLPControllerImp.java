@@ -153,6 +153,17 @@ public class NLPControllerImp implements NLPController{
 					prefixWord[StableData.INT_ZERO].append(string);
 					return countInputStringLength- StableData.INT_THREE;
 				}
+				if(StableMaps.zhuCi.containsKey(string)){
+					String[] strings= new String[StableData.INT_FOUR];
+					strings[StableData.INT_ZERO]= String.valueOf(inputString.charAt(StableData.INT_ZERO));
+					strings[StableData.INT_ONE]= String.valueOf(inputString.charAt(StableData.INT_ZERO)) 
+							+ inputString.charAt(StableData.INT_ONE);
+					strings[StableData.INT_TWO]= String.valueOf(inputString.charAt(StableData.INT_ONE)) 
+							+ inputString.charAt(StableData.INT_TWO);
+					strings[StableData.INT_THREE]= String.valueOf(inputString.charAt(StableData.INT_TWO));
+					countInputStringLength= posUtils.chuLiZhuCiOfThree(wordsForest, output, countInputStringLength-StableData.INT_ONE, strings, prefixWord);
+					return countInputStringLength;
+				}
 				output.add(preRegister);
 				prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 				prefixWord[StableData.INT_ZERO].append(preRegister);
