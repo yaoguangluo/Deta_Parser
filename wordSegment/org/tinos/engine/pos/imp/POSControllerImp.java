@@ -612,6 +612,10 @@ public class POSControllerImp implements POSController{
 			}
 			if(StableMaps.dongCi.containsKey(strings[StableData.INT_THREE])){
 				if(StableMaps.fuCi.containsKey(StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
+					if(StableMaps.dongCi.containsKey(strings[StableData.INT_ONE])|| StableMaps.qingTaiCi.containsKey(strings[StableData.INT_ONE])) {
+						countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
+						return countInputStringLength;
+					}
 					countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
 					return countInputStringLength;
 				}
