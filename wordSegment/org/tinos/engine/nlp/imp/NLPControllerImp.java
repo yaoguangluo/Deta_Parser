@@ -116,10 +116,15 @@ public class NLPControllerImp implements NLPController{
 			countInputLength= posUtils.chuLiFuCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
 			return countInputLength;
 		}
-		StringBuilder stringsBuilder= new StringBuilder();
-		countInputLength= doSlangPartAndPOSCheckForTwoChar(--countInputLength, outputList
-				, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils, charPosition, textInputString);
-		return countInputLength;
+		if(wordsForest.containsKey(strings[StableData.INT_ONE])) {
+			StringBuilder stringsBuilder= new StringBuilder();
+			countInputLength= doSlangPartAndPOSCheckForTwoChar(--countInputLength, outputList, stringsBuilder.append(strings[StableData.INT_ONE])
+					, wordsForest, prefixWord, posUtils, charPosition, textInputString);
+			return countInputLength;
+		}
+		outputList.add(strings[StableData.INT_ZERO]);
+		prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+		return StableData.INT_ONE;
 	} 
 
 	public int doSlangCheck(int countInputStringLength, List<String> output, StringBuilder stringBuilder,
