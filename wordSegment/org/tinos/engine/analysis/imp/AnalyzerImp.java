@@ -69,8 +69,8 @@ public class AnalyzerImp implements Analyzer {
 	}
 	
 	public List<String> parserMixedString(String mixedString) {
-		mixedString += StableData.SPACE_STRING_DISTINCTION;
-		int inputStringLength = mixedString.length();
+		mixedString+= StableData.SPACE_STRING_DISTINCTION;
+		int inputStringLength= mixedString.length();
 		List<String> outputList = new LinkedList<>();
 		int forestDepth = StableData.INT_ZERO;
 		int countInputStringLength;

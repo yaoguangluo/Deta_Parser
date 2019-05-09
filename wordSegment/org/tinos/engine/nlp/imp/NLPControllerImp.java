@@ -133,6 +133,7 @@ public class NLPControllerImp implements NLPController{
 		}//will make pre 3 or post 3 check. now finished pre 3 .20190330
 		String preRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO)+ inputString.charAt(StableData.INT_ONE);
 		String inRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ONE)+ inputString.charAt(StableData.INT_TWO);
+		String postRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_TWO)+ inputString.charAt(StableData.INT_THREE);
 		if(StableMaps.dongCi.containsKey(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_THREE)
 		+ prefixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))) {
 			countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
@@ -141,7 +142,6 @@ public class NLPControllerImp implements NLPController{
 		}
 		if(StableMaps.mingCi.containsKey(preRegister)|| StableMaps.xingRongCi.containsKey(preRegister)|| StableMaps.fuCi.containsKey(preRegister)
 				|| StableMaps.dongCi.containsKey(preRegister)|| StableMaps.lianCi.containsKey(preRegister)) {
-			String postRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_TWO)+ inputString.charAt(StableData.INT_THREE);
 			if(StableMaps.mingCi.containsKey(postRegister)|| StableMaps.dongCi.containsKey(postRegister)
 					|| StableMaps.xingRongCi.containsKey(postRegister)|| StableMaps.xingWeiCi.containsKey(postRegister)
 					|| StableMaps.fuCi.containsKey(postRegister)) {
@@ -169,6 +169,12 @@ public class NLPControllerImp implements NLPController{
 				prefixWord[StableData.INT_ZERO].append(preRegister);
 				return countInputStringLength-StableData.INT_TWO;
 			}
+		}
+		if(!wordsForest.containsKey(preRegister)&& (wordsForest.containsKey(inRegister)||wordsForest.containsKey(postRegister))) {
+			output.add(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
+			return countInputStringLength- StableData.INT_THREE;
 		}
 		if(wordsForest.containsKey(preRegister)|| wordsForest.containsKey(inRegister)) {
 			countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
