@@ -107,7 +107,8 @@ public class NLPControllerImp implements NLPController{
 				countInputLength = posUtils.parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
 				return countInputLength;
 			}
-			if(StableMaps.fuCi.containsKey(strings[StableData.INT_TWO])||StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])) {
+			if(StableMaps.fuCi.containsKey(strings[StableData.INT_TWO])||StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])
+					||StableMaps.daiCi.containsKey(strings[StableData.INT_TWO])) {
 				countInputLength = posUtils.parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
 				return countInputLength;
 			}
@@ -149,7 +150,7 @@ public class NLPControllerImp implements NLPController{
 				|| StableMaps.dongCi.containsKey(preRegister)|| StableMaps.lianCi.containsKey(preRegister)) {
 			if(StableMaps.mingCi.containsKey(postRegister)|| StableMaps.dongCi.containsKey(postRegister)
 					|| StableMaps.xingRongCi.containsKey(postRegister)|| StableMaps.xingWeiCi.containsKey(postRegister)
-					|| StableMaps.fuCi.containsKey(postRegister)) {
+					|| StableMaps.fuCi.containsKey(postRegister)|| StableMaps.jieCi.containsKey(postRegister)) {
 				String string= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO);
 				if(StableMaps.xingWeiCi.containsKey(prefixWord[StableData.INT_ZERO].toString())
 						&&StableMaps.shiTaiCi.containsKey(string)) {
