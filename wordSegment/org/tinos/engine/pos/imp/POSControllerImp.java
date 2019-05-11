@@ -198,10 +198,19 @@ public class POSControllerImp implements POSController{
 			} else if(fixWord[StableData.INT_ONE].length()> StableData.INT_ONE) {
 				String firstChar= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ZERO);
 				String secondChar= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ONE);
-				if(!StableMaps.fuCi.containsKey(firstChar)&&!StableMaps.fuCi.containsKey(secondChar)
+				if(!StableMaps.fuCi.containsKey(firstChar)&& !StableMaps.fuCi.containsKey(secondChar)
 						&&!StableMaps.fuCi.containsKey(firstChar+ secondChar)) {
 					if(wordsForest.containsKey(firstChar)&& wordsForest.containsKey(secondChar)) {
-						countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+						outputList.add(strings[StableData.INT_ZERO]);
+						fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+						fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+						countInputStringLength= StableData.INT_ONE;
+						if(wordsForest.containsKey(strings[StableData.INT_TWO])) {
+							outputList.add(strings[StableData.INT_TWO]);
+							fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+							fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
+							countInputStringLength= StableData.INT_THREE;
+						}
 						return countInputStringLength;
 					}
 				}
@@ -637,7 +646,14 @@ public class POSControllerImp implements POSController{
 				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
 			}
-			countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+			if (wordsForest.containsKey(strings[StableData.INT_TWO])){
+				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+				return countInputStringLength;
+			}
+			outputList.add(strings[StableData.INT_ZERO]);
+			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+			countInputStringLength= StableData.INT_ONE;
 			return countInputStringLength;
 		} 
 		if(StableMaps.dongCi.containsKey(strings[StableData.INT_THREE])){
