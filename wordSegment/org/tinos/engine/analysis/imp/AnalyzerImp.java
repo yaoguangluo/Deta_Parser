@@ -97,9 +97,18 @@ public class AnalyzerImp implements Analyzer {
 				if(StableData.INT_ONE == find) {
 					find = StableData.INT_ZERO;
 					Iterator<String> it = fHMMList.englishStringToWordsList(fixWords[StableData.INT_ZERO].toString()).iterator();
+					StringBuilder number= new StringBuilder();
 					while(it.hasNext()) {
 						String temp = it.next();
-						outputList.add(temp);	
+						if(StableData.NUMBERS.contains(temp)) {
+							number.append(temp);
+						}else {
+							outputList.add(temp);	
+						}	
+					}
+					if(number.length()>0) {
+						outputList.add(number.toString());
+						number.delete(0, number.length());
 					}
 					fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
 				}			
