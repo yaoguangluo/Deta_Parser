@@ -1,7 +1,7 @@
 # 德塔中文分词分析word segementation
 
 #### 介绍
-电脑偶尔登不上 https://github.com/yaoguangluo/DetaParser,就在码云上2选1发布.
+电脑偶尔登不上 https://github.com/yaoguangluo/DetaParser , 就在码云上2选1发布.
 
 #### 软件架构
 软件架构说明
