@@ -1,4 +1,6 @@
 package org.tinos.engine.analysis.imp;
+import static java.lang.System.out;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -82,7 +84,7 @@ public class AnalyzerImp implements Analyzer {
 		Here:
 			for (int charPosition = StableData.INT_ZERO;charPosition<inputStringLength;charPosition
 					+=(countInputStringLength==StableData.INT_ZERO?StableData.INT_ONE:countInputStringLength)) {
-				if(mixedString.charAt(charPosition) < StableData.INT_ONE_TWO_EIGHT && charPosition < inputStringLength 
+				if(mixedString.charAt(charPosition) < StableData.INT_TEN_SOUTHANDS && charPosition < inputStringLength 
 						- StableData.INT_ONE){
 					if(find == StableData.INT_ZERO) {
 						fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());

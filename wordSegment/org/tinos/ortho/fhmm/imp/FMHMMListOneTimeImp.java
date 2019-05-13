@@ -16,6 +16,8 @@ import org.tinos.view.obj.FMHMMNode;
 import org.tinos.view.obj.FMHMMPOS;
 import org.tinos.view.stable.StableData;
 import org.tinos.view.stable.StableMaps;
+
+import NLPProcessor.StopSymbol;
 //I will build a collection class for managing this maps. at the next version.
 @SuppressWarnings("unchecked")
 public class FMHMMListOneTimeImp implements FHMMList {
@@ -970,18 +972,27 @@ public class FMHMMListOneTimeImp implements FHMMList {
 		return this.posEnToEn;
 	}
 
+//	if((string.charAt(i)> StableData.INT_SIXTY_FOUR && string.charAt(i)<= StableData.INT_NINTY)
+//	||(string.charAt(i)>= StableData.INT_NINTY_SEVEN && string.charAt(i)<= StableData.INT_ONE_TWO_TWO)
+//	||symbol.contains(StableData.EMPTY_STRING+ string.charAt(i)) {
+//sb.append(string.charAt(i));
+//}else {
+//list.add(sb.toString().toLowerCase());
+//sb.delete(StableData.INT_ZERO, sb.length());
+//list.add(String.valueOf(string.charAt(i)));
+//}
+	
 	public List<String> englishStringToWordsList(String string) {
 		List<String> list= new LinkedList<>();
 		string= string.replaceAll(StableData.NLP_SPASE_REP, StableData.SPACE_STRING);
 		StringBuilder sb= new StringBuilder();
 		for(int i= 0; i< string.length(); i++) {
-			if((string.charAt(i)> StableData.INT_SIXTY_FOUR && string.charAt(i)<= StableData.INT_NINTY)
-					||(string.charAt(i)>= StableData.INT_NINTY_SEVEN && string.charAt(i)<= StableData.INT_ONE_TWO_TWO)) {
-				sb.append(string.charAt(i));
-			}else {
+			if(StopSymbol.symbol.contains(StableData.EMPTY_STRING+ string.charAt(i))) {
 				list.add(sb.toString().toLowerCase());
 				sb.delete(StableData.INT_ZERO, sb.length());
 				list.add(String.valueOf(string.charAt(i)));
+			}else {
+				sb.append(string.charAt(i));
 			}
 		}
 		return list;
