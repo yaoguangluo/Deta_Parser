@@ -101,6 +101,10 @@ public class AnalyzerImp implements Analyzer {
 						if(StableData.NUMBERS.contains(temp)) {
 							number.append(temp);
 						}else {
+							if(number.length()>0) {
+								outputList.add(number.toString());
+								number.delete(0, number.length());
+							}
 							outputList.add(temp);	
 						}	
 					}
