@@ -277,6 +277,11 @@ public class POSControllerImp implements POSController{
 				}
 			}
 		}
+		if(StableMaps.jieCi.containsKey(strings[StableData.INT_ONE])) {
+			countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
+			return countInputStringLength;
+		}
+		countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
 		return countInputStringLength;
 	}
 
