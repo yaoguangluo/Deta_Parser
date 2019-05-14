@@ -13,10 +13,16 @@ public class NLPControllerImp implements NLPController{
 			, POSController posUtils, int charPosition, String textInputString){
 		String countWordNode= stringBuilder.toString();
 		if (prefixWord[StableData.INT_ZERO].length()== StableData.INT_ZERO){
+			if(wordsForest.containsKey(countWordNode)) {
+				prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+				prefixWord[StableData.INT_ZERO].append(countWordNode);
+				outputList.add(countWordNode);
+				return countInputStringLength;
+			}
 			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(countWordNode);
-			outputList.add(countWordNode);
-			return countInputStringLength;
+			prefixWord[StableData.INT_ZERO].append(stringBuilder.charAt(StableData.INT_ZERO));
+			outputList.add(StableData.EMPTY_STRING+ stringBuilder.charAt(StableData.INT_ZERO));
+			return countInputStringLength- StableData.INT_ONE;
 		}
 		String[] strings= new String[StableData.INT_TWO];
 		strings[StableData.INT_ZERO]= String.valueOf(countWordNode.charAt(StableData.INT_ZERO));
