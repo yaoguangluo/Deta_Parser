@@ -1,6 +1,4 @@
 package org.tinos.engine.analysis.imp;
-import static java.lang.System.out;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
