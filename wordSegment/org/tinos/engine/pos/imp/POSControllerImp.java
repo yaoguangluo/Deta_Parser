@@ -87,6 +87,19 @@ public class POSControllerImp implements POSController{
 		return countInputStringLength;
 	}
 
+	public int chuLiLianCiPostFixOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
+			String[] strings, StringBuilder[] prefixWord) {
+		if (StableMaps.lianCi.containsKey(strings[StableData.INT_TWO])){
+			countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
+			return countInputLength;
+		}
+		if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+			countInputLength= parserFirstTwoCharOfThree(countInputLength, outputList, strings, prefixWord);
+			return countInputLength;
+		}
+		return countInputLength;
+	}
+	
 	public int chuLiLianCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
 			, String[] strings, StringBuilder[] fixWord){
 		if (outputList.size() == StableData.INT_ZERO){

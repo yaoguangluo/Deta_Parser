@@ -76,6 +76,10 @@ public class NLPControllerImp implements NLPController{
 					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils, charPosition, textInputString);
 			return countInputLength;
 		}
+		if(StableMaps.lianCi.containsKey(strings[StableData.INT_THREE])) {
+			countInputLength = posUtils.chuLiLianCiPostFixOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
+			return countInputLength;
+		}
 		if (StableMaps.lianCi.containsKey(strings[StableData.INT_ZERO])){
 			countInputLength = posUtils.chuLiLianCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
 			return countInputLength;
@@ -145,7 +149,7 @@ public class NLPControllerImp implements NLPController{
 			countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
 					, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils, charPosition, textInputString);
 			return countInputStringLength;
-		}
+		}		
 		if(StableMaps.mingCi.containsKey(preRegister)|| StableMaps.xingRongCi.containsKey(preRegister)|| StableMaps.fuCi.containsKey(preRegister)
 				|| StableMaps.dongCi.containsKey(preRegister)|| StableMaps.lianCi.containsKey(preRegister)|| StableMaps.liangCi.containsKey(preRegister)) {
 			if(StableMaps.mingCi.containsKey(postRegister)|| StableMaps.dongCi.containsKey(postRegister)
@@ -177,6 +181,12 @@ public class NLPControllerImp implements NLPController{
 			}
 		}
 		if(!wordsForest.containsKey(preRegister)&& (wordsForest.containsKey(inRegister)||wordsForest.containsKey(postRegister))) {
+			if(wordsForest.containsKey(preRegister+ inputString.charAt(StableData.INT_TWO))) {
+				output.add(preRegister+ inputString.charAt(StableData.INT_TWO));
+				prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+				prefixWord[StableData.INT_ZERO].append(preRegister+ inputString.charAt(StableData.INT_TWO));
+				return countInputStringLength- StableData.INT_ONE;
+			}
 			output.add(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
 			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 			prefixWord[StableData.INT_ZERO].append(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));

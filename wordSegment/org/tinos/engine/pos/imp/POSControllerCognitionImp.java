@@ -175,4 +175,11 @@ public class POSControllerCognitionImp implements POSController{
 		return 0;
 	}
 
+	@Override
+	public int chuLiLianCiPostFixOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
+			String[] strings, StringBuilder[] prefixWord) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
