@@ -276,6 +276,10 @@ public class POSControllerImp implements POSController{
 					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
 					return countInputStringLength;
 				}else if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+					if(StableMaps.jieCi.containsKey(strings[StableData.INT_ONE])) {
+						countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
+						return countInputStringLength;
+					}
 					outputList.add(strings[StableData.INT_ONE]);
 					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
