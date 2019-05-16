@@ -995,6 +995,9 @@ public class FMHMMListOneTimeImp implements FHMMList {
 				sb.append(string.charAt(i));
 			}
 		}
+		if(StableData.INT_ZERO< sb.length()) {
+			list.add(sb.toString().toLowerCase());
+		}
 		return list;
 	}
 
