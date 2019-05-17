@@ -37,6 +37,14 @@ public class NLPControllerImp implements NLPController{
 					, strings, prefixWord);
 			return countInputStringLength;
 		}
+		if (StableMaps.jieCi.containsKey(strings[StableData.INT_ZERO].toString())){
+			if (StableMaps.dongCi.containsKey(prefixWord[StableData.INT_ZERO].toString())){
+				if (!StableMaps.jieCi.containsKey(countWordNode)){
+					countInputStringLength= posUtils.parserFirstCharOfTwo(countInputStringLength, outputList, strings, prefixWord);
+					return countInputStringLength;
+				}
+			}
+		}
 		if (wordsForest.containsKey(countWordNode)){
 			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 			prefixWord[StableData.INT_ZERO].append(countWordNode);
