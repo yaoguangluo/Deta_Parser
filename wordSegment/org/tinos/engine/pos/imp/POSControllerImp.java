@@ -206,8 +206,14 @@ public class POSControllerImp implements POSController{
 		}
 		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())){
 			if (StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
-				countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-				return countInputStringLength;
+				if(wordsForest.containsKey(strings[StableData.INT_TWO])) {
+					countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+					return countInputStringLength;
+				}
+				outputList.add(strings[StableData.INT_ZERO]);
+				fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+				fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+				return 	countInputStringLength= StableData.INT_ONE;
 			} else if(fixWord[StableData.INT_ONE].length()> StableData.INT_ONE) {
 				String firstChar= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ZERO);
 				String secondChar= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ONE);
