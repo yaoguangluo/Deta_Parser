@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://C:/production/Fast_Chinese_NeroParser" />
+    <output-test url="file://C:/production/Fast_Chinese_NeroParser" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/engine" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/ortho" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/view" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/engine/analysis" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/engine/euclid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/engine/imp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/engine/nero" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/engine/nlp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/engine/pos" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/ortho/fhmm" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/ortho/fhmm/imp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/view/exception" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/view/obj" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/view/stable" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/engine/analysis/imp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/engine/euclid/imp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/engine/nero/imp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/engine/nlp/imp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org/tinos/engine/pos/imp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/org" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/main/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

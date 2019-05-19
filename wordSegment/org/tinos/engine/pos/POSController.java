@@ -67,7 +67,10 @@ public interface POSController {
 			String[] strings, StringBuilder[] prefixWord);
 	int chuLiFuCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
 			String[] strings, StringBuilder[] prefixWord);
+<<<<<<< HEAD
 	int chuLiLianCiPostFixOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
 			String[] strings, StringBuilder[] prefixWord);
+=======
+>>>>>>> branch 'master' of https://gitee.com/DetaChina/DetaParser.git
 }
 

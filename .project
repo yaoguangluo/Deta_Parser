@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>DetaNLP</name>
+=======
+	<name>NeroParser</name>
+>>>>>>> branch 'master' of https://gitee.com/DetaChina/DetaParser.git
 	<comment></comment>
 	<projects>
 	</projects>

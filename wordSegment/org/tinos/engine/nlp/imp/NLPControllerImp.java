@@ -13,6 +13,7 @@ public class NLPControllerImp implements NLPController{
 			, POSController posUtils, int charPosition, String textInputString){
 		String countWordNode= stringBuilder.toString();
 		if (prefixWord[StableData.INT_ZERO].length()== StableData.INT_ZERO){
+<<<<<<< HEAD
 			if(wordsForest.containsKey(countWordNode)) {
 				prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 				prefixWord[StableData.INT_ZERO].append(countWordNode);
@@ -202,6 +203,172 @@ public class NLPControllerImp implements NLPController{
 				prefixWord[StableData.INT_ZERO].append(preRegister+ inputString.charAt(StableData.INT_TWO));
 				return countInputStringLength- StableData.INT_ONE;
 			}
+=======
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(countWordNode);
+			outputList.add(countWordNode);
+			return countInputStringLength;
+		}
+		String[] strings= new String[StableData.INT_TWO];
+		strings[StableData.INT_ZERO]= String.valueOf(countWordNode.charAt(StableData.INT_ZERO));
+		strings[StableData.INT_ONE]= countWordNode;
+		if (StableMaps.mingCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputStringLength= posUtils.chuLiMingCiOfTwo(wordsForest, outputList, countInputStringLength
+					, strings, prefixWord, charPosition, textInputString);
+			return countInputStringLength;
+		}
+		if (StableMaps.baDongCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputStringLength = posUtils.chuLiBaDongCiOfTwo(wordsForest, outputList, countInputStringLength
+					, strings, prefixWord);
+			return countInputStringLength;
+		}
+		if (wordsForest.containsKey(countWordNode)){
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(countWordNode);
+			outputList.add(countWordNode);
+			return countInputStringLength;
+		}
+		countInputStringLength= posUtils.parserFirstCharOfTwo(countInputStringLength, outputList, strings, prefixWord);
+		return countInputStringLength;
+	}
+
+	public int doPOSAndEMMCheckOfThree(int countInputLength, List<String> outputList
+			, Map<String, String> wordsForest, StringBuilder stringBuilder, StringBuilder[] prefixWord
+			, POSController posUtils, int charPosition, String textInputString){
+		String inputString= stringBuilder.toString();
+		if (wordsForest.containsKey(inputString)){
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(inputString);
+			outputList.add(inputString);
+			return countInputLength;
+		}
+		String[] strings= new String[StableData.INT_FOUR];
+		strings[StableData.INT_ZERO]= String.valueOf(inputString.charAt(StableData.INT_ZERO));
+		strings[StableData.INT_ONE]= String.valueOf(inputString.charAt(StableData.INT_ZERO)) 
+				+ inputString.charAt(StableData.INT_ONE);
+		strings[StableData.INT_TWO]= String.valueOf(inputString.charAt(StableData.INT_ONE)) 
+				+ inputString.charAt(StableData.INT_TWO);
+		strings[StableData.INT_THREE]= String.valueOf(inputString.charAt(StableData.INT_TWO));
+		if (null== prefixWord[StableData.INT_ZERO]){
+			if (wordsForest.containsKey(inputString)){
+				prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+				prefixWord[StableData.INT_ZERO].append(inputString);
+				outputList.add(inputString);
+				return countInputLength;
+			} 
+			StringBuilder stringsBuilder= new StringBuilder();
+			countInputLength= doSlangPartAndPOSCheckForTwoChar(--countInputLength, outputList
+					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils, charPosition, textInputString);
+			return countInputLength;
+		}
+		if (!wordsForest.containsKey(strings[StableData.INT_ZERO])){
+			StringBuilder stringsBuilder= new StringBuilder();
+			countInputLength= doSlangPartAndPOSCheckForTwoChar(--countInputLength, outputList
+					, stringsBuilder.append(strings[StableData.INT_ONE]), wordsForest, prefixWord, posUtils, charPosition, textInputString);
+			return countInputLength;
+		}
+		if (StableMaps.lianCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength = posUtils.chuLiLianCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
+			return countInputLength;
+		}
+		if (StableMaps.jieCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength = posUtils.chuLiJieCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
+			return countInputLength;
+		}
+		if (StableMaps.zhuCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength = posUtils.chuLiZhuCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
+			return countInputLength;
+		}
+		if (StableMaps.liangCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength = posUtils.chuLiLiangCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
+			return countInputLength;
+		}
+		if (StableMaps.mingCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength= posUtils.chuLiMingCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
+			return countInputLength;
+		}
+		if (StableMaps.shiTaiCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength= posUtils.chuLiShiTaiCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
+			return countInputLength;
+		}
+		if (StableMaps.dongCi.containsKey(strings[StableData.INT_ZERO])||StableMaps.fuCi.containsKey(strings[StableData.INT_ZERO])){
+			if(StableMaps.zhuCi.containsKey(prefixWord[StableData.INT_ZERO].toString())
+					&& (StableMaps.liangCi.containsKey(strings[StableData.INT_TWO])
+					|| StableMaps.jieCi.containsKey(strings[StableData.INT_TWO]))) {
+				countInputLength = posUtils.parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
+				return countInputLength;
+			}
+			if(StableMaps.fuCi.containsKey(strings[StableData.INT_TWO])||StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])
+					||StableMaps.daiCi.containsKey(strings[StableData.INT_TWO])) {
+				countInputLength = posUtils.parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
+				return countInputLength;
+			}
+		}
+		if (StableMaps.fuCi.containsKey(strings[StableData.INT_ZERO])){
+			countInputLength= posUtils.chuLiFuCiOfThree(wordsForest, outputList, countInputLength, strings, prefixWord);
+			return countInputLength;
+		}
+		if(wordsForest.containsKey(strings[StableData.INT_ONE])) {
+			StringBuilder stringsBuilder= new StringBuilder();
+			countInputLength= doSlangPartAndPOSCheckForTwoChar(--countInputLength, outputList, stringsBuilder.append(strings[StableData.INT_ONE])
+					, wordsForest, prefixWord, posUtils, charPosition, textInputString);
+			return countInputLength;
+		}
+		outputList.add(strings[StableData.INT_ZERO]);
+		prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+		return StableData.INT_ONE;
+	} 
+
+	public int doSlangCheck(int countInputStringLength, List<String> output, StringBuilder stringBuilder,
+			Map<String, String> wordsForest, StringBuilder[] prefixWord, POSController posUtils, int charPosition, String textInputString){
+		String inputString = stringBuilder.toString();
+		if (wordsForest.containsKey(inputString)){
+			output.add(inputString);
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(inputString);
+			return countInputStringLength;
+		}//will make pre 3 or post 3 check. now finished pre 3 .20190330
+		String preRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO)+ inputString.charAt(StableData.INT_ONE);
+		String inRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ONE)+ inputString.charAt(StableData.INT_TWO);
+		String postRegister= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_TWO)+ inputString.charAt(StableData.INT_THREE);
+		if(StableMaps.dongCi.containsKey(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_THREE)
+		+ prefixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))) {
+			countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
+					, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils, charPosition, textInputString);
+			return countInputStringLength;
+		}
+		if(StableMaps.mingCi.containsKey(preRegister)|| StableMaps.xingRongCi.containsKey(preRegister)|| StableMaps.fuCi.containsKey(preRegister)
+				|| StableMaps.dongCi.containsKey(preRegister)|| StableMaps.lianCi.containsKey(preRegister)|| StableMaps.liangCi.containsKey(preRegister)) {
+			if(StableMaps.mingCi.containsKey(postRegister)|| StableMaps.dongCi.containsKey(postRegister)
+					|| StableMaps.xingRongCi.containsKey(postRegister)|| StableMaps.xingWeiCi.containsKey(postRegister)
+					|| StableMaps.fuCi.containsKey(postRegister)|| StableMaps.jieCi.containsKey(postRegister)) {
+				String string= StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO);
+				if(StableMaps.xingWeiCi.containsKey(prefixWord[StableData.INT_ZERO].toString())
+						&&StableMaps.shiTaiCi.containsKey(string)) {
+					output.add(string);
+					prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+					prefixWord[StableData.INT_ZERO].append(string);
+					return countInputStringLength- StableData.INT_THREE;
+				}
+				if(StableMaps.zhuCi.containsKey(string)){
+					String[] strings= new String[StableData.INT_FOUR];
+					strings[StableData.INT_ZERO]= String.valueOf(inputString.charAt(StableData.INT_ZERO));
+					strings[StableData.INT_ONE]= String.valueOf(inputString.charAt(StableData.INT_ZERO)) 
+							+ inputString.charAt(StableData.INT_ONE);
+					strings[StableData.INT_TWO]= String.valueOf(inputString.charAt(StableData.INT_ONE)) 
+							+ inputString.charAt(StableData.INT_TWO);
+					strings[StableData.INT_THREE]= String.valueOf(inputString.charAt(StableData.INT_TWO));
+					countInputStringLength= posUtils.chuLiZhuCiOfThree(wordsForest, output, countInputStringLength-StableData.INT_ONE, strings, prefixWord);
+					return countInputStringLength;
+				}
+				output.add(preRegister);
+				prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+				prefixWord[StableData.INT_ZERO].append(preRegister);
+				return countInputStringLength-StableData.INT_TWO;
+			}
+		}
+		if(!wordsForest.containsKey(preRegister)&& (wordsForest.containsKey(inRegister)||wordsForest.containsKey(postRegister))) {
+>>>>>>> branch 'master' of https://gitee.com/DetaChina/DetaParser.git
 			output.add(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
 			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 			prefixWord[StableData.INT_ZERO].append(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));

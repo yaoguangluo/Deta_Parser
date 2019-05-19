@@ -175,6 +175,7 @@ public class POSControllerCognitionImp implements POSController{
 		return 0;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public int chuLiLianCiPostFixOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
 			String[] strings, StringBuilder[] prefixWord) {
@@ -182,4 +183,6 @@ public class POSControllerCognitionImp implements POSController{
 		return 0;
 	}
 
+=======
+>>>>>>> branch 'master' of https://gitee.com/DetaChina/DetaParser.git
 }

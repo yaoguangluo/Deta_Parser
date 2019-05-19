@@ -7,4 +7,8 @@
  * in the user guide at https://docs.gradle.org/4.10.3/userguide/multi_project_builds.html
  */
 
+<<<<<<< HEAD
 rootProject.name = 'DetaNLP'
+=======
+rootProject.name = 'Deta_Parser'
+>>>>>>> branch 'master' of https://gitee.com/DetaChina/DetaParser.git
