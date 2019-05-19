@@ -995,12 +995,9 @@ public class FMHMMListOneTimeImp implements FHMMList {
 				sb.append(string.charAt(i));
 			}
 		}
-<<<<<<< HEAD
 		if(StableData.INT_ZERO< sb.length()) {
 			list.add(sb.toString().toLowerCase());
 		}
-=======
->>>>>>> branch 'master' of https://gitee.com/DetaChina/DetaParser.git
 		return list;
 	}
 

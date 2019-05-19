@@ -1,5 +1,4 @@
 package org.tinos.engine.analysis.imp;
-<<<<<<< HEAD
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -106,112 +105,6 @@ public class AnalyzerImp implements Analyzer {
 								outputList.add(number.toString());
 								number.delete(0, number.length());
 							}
-=======
-import static java.lang.System.out;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import org.tinos.view.obj.FMHMMNode;
-import org.tinos.view.obj.WordFrequency;
-import org.tinos.view.stable.StableData;
-import org.tinos.ortho.fhmm.FHMMList;
-import org.tinos.ortho.fhmm.imp.FMHMMListOneTimeImp;
-import org.tinos.engine.nero.NEROControllerOneTime;
-import org.tinos.engine.nero.imp.NEROControllerOneTimeImp;
-import org.tinos.engine.nlp.NLPController;
-import org.tinos.engine.nlp.imp.NLPControllerImp;
-import org.tinos.engine.pos.POSController;
-import org.tinos.engine.pos.imp.POSControllerImp;
-import org.tinos.engin.utils.WordFrequencyUtil;
-import org.tinos.engine.analysis.Analyzer;
-import org.tinos.engine.liner.Quick6DLuoYaoguangSort;
-import org.tinos.engine.liner.imp.Quick6DLuoYaoguangSort3DMapImp;
-public class AnalyzerImp implements Analyzer {
-	protected FHMMList fHMMList;
-	protected NEROControllerOneTime neroController;
-	protected NLPController nlpController;
-	protected POSController posController;
-	protected Quick6DLuoYaoguangSort quick6DLuoYaoguangSort;	
-	protected Map<Long, FMHMMNode> forestRoots;
-	protected Map<Long, Map<String, String>> wordsForests;
-	protected Map<Long, FMHMMNode> []forestsRoots;
-	protected Map<String, String> wordsForest;
-	public void init() throws IOException {
-		this.fHMMList= new FMHMMListOneTimeImp();
-		fHMMList.index();
-		fHMMList.indexPosEnToCn();
-		fHMMList.indexPosEnToEn();
-		fHMMList.indexEnToCn();
-		fHMMList.indexCnToEn();
-		fHMMList.indexFullEnToCn();
-		fHMMList.indexFullCnToEn();
-		neroController= new NEROControllerOneTimeImp();
-		nlpController= new NLPControllerImp();
-		posController= new POSControllerImp();
-		quick6DLuoYaoguangSort = new Quick6DLuoYaoguangSort3DMapImp();
-		forestRoots=fHMMList.getMap();
-		forestsRoots=fHMMList.getMaps();
-		wordsForest=fHMMList.getPosCnToCn();
-		wordsForests=fHMMList.getWordsForests();
-	}
-
-	public void initMixed() throws IOException {
-		this.fHMMList=new FMHMMListOneTimeImp();
-		fHMMList.indexMixed();
-		fHMMList.indexPosEnToCn();
-		fHMMList.indexPosEnToEn();
-		fHMMList.indexEnToCn();
-		fHMMList.indexCnToEn();
-		fHMMList.indexFullEnToCn();
-		fHMMList.indexFullCnToEn();
-		neroController= new NEROControllerOneTimeImp();
-		nlpController= new NLPControllerImp();
-		posController= new POSControllerImp();
-		quick6DLuoYaoguangSort = new Quick6DLuoYaoguangSort3DMapImp();
-		forestRoots=fHMMList.getMap();
-		forestsRoots=fHMMList.getMaps();
-		wordsForest=fHMMList.getPosCnToCn();
-		wordsForests=fHMMList.getWordsForests();
-	}
-	
-	public List<String> parserMixedString(String mixedString) {
-		mixedString+= StableData.SPACE_STRING_DISTINCTION;
-		int inputStringLength= mixedString.length();
-		List<String> outputList = new LinkedList<>();
-		int forestDepth = StableData.INT_ZERO;
-		int countInputStringLength;
-		StringBuilder[] fixWords = new StringBuilder[StableData.INT_TWO];
-		fixWords[StableData.INT_ZERO] = new StringBuilder();
-		fixWords[StableData.INT_ONE] = new StringBuilder();
-		StringBuilder stringBuilder = new StringBuilder();
-		int find = StableData.INT_ZERO;
-		Here:
-			for (int charPosition = StableData.INT_ZERO;charPosition<inputStringLength;charPosition
-					+=(countInputStringLength==StableData.INT_ZERO?StableData.INT_ONE:countInputStringLength)) {
-				if(mixedString.charAt(charPosition) < StableData.INT_TEN_SOUTHANDS && charPosition < inputStringLength 
-						- StableData.INT_ONE){
-					if(find == StableData.INT_ZERO) {
-						fixWords[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWords[StableData.INT_ZERO].length());
-					}
-					fixWords[StableData.INT_ZERO].append(mixedString.charAt(charPosition));
-					countInputStringLength = StableData.INT_ONE;
-					find = StableData.INT_ONE;
-					continue Here;
-				}
-				if(StableData.INT_ONE == find) {
-					find = StableData.INT_ZERO;
-					Iterator<String> it = fHMMList.englishStringToWordsList(fixWords[StableData.INT_ZERO].toString()).iterator();
-					StringBuilder number= new StringBuilder();
-					while(it.hasNext()) {
-						String temp = it.next();
-						if(StableData.NUMBERS.contains(temp)) {
-							number.append(temp);
-						}else {
->>>>>>> branch 'master' of https://gitee.com/DetaChina/DetaParser.git
 							outputList.add(temp);	
 						}	
 					}
