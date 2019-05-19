@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="behaviorMap"/>
+	<classpathentry kind="src" path="emotionMap"/>
+	<classpathentry kind="src" path="neroMap"/>
+	<classpathentry kind="src" path="sensingMap"/>
+	<classpathentry kind="src" path="wordSegment"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
+	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
+	<classpathentry kind="src" path="/Data_Processor"/>
+	<classpathentry kind="output" path="bin/default"/>
+</classpath>
