@@ -660,8 +660,16 @@ public class POSControllerImp implements POSController{
 						countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
 						return countInputStringLength;
 					}
-					countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-					return countInputStringLength;
+					outputList.add(strings[StableData.INT_ZERO]);
+					if (wordsForest.containsKey(strings[StableData.INT_TWO])){
+						outputList.add(strings[StableData.INT_TWO]);
+						fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+						fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
+						return countInputStringLength;
+					}
+					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+					return countInputStringLength= StableData.INT_ONE;
 				}
 				if(!StableMaps.dingMingCi.containsKey(strings[StableData.INT_ZERO])){
 					if (wordsForest.containsKey(strings[StableData.INT_ONE])){
@@ -677,8 +685,14 @@ public class POSControllerImp implements POSController{
 			if(StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])){
 				if(StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING
 						+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
-					countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
-					return countInputStringLength;
+					if(wordsForest.containsKey(strings[StableData.INT_ONE])) {
+						countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
+						return countInputStringLength;
+					}
+					outputList.add(strings[StableData.INT_ZERO]);
+					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+					return countInputStringLength= StableData.INT_ONE;
 				}
 				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
