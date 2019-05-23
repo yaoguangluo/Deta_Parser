@@ -196,29 +196,51 @@ public class NLPControllerImp implements NLPController{
 				return countInputStringLength-StableData.INT_TWO;
 			}
 		}
-		if(!wordsForest.containsKey(preRegister)&& (wordsForest.containsKey(inRegister)||wordsForest.containsKey(postRegister))) {
-			if(wordsForest.containsKey(preRegister+ inputString.charAt(StableData.INT_TWO))) {
-				output.add(preRegister+ inputString.charAt(StableData.INT_TWO));
-				prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-				prefixWord[StableData.INT_ZERO].append(preRegister+ inputString.charAt(StableData.INT_TWO));
-				return countInputStringLength- StableData.INT_ONE;
-			}
-			output.add(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
-			return countInputStringLength- StableData.INT_THREE;
-		}
-		if(wordsForest.containsKey(preRegister)|| wordsForest.containsKey(inRegister)) {
+		if(wordsForest.containsKey(preRegister+ inputString.charAt(StableData.INT_TWO))&& !wordsForest.containsKey(postRegister)) {
 			countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
 					, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils, charPosition, textInputString);
 			return countInputStringLength;
 		}
+		if(wordsForest.containsKey(preRegister)&& wordsForest.containsKey(inRegister)) {
+			countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
+					, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils, charPosition, textInputString);
+			return countInputStringLength;
+		}	
+		if(wordsForest.containsKey(preRegister)) {
+			countInputStringLength= doSlangPartAndPOSCheckForTwoChar(countInputStringLength- StableData.INT_TWO, output
+					, stringBuilder.delete(StableData.INT_TWO, StableData.INT_FOUR), wordsForest, prefixWord, posUtils, charPosition, textInputString);
+			return countInputStringLength;
+		}	
 		output.add(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
 		prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 		prefixWord[StableData.INT_ZERO].append(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
 		return countInputStringLength- StableData.INT_THREE;
 	}
+//卡诺图画简.PCA阀门分流. 卷积催化, .原来备注这里 ,20190523
+//	if(!wordsForest.containsKey(preRegister)&& (wordsForest.containsKey(inRegister)||wordsForest.containsKey(postRegister))) {
+//	if(wordsForest.containsKey(preRegister+ inputString.charAt(StableData.INT_TWO))) {
+//		output.add(preRegister+ inputString.charAt(StableData.INT_TWO));
+//		prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+//		prefixWord[StableData.INT_ZERO].append(preRegister+ inputString.charAt(StableData.INT_TWO));
+//		return countInputStringLength- StableData.INT_ONE;
+//	}
+//	output.add(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
+//	prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+//	prefixWord[StableData.INT_ZERO].append(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
+//	return countInputStringLength- StableData.INT_THREE;
+//}
 
+//if(wordsForest.containsKey(preRegister)&& wordsForest.containsKey(inRegister+ inputString.charAt(StableData.INT_THREE))) {
+//	countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
+//			, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils, charPosition, textInputString);
+//	return countInputStringLength;
+//}
+//if(wordsForest.containsKey(preRegister)) {
+//	countInputStringLength= doPOSAndEMMCheckOfThree(--countInputStringLength, output, wordsForest
+//			, stringBuilder.delete(StableData.INT_THREE, StableData.INT_FOUR), prefixWord, posUtils, charPosition, textInputString);
+//	return countInputStringLength;
+//}
+	
 	public int doSlangCheckForMap(int countInputStringLength, List<String> output, StringBuilder stringBuilder
 			, Map<String, String> wordsForest, StringBuilder[] prefixWord, POSController posUtils, int charPosition, String textInputString){
 		String inputString= stringBuilder.toString();
