@@ -215,7 +215,7 @@ public class NLPControllerImp implements NLPController{
 		output.add(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
 		prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 		prefixWord[StableData.INT_ZERO].append(StableData.EMPTY_STRING+ inputString.charAt(StableData.INT_ZERO));
-		return countInputStringLength- StableData.INT_THREE;
+		return countInputStringLength= StableData.INT_ONE;
 	}
 //卡诺图化简.PCA阀门分流. 卷积催化, .原来备注这里 ,20190523
 //	if(!wordsForest.containsKey(preRegister)&& (wordsForest.containsKey(inRegister)||wordsForest.containsKey(postRegister))) {

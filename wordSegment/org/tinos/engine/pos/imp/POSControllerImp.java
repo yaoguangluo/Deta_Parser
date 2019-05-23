@@ -730,10 +730,12 @@ public class POSControllerImp implements POSController{
 					return countInputStringLength;
 				}
 			}
-			if(StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING+ fixWord[StableData.INT_ZERO].charAt(StableData.INT_ZERO))){
-				if(!StableMaps.mingCi.containsKey(strings[StableData.INT_ONE])) {
-					countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);	
-					return countInputStringLength;
+			if(null!= fixWord[StableData.INT_ZERO]&& StableData.INT_ZERO<fixWord[StableData.INT_ZERO].length()){
+				if(StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING+ fixWord[StableData.INT_ZERO].charAt(StableData.INT_ZERO))){
+					if(!StableMaps.mingCi.containsKey(strings[StableData.INT_ONE])) {
+						countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);	
+						return countInputStringLength;
+					}
 				}
 			}
 			if(wordsForest.containsKey(strings[StableData.INT_ONE])) {
