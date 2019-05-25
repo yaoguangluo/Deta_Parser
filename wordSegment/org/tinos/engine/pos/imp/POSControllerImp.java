@@ -778,8 +778,16 @@ public class POSControllerImp implements POSController{
 			countInputStringLength= StableData.INT_TWO;
 			return countInputStringLength;
 		}
-		countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-		return countInputStringLength;
+		outputList.add(strings[StableData.INT_ZERO]);
+		if(wordsForest.containsKey(strings[StableData.INT_TWO])) {
+			outputList.add(strings[StableData.INT_TWO]);
+			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
+			return countInputStringLength;
+		}
+		fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+		return countInputStringLength= StableData.INT_ONE;
 	}
 
 	public int chuLiShiTaiCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
@@ -803,8 +811,16 @@ public class POSControllerImp implements POSController{
 			countInputLength= StableData.INT_TWO;
 			return countInputLength;
 		}
-		countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
-		return countInputLength;
+		outputList.add(strings[StableData.INT_ZERO]);
+		if(wordsForest.containsKey(strings[StableData.INT_TWO])) {
+			outputList.add(strings[StableData.INT_TWO]);
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
+			return countInputLength;
+		}
+		prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+		prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+		return countInputLength= StableData.INT_ONE;
 	}
 
 	public int chuLiFuCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
