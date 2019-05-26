@@ -20,7 +20,8 @@ public class DemoEX {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) throws IOException {
 		Analyzer analyzer = new CogsBinaryForestAnalyzerImp();
-		analyzer.init();
+		//analyzer.init();
+		analyzer.initMixed();
 		Map<String, String> pos = analyzer.getPosCnToCn();
 		List<String> sets = new ArrayList<>();
 		Map<String, WordFrequency> seta = new ConcurrentHashMap<>();
@@ -29,14 +30,14 @@ public class DemoEX {
 		DemoEX demoEX=new DemoEX();
 		t.begin();
 		for (int i = 0; i < 5000000; i++) { //重复500万次数 相当于处理 1.6亿字  耗费 时 7.280秒 
-				sets= analyzer.parserString(ss);
+				sets= analyzer.parserMixedString(ss);
 		}
 		t.end();
 		t.duration();
-//		System.out.println(StableCount.a1);
-//		System.out.println(StableCount.a2);
-//		System.out.println(StableCount.a3);
-//		System.out.println(StableCount.a4);
+		System.out.println(StableCount.a1);
+		System.out.println(StableCount.a2);
+		System.out.println(StableCount.a3);
+		System.out.println(StableCount.a4);
 //		System.out.println(StableCount.a5);
 //		System.out.println(StableCount.a6);
 //		System.out.println(StableCount.a7);

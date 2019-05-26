@@ -18,7 +18,7 @@ public class POSControllerImp implements POSController{
 			countInputStringLength = parserFirstCharOfTwo(countInputStringLength, outputList, strings, prefixWord);
 			return countInputStringLength;
 		}
-		if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+		if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 			outputList.add(strings[StableData.INT_ONE]);
 			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 			prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
@@ -39,7 +39,7 @@ public class POSControllerImp implements POSController{
 					||StableMaps.mingCi.containsKey(fixWord[StableData.INT_ZERO].toString())
 					||StableMaps.zhuCi.containsKey(fixWord[StableData.INT_ZERO].toString())
 					||StableMaps.liangCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
-				if(wordsForest.containsKey(strings[StableData.INT_ONE])) {
+				if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])) {
 					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
 					outputList.add(strings[StableData.INT_ONE]);
@@ -54,7 +54,7 @@ public class POSControllerImp implements POSController{
 				countInputStringLength= parserFirstCharOfTwo(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
 			}
-			if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+			if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 				outputList.add(strings[StableData.INT_ONE]);
 				fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 				fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
@@ -93,7 +93,7 @@ public class POSControllerImp implements POSController{
 			countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
 			return countInputLength;
 		}
-		if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+		if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 			countInputLength= parserFirstTwoCharOfThree(countInputLength, outputList, strings, prefixWord);
 			return countInputLength;
 		}
@@ -122,7 +122,7 @@ public class POSControllerImp implements POSController{
 					return nestCountInputStringLength[StableData.INT_ZERO];
 				}
 			}
-			if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+			if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 				outputList.add(strings[StableData.INT_ONE]);
 				fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 				fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
@@ -130,7 +130,7 @@ public class POSControllerImp implements POSController{
 			}
 			return countInputStringLength- StableData.INT_THREE;
 		}
-		if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+		if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 			outputList.add(strings[StableData.INT_ONE]);
 			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 			return countInputStringLength- StableData.INT_ONE;
@@ -172,7 +172,7 @@ public class POSControllerImp implements POSController{
 			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
 			return;
 		}
-		if(wordsForest.containsKey(strings[StableData.INT_ONE])){
+		if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 			outputList.add(strings[StableData.INT_ONE]);
 			outputList.add(strings[StableData.INT_THREE]);
 			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
@@ -234,13 +234,13 @@ public class POSControllerImp implements POSController{
 					}
 				}
 			}
-			if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+			if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 				outputList.add(strings[StableData.INT_ONE]);
 				fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 				fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
 				return countInputStringLength- StableData.INT_ONE;
 			}
-			if (wordsForest.containsKey(strings[StableData.INT_TWO])){
+			if (StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])){
 				outputList.add(strings[StableData.INT_ZERO]);
 				outputList.add(strings[StableData.INT_TWO]);
 				fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
@@ -281,7 +281,7 @@ public class POSControllerImp implements POSController{
 					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
 					return countInputStringLength;
-				}else if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+				}else if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 					if(StableMaps.jieCi.containsKey(strings[StableData.INT_ONE])) {
 						countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
 						return countInputStringLength;
@@ -291,7 +291,7 @@ public class POSControllerImp implements POSController{
 					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
 					countInputStringLength = StableData.INT_TWO;
 					return countInputStringLength;
-				}else if (wordsForest.containsKey(strings[StableData.INT_TWO])){
+				}else if (StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])){
 					outputList.add(strings[StableData.INT_ZERO]);
 					outputList.add(strings[StableData.INT_TWO]);
 					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
@@ -305,7 +305,7 @@ public class POSControllerImp implements POSController{
 			return countInputStringLength;
 		}
 		outputList.add(strings[StableData.INT_ZERO]);
-		if(wordsForest.containsKey(strings[StableData.INT_TWO])) {
+		if(StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])) {
 			outputList.add(strings[StableData.INT_TWO]);
 			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
@@ -340,7 +340,7 @@ public class POSControllerImp implements POSController{
 		fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
 		outputList.add(strings[StableData.INT_ZERO]);
-		if (wordsForest.containsKey(strings[StableData.INT_TWO])){
+		if (StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])){
 			outputList.add(strings[StableData.INT_TWO]);
 			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
@@ -669,7 +669,7 @@ public class POSControllerImp implements POSController{
 						return countInputStringLength;
 					}
 					outputList.add(strings[StableData.INT_ZERO]);
-					if (wordsForest.containsKey(strings[StableData.INT_TWO])){
+					if (StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])){
 						outputList.add(strings[StableData.INT_TWO]);
 						fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 						fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
@@ -680,7 +680,7 @@ public class POSControllerImp implements POSController{
 					return countInputStringLength= StableData.INT_ONE;
 				}
 				if(!StableMaps.dingMingCi.containsKey(strings[StableData.INT_ZERO])){
-					if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+					if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 						countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
 						return countInputStringLength;
 					}
@@ -693,7 +693,7 @@ public class POSControllerImp implements POSController{
 			if(StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])){
 				if(StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING
 						+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
-					if(wordsForest.containsKey(strings[StableData.INT_ONE])) {
+					if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])) {
 						if(!StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
 							countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
 							return countInputStringLength;
@@ -713,7 +713,7 @@ public class POSControllerImp implements POSController{
 				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
 			}
-			if (wordsForest.containsKey(strings[StableData.INT_TWO])){
+			if (StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])){
 				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
 			}
@@ -738,7 +738,7 @@ public class POSControllerImp implements POSController{
 					}
 				}
 			}
-			if(wordsForest.containsKey(strings[StableData.INT_ONE])) {
+			if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])) {
 				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);	
 				return countInputStringLength;
 			}
@@ -748,7 +748,7 @@ public class POSControllerImp implements POSController{
 		if(StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])){
 			if(StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING
 					+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
-				if(wordsForest.containsKey(strings[StableData.INT_ONE])){
+				if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 					if(!StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
 						countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
 						return countInputStringLength;
@@ -779,7 +779,7 @@ public class POSControllerImp implements POSController{
 			return countInputStringLength;
 		}
 		outputList.add(strings[StableData.INT_ZERO]);
-		if(wordsForest.containsKey(strings[StableData.INT_TWO])) {
+		if(StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])) {
 			outputList.add(strings[StableData.INT_TWO]);
 			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
@@ -804,7 +804,7 @@ public class POSControllerImp implements POSController{
 			countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
 			return countInputLength;
 		}
-		if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+		if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 			outputList.add(strings[StableData.INT_ONE]);
 			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 			prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
@@ -812,7 +812,7 @@ public class POSControllerImp implements POSController{
 			return countInputLength;
 		}
 		outputList.add(strings[StableData.INT_ZERO]);
-		if(wordsForest.containsKey(strings[StableData.INT_TWO])) {
+		if(StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])) {
 			outputList.add(strings[StableData.INT_TWO]);
 			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 			prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
@@ -838,7 +838,7 @@ public class POSControllerImp implements POSController{
 				return countInputLength;
 			}
 		}
-		if(wordsForest.containsKey(strings[StableData.INT_ONE])) {
+		if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])) {
 			countInputLength= parserFirstTwoCharOfThree(countInputLength, outputList, strings, prefixWord);
 			return countInputLength;
 		}
