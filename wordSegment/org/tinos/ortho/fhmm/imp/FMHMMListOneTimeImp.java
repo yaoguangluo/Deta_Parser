@@ -124,6 +124,22 @@ public class FMHMMListOneTimeImp implements FHMMList {
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH).length > StableData.INT_ONE )) {
 					continue Here;
 				}
+				if(StableData.INT_ONE== cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO].length()) {
+					StableMaps.CiOne.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(StableData.INT_TWO== cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO].length()) {
+					StableMaps.CiTwo.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(StableData.INT_THREE== cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO].length()) {
+					StableMaps.CiThree.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
+				if(StableData.INT_FOUR== cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO].length()) {
+					StableMaps.CiFour.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
+							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
+				}
 				if(!StableMaps.fuCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_CI_FU)) {
 					StableMaps.fuCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
@@ -530,6 +546,10 @@ public class FMHMMListOneTimeImp implements FHMMList {
 		StableMaps.xingRongCi.remove("");
 		StableMaps.xingWeiCi.remove("");
 		StableMaps.zhuCi.remove("");
+		System.out.println(StableMaps.CiOne.size());
+		System.out.println(StableMaps.CiTwo.size());
+		System.out.println(StableMaps.CiThree.size());
+		System.out.println(StableMaps.CiFour.size());
 	}
 
 	public void index() throws IOException {
