@@ -656,8 +656,8 @@ public class POSControllerImp implements POSController{
 
 	public int chuLiMingCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength,
 			String[] strings, StringBuilder[] fixWord){
-		if (StableMaps.xingWeiCi.containsKey(fixWord[StableData.INT_ZERO].toString())
-				|| StableMaps.mingCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
+		if (StableMaps.xingWeiCi.containsKey(fixWord[StableData.INT_ZERO].toString())|| StableMaps.mingCi
+				.containsKey(fixWord[StableData.INT_ZERO].toString())){
 			if(StableMaps.dongCi.containsKey(strings[StableData.INT_TWO])){
 				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
 				return countInputStringLength;
@@ -771,7 +771,7 @@ public class POSControllerImp implements POSController{
 			countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
 			return countInputStringLength;
 		}
-		if (wordsForest.containsKey(strings[StableData.INT_ONE])){
+		if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 			outputList.add(strings[StableData.INT_ONE]);
 			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
