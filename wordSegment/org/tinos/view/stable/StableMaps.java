@@ -19,4 +19,8 @@ public interface StableMaps{
 	public static final Map<String, String> xingWeiCi= new HashMap<>();
 	public static final Map<String, String> shiTaiCi= new HashMap<>();
 	public static final Map<String, String> dingMingCi= new HashMap<>();
+	public static final Map<String, String> CiOne= new HashMap<>();
+	public static final Map<String, String> CiTwo= new HashMap<>();
+	public static final Map<String, String> CiThree= new HashMap<>();
+	public static final Map<String, String> CiFour= new HashMap<>();
 }
