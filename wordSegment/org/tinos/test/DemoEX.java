@@ -38,48 +38,48 @@ public class DemoEX {
 		System.out.println(StableCount.a2);
 		System.out.println(StableCount.a3);
 		System.out.println(StableCount.a4);
-//		System.out.println(StableCount.a5);
-//		System.out.println(StableCount.a6);
-//		System.out.println(StableCount.a7);
-//		System.out.println(StableCount.a8);
-//		System.out.println(StableCount.a9);
-//		System.out.println(StableCount.a10);
-//		System.out.println(StableCount.a11);
-//		System.out.println(StableCount.a12);
-		for (int i = 0; i < sets.size(); i++) {
-			if (sets.get(i) != null) {
-				System.out.print(sets.get(i) + " ");
-			}
-		}
+////		System.out.println(StableCount.a5);
+////		System.out.println(StableCount.a6);
+////		System.out.println(StableCount.a7);
+////		System.out.println(StableCount.a8);
+////		System.out.println(StableCount.a9);
+////		System.out.println(StableCount.a10);
+////		System.out.println(StableCount.a11);
+////		System.out.println(StableCount.a12);
 //		for (int i = 0; i < sets.size(); i++) {
-//			if (!sets.get(i).equals("")) {
+//			if (sets.get(i) != null) {
 //				System.out.print(sets.get(i) + " ");
 //			}
 //		}
-		System.out.println("");
-//		t.duration();
-		System.out.println("");
-		System.out.println("词性分析-->");
-//		t.begin();
-		for (int j = 0; j < 1; j++) {
-			for (int i = 0; i < sets.size(); i++) {
-				if (!sets.get(i).replaceAll("\\s+", "").equals("")) {
-					System.out.print(sets.get(i) + "/" + pos.get(sets.get(i)) + "----");
-				}
-			}
-		}
-//		t.end();
-		System.out.println("");
-//		t.duration();
-		System.out.println("");
-		System.out.println("词频分析-->");
-//		t.begin();
-		Map<Integer, WordFrequency> fwa = analyzer.getWordFrequencyByReturnSortMap(sets);
-//		t.end();
-		for (int i = fwa.size() - 1; i >= 0; i--) {
-			System.out.print(fwa.get(i).getWord() + ":" + fwa.get(i).getFrequency() + "----");
-		}
-		System.out.println("");
-//		t.duration();
+////		for (int i = 0; i < sets.size(); i++) {
+////			if (!sets.get(i).equals("")) {
+////				System.out.print(sets.get(i) + " ");
+////			}
+////		}
+//		System.out.println("");
+////		t.duration();
+//		System.out.println("");
+//		System.out.println("词性分析-->");
+////		t.begin();
+//		for (int j = 0; j < 1; j++) {
+//			for (int i = 0; i < sets.size(); i++) {
+//				if (!sets.get(i).replaceAll("\\s+", "").equals("")) {
+//					System.out.print(sets.get(i) + "/" + pos.get(sets.get(i)) + "----");
+//				}
+//			}
+//		}
+////		t.end();
+//		System.out.println("");
+////		t.duration();
+//		System.out.println("");
+//		System.out.println("词频分析-->");
+////		t.begin();
+//		Map<Integer, WordFrequency> fwa = analyzer.getWordFrequencyByReturnSortMap(sets);
+////		t.end();
+//		for (int i = fwa.size() - 1; i >= 0; i--) {
+//			System.out.print(fwa.get(i).getWord() + ":" + fwa.get(i).getFrequency() + "----");
+//		}
+//		System.out.println("");
+////		t.duration();
 	}
 }

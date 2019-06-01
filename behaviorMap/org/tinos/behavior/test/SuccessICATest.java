@@ -2,12 +2,13 @@ package org.tinos.behavior.test;
 
 import java.io.IOException;
 import org.tinos.behavior.ICA.InitBehaviorICAKernel;
+
 import matrixProcessor.CnnMeasure;
 
 public class SuccessICATest{
 	public double[][] kernelCNN;
 	public void getKernelCNN(double[][] kernel) {
-		kernelCNN = new  CnnMeasure().getCnnMeansure(kernel);
+		kernelCNN = new CnnMeasure().getCnnMeansure(kernel);
 	}
 	public static void main(String[] argv) throws IOException {
 		String text1 = "关于成瘾性的戒除方式，上瘾在医学上普遍定义为一种具有精神依赖并长期导致健康危害性的行为。\r\n" + 

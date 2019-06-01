@@ -1,8 +1,6 @@
 package org.tinos.sensing.test;
 import java.io.IOException;
-
 import org.tinos.engine.analysis.Analyzer;
-
 import NLPProcessor.DETA_ANN_HMM;
 public class ANNTest{
 	public static void main(String[] argv) throws IOException, InstantiationException, IllegalAccessException {
