@@ -8,6 +8,202 @@ import org.tinos.view.stable.StableData;
 import org.tinos.view.stable.StableMaps;
 
 public class POSControllerImp implements POSController{
+	public int chuLiMingCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength,
+			String[] strings, StringBuilder[] fixWord){
+		if (StableMaps.xingWeiCi.containsKey(fixWord[StableData.INT_ZERO].toString())|| StableMaps.mingCi
+				.containsKey(fixWord[StableData.INT_ZERO].toString())){
+			if(StableMaps.dongCi.containsKey(strings[StableData.INT_TWO])){
+				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+				return countInputStringLength;
+			}
+			if(StableMaps.dongCi.containsKey(strings[StableData.INT_THREE])){
+				if(StableMaps.fuCi.containsKey(StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
+					if(StableMaps.dongCi.containsKey(strings[StableData.INT_ONE])|| StableMaps.qingTaiCi.containsKey(strings[StableData.INT_ONE])) {
+						countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
+						return countInputStringLength;
+					}
+					outputList.add(strings[StableData.INT_ZERO]);
+					if (StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])){
+						outputList.add(strings[StableData.INT_TWO]);
+						fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+						fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
+						return countInputStringLength;
+					}
+					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+					return countInputStringLength= StableData.INT_ONE;
+				}
+				if(!StableMaps.dingMingCi.containsKey(strings[StableData.INT_ZERO])){
+					if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
+						countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
+						return countInputStringLength;
+					}
+					outputList.add(strings[StableData.INT_ZERO]);
+					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+					return countInputStringLength= StableData.INT_ONE;
+				}
+			}
+			if(StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])){
+				if(StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING
+						+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
+					if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])) {
+						if(!StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
+							countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+							return countInputStringLength;
+						}
+						countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
+						return countInputStringLength;
+					}
+					outputList.add(strings[StableData.INT_ZERO]);
+					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+					return countInputStringLength= StableData.INT_ONE;
+				}
+				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+				return countInputStringLength;
+			}
+			if(StableMaps.mingCi.containsKey(strings[StableData.INT_ONE])|| StableMaps.fuCi.containsKey(strings[StableData.INT_ONE])){
+				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
+				return countInputStringLength;
+			}
+			if (StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])){
+				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+				return countInputStringLength;
+			}
+			outputList.add(strings[StableData.INT_ZERO]);
+			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+			countInputStringLength= StableData.INT_ONE;
+			return countInputStringLength;
+		} 
+		if(StableMaps.dongCi.containsKey(strings[StableData.INT_THREE])){
+			if(StableMaps.dongCi.containsKey(strings[StableData.INT_TWO])){
+				if(StableMaps.mingCi.containsKey(strings[StableData.INT_ZERO])) {
+					countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+					return countInputStringLength;
+				}
+			}
+			if(null!= fixWord[StableData.INT_ZERO]&& StableData.INT_ZERO<fixWord[StableData.INT_ZERO].length()){
+				if(StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING+ fixWord[StableData.INT_ZERO].charAt(StableData.INT_ZERO))){
+					if(!StableMaps.mingCi.containsKey(strings[StableData.INT_ONE])) {
+						countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);	
+						return countInputStringLength;
+					}
+				}
+			}
+			if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])) {
+				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);	
+				return countInputStringLength;
+			}
+			countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+			return countInputStringLength;
+		}
+		if(StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])){
+			if(StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING
+					+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
+				if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
+					if(!StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
+						countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+						return countInputStringLength;
+					}
+					countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
+					return countInputStringLength;
+				}
+				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+				return countInputStringLength;
+			}
+			if(StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.dingMingCi.containsKey(StableData.EMPTY_STRING
+					+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
+				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
+				return countInputStringLength;
+			}
+			if(StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
+				if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
+					countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
+					return countInputStringLength;
+				}
+			}
+			countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
+			return countInputStringLength;
+		}
+		if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
+			outputList.add(strings[StableData.INT_ONE]);
+			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
+			countInputStringLength= StableData.INT_TWO;
+			return countInputStringLength;
+		}
+		outputList.add(strings[StableData.INT_ZERO]);
+		if(StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])) {
+			outputList.add(strings[StableData.INT_TWO]);
+			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
+			return countInputStringLength;
+		}
+		fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
+		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+		return countInputStringLength= StableData.INT_ONE;
+	}
+
+	public int chuLiShiTaiCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
+			String[] strings, StringBuilder[] prefixWord) {
+		if ((StableMaps.mingCi.containsKey(strings[StableData.INT_TWO].toString()))
+				&& (StableMaps.jieCi.containsKey(prefixWord[StableData.INT_ZERO].toString())
+						|| StableMaps.xingWeiCi.containsKey(prefixWord[StableData.INT_ZERO].toString())
+						|| StableMaps.dongCi.containsKey(prefixWord[StableData.INT_ZERO].toString()))){
+			countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
+			return countInputLength;
+		}
+		if (StableMaps.dongCi.containsKey(strings[StableData.INT_TWO].toString())
+				||StableMaps.liangCi.containsKey(strings[StableData.INT_TWO].toString())) {
+			countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
+			return countInputLength;
+		}
+		if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
+			outputList.add(strings[StableData.INT_ONE]);
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
+			countInputLength= StableData.INT_TWO;
+			return countInputLength;
+		}
+		outputList.add(strings[StableData.INT_ZERO]);
+		if(StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])) {
+			outputList.add(strings[StableData.INT_TWO]);
+			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+			prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
+			return countInputLength;
+		}
+		prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+		prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+		return countInputLength= StableData.INT_ONE;
+	}
+
+	public int chuLiFuCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
+			String[] strings, StringBuilder[] prefixWord) {
+		if (StableMaps.fuCi.containsKey(strings[StableData.INT_TWO].toString())) {
+			if (StableMaps.fuCi.containsKey(prefixWord[StableData.INT_ZERO].toString())) {
+				countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
+				return countInputLength;
+			}
+		}
+		if (StableMaps.dongCi.containsKey(strings[StableData.INT_TWO].toString())) {
+			if (StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING+ prefixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))
+					|| StableMaps.daiCi.containsKey(StableData.EMPTY_STRING+ prefixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))) {
+				countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
+				return countInputLength;
+			}
+		}
+		if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])) {
+			countInputLength= parserFirstTwoCharOfThree(countInputLength, outputList, strings, prefixWord);
+			return countInputLength;
+		}
+		outputList.add(strings[StableData.INT_ZERO]);
+		prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
+		prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
+		return StableData.INT_ONE;
+	}
+	
 	public int chuLiBaDongCiOfTwo(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength,
 			String[] strings, StringBuilder[] prefixWord){
 		if (!wordsForest.containsKey(prefixWord[StableData.INT_ZERO].toString())){
@@ -156,8 +352,8 @@ public class POSControllerImp implements POSController{
 
 	public void didNotFindFirstChar(List<String> outputList, String[] strings, StringBuilder[] fixWord
 			, Map<String, String> wordsForest){
-		if(!wordsForest.containsKey(strings[StableData.INT_TWO])){
-			if(wordsForest.containsKey(strings[StableData.INT_ONE])){
+		if(!StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])){
+			if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
 				outputList.add(strings[StableData.INT_ONE]);
 				outputList.add(strings[StableData.INT_THREE]);
 				fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
@@ -206,7 +402,7 @@ public class POSControllerImp implements POSController{
 		}
 		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())){
 			if (StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
-				if(wordsForest.containsKey(strings[StableData.INT_TWO])) {
+				if(StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])) {
 					countInputStringLength = parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
 					return countInputStringLength;
 				}
@@ -219,12 +415,12 @@ public class POSControllerImp implements POSController{
 				String secondChar= StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].toString().charAt(StableData.INT_ONE);
 				if(!StableMaps.fuCi.containsKey(firstChar)&& !StableMaps.fuCi.containsKey(secondChar)
 						&&!StableMaps.fuCi.containsKey(firstChar+ secondChar)) {
-					if(wordsForest.containsKey(firstChar)&& wordsForest.containsKey(secondChar)) {
+					if(StableMaps.CiOne.containsKey(firstChar)&& StableMaps.CiOne.containsKey(secondChar)) {
 						outputList.add(strings[StableData.INT_ZERO]);
 						fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 						fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
 						countInputStringLength= StableData.INT_ONE;
-						if(wordsForest.containsKey(strings[StableData.INT_TWO])) {
+						if(StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])) {
 							outputList.add(strings[StableData.INT_TWO]);
 							fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
 							fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
@@ -253,7 +449,7 @@ public class POSControllerImp implements POSController{
 
 	public int chuLiJieCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength
 			, String[] strings, StringBuilder[] fixWord){
-		if (StableData.INT_ZERO== outputList.size()&& (wordsForest.get(strings[StableData.INT_TWO])
+		if (StableData.INT_ZERO== outputList.size()&& (StableMaps.CiTwo.get(strings[StableData.INT_TWO])
 				.contains(StableData.NLP_CI_WEI))){
 			outputList.add(strings[StableData.INT_ZERO]);
 			outputList.add(strings[StableData.INT_TWO]);
@@ -348,7 +544,7 @@ public class POSControllerImp implements POSController{
 		}
 		return  StableData.INT_ONE;
 	}
-
+//
 	public int chuLiMingCiOfTwoForMap(Map<String, String> wordsForest,  Map<String, WordFrequency> outputList, int countInputStringLength
 			, String[] strings, StringBuilder[] fixWord){
 		if (wordsForest.containsKey(fixWord[StableData.INT_ZERO].toString())){
@@ -652,201 +848,5 @@ public class POSControllerImp implements POSController{
 			return countInputStringLength;
 		}
 		return countInputStringLength;
-	}
-
-	public int chuLiMingCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputStringLength,
-			String[] strings, StringBuilder[] fixWord){
-		if (StableMaps.xingWeiCi.containsKey(fixWord[StableData.INT_ZERO].toString())|| StableMaps.mingCi
-				.containsKey(fixWord[StableData.INT_ZERO].toString())){
-			if(StableMaps.dongCi.containsKey(strings[StableData.INT_TWO])){
-				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-				return countInputStringLength;
-			}
-			if(StableMaps.dongCi.containsKey(strings[StableData.INT_THREE])){
-				if(StableMaps.fuCi.containsKey(StableData.EMPTY_STRING+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
-					if(StableMaps.dongCi.containsKey(strings[StableData.INT_ONE])|| StableMaps.qingTaiCi.containsKey(strings[StableData.INT_ONE])) {
-						countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
-						return countInputStringLength;
-					}
-					outputList.add(strings[StableData.INT_ZERO]);
-					if (StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])){
-						outputList.add(strings[StableData.INT_TWO]);
-						fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-						fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
-						return countInputStringLength;
-					}
-					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
-					return countInputStringLength= StableData.INT_ONE;
-				}
-				if(!StableMaps.dingMingCi.containsKey(strings[StableData.INT_ZERO])){
-					if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
-						countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
-						return countInputStringLength;
-					}
-					outputList.add(strings[StableData.INT_ZERO]);
-					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
-					return countInputStringLength= StableData.INT_ONE;
-				}
-			}
-			if(StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])){
-				if(StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING
-						+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
-					if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])) {
-						if(!StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
-							countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-							return countInputStringLength;
-						}
-						countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
-						return countInputStringLength;
-					}
-					outputList.add(strings[StableData.INT_ZERO]);
-					fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-					fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
-					return countInputStringLength= StableData.INT_ONE;
-				}
-				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-				return countInputStringLength;
-			}
-			if(StableMaps.mingCi.containsKey(strings[StableData.INT_ONE])|| StableMaps.fuCi.containsKey(strings[StableData.INT_ONE])){
-				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
-				return countInputStringLength;
-			}
-			if (StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])){
-				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-				return countInputStringLength;
-			}
-			outputList.add(strings[StableData.INT_ZERO]);
-			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
-			countInputStringLength= StableData.INT_ONE;
-			return countInputStringLength;
-		} 
-		if(StableMaps.dongCi.containsKey(strings[StableData.INT_THREE])){
-			if(StableMaps.dongCi.containsKey(strings[StableData.INT_TWO])){
-				if(StableMaps.mingCi.containsKey(strings[StableData.INT_ZERO])) {
-					countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-					return countInputStringLength;
-				}
-			}
-			if(null!= fixWord[StableData.INT_ZERO]&& StableData.INT_ZERO<fixWord[StableData.INT_ZERO].length()){
-				if(StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING+ fixWord[StableData.INT_ZERO].charAt(StableData.INT_ZERO))){
-					if(!StableMaps.mingCi.containsKey(strings[StableData.INT_ONE])) {
-						countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);	
-						return countInputStringLength;
-					}
-				}
-			}
-			if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])) {
-				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);	
-				return countInputStringLength;
-			}
-			countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-			return countInputStringLength;
-		}
-		if(StableMaps.mingCi.containsKey(strings[StableData.INT_TWO])){
-			if(StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING
-					+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
-				if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
-					if(!StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
-						countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-						return countInputStringLength;
-					}
-					countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
-					return countInputStringLength;
-				}
-				countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-				return countInputStringLength;
-			}
-			if(StableData.INT_ZERO< fixWord[StableData.INT_ONE].length()&& StableMaps.dingMingCi.containsKey(StableData.EMPTY_STRING
-					+ fixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))){
-				countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
-				return countInputStringLength;
-			}
-			if(StableMaps.dongCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
-				if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
-					countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
-					return countInputStringLength;
-				}
-			}
-			countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
-			return countInputStringLength;
-		}
-		if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
-			outputList.add(strings[StableData.INT_ONE]);
-			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
-			countInputStringLength= StableData.INT_TWO;
-			return countInputStringLength;
-		}
-		outputList.add(strings[StableData.INT_ZERO]);
-		if(StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])) {
-			outputList.add(strings[StableData.INT_TWO]);
-			fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-			fixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
-			return countInputStringLength;
-		}
-		fixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, fixWord[StableData.INT_ZERO].length());
-		fixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
-		return countInputStringLength= StableData.INT_ONE;
-	}
-
-	public int chuLiShiTaiCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
-			String[] strings, StringBuilder[] prefixWord) {
-		if ((StableMaps.mingCi.containsKey(strings[StableData.INT_TWO].toString()))
-				&& (StableMaps.jieCi.containsKey(prefixWord[StableData.INT_ZERO].toString())
-						|| StableMaps.xingWeiCi.containsKey(prefixWord[StableData.INT_ZERO].toString())
-						|| StableMaps.dongCi.containsKey(prefixWord[StableData.INT_ZERO].toString()))){
-			countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
-			return countInputLength;
-		}
-		if (StableMaps.dongCi.containsKey(strings[StableData.INT_TWO].toString())
-				||StableMaps.liangCi.containsKey(strings[StableData.INT_TWO].toString())) {
-			countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
-			return countInputLength;
-		}
-		if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
-			outputList.add(strings[StableData.INT_ONE]);
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ONE]);
-			countInputLength= StableData.INT_TWO;
-			return countInputLength;
-		}
-		outputList.add(strings[StableData.INT_ZERO]);
-		if(StableMaps.CiTwo.containsKey(strings[StableData.INT_TWO])) {
-			outputList.add(strings[StableData.INT_TWO]);
-			prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-			prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_TWO]);
-			return countInputLength;
-		}
-		prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-		prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
-		return countInputLength= StableData.INT_ONE;
-	}
-
-	public int chuLiFuCiOfThree(Map<String, String> wordsForest, List<String> outputList, int countInputLength,
-			String[] strings, StringBuilder[] prefixWord) {
-		if (StableMaps.fuCi.containsKey(strings[StableData.INT_TWO].toString())) {
-			if (StableMaps.fuCi.containsKey(prefixWord[StableData.INT_ZERO].toString())) {
-				countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
-				return countInputLength;
-			}
-		}
-		if (StableMaps.dongCi.containsKey(strings[StableData.INT_TWO].toString())) {
-			if (StableMaps.zhuCi.containsKey(StableData.EMPTY_STRING+ prefixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))
-					|| StableMaps.daiCi.containsKey(StableData.EMPTY_STRING+ prefixWord[StableData.INT_ONE].charAt(StableData.INT_ZERO))) {
-				countInputLength= parserFirstCharOfThree(countInputLength, outputList, strings, prefixWord);
-				return countInputLength;
-			}
-		}
-		if(StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])) {
-			countInputLength= parserFirstTwoCharOfThree(countInputLength, outputList, strings, prefixWord);
-			return countInputLength;
-		}
-		outputList.add(strings[StableData.INT_ZERO]);
-		prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
-		prefixWord[StableData.INT_ZERO].append(strings[StableData.INT_ZERO]);
-		return StableData.INT_ONE;
 	}
 }

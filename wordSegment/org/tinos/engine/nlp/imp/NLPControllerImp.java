@@ -12,7 +12,7 @@ public class NLPControllerImp implements NLPController{
 			, StringBuilder stringBuilder, Map<String, String> wordsForest, StringBuilder[] prefixWord
 			, POSController posUtils, int charPosition, String textInputString){
 		String countWordNode= stringBuilder.toString();
-		if (prefixWord[StableData.INT_ZERO].length()== StableData.INT_ZERO){
+		if (StableData.INT_ZERO== prefixWord[StableData.INT_ZERO].length()){
 			if(StableMaps.CiTwo.containsKey(countWordNode)) {
 				prefixWord[StableData.INT_ZERO].delete(StableData.INT_ZERO, prefixWord[StableData.INT_ZERO].length());
 				prefixWord[StableData.INT_ZERO].append(countWordNode);
