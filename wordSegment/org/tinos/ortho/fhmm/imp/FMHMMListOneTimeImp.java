@@ -124,22 +124,6 @@ public class FMHMMListOneTimeImp implements FHMMList {
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH).length > StableData.INT_ONE )) {
 					continue Here;
 				}
-				if(StableData.INT_ONE== cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO].length()) {
-					StableMaps.CiOne.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
-							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
-				}
-				if(StableData.INT_TWO== cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO].length()) {
-					StableMaps.CiTwo.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
-							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
-				}
-				if(StableData.INT_THREE== cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO].length()) {
-					StableMaps.CiThree.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
-							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
-				}
-				if(StableData.INT_FOUR== cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO].length()) {
-					StableMaps.CiFour.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO],cInputString
-							.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE]);
-				}
 				if(!StableMaps.fuCi.containsKey(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO])
 						&& cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ONE].contains(StableData.NLP_CI_FU)) {
 					StableMaps.fuCi.put(cInputString.split(StableData.NLP_SYMBO_SLASH)[StableData.INT_ZERO], cInputString
@@ -528,6 +512,22 @@ public class FMHMMListOneTimeImp implements FHMMList {
 				}
 			}
 		cReader.close();
+		Iterator<String> iterator= posCnToCn.keySet().iterator();
+		while(iterator.hasNext()) {
+			String key=iterator.next();
+			if(StableData.INT_ONE== key.length()) {
+				StableMaps.CiOne.put(key, posCnToCn.get(key));
+			}
+			if(StableData.INT_TWO== key.length()) {
+				StableMaps.CiTwo.put(key, posCnToCn.get(key));
+			}
+			if(StableData.INT_THREE==key.length()) {
+				StableMaps.CiThree.put(key, posCnToCn.get(key));
+			}
+			if(StableData.INT_FOUR== key.length()) {
+				StableMaps.CiFour.put(key, posCnToCn.get(key));
+			}
+		}	    
 		//trim
 		StableMaps.baDongCi.remove("");
 		StableMaps.daiCi.remove("");
