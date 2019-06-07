@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+group 'DetaNLP'
+=======
 group 'Deta_Parser'
+>>>>>>> branch 'master' of https://gitee.com/DetaChina/DetaParser.git
 version '1.0-SNAPSHOT'
 apply plugin: 'java'
 sourceCompatibility = 1.8

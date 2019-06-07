@@ -1,7 +1,6 @@
 # <<100%(首创)个人著作权开源项目 软著登字第3951366号>>🔥26,000/ms word segment for text mining of NLP, POS, AI and Deep learning/每秒中文混合分词2200~3000万词汇的高精准确率快速神经网络分词包. 训练词意分析, 词感分析, 词境分析, 词灵分析并自由扩充词库 免费的官方互动展示页地址: http://tinos.qicp.vip/data.html 
 ###### 项目使用说明书 10.6.1版本地址:
 https://github.com/yaoguangluo/AOPM_VPCS_Theroy/blob/master/%E6%B5%8F%E9%98%B3%E5%BE%B7%E5%A1%94%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%20%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%81%B5%E5%B7%A5%E7%A8%8BAPI%E8%AF%B4%E6%98%8E%E4%B9%A6_10_6_1_5.doc
-
 ![实例](https://github.com/yaoguangluo/Deta_Parser/blob/master/DETA%2020190524.jpg)
 ## 版本号：11.1.1 : 4字词卷积催化函数 准备整体卡诺图化简, 和PCA阀门优化. 2019-05-23 字长卷积小表 已经 应用了(新增4表). 2019-05-27 0:11 M
 ## 版本号：11.1.0: 随机测试文章来自 360八卦新闻推荐, 腾讯门户, 163门户等,总计110多篇文章, 约5万字, 算法问题导致错误分词1个(错误率十万分之三),词库缺少导致错误7个(错误率万分之三), <中文分析错误率小于亿分之一> 是一个艰巨的主题. 算法问题的扩充 时时更新在 HUB上.2019-05-25 22:48 M
