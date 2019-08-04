@@ -124,6 +124,13 @@ public class POSControllerImp implements POSController{
 					return countInputStringLength;
 				}
 			}
+			if(StableData.INT_ZERO== fixWord[StableData.INT_ZERO].length()
+				|| StableMaps.jieCi.containsKey(fixWord[StableData.INT_ZERO].toString())){
+				if (StableMaps.CiTwo.containsKey(strings[StableData.INT_ONE])){
+					countInputStringLength= parserFirstTwoCharOfThree(countInputStringLength, outputList, strings, fixWord);
+					return countInputStringLength;
+				}
+			}
 			countInputStringLength= parserFirstCharOfThree(countInputStringLength, outputList, strings, fixWord);
 			return countInputStringLength;
 		}

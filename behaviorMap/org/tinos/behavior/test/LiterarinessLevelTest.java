@@ -8,8 +8,8 @@ public class LiterarinessLevelTest{
 	double[] literarinessLevel;
 	double literarinessDuration;
 	public void getEducationLevel(double[][] measurement) {
-		literarinessLevel = new double[measurement.length];
-		for(int i = StableData.INT_ZERO; i < measurement.length; i++) {
+		literarinessLevel= new double[measurement.length];
+		for(int i= StableData.INT_ZERO; i< measurement.length; i++) {
 			literarinessLevel[i]=(measurement[i][StableData.INT_ZERO]*measurement[i][StableData.INT_THREE])
 					/measurement[i][StableData.INT_ONE];
 			literarinessDuration+=literarinessLevel[i];
