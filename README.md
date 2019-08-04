@@ -109,12 +109,10 @@ https://github.com/yaoguangluo/Deta_Parser/blob/master/neroMap/org/tinos/test/De
 
 
 
-
-
-
 ## 功能：
 ##### ![实例](http://progressed.io/bar/5)正在做功能： Unit test case。
 ##### ![实例](http://progressed.io/bar/92)正在做功能：商业应用布局。
+##### ![实例](http://progressed.io/bar/10?title=completed)正完善功能 所有代码进行文字描述，方便日后出版。作者要组织文字来描述当年为什么要这样写，写的时候遇到了什么困难， 是怎么解决的，写的时候怎么思考，将来需要怎么优化等。
 ######  商品功能：英语复句翻译。![实例](http://progressed.io/bar/20?title=completed)
 ######  商品功能：英语特殊句型翻译。
 ######  商品功能：分词矫正识别。
