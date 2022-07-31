@@ -1,4 +1,4 @@
-# 最新见 https://github.com/yaoguangluo/ChromosomeDNA
+# 最新见 https://github.com/yaoguangluo/ChromosomeDNA （目前分词速度每秒1630万中文字 峰值。）
 
 # (早期接触申请软著,以为 申请软著就是发表,结果找华夏知识产权写了已经发表,这里永久申明下.)
 用户使用如果遇纠纷 法院热线电话 12368, 公安电话号码110, 国外 请咨询当地法院 与公安部部门 
