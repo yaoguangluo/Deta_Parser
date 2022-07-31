@@ -61,7 +61,7 @@ https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/tes
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：  VPC进化到VPCS, 静态分流加速每秒又多增100万分词。功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完成功能：12国语言翻译词汇录入系统。 Mr.Yaoguang.Luo 20190310 功能作者： 罗瑶光
 ##### ![实例](http://progressed.io/bar/100) 第一次语料库森林进行序列化优化已完成（分词速度提高1.5%），导致ICA内核生成速度翻倍。20190320 功能作者 罗瑶光。
-##### ![实例](http://progressed.io/bar/100) 逐步完善歧义,复杂,病句,******句型的分词.感谢测试用例病句提供者如下:
+##### ![实例](http://progressed.io/bar/100) 逐步完善歧义,复杂,病句,******（当年用360搜索一把文章来测试分词，都是一些乱七八糟的八卦新闻 病句文字）句型的分词.感谢测试用例病句提供者如下:
 https://github.com/yaoguangluo/Deta_Parser/blob/master/wordSegment/org/tinos/test/DemoPOS.java
 (https://blog.csdn.net/dreamz*************ls/88108568
 https://my.oschina.*************135746) 道德清洗中. 对曾经提供负面的歧义病句的单位表示感谢 同时表示道歉,这里 链接过滤了.
