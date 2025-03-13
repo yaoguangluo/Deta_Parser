@@ -198,7 +198,7 @@ https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/ort
 			}
 		}
 ###### //6 效果：
-他/人称代词  说/动词 的  的确/副词  实在/副词  理/形谓词 (之前没有-在理-这词汇，后优化poscc表，添加为动词，他/第三人称男性代词单数+说/动词+的/结构助词+的/结构助词+确实/副词+在理/动词+
+(之前没有-在理-这词汇，后优化poscc表，添加为动词，他/第三人称男性代词单数+说/动词+的/结构助词+的/结构助词+确实/副词+在理/动词+
 具体最新插件包地址为 github.com/yaoguangluo 首页下的 ChromosomeDNA工程的2025文件夹下的华瑞集501956_core.jar版本 ，可在tinos.qicp.vip/data.html 进行测试，我好多年没动过了。别压测，我就一台电脑做个demo展示。罗瑶光)
 
 结婚/动词  的/结构助词  和/连词  尚未/副词  
