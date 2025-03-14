@@ -221,11 +221,8 @@ https://github.com/yaoguangluo/Deta_Parser/tree/master/wordSegment/org/tinos/ort
 ## 第三方开源包的引用和修改
 尚无
 
-## 参与讨论者
-LetWang（神州泰岳）在扩充词库量的方法上提出了很多新颖的意见。
-1 建议我向搜狗等商业公司买词库。
-2 建议我和开源的分词公司合作。
-3 建议我招聘相关人员录入词库工作。
+## 参与技术讨论者
+尚无
 
 ## 基于该分词系统的项目实例
 ![实例](https://github.com/yaoguangluo/Deta_Medcine/blob/master/1.png)
